@@ -1,4 +1,6 @@
-set TERM xterm-256color
+if test "$TERM" != "xterm-kitty" 
+  set TERM xterm-256color
+end
 
 set PATH ~/.nvm/versions/node/v16.16.0/bin $PATH
 set PATH ~/.local/share/flutter/bin $PATH
@@ -13,9 +15,6 @@ alias pa ". venv/bin/activate.fish"
 alias find "fdfind -H -I -i"
 alias fd "fdfind"
 alias java_set "sudo update-alternatives --config java"
-
-function fish_greeting
-end
 
 function ide
   set DEV_AMB "on_tmux"
