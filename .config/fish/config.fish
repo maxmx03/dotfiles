@@ -5,6 +5,7 @@ end
 set PATH ~/.nvm/versions/node/v16.16.0/bin $PATH
 set PATH ~/.local/share/flutter/bin $PATH
 set PATH ~/.cargo/bin $PATH
+set PATH ~/.config/composer/vendor/bin $PATH
 
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
