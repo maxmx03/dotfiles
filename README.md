@@ -16,13 +16,9 @@ Neovim config files was moved to
 - [Fish](https://fishshell.com/)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 
-<img src="./docs/terminal.png" />
+![kitty/fish](https://user-images.githubusercontent.com/50273941/189461691-7b4d7785-9210-4e9c-a8b7-c0d15a2f07ce.png)
 
 #### Windows dotfiles
-
-- [Powershell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
-
-<img src="./docs/windows-terminal.png" />
 
 ##### PowerShell modules
 
