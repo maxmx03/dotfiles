@@ -2,7 +2,7 @@ if test "$TERM" != "xterm-kitty"
   set TERM xterm-256color
 end
 
-set PATH ~/.nvm/versions/node/v16.16.0/bin $PATH
+set PATH ~/.nvm/versions/node/v18.15.0/bin $PATH
 set PATH ~/.local/share/flutter/bin $PATH
 set PATH ~/.cargo/bin $PATH
 set PATH ~/.config/composer/vendor/bin $PATH
