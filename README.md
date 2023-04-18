@@ -1,36 +1,30 @@
-### Dotfiles for linux and windows
+### Milianor-dotfiles
 
-#### Neovim milianor-vim project
+# Quick Start
 
-Neovim config files was moved to
-[milianor-vim](https://github.com/maxmx03/milianor-vim)
+1.  Clone repo:
 
-#### Prerequisites
+        git clone https://github.com/maxmx03/milianor-dotfiles.git
+        cd milianor-dotfiles
 
-- [Nerd Fonts](https://www.nerdfonts.com/)
+2.  Install kitty
 
-#### Linux dotfiles
+        sudo apt install kitty
+        mv .config/kitty ~/.config
 
-- [Tmux](https://linuxize.com/post/getting-started-with-tmux/)
-- [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
-- [Fish](https://fishshell.com/)
-- [kitty](https://sw.kovidgoyal.net/kitty/)
+3.  Install fish shell\
+    Dont forget to install plugin manager: [fisher](https://github.com/jorgebucaran/fisher)
 
-![kitty/fish](https://user-images.githubusercontent.com/50273941/189461691-7b4d7785-9210-4e9c-a8b7-c0d15a2f07ce.png)
+            sudo apt-add-repository ppa:fish-shell/release-3
+            sudo apt update
+            sudo apt install fish
+            sudo apt install neofetch exa
+            mv .config/fish ~/.config
 
-#### Windows dotfiles
+4.  Install tmux\
+    Dont forget to install plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
 
-##### PowerShell modules
-
-- [oh-my-posh](https://ohmyposh.dev/docs/windows)
-- [posh-git](https://github.com/dahlbyk/posh-git)
-- [PSReadLine](https://github.com/PowerShell/PSReadLine)
-- [Fzf](https://github.com/junegunn/fzf)
-- [PSFzf](https://github.com/kelleyma49/PSFzf)
-- [z](https://www.powershellgallery.com/packages/z/1.1.13)
-
-##### Recommended Tutorials by Takuya Matsuyama
-
-1. [Neovim](https://www.youtube.com/watch?v=FW2X1CXrU1w)
-2. [Fish](https://www.youtube.com/watch?v=KKxhf50FIPI&t=873s)
-3. [PowerShell](https://www.youtube.com/watch?v=5-aK2_WwrmM&t=384s)
+                sudo apt install tmux
+                mv .tmux.conf ~/
+                tmux
+                prefix + I
