@@ -1,0 +1,11 @@
+# ignore fish completions, functions, themes, plugins, and variables
+.config/fish/completions/
+.config/fish/functions/
+.config/fish/themes/
+.config/fish/fish_plugins
+.config/fish/fish_variables
+
+# ignore specific fish config files
+.config/fish/conf.d/_tide_init.fish
+.config/fish/conf.d/fzf.fish
+.config/fish/conf.d/z.fish

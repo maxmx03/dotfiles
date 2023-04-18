@@ -1,6 +1,6 @@
-### Milianor-dotfiles
+## Milianor-dotfiles
 
-# Quick Start
+### Quick Start
 
 1.  Clone repo:
 
@@ -28,3 +28,8 @@
         mv .tmux.conf ~/
         tmux
         prefix + I
+
+### main.py
+
+main.py is the main script of the configuration tool. It uses the curses library to provide a 
+command-line interface for the user to select which configuration file to update.
