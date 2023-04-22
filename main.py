@@ -55,14 +55,14 @@ def draw_table(stdscr, options):
 
 
 def main(stdscr):
-    options = ["tmux", "kitty", "fish", "hyprland", "eww"]
+    options = ["tmux", "kitty", "fish", "hyprland", "waybar"]
 
     config_paths = {
         "tmux": os.path.expanduser("~/.tmux.conf"),
         "kitty": os.path.expanduser("~/.config/kitty"),
         "fish": os.path.expanduser("~/.config/fish"),
         "hyprland": os.path.expanduser("~/.config/hypr"),
-        "eww": os.path.expanduser("~/.config/eww"),
+        "waybar": os.path.expanduser("~/.config/waybar"),
     }
 
     # Draw the table and get the user's selection
@@ -98,9 +98,9 @@ def main(stdscr):
 
         if os.path.exists(dir_path):
             shutil.rmtree(dir_path)
-    elif user_selection == "eww":
+    elif user_selection == "waybar":
         # Construct the path to the directory you want to delete
-        dir_path = os.path.join(script_dir, ".config/eww")
+        dir_path = os.path.join(script_dir, ".config/waybar")
 
         if os.path.exists(dir_path):
             shutil.rmtree(dir_path)
