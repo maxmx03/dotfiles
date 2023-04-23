@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-  background-color: #17161d;
-  border-bottom: 3px solid #17161d;
+  background-color: #22212C;
+  border-bottom: 3px solid #22212C;
   color: #f8f8f2;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -45,7 +45,6 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px #ff80bf;
 }
 
 #workspaces button {
@@ -59,7 +58,7 @@ button:hover {
 }
 
 #workspaces button.active {
-  box-shadow: inset 0 -3px #ff80bf;
+  background-color: #454158;
 }
 
 #workspaces button.urgent {
@@ -79,6 +78,7 @@ button:hover {
 #temperature,
 #backlight,
 #network,
+#taskbar,
 #pulseaudio,
 #wireplumber,
 #custom-media,
@@ -88,7 +88,7 @@ button:hover {
 #scratchpad,
 #mpd {
   padding: 0 10px;
-  color: #ffffff;
+  color: #f8f8f2;
 }
 
 #window,
@@ -108,7 +108,7 @@ button:hover {
 
 #clock {
   color: #f8f8f2;
-  border-bottom: 3px solid #f8f8f2;
+  border-bottom: solid 2px #f8f8f2;
   font-weight: bolder;
   font-size: 20px;
 }
@@ -119,26 +119,35 @@ label:focus {
 
 #cpu {
   color: #8aff80;
-  border-bottom: 3px solid #8aff80;
+  border-bottom: solid 3px #8aff80;
   font-weight: bolder;
   font-size: 20px;
 }
 
 #memory {
-  color: #ff80bf;
-  border-bottom: 3px solid #ff80bf;
+  color: #80FFEA;
+  border-bottom: 3px solid #80FFEA;
   font-weight: bolder;
   font-size: 20px;
 }
 
-#disk {
-  background-color: #ffca80;
-  font-size: 20px;
+#network {
+  background-color: red;
+}
+
+
+#taskbar button {
+  font-size: 50px;
+  margin: 0 2px 0 2px;
+}
+
+#taskbar button.active {
+  background-color: #454158;
 }
 
 #pulseaudio {
-  color: #9580ff;
-  border-bottom: 3px solid #9580ff;
+  color: #FFFF80;
+  border-bottom: 3px solid #FFFF80;
   font-weight: bolder;
   font-size: 20px;
 }
@@ -149,14 +158,8 @@ label:focus {
   font-weight: bolder;
 }
 
-#custom-media {
-  color: #66cc99;
-  border-bottom: 3px solid #66cc99;
-  min-width: 100px;
-}
-
 #tray {
-  background-color: #22212c;
+  background-color: #9580FF;
 }
 
 #tray > .passive {

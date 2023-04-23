@@ -1,26 +1,15 @@
 {
-   "layer": "top", // Waybar at top layer
+  "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   // monitors
   "output": "HDMI-A-1",
-  // Choose the order of the module 
-  "modules-left": [
-    "wlr/workspaces",
-    "wlr/mode",
-    "wlr/scratchpad",
-    "custom/media"
-  ],
-  "modules-center": ["wlr/window"],
-  "modules-right": [
-    "pulseaudio",
-    "cpu",
-    "memory",
-    "clock",
-    "tray"
-  ],
+  // Choose the order of the module
+  "modules-left": ["wlr/workspaces"],
+  "modules-center": ["wlr/taskbar"],
+  "modules-right": ["network", "pulseaudio", "cpu", "memory", "clock", "tray"],
   // Modules configuration
   "wlr/workspaces": {
     "disable-scroll": true,
@@ -37,15 +26,17 @@
       "default": ""
     }
   },
-  "wlr/mode": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "wlr/scratchpad": {
-    "format": "{icon} {count}",
-    "show-empty": false,
-    "format-icons": ["", ""],
-    "tooltip": true,
-    "tooltip-format": "{app}: {title}"
+  "network": {
+    "interface": "wlp2s0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
   },
   // "mpd": {
   //     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -78,9 +69,10 @@
     "spacing": 10
   },
   "clock": {
-    // "timezone": "America/New_York",
+    "timezone": "America/Sao_Paulo",
+    "locale": "Brazil",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format-alt": "{:%d/%m/%Y}"
   },
   "cpu": {
     "format": "{usage}% ",
@@ -90,8 +82,7 @@
     "format": "{}% "
   },
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "thermal-zone": "/sys/class/thermal",
     "critical-threshold": 80,
     // "format-critical": "{temperatureC}°C {icon}",
     "format": "{temperatureC}°C {icon}",
@@ -118,6 +109,14 @@
   },
   "battery#bat2": {
     "bat": "BAT2"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
