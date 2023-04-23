@@ -18,7 +18,6 @@
     "pulseaudio",
     "cpu",
     "memory",
-    "keyboard-state",
     "clock",
     "tray"
   ],
@@ -36,15 +35,6 @@
       "urgent": "",
       "focused": "",
       "default": ""
-    }
-  },
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
     }
   },
   "wlr/mode": {
@@ -83,13 +73,6 @@
   //     "tooltip-format": "MPD (connected)",
   //     "tooltip-format-disconnected": "MPD (disconnected)"
   // },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
   "tray": {
     // "icon-size": 21,
     "spacing": 10

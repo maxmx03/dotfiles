@@ -107,21 +107,10 @@ button:hover {
 }
 
 #clock {
-  background-color: #7970A9;
-  color: #F8F8F2;
+  color: #f8f8f2;
+  border-bottom: 3px solid #f8f8f2;
   font-weight: bolder;
   font-size: 20px;
-}
-
-@keyframes blink {
-  from {
-    background-color: #80ffea;
-    color: #000000;
-  }
-  to {
-    background-color: #000000;
-    color: #80fffa;
-  }
 }
 
 label:focus {
@@ -129,15 +118,15 @@ label:focus {
 }
 
 #cpu {
-  background-color: #8aff80;
-  color: #000000;
+  color: #8aff80;
+  border-bottom: 3px solid #8aff80;
   font-weight: bolder;
   font-size: 20px;
 }
 
 #memory {
-  background-color: #FF80BF;
-  color: #000000;
+  color: #ff80bf;
+  border-bottom: 3px solid #ff80bf;
   font-weight: bolder;
   font-size: 20px;
 }
@@ -148,34 +137,26 @@ label:focus {
 }
 
 #pulseaudio {
-  background-color: #9580FF;
-  color: #000000;
+  color: #9580ff;
+  border-bottom: 3px solid #9580ff;
   font-weight: bolder;
   font-size: 20px;
 }
 
 #pulseaudio.muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
+  color: #7970a9;
+  border-bottom: 3px solid #7970a9;
   font-weight: bolder;
 }
 
 #custom-media {
-  background-color: #66cc99;
-  color: #2a5c45;
+  color: #66cc99;
+  border-bottom: 3px solid #66cc99;
   min-width: 100px;
 }
 
-#custom-media.custom-spotify {
-  background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-  background-color: #ffa000;
-}
-
 #tray {
-  background-color: #2980b9;
+  background-color: #22212c;
 }
 
 #tray > .passive {
@@ -184,14 +165,5 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-  background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
+  background-color: #ff9580;
 }
