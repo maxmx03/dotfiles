@@ -2,10 +2,8 @@ if test "$TERM" != "xterm-kitty"
   set TERM xterm-256color
 end
 
-# set PATH ~/.nvm/versions/node/v18.15.0/bin $PATH
 set PATH ~/.cargo/bin $PATH
 set PATH /usr/bin $PATH
-set PATH /usr/sbin $PATH
 set PATH ~/go/bin $PATH
 
 alias ls "exa --long --icons --tree --level=1 -a"
@@ -15,11 +13,6 @@ alias pip pip3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
 alias find "fd -H -I -i"
-# alias java_set "sudo update-alternatives --config java"
-
-function change_java
-  sudo update-alternatives --config java
-end
 
 function fish_greeting
   neofetch

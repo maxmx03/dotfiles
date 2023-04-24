@@ -70,7 +70,6 @@
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
-    "locale": "Brazil",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%d/%m/%Y}"
   },

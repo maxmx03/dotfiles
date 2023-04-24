@@ -131,11 +131,6 @@ label:focus {
   font-size: 20px;
 }
 
-#network {
-  background-color: red;
-}
-
-
 #taskbar button {
   font-size: 50px;
   margin: 0 2px 0 2px;
