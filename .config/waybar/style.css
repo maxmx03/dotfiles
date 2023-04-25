@@ -27,7 +27,7 @@ button:hover {
 
 #workspaces {
   color: #f8f8f2;
-  background-color: rgba(34, 33, 44, 1);
+  background-color: #17161D;
   border-radius: 10px;
 }
 
@@ -47,11 +47,6 @@ button:hover {
 
 #workspaces button.urgent {
   color: #eb4d4b;
-}
-
-#mode {
-  background-color: #64727d;
-  border-bottom: 3px solid #ffffff;
 }
 
 #clock,
@@ -85,7 +80,7 @@ button:hover {
 
 #clock {
   color: #f8f8f2;
-  background-color: rgba(34, 33, 44, 1);
+  background-color: #17161D;
   border-radius: 10px;
   font-weight: bolder;
   font-size: 20px;
@@ -97,7 +92,7 @@ label:focus {
 
 #cpu {
   color: #f8f8f2;
-  background-color: rgba(34, 33, 44, 1);
+  background-color: #17161D;
   border-radius: 10px;
   font-weight: bolder;
   font-size: 20px;
@@ -105,7 +100,7 @@ label:focus {
 
 #memory {
   color: #f8f8f2;
-  background-color: rgba(34, 33, 44, 1);
+  background-color: #17161D;
   border-radius: 10px;
   font-weight: bolder;
   font-size: 20px;
@@ -122,7 +117,7 @@ label:focus {
 
 #pulseaudio {
   color: #f8f8f2;
-  background-color: rgba(34, 33, 44, 1);
+  background-color: #17161D;
   border-radius: 10px;
   font-weight: bolder;
   font-size: 20px;
