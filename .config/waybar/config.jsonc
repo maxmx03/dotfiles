@@ -1,9 +1,10 @@
 {
   "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  // "position": "top", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
+  "width": 1910, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
+  "margin-top": 5,
   // monitors
   "output": "HDMI-A-1",
   // Choose the order of the module
@@ -14,7 +15,9 @@
   "wlr/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": "{name}: {icon}",
+    "active-only": false,
+    "on-click": "activate",
+    "format": "<span font='16px' font_weight='bold'>{name}: {icon}</span>",
     "format-icons": {
       "1": "",
       "2": "",
@@ -111,7 +114,7 @@
   },
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 14,
+    "icon-size": 25,
     "icon-theme": "Numix-Circle",
     "tooltip-format": "{title}",
     "on-click": "activate",

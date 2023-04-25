@@ -5,6 +5,7 @@ end
 set PATH ~/.cargo/bin $PATH
 set PATH /usr/bin $PATH
 set PATH ~/go/bin $PATH
+set PATH ~/.nvm/versions/node/v18.16.0/bin $PATH
 
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
