@@ -38,11 +38,11 @@ button:hover {
 }
 
 #workspaces button:hover {
-  color: #9580ff;
+  color: #80FFEA;
 }
 
 #workspaces button.active {
-  color: #9580ff;
+  color: #80FFEA;
 }
 
 #workspaces button.urgent {
@@ -112,7 +112,7 @@ label:focus {
 }
 
 #taskbar button.active {
-  border-bottom: 3px solid #454158;
+  border-bottom: 3px solid #17161D;
 }
 
 #pulseaudio {
@@ -131,7 +131,8 @@ label:focus {
 }
 
 #tray {
-  background-color: #9580ff;
+  background-color: rgba(34, 33, 44, 1);
+  border-radius: 10px;
 }
 
 #tray > .passive {

@@ -9,3 +9,6 @@
 .config/fish/conf.d/_tide_init.fish
 .config/fish/conf.d/fzf.fish
 .config/fish/conf.d/z.fish
+
+# ignore specific hypr files
+.config/hypr/hyprpaper
