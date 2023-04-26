@@ -16,6 +16,7 @@
 
 configuration {
     show-icons:      true;
+    icon-theme:      "Uos-Dark";
     display-drun:    "";
     disable-history: false;
 }
