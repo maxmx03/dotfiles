@@ -2,16 +2,17 @@
   "layer": "top",
   "position": "top",
   "output": "HDMI-A-1",
-  "height": 30,
   "spacing": 10,
   "modules-left": ["custom/launch_wofi", "wlr/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
     "wlr/taskbar",
+    "custom/weather",
     "pulseaudio",
     "disk",
     "cpu",
     "memory",
+    "custom/changebg",
     "tray"
   ],
   "custom/launch_wofi": {
@@ -43,6 +44,14 @@
       "firefoxdeveloperedition": "firefox-developer-edition"
     }
   },
+  "custom/weather": {
+    //shows the current weather and forecast
+    "tooltip": true,
+    "format": "<span size='14pt' font_weight='bold'>{}</span>",
+    "interval": 30,
+    "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+    "return-type": "json"
+  },
   "pulseaudio": {
     "format": "<span size='14pt' font_weight='bold'><span size='16pt' rise='-1500'>{icon}</span> {volume}%</span>",
     "format-muted": "<span size='16pt' rise='-1500'></span>",
@@ -67,6 +76,11 @@
     "interval": 30,
     "format": "<span size='14pt' font_weight='bold'><span size='16pt' rise='-1500'></span> {percentage}%</span>",
     "max-length": 10
+  },
+  "custom/changebg": {
+    "format": "<span size='24pt'>󰸉</span>",
+    "on-click": "~/.config/waybar/scripts/bgaction",
+    "tooltip": false
   },
   "tray": {
     "icon-size": 21,
