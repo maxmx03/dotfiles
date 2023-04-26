@@ -1,145 +1,44 @@
-* {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 13px;
-}
-
 window#waybar {
-  background-color: unset;
-  color: #f8f8f2;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  background: rgba(34, 33, 44, 0.5);
   border-radius: 0;
 }
 
-button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
-  border: none;
-  border-radius: 0;
+.modules-left {
+  margin-left: 10px;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+.modules-right {
+  margin-right: 10px;
+}
+
+#custom-launch_wofi {
+  color: rgba(248, 248, 242, 1);
+}
+
 button:hover {
   background: inherit;
 }
 
-#workspaces {
-  color: #f8f8f2;
-  background-color: #17161D;
-  border-radius: 10px;
-}
-
 #workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
-  border-color: transparent;
-}
-
-#workspaces button:hover {
-  color: #80FFEA;
+  color: rgba(248, 248, 242, 0.5);
 }
 
 #workspaces button.active {
-  color: #80FFEA;
-}
-
-#workspaces button.urgent {
-  color: #eb4d4b;
-}
-
-#clock,
-#cpu,
-#memory,
-#network,
-#taskbar,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mpd {
-  padding: 0 10px;
-  color: #f8f8f2;
-}
-
-#window,
-#workspaces {
-  margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-#clock {
-  color: #f8f8f2;
-  background-color: #17161D;
-  border-radius: 10px;
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-label:focus {
-  background-color: #000000;
-}
-
-#cpu {
-  color: #f8f8f2;
-  background-color: #17161D;
-  border-radius: 10px;
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-#memory {
-  color: #f8f8f2;
-  background-color: #17161D;
-  border-radius: 10px;
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-#taskbar button {
-  font-size: 50px;
-  margin: 0 2px 0 2px;
-}
-
-#taskbar button.active {
-  border-bottom: 3px solid #17161D;
+  color: rgba(248, 248, 242, 1);
 }
 
 #pulseaudio {
-  color: #f8f8f2;
-  background-color: #17161D;
-  border-radius: 10px;
-  font-weight: bolder;
-  font-size: 20px;
+  color: rgba(248, 248, 242, 1);
 }
 
 #pulseaudio.muted {
-  color: #f8f8f2;
-  background-color: rgba(34, 33, 44, 0.5);
-  border-radius: 10px;
-  font-weight: bolder;
+  color: rgba(248, 248, 242, 0.5);
 }
 
-#tray {
-  background-color: rgba(34, 33, 44, 1);
-  border-radius: 10px;
+#taskbar {
+  margin-right: 50px;
 }
 
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #ff9580;
+#taskbar button.active {
+  background: rgba(248, 248, 242, 0.3);
 }

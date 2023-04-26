@@ -1,142 +1,75 @@
 {
-  "layer": "top", // Waybar at top layer
-  // "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 30, // Waybar height (to be removed for auto height)
-  "width": 1910, // Waybar width
-  "spacing": 4, // Gaps between modules (4px)
-  "margin-top": 5,
-  // monitors
+  "layer": "top",
+  "position": "top",
   "output": "HDMI-A-1",
-  // Choose the order of the module
-  "modules-left": ["wlr/workspaces"],
-  "modules-center": ["wlr/taskbar"],
-  "modules-right": ["network", "pulseaudio", "cpu", "memory", "clock", "tray"],
-  // Modules configuration
+  "height": 30,
+  "spacing": 10,
+  "modules-left": ["custom/launch_wofi", "wlr/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "wlr/taskbar",
+    "pulseaudio",
+    "disk",
+    "cpu",
+    "memory",
+    "tray"
+  ],
+  "custom/launch_wofi": {
+    "format": "<span size='24pt'></span>",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
   "wlr/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "active-only": false,
+    "format": "<span size='14pt' font_weight='bold'>{name}</span>",
     "on-click": "activate",
-    "format": "<span font='16px' font_weight='bold'>{name}: {icon}</span>",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "urgent": "",
-      "focused": "",
-      "default": ""
-    }
-  },
-  "network": {
-    "interface": "wlp2s0",
-    "format": "{ifname}",
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "format-disconnected": "", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-    "tooltip-format-ethernet": "{ifname} ",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
-  },
-  // "mpd": {
-  //     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-  //     "format-disconnected": "Disconnected ",
-  //     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-  //     "unknown-tag": "N/A",
-  //     "interval": 2,
-  //     "consume-icons": {
-  //         "on": " "
-  //     },
-  //     "random-icons": {
-  //         "off": "<span color=\"#f53c3c\"></span> ",
-  //         "on": " "
-  //     },
-  //     "repeat-icons": {
-  //         "on": " "
-  //     },
-  //     "single-icons": {
-  //         "on": "1 "
-  //     },
-  //     "state-icons": {
-  //         "paused": "",
-  //         "playing": ""
-  //     },
-  //     "tooltip-format": "MPD (connected)",
-  //     "tooltip-format-disconnected": "MPD (disconnected)"
-  // },
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10
+    "active-only": false,
+    "all-outputs": true
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%d/%m/%Y}"
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": false
-  },
-  "memory": {
-    "format": "{}% "
-  },
-  "temperature": {
-    "thermal-zone": "/sys/class/thermal",
-    "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["", "", ""]
-  },
-  "backlight": {
-    // "device": "acpi_video1",
-    "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
-  },
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
+    "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
+    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
   },
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 25,
-    "icon-theme": "Numix-Circle",
+    "icon-size": 24,
+    "icon-theme": "Uos-Dark",
     "tooltip-format": "{title}",
     "on-click": "activate",
-    "on-click-middle": "close"
+    "on-click-middle": "close",
+    "ignore-list": ["Alacritty"],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    }
   },
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "format": "<span size='14pt' font_weight='bold'><span size='16pt' rise='-1500'>{icon}</span> {volume}%</span>",
+    "format-muted": "<span size='16pt' rise='-1500'></span>",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
+      "default": ["", ""]
     },
-    "on-click": "pavucontrol"
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+  },
+  "disk": {
+    "interval": 30,
+    "format": "<span size='14pt' font_weight='bold'><span size='24pt' rise='-4000'>󰋊</span> {used}</span>",
+    "path": "/"
+  },
+  "cpu": {
+    "interval": 30,
+    "format": "<span size='14pt' font_weight='bold'><span size='16pt' rise='-1500'></span> {usage}%</span>",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 30,
+    "format": "<span size='14pt' font_weight='bold'><span size='16pt' rise='-1500'></span> {percentage}%</span>",
+    "max-length": 10
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
   }
 }
