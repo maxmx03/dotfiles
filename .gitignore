@@ -11,4 +11,4 @@
 .config/fish/conf.d/z.fish
 
 # ignore specific hypr files
-.config/hypr/hyprpaper
+.config/hypr/hyprpaper.conf
