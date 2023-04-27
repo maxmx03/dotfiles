@@ -35,7 +35,7 @@
   "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 24,
-    "icon-theme": "Uos-Dark",
+    "icon-theme": "WhiteSur-purple-dark",
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",

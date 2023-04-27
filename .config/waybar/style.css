@@ -25,7 +25,6 @@ button:hover {
 
 #workspaces button.active {
   color: rgba(248, 248, 242, 1);
-  border: none;
 }
 
 #pulseaudio {
