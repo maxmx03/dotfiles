@@ -1,35 +1,24 @@
-## Milianor-dotfiles
+## Milianor's dotfiles
 
 ### Quick Start
 
-1.  Clone repo:
+1.  Install [Stow](https://www.gnu.org/software/stow/manual/)
 
-        git clone https://github.com/maxmx03/milianor-dotfiles.git
-        cd milianor-dotfiles
+        pacman -S stow
 
-2.  Install kitty
+2.  Clone repo:
 
-        sudo apt install kitty
-        mv .config/kitty ~/.config
+        git clone https://github.com/maxmx03/dotfiles.git
+        cd dotfiles
+        stow config_name
 
-3.  Install fish shell\
-    Dont forget to install plugin manager: [fisher](https://github.com/jorgebucaran/fisher)
 
-        sudo apt-add-repository ppa:fish-shell/release-3
-        sudo apt update
-        sudo apt install fish
-        sudo apt install neofetch exa
-        mv .config/fish ~/.config
+### Config files
 
-4.  Install tmux\
-    Dont forget to install plugin manager: [tpm](https://github.com/tmux-plugins/tpm)
-
-        sudo apt install tmux
-        mv .tmux.conf ~/
-        tmux
-        prefix + I
-
-### main.py
-
-main.py is the main script of the configuration tool. It uses the curses library to provide a 
-command-line interface for the user to select which configuration file to update.
+- [Neovim](https://github.com/neovim/neovim)
+- [Kitty](https://github.com/kovidgoyal/kitty)
+- [Fish](https://github.com/fish-shell/fish-shell)
+- [Tmux](https://github.com/tmux/tmux/wiki)
+- [Hyprland](https://github.com/hyprwm/Hyprland)
+- [waybar](https://github.com/Alexays/Waybar)
+- [rofi](https://github.com/davatorium/rofi)
