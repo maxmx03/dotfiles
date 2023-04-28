@@ -24,7 +24,7 @@
     "format": "<span size='14pt' font_weight='bold'>{name}</span>",
     "on-click": "activate",
     "active-only": false,
-    "all-outputs": true
+    "all-outputs": false,
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
