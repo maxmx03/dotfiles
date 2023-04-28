@@ -5,12 +5,10 @@ return {
       local modules = {
         'ai',
         'align',
-        -- 'animate',
         'bracketed',
         'bufremove',
         'cursorword',
         'indentscope',
-        'map',
         'move',
         {
           name = 'starter',

@@ -36,12 +36,10 @@ return {
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local bufnr = ev.buf
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
-          local minimap = require 'mini.map'
           local wk = require 'which-key'
           local navic = require 'core.navic'
 
           navic.attach(client, bufnr)
-          minimap.open()
           wk.register({
             l = {
               name = '󰀸 LSP',
