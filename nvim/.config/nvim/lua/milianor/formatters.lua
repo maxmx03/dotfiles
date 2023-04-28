@@ -1,0 +1,4 @@
+return {
+  'prettier',
+  'stylua',
+}
