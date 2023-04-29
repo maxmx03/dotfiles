@@ -49,7 +49,7 @@
     "tooltip": true,
     "format": "<span size='14pt' font_weight='bold'>{}</span>",
     "interval": 30,
-    "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+    "exec": "~/.config/waybar/scripts/weather",
     "return-type": "json"
   },
   "pulseaudio": {
