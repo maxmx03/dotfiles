@@ -2,17 +2,22 @@
 
 ![suisei](https://user-images.githubusercontent.com/50273941/235331540-6b5296a1-ddb0-490c-91c8-cfb0c1388517.png)
 
-### Quick Start
+### Install GNU Stow
 
-1.  Install [Stow](https://www.gnu.org/software/stow/manual/)
+GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located 
+in separate directories on the filesystem, and makes them appear to be installed in the same place.
+
+[docs](https://www.gnu.org/software/stow/manual/)\
+[tutorial](https://www.youtube.com/watch?v=CxAT1u8G7is)
 
         pacman -S stow
 
-2.  Clone repo:
+### Usage
 
         git clone https://github.com/maxmx03/dotfiles.git
         cd dotfiles
         stow config_name
+
 
 ### Config files for
 
