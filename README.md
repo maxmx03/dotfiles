@@ -1,5 +1,7 @@
 ## Milianor's dotfiles
 
+![suisei](https://user-images.githubusercontent.com/50273941/235331540-6b5296a1-ddb0-490c-91c8-cfb0c1388517.png)
+
 ### Quick Start
 
 1.  Install [Stow](https://www.gnu.org/software/stow/manual/)
