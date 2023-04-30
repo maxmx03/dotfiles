@@ -68,7 +68,7 @@ Dependencies
 </details>
 
 <details>
-    <summary>Tmux</summary>
+    <summary>Tmux - Terminal Multiplexer</summary>
 
 How to install
 
@@ -83,7 +83,7 @@ Dependencies
 </details>
 
 <details>
-    <summary>Hyprland</summary>
+    <summary>Hyprland - Wayland Compositor</summary>
 
 I highly recommend that you use Archlinux in order to use Hyprland
 
@@ -113,7 +113,7 @@ Dependencies
 </details>
 
 <details>
-    <summary>Waybar</summary>
+    <summary>Waybar - Wayland Bar</summary>
 
 How to install
 
@@ -131,7 +131,7 @@ Dependencies
 </details>
 
 <details>
-    <summary>Rofi</summary>
+    <summary>Rofi - Application Launcher</summary>
 
 How to install
 
