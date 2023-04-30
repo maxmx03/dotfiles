@@ -12,13 +12,131 @@
         cd dotfiles
         stow config_name
 
+### Config files for
 
-### Config files
+<details>
+    <summary>Neovim - Text Editor</summary>
 
-- [Neovim](https://github.com/neovim/neovim)
-- [Kitty](https://github.com/kovidgoyal/kitty)
-- [Fish](https://github.com/fish-shell/fish-shell)
-- [Tmux](https://github.com/tmux/tmux/wiki)
-- [Hyprland](https://github.com/hyprwm/Hyprland)
-- [waybar](https://github.com/Alexays/Waybar)
-- [rofi](https://github.com/davatorium/rofi)
+How to install
+
+    paru -S neovim-nightly-bin
+
+Dependencies
+
+    pacman -S python-pynvim gcc fd ripgrep nodejs npm
+
+- [Nerdfonts](https://www.nerdfonts.com/)
+- [codicon](https://github.com/microsoft/vscode-codicons)
+- [lazygit](https://github.com/jesseduffield/lazygit)
+
+[Repo](https://github.com/neovim/neovim)
+
+</details>
+
+<details>
+    <summary>Kitty - Terminal Emulator</summary>
+
+How to install
+
+    pacman -S kitty
+
+Dependencies
+
+    pacman -S fish
+
+- [Jetbrains nerdfonts](https://www.nerdfonts.com/)
+
+[Repo](https://github.com/kovidgoyal/kitty)
+
+</details>
+
+<details>
+    <summary>Fish - Shell</summary>
+
+How to install
+
+    pacman -S fish
+
+Dependencies
+
+- [plugin manager](https://github.com/jorgebucaran/fisher)
+- [plugins](https://github.com/jorgebucaran/awsm.fish)
+- [tide](https://github.com/IlanCosman/tide)
+
+[Repo](https://github.com/fish-shell/fish-shell)
+
+</details>
+
+<details>
+    <summary>Tmux</summary>
+
+How to install
+
+    pacman -S tmux
+
+Dependencies
+
+- [Plugin manager](https://github.com/tmux-plugins/tpm)
+
+[Repo](https://github.com/tmux/tmux)
+
+</details>
+
+<details>
+    <summary>Hyprland</summary>
+
+I highly recommend that you use Archlinux in order to use Hyprland
+
+How to install
+
+    paru -S hyprland-git
+
+Dependencies
+
+     kitty
+     dunst
+     mako
+     pipewire
+     wireplumber
+     xdg-desktop-portal-hyprland
+     qt5-wayland
+     qt5ct
+     qt6-wayland
+     thunar
+     thunar-archive-plugin
+     thunar-media-tags-plugin
+     thunar-volman
+     swww
+
+[Repo](https://github.com/hyprwm/Hyprland)
+
+</details>
+
+<details>
+    <summary>Waybar</summary>
+
+How to install
+
+    paru -S hyprland-git
+
+Dependencies
+
+    waybar-hyprland
+    PulseAudio
+    waybar-hyprland
+    jq
+
+[Waybar](https://github.com/Alexays/Waybar)
+
+</details>
+
+<details>
+    <summary>Rofi</summary>
+
+How to install
+
+    pacman -S rofi
+
+[rofi](https://github.com/davatorium/rofi)
+
+</details>
