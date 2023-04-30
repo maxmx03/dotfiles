@@ -110,6 +110,12 @@ Dependencies
      thunar-volman
      swww
 
+Theme
+
+- [Dracula](https://draculatheme.com/gtk)
+- [Mouse](https://www.gnome-look.org/p/1669262/)
+- [Icons](https://www.gnome-look.org/p/1405756/)
+
 [Repo](https://github.com/hyprwm/Hyprland)
 
 </details>
