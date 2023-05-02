@@ -3,7 +3,6 @@ return {
     'maxmx03/dracula.nvim',
     lazy = false,
     priority = 1000,
-    branch = 'draculapro',
     config = function()
       local dracula = require 'dracula'
       local draculapro = require 'draculapro'
