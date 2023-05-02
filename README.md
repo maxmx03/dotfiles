@@ -109,11 +109,14 @@ Dependencies
      qt5-wayland
      qt5ct
      qt6-wayland
+     grim
+     slurp
      thunar
      thunar-archive-plugin
      thunar-media-tags-plugin
      thunar-volman
      swww
+     wlogout
 
 Theme
 
@@ -136,7 +139,8 @@ Dependencies
 
     waybar-hyprland
     PulseAudio
-    waybar-hyprland
+    pamixer
+    network-manager-applet
     jq
 
 [Waybar](https://github.com/Alexays/Waybar)
