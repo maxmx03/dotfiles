@@ -8,7 +8,6 @@ return {
         'bracketed',
         'bufremove',
         'cursorword',
-        'indentscope',
         'move',
         {
           name = 'starter',
