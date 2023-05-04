@@ -23,6 +23,9 @@ set $opened_windows rofi -show window
 set $filemanager thunar
 set $screenshot grim -g "$(slurp)"
 set $logout wlogout
+set $increase_volumn pamixer -i 10 --allow-boost
+set $decrease_volumn pamixer -d 10
+set $mute pamixer -t
 
 exec ~/.config/sway/scripts/bgaction
 exec sway layout splith
@@ -94,6 +97,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Show opened windows
     bindsym $mod+Tab exec $opened_windows
+
+    # Audio
+    bindsym $mod+F11 exec $increase_volumn
+    bindsym $mod+F10 exec $decrease_volumn
+    bindsym $mod+F9 exec $mute
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
