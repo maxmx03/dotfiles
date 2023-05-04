@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
+vim.api.nvim_create_autocmd({ 'TextChanged' }, {
   pattern = '*.*',
   command = 'update',
 })

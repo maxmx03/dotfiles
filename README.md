@@ -4,7 +4,7 @@
 
 ### Install GNU Stow
 
-GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located 
+GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located
 in separate directories on the filesystem, and makes them appear to be installed in the same place.
 
 [docs](https://www.gnu.org/software/stow/manual/)\
@@ -18,7 +18,6 @@ in separate directories on the filesystem, and makes them appear to be installed
         cd dotfiles
         stow config_name
 
-
 ### Config files for
 
 <details>
@@ -28,7 +27,7 @@ How to install
 
     paru -S neovim-nightly-bin
 
-Dependencies
+Packages
 
     pacman -S python-pynvim gcc fd ripgrep nodejs npm
 
@@ -47,7 +46,7 @@ How to install
 
     pacman -S kitty
 
-Dependencies
+Packages
 
     pacman -S fish
 
@@ -98,7 +97,7 @@ How to install
 
     paru -S hyprland-git
 
-Dependencies
+Packages
 
      kitty
      dunst
@@ -129,13 +128,49 @@ Theme
 </details>
 
 <details>
+    <summary>Sway - Wayland Compositor</summary>
+
+How to install
+
+    pacman -S sway
+
+Packages
+
+     kitty
+     dunst
+     mako
+     pipewire
+     wireplumber
+     xdg-desktop-portal-wlr
+     xorg-xwayland
+     qt5-wayland
+     qt5ct
+     qt6-wayland
+     grim
+     slurp
+     thunar
+     thunar-archive-plugin
+     thunar-media-tags-plugin
+     thunar-volman
+     swww
+     wlogout
+
+Theme
+
+- [Dracula](https://draculatheme.com/gtk)
+- [Mouse](https://www.gnome-look.org/p/1669262/)
+- [Icons](https://www.gnome-look.org/p/1405756/)
+
+</details>
+
+<details>
     <summary>Waybar - Wayland Bar</summary>
 
 How to install
 
     paru -S hyprland-git
 
-Dependencies
+Packages
 
     waybar-hyprland
     PulseAudio

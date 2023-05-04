@@ -3,10 +3,14 @@
   "position": "top",
   "output": "HDMI-A-1",
   "spacing": 10,
-  "modules-left": ["custom/launch_wofi", "wlr/workspaces"],
+  "modules-left": [
+    "custom/launch_wofi",
+    "sway/workspaces"
+    // "wlr/workspaces",
+  ],
   "modules-center": ["clock"],
   "modules-right": [
-    "wlr/taskbar",
+    // "wlr/taskbar",
     "custom/weather",
     "pulseaudio",
     "disk",
@@ -20,30 +24,43 @@
     "on-click": "rofi -show drun",
     "tooltip": false
   },
-  "wlr/workspaces": {
+  "sway/workspaces": {
     "format": "<span size='14pt' font_weight='bold'>{name}</span>",
     "on-click": "activate",
     "active-only": false,
-    "all-outputs": false,
+    "all-outputs": true,
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
   },
+  // "wlr/workspaces": {
+  //   "format": "<span size='14pt' font_weight='bold'>{name}</span>",
+  //   "on-click": "activate",
+  //   "active-only": false,
+  //   "all-outputs": false,
+  // },
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
     "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
   },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 24,
-    "icon-theme": "WhiteSur-purple-dark",
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "ignore-list": ["Alacritty"],
-    "app_ids-mapping": {
-      "firefoxdeveloperedition": "firefox-developer-edition"
-    }
-  },
+  // "wlr/taskbar": {
+  //   "format": "{icon}",
+  //   "icon-size": 24,
+  //   "icon-theme": "WhiteSur-purple-dark",
+  //   "tooltip-format": "{title}",
+  //   "on-click": "activate",
+  //   "on-click-middle": "close",
+  //   "ignore-list": ["Alacritty"],
+  //   "app_ids-mapping": {
+  //     "firefoxdeveloperedition": "firefox-developer-edition"
+  //   }
+  // },
   "custom/weather": {
     //shows the current weather and forecast
     "tooltip": true,

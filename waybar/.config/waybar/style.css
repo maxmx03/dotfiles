@@ -27,6 +27,10 @@ button:hover {
   color: rgba(248, 248, 242, 1);
 }
 
+#workspaces button.focused {
+  color: rgba(248, 248, 242, 1);
+}
+
 #pulseaudio {
   color: rgba(248, 248, 242, 1);
 }

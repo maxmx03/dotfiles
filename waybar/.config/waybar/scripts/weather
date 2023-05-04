@@ -56,16 +56,21 @@ declare -A WEATHER_CODES=(
 weather=$(curl -s 'https://wttr.in/?format=j1')
 
 # Parse the JSON response to get the current weather data
-weather_code=$(echo $weather | jq -r '.current_condition[0].weatherCode')
-feels_like=$(echo $weather | jq -r '.current_condition[0].FeelsLikeC')
+weather_code=$(echo "$weather" | jq -r '.current_condition[0].weatherCode' 2>/dev/null)
 
-# Format the weather data
-tempint=$(echo $feels_like | cut -d. -f1)
-extrachar=''
-if [[ $tempint -gt 0 && $tempint -lt 10 ]]; then
-  extrachar='+'
+if [ -z "$weather_code" ]; then
+  echo "{\"text\":\"Error: Failed to fetch weather data\"}"
+else
+  feels_like=$(echo "$weather" | jq -r '.current_condition[0].FeelsLikeC')
+
+  # Format the weather data
+  tempint=$(echo "$feels_like" | cut -d. -f1)
+  extrachar=''
+  if [[ $tempint -gt 0 && $tempint -lt 10 ]]; then
+    extrachar='+'
+  fi
+  text=$(printf " %s%s°" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
+
+  # Print the formatted weather data as JSON
+  echo "{\"text\":\"$text\"}"
 fi
-text=$(printf " %s%s°" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
-
-# Print the formatted weather data as JSON
-echo "{\"text\":\"$text\"}"
