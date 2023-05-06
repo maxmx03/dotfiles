@@ -21,6 +21,7 @@ button:hover {
 
 #workspaces button {
   color: rgba(248, 248, 242, 0.5);
+  transition: color 1s ease-in;
 }
 
 #workspaces button.active {
@@ -29,6 +30,10 @@ button:hover {
 
 #workspaces button.focused {
   color: rgba(248, 248, 242, 1);
+}
+
+#workspace button.urgent {
+  color: rgba(149, 128, 255, 1);
 }
 
 #pulseaudio {
