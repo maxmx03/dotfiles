@@ -1,8 +1,3 @@
-vim.api.nvim_create_autocmd({ 'TextChanged' }, {
-  pattern = '*.*',
-  command = 'update',
-})
-
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*.md',
   callback = function()

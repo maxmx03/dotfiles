@@ -14,7 +14,7 @@ in separate directories on the filesystem, and makes them appear to be installed
 
 ### Usage
 
-        git clone https://github.com/maxmx03/dotfiles.git
+        git clone https://github.com/maxmx03/dotfiles.git $HOME/dotfiles
         cd dotfiles
         stow config_name
 
@@ -27,9 +27,9 @@ How to install
 
     paru -S neovim-nightly-bin
 
-Packages
+Extra Packages to install
 
-    pacman -S python-pynvim gcc fd ripgrep nodejs npm
+    paru -S python-pynvim gcc fd ripgrep nodejs npm ttf-nerd-fonts-symbols
 
 - [Nerdfonts](https://www.nerdfonts.com/)
 - [codicon](https://github.com/microsoft/vscode-codicons)
@@ -46,9 +46,9 @@ How to install
 
     pacman -S kitty
 
-Packages
+Extra Packages to Install
 
-    pacman -S fish
+    paru -S fish ttf-nerd-fonts-symbols
 
 - [Jetbrains nerdfonts](https://www.nerdfonts.com/)
 
@@ -63,7 +63,7 @@ How to install
 
     pacman -S fish
 
-Dependencies
+Extra
 
 - [plugin manager](https://github.com/jorgebucaran/fisher)
 - [plugins](https://github.com/jorgebucaran/awsm.fish)
@@ -80,7 +80,7 @@ How to install
 
     pacman -S tmux
 
-Dependencies
+Extra
 
 - [Plugin manager](https://github.com/tmux-plugins/tpm)
 
@@ -97,7 +97,7 @@ How to install
 
     paru -S hyprland-git
 
-Packages
+Extra Packages to Install
 
      kitty
      dunst
@@ -110,6 +110,7 @@ Packages
      qt6-wayland
      grim
      slurp
+     cliphist
      thunar
      thunar-archive-plugin
      thunar-media-tags-plugin
@@ -168,11 +169,10 @@ Theme
 
 How to install
 
-    paru -S hyprland-git
+    paru -S waybar-hyprland
 
-Packages
+Extra Packages to Install
 
-    waybar-hyprland
     PulseAudio
     pamixer
     network-manager-applet
@@ -183,12 +183,12 @@ Packages
 </details>
 
 <details>
-    <summary>Rofi - Application Launcher</summary>
+    <summary>Rofi Wayland- Application Launcher</summary>
 
 How to install
 
-    pacman -S rofi
+    paru -S rofi-lbonn-wayland-git
 
-[rofi](https://github.com/davatorium/rofi)
+[rofi](https://github.com/lbonn/rofi)
 
 </details>
