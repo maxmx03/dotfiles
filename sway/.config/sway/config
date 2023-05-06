@@ -34,6 +34,7 @@ exec wl-paste --type text --watch cliphist store #Stores only text data
 exec wl-paste --type image --watch cliphist store #Stores only image data
 exec nm-applet --indicator
 exec mako # notification daemon
+exec /usr/lib/polkit-kde-authentication-agent-1
 
 ### Output configuration
 #
