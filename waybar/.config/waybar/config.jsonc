@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "bottom",
   // "output": "HDMI-A-1",
-  "spacing": 10,
+  "spacing": 5,
   "modules-left": [
     "custom/weather"
     // "sway/workspaces"
@@ -13,8 +13,8 @@
     "pulseaudio",
     "cpu",
     "memory",
-    "tray",
-    "clock"
+    "clock",
+    "tray"
   ],
   "custom/weather": {
     //shows the current weather and forecast
@@ -79,14 +79,14 @@
     }
   },
   "custom/changebg": {
-    "format": "<span size='14pt' rise='1000'>󰸉 </span>",
+    "format": "<span size='12pt' rise='1000'>󰸉 </span>",
     "on-click": "~/.config/waybar/scripts/bgaction",
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "<span size='14pt'>{icon} </span> ",
+    "format": "<span size='12pt'>{icon} </span> ",
     "tooltip-format": "volume {volume}%",
-    "format-muted": "<span size='14pt' rise='1000'></span>",
+    "format-muted": "<span size='12pt' rise='1000'></span>",
     "format-icons": {
       "default": ["", ""]
     },
@@ -96,22 +96,22 @@
   },
   "cpu": {
     "interval": 20,
-    "format": "<span size='14pt' rise='1000'> </span>",
-    "max-length": 10
+    "format": "<span size='12pt' rise='1000'> </span>",
+    "max-length": 5
   },
   "memory": {
     "interval": 20,
-    "format": "<span size='14pt' rise='1000'> </span>",
-    "max-length": 10
-  },
-  "tray": {
-    "icon-size": 21,
-    "spacing": 10
+    "format": "<span size='12pt' rise='1000'> </span>",
+    "max-length": 5
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
     "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 5
   }
 }
