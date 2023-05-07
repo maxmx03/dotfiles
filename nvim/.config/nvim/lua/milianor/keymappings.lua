@@ -56,7 +56,7 @@ return {
     x = { "<cmd>lua require('mini.bufremove').delete()<cr>", 'Exit buffer' },
   },
   p = {
-    name = ' Plugins',
+    name = ' Plugins',
     p = { '<cmd>Lazy home<cr>', 'Open Lazy' },
     P = { '<cmd>Lazy profile<cr>', 'Open Profile' },
     u = { '<cmd>Lazy update<cr>', 'Update Plugins' },
@@ -64,8 +64,8 @@ return {
     s = { '<cmd>Lazy sync<cr>', 'Sync Plugins' },
   },
   m = {
-    name = ' Package manager',
-    m = { '<cmd>Mason<cr>', ' Open Mason' },
+    name = ' Package manager',
+    m = { '<cmd>Mason<cr>', 'Open Mason' },
     u = { '<cmd>MasonUpdate<cr>', 'Update Mason' },
     t = { '<cmd>MasonToolsUpdate<cr>', 'Update Mason Tools' },
     a = { '<cmd>MasonUninstallAll', 'Uninstall all packages' },
