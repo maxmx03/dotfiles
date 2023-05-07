@@ -1,23 +1,29 @@
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   // "output": "HDMI-A-1",
   "spacing": 10,
   "modules-left": [
-    "custom/launch_wofi",
+    "custom/weather"
     // "sway/workspaces"
-    "wlr/workspaces"
   ],
-  "modules-center": ["clock"],
+  "modules-center": ["custom/launch_wofi", "wlr/workspaces", "wlr/taskbar"],
   "modules-right": [
-    "wlr/taskbar",
-    "custom/weather",
+    "custom/changebg",
     "pulseaudio",
     "cpu",
     "memory",
-    "custom/changebg",
-    "tray"
+    "tray",
+    "clock"
   ],
+  "custom/weather": {
+    //shows the current weather and forecast
+    "tooltip": true,
+    "format": "<span size='14pt' font_weight='bold'>{}C</span>",
+    "interval": 30,
+    "exec": "~/.config/waybar/scripts/weather",
+    "return-type": "json"
+  },
   "custom/launch_wofi": {
     "format": "<span size='18pt'> </span>",
     "on-click": "rofi -show drun",
@@ -60,12 +66,6 @@
     },
     "sort-by-number": true
   },
-  "clock": {
-    "timezone": "America/Sao_Paulo",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
-    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
-  },
   "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 24,
@@ -78,16 +78,14 @@
       "firefoxdeveloperedition": "firefox-developer-edition"
     }
   },
-  "custom/weather": {
-    //shows the current weather and forecast
-    "tooltip": true,
-    "format": "<span size='14pt' font_weight='bold'>{}</span>",
-    "interval": 30,
-    "exec": "~/.config/waybar/scripts/weather",
-    "return-type": "json"
+  "custom/changebg": {
+    "format": "<span size='14pt' rise='1000'>󰸉 </span>",
+    "an-click": "~/.config/waybar/scripts/bgaction",
+    "tooltip": false
   },
   "pulseaudio": {
-    "format": "<span size='14pt' font_weight='bold'><span size='14pt'>{icon} </span> {volume}%</span>",
+    "format": "<span size='14pt'>{icon} </span> ",
+    "tooltip-format": "volume {volume}%",
     "format-muted": "<span size='14pt' rise='1000'></span>",
     "format-icons": {
       "default": ["", ""]
@@ -97,22 +95,23 @@
     "ignored-sinks": ["Easy Effects Sink"]
   },
   "cpu": {
-    "interval": 30,
-    "format": "<span size='14pt' font_weight='bold'><span size='14pt' rise='1000'> </span>{usage}%</span>",
+    "interval": 20,
+    "format": "<span size='14pt' rise='1000'> </span>",
     "max-length": 10
   },
   "memory": {
-    "interval": 30,
-    "format": "<span size='14pt' font_weight='bold'><span size='14pt' rise='1000'> </span>{percentage}%</span>",
+    "interval": 20,
+    "format": "<span size='14pt' rise='1000'> </span>",
     "max-length": 10
-  },
-  "custom/changebg": {
-    "format": "<span size='14pt'>󰸉 </span>",
-    "on-click": "~/.config/waybar/scripts/bgaction",
-    "tooltip": false
   },
   "tray": {
     "icon-size": 21,
     "spacing": 10
+  },
+  "clock": {
+    "timezone": "America/Sao_Paulo",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
+    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
   }
 }

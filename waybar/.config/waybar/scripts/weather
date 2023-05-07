@@ -59,7 +59,7 @@ weather=$(curl -s 'https://wttr.in/?format=j1')
 weather_code=$(echo "$weather" | jq -r '.current_condition[0].weatherCode' 2>/dev/null)
 
 if [ -z "$weather_code" ]; then
-  echo "{\"text\":\"Error: Failed to fetch weather data\"}"
+  echo "{\"text\":\"⛅ 0ºC\"}"
 else
   feels_like=$(echo "$weather" | jq -r '.current_condition[0].FeelsLikeC')
 

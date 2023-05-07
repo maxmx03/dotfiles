@@ -44,10 +44,6 @@ button:hover {
   color: rgba(248, 248, 242, 0.5);
 }
 
-#taskbar {
-  margin-right: 50px;
-}
-
 #taskbar button.active {
   background: rgba(248, 248, 242, 0.3);
 }
