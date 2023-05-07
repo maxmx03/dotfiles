@@ -80,7 +80,7 @@
   },
   "custom/changebg": {
     "format": "<span size='14pt' rise='1000'>󰸉 </span>",
-    "an-click": "~/.config/waybar/scripts/bgaction",
+    "on-click": "~/.config/waybar/scripts/bgaction",
     "tooltip": false
   },
   "pulseaudio": {
