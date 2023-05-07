@@ -19,7 +19,7 @@
   "custom/weather": {
     //shows the current weather and forecast
     "tooltip": true,
-    "format": "<span size='14pt' font_weight='bold'>{}C</span>",
+    "format": "<span size='14pt' font_weight='bold'>{}</span>",
     "interval": 30,
     "exec": "~/.config/waybar/scripts/weather",
     "return-type": "json"

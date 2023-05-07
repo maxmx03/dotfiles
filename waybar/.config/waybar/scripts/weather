@@ -69,7 +69,7 @@ else
   if [[ $tempint -gt 0 && $tempint -lt 10 ]]; then
     extrachar='+'
   fi
-  text=$(printf " %s%s°" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
+  text=$(printf " %s%s°C" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
 
   # Print the formatted weather data as JSON
   echo "{\"text\":\"$text\"}"
