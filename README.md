@@ -117,6 +117,7 @@ Extra Packages to Install
      thunar-volman
      swww
      wlogout
+     evince-light
 
 Theme
 
