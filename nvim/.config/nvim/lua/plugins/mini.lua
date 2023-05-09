@@ -3,18 +3,12 @@ return {
     'echasnovski/mini.nvim',
     config = function()
       local modules = {
-        'ai',
-        'align',
+        'animate',
         'bracketed',
         'bufremove',
         'cursorword',
         'move',
-        {
-          name = 'starter',
-          config = require 'core.mini.starter',
-        },
         'surround',
-        'tabline',
         'trailspace',
       }
 
@@ -29,8 +23,6 @@ return {
           require(plugin).setup {}
         end
       end
-
-      vim.cmd.autocmd 'Filetype NvimTree lua vim.b.miniindentscope_disable = true'
     end,
   },
 }

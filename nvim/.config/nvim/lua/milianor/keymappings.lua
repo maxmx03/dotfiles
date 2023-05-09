@@ -22,7 +22,7 @@ return {
   z = { '<cmd>ZenMode<cr>', '󱥸 Zen Mode' },
   t = { '<cmd>ToggleTerm<cr>', ' Open Terminal' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment toggle current line' },
-  [';'] = { "<cmd>lua require('mini.starter').open()<cr>", ' Open Starter' },
+  [';'] = { "<cmd>Dashboard<cr>", ' Open Dashboard' },
   s = {
     name = ' Search',
     f = { '<cmd>Telescope find_files<cr>', 'Search files' },
@@ -32,6 +32,7 @@ return {
     H = { '<cmd>Telescope highlights<cr>', 'Search highlights' },
     c = { '<cmd>Telescope commands<cr>', 'Search commands' },
     k = { '<cmd>Telescope keymaps<cr>', 'Search keymaps' },
+    p = { '<cmd>Telescope projects<cr>', 'Search Projects' },
   },
   g = {
     name = ' Git',
