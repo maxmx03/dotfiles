@@ -1,6 +1,6 @@
 ## Milianor's dotfiles
 
-![suisei](https://user-images.githubusercontent.com/50273941/235331540-6b5296a1-ddb0-490c-91c8-cfb0c1388517.png)
+![moon](https://user-images.githubusercontent.com/50273941/236974928-91266362-d7a5-46ce-b46b-4253fedc513e.png)
 
 ### Install GNU Stow
 
@@ -183,7 +183,7 @@ Extra Packages to Install
 </details>
 
 <details>
-    <summary>Rofi Wayland- Application Launcher</summary>
+    <summary>Rofi Wayland - Application Launcher</summary>
 
 How to install
 
@@ -192,3 +192,5 @@ How to install
 [rofi](https://github.com/lbonn/rofi)
 
 </details>
+
+![waybar](https://user-images.githubusercontent.com/50273941/236975009-cb01a4f8-9afb-4a7e-b472-a6718da6c01a.png)
