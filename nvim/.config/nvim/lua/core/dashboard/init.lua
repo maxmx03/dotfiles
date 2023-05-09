@@ -3,16 +3,9 @@ local lazy_plugins = require('lazy').stats().count
 math.randomseed(os.time())
 local list_ascii = require 'core.dashboard.ascii'
 local headerAscii = list_ascii[math.random(#list_ascii)]
-local footer = string.format(
-  [[
-Version: v%s.%s.%s
-Plugins: %s installed
-]],
-  neovim_version.major,
-  neovim_version.minor,
-  neovim_version.patch,
-  lazy_plugins
-)
+local neovim_full_version =
+    string.format('Version: v%s.%s.%s', neovim_version.major, neovim_version.minor, neovim_version.patch)
+local plugins = string.format('Plugins: %s installed', lazy_plugins)
 
 local emmptyLine = string.rep(' ', vim.fn.strwidth(headerAscii[1]))
 
@@ -68,5 +61,5 @@ return {
       action = 'quit',
     },
   },
-  footer = footer,
+  footer = { neovim_full_version, plugins },
 }

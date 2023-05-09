@@ -1,6 +1,6 @@
 return {
   {
-    'glepnir/dashboard-nvim',
+    'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
       local config = require 'core.dashboard'
