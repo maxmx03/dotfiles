@@ -11,6 +11,7 @@ return {
         theme = 'retrowave',
         overrides = function(c)
           return {
+            CmpItemKindText = { reverse = true },
             CmpItemKindMethod = { reverse = true },
             CmpItemKindFunction = { reverse = true },
             CmpItemKindConstructor = { reverse = true },
