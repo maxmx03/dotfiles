@@ -29,7 +29,7 @@ How to install
 
 Extra Packages to install
 
-    paru -S python-pynvim gcc fd ripgrep nodejs npm ttf-nerd-fonts-symbols
+    paru -S python-pynvim gcc fd ripgrep nodejs npm ttf-jetbrains-mono-nerd                                                                                                                                                          ─╯
 
 - [Nerdfonts](https://www.nerdfonts.com/)
 - [codicon](https://github.com/microsoft/vscode-codicons)
@@ -48,7 +48,7 @@ How to install
 
 Extra Packages to Install
 
-    paru -S fish ttf-nerd-fonts-symbols
+    paru -S fish ttf-jetbrains-mono-nerd                                                                                                                                                          ─╯
 
 - [Jetbrains nerdfonts](https://www.nerdfonts.com/)
 
