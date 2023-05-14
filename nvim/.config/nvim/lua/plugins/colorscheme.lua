@@ -1,16 +1,24 @@
 return {
   {
-    'maxmx03/fluoromachine.nvim',
+    'maxmx03/dracula.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      local fluoromachine = require 'fluoromachine'
+      local dracula = require 'dracula'
+      local draculapro = require 'draculapro'
 
-      fluoromachine.setup {
-        glow = true,
-        theme = 'retrowave',
-        overrides = function(c)
+      draculapro.setup {
+        theme = 'pro',
+      }
+
+      dracula.setup {
+        dracula_pro = draculapro,
+        colors = draculapro.colors,
+        override = function(c)
           return {
+            ['@variable'] = { italic = true },
+            ['@function'] = { italic = true },
+            ['@keyword'] = { italic = true },
             CmpItemKindText = { reverse = true },
             CmpItemKindMethod = { reverse = true },
             CmpItemKindFunction = { reverse = true },
@@ -36,17 +44,20 @@ return {
             CmpItemKindEvent = { reverse = true },
             CmpItemKindOperator = { reverse = true },
             CmpItemKindTypeParameter = { reverse = true },
-            TelescopeResultsBorder = { fg = c.alt_bg, bg = c.alt_bg },
-            TelescopeResultsNormal = { bg = c.alt_bg },
+            TelescopeResultsBorder = { fg = c.bgdark, bg = c.bgdark },
+            TelescopeResultsNormal = { bg = c.bgdark },
             TelescopePreviewNormal = { bg = c.bg },
-            TelescopePromptBorder = { fg = c.alt_bg, bg = c.alt_bg },
+            TelescopePromptBorder = { fg = c.bgdark, bg = c.bgdark },
             TelescopePromptPrefix = { fg = c.purple },
-            CmpItemKindBorder = { fg = c.alt_bg, bg = c.alt_bg },
+            CmpItemKindBorder = { fg = c.bgdark, bg = c.bgdark },
           }
         end,
       }
 
-      vim.cmd.colorscheme 'fluoromachine'
+      vim.cmd.colorscheme 'dracula'
     end,
+    dependencies = {
+      'maxmx03/draculapro',
+    },
   },
 }
