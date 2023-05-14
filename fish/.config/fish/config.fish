@@ -1,4 +1,4 @@
-if test "$TERM" != "xterm-kitty" 
+if test "$TERM" != "xterm-kitty"
   set TERM xterm-256color
 end
 
