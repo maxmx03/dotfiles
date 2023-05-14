@@ -4,7 +4,7 @@ require 'install-lazy'
 local opts = {
   install = {
     missing = true,
-    colorscheme = { 'fluoromachine' },
+    colorscheme = { 'dracula' },
   },
   checker = {
     enabled = true,
