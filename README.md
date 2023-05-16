@@ -44,7 +44,7 @@ Extra Packages to install
 
 How to install
 
-   paru -S vim 
+    paru -S vim 
 
 Extra Packages to install
 
