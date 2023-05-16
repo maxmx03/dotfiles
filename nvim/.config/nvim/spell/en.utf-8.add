@@ -125,3 +125,8 @@ WinSeparator
 configs
 keymappings
 github
+colorcolumn
+BufWinLeave
+md
+BufWinEnter
+utils

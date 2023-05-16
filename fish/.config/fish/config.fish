@@ -1,6 +1,6 @@
-if test "$TERM" != "xterm-kitty"
-  set TERM xterm-256color
-end
+# if test "$TERM" != "xterm-kitty"
+set TERM xterm-256color
+# end
 
 set PATH ~/.cargo/bin $PATH
 set PATH /usr/bin $PATH
@@ -17,4 +17,8 @@ alias find "fd -H -I -i"
 
 function fish_greeting
   neofetch
+end
+
+function notes
+ open https://maxmx03.github.io/notes/
 end
