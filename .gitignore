@@ -6,3 +6,6 @@ fish/.config/fish/conf.d/_tide_init.fish
 fish/.config/fish/conf.d/fzf.fish
 fish/.config/fish/conf.d/z.fish
 fonts/.local/share/fonts/.uuid
+vim/.vim/plugged
+vim/.vim/.netrwhist
+vim/.vim/autoload
