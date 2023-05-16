@@ -202,7 +202,7 @@ Extra Packages to Install
 
 How to install
 
-    paru -S rofi-lbonn-wayland-git
+     paru -S rofi-lbonn-wayland-git
 
 [rofi](https://github.com/lbonn/rofi)
 
