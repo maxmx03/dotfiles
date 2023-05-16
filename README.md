@@ -29,15 +29,29 @@ How to install
 
 Extra Packages to install
 
-    paru -S python-pynvim gcc fd ripgrep nodejs npm ttf-nerd-fonts-symbols
+    paru -S python-pynvim gcc fd ripgrep nodejs npm
     stow fonts
 
-- [Nerdfonts](https://www.nerdfonts.com/)
 - [codicon](https://github.com/microsoft/vscode-codicons)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 
 [Repo](https://github.com/neovim/neovim)
 
+</details>
+
+<details>
+    <summary>Vim - Text Editor</summary>
+
+How to install
+
+   paru -S vim 
+
+Extra Packages to install
+
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+- [Repo](https://github.com/vim/vim)
 </details>
 
 <details>
@@ -49,10 +63,8 @@ How to install
 
 Extra Packages to Install
 
-    paru -S fish ttf-nerd-fonts-symbols
+    paru -S
     stow fonts
-
-- [Jetbrains nerdfonts](https://www.nerdfonts.com/)
 
 [Repo](https://github.com/kovidgoyal/kitty)
 

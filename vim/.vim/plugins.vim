@@ -8,4 +8,5 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
