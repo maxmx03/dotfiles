@@ -26,12 +26,15 @@ cd $HOME/dotfiles
 stow hyprland
 stow waybar
 stow kitty
+stow fish
 stow fonts
 stow rofi
+stow Wallpapers
 
 ## hyprland
 paru -S hyprland-git \
     kitty \
+    fish \
     dunst \
     mako \
     pipewire \
