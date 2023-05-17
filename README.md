@@ -170,6 +170,7 @@ Packages
      thunar-volman
      swww
      wlogout
+     polkit-kde-agent
 
 Theme
 
@@ -188,7 +189,6 @@ How to install
 
 Extra Packages to Install
 
-    PulseAudio
     pamixer
     network-manager-applet
     jq
