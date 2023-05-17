@@ -56,6 +56,7 @@ paru -S hyprland-git \
     swww \
     wlogout \
     polkit-kde-agent \
+    ristretto \
     evince-light
 
 ## install theme
