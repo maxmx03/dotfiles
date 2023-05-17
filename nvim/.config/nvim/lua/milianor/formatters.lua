@@ -1,4 +1,5 @@
 return {
   'prettier',
   'stylua',
+  'beautysh',
 }

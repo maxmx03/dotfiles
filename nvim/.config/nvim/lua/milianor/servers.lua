@@ -8,4 +8,5 @@ return {
   'emmet_ls',
   'vimls',
   'clangd',
+  'bashls',
 }

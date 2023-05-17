@@ -132,6 +132,7 @@ Extra Packages to Install
      swww
      wlogout
      evince-light
+     polkit-kde-agent
 
 Theme
 
