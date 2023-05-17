@@ -23,7 +23,7 @@ paru -S stow
 
 ## stow
 cd $HOME/dotfiles
-stow hyprland
+stow hypr
 stow waybar
 stow kitty
 stow fish
