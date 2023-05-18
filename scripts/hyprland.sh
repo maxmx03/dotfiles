@@ -13,7 +13,7 @@ fi
 
 # install paru
 sudo pacman -S --needed base-devel
-cd $HOME
+cd "$HOME"
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
@@ -22,7 +22,7 @@ makepkg -si
 paru -S stow
 
 ## stow
-cd $HOME/dotfiles
+cd "$HOME/dotfiles"
 stow hypr
 stow waybar
 stow kitty
@@ -31,54 +31,53 @@ stow fonts
 stow rofi
 stow Wallpapers
 
-## hyprland
-paru -S hyprland-git \
-    kitty \
-    fish \
-    dunst \
-    mako \
-    pipewire \
-    wireplumbe \
-    pavucontrol \
-    xdg-desktop-portal-hyprland \
-    qt5-wayland \
-    qt5ct \
-    qt6-wayland \
-    grim \
-    slurp \
-    cliphist \
-    thunar \
-    thunar-archive-plugin \
-    file-roller \
-    thunar-media-tags-plugin \
-    thunar-volman \
-    gvfs \
-    swww \
-    wlogout \
-    polkit-kde-agent \
-    ristretto \
+## Array of package names
+packages=(
+    hyprland-git
+    kitty
+    fish
+    dunst
+    mako
+    pipewire
+    wireplumber
+    pavucontrol
+    xdg-desktop-portal-hyprland
+    qt5-wayland
+    qt5ct
+    qt6-wayland
+    grim
+    slurp
+    cliphist
+    thunar
+    thunar-archive-plugin
+    file-roller
+    thunar-media-tags-plugin
+    thunar-volman
+    gvfs
+    swww
+    wlogout
+    polkit-kde-agent
+    ristretto
     evince-light
+    dracula-gtk-theme
+    dracula-cursors
+    whitesur-icon-theme-git
+    ttf-dejavu
+    ttf-liberation
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    rofi-lbonn-wayland-git
+    network-manager-applet
+    jq
+    waybar-hyprland
+)
 
-## install theme
-paru -S dracula-gtk-theme dracula-cursors whitesur-icon-theme-git
+## Install all packages
+paru -S "${packages[@]}"
 
 # set themes
 gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
 gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
 gsettings set org.gnome.desktop.interface cursor-theme "Dracula-cursors"
 gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-dark"
-
-## install fonts
-paru -S ttf-dejavu \
-    ttf-liberation \
-    noto-fonts \
-    noto-fonts-cjk \
-    noto-fonts-emoji
-
-## install rofi
-paru -S rofi-lbonn-wayland-git
-
-## install waybar
-paru -S network-manager-applet \
-    jq \
-    waybar-hyprland
