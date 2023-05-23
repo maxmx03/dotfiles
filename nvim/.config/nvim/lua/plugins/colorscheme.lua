@@ -1,20 +1,15 @@
 return {
   {
-    'maxmx03/dracula.nvim',
+    'maxmx03/fluoromachine.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      local dracula = require 'dracula'
-      local draculapro = require 'draculapro'
+      local fluoromachine = require 'fluoromachine'
 
-      draculapro.setup {
-        theme = 'pro',
-      }
-
-      dracula.setup {
-        dracula_pro = draculapro,
-        colors = draculapro.colors,
-        override = function(c)
+      fluoromachine.setup {
+        theme = 'retrowave',
+        glow = true,
+        overrides = function(c)
           return {
             ['@variable'] = { italic = true },
             ['@function'] = { italic = true },
@@ -54,10 +49,7 @@ return {
         end,
       }
 
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd.colorscheme 'fluoromachine'
     end,
-    dependencies = {
-      'maxmx03/draculapro',
-    },
   },
 }

@@ -8,3 +8,4 @@ fish/.config/fish/conf.d/z.fish
 fonts/.local/share/fonts/.uuid
 .vim/.vim/plugged
 .vim/.vim/autoload
+nvim/.config/nvim/.luarc.json
