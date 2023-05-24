@@ -9,7 +9,7 @@ return {
       fluoromachine.setup {
         theme = 'retrowave',
         glow = true,
-        overrides = function(c)
+        overrides = function()
           return {
             ['@variable'] = { italic = true },
             ['@function'] = { italic = true },
@@ -39,12 +39,6 @@ return {
             CmpItemKindEvent = { reverse = true },
             CmpItemKindOperator = { reverse = true },
             CmpItemKindTypeParameter = { reverse = true },
-            TelescopeResultsBorder = { fg = c.bgdark, bg = c.bgdark },
-            TelescopeResultsNormal = { bg = c.bgdark },
-            TelescopePreviewNormal = { bg = c.bg },
-            TelescopePromptBorder = { fg = c.bgdark, bg = c.bgdark },
-            TelescopePromptPrefix = { fg = c.purple },
-            CmpItemKindBorder = { fg = c.bgdark, bg = c.bgdark },
           }
         end,
       }
