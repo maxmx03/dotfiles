@@ -5,6 +5,10 @@ return {
     priority = 1000,
     config = function()
       require('onedarkpro').setup {
+        colors = {
+          bgdark = '#1e2127',
+          bgdarker = '#1a1e22',
+        },
         styles = {
           comments = 'italic',
           keywords = 'italic',
@@ -58,9 +62,18 @@ return {
           NvimTreeNormal = { bg = '${float_bg}' },
           NvimTreeWinSeparator = { fg = '${float_bg}', bg = '${float_bg}' },
           ['@function.builtin'] = { link = '@function' },
-          PMenuSel = { fg = '${green}', reverse = true },
-          PmenuThumb = { bg = '${green}' },
+          PMenuSel = { fg = '${blue}', reverse = true },
+          PmenuThumb = { bg = '${purple}' },
           CmpWinSeparator = { fg = '${float_bg}', bg = '${float_bg}' },
+          WinSeparator = { bg = '${float_bg}' },
+          TelescopeBorder = { fg = '${float_bg}', bg = '${float_bg}' },
+          TelescopeResultsNormal = { bg = '${bgdark}' },
+          TelescopeResultsBorder = { fg = '${bgdark}', bg = '${bgdark}' },
+          TelescopePreviewNormal = { bg = '${bgdarker}' },
+          TelescopePreviewBorder = { fg = '${bgdarker}', bg = '${bgdarker}' },
+          TelescopePromptTitle = { fg = '${purple}' },
+          TelescopeResultsTitle = { fg = '${green}' },
+          TelescopePreviewTitle = { fg = '${blue}' },
         },
       }
 

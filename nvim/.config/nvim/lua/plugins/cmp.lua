@@ -59,7 +59,7 @@ return {
           completion = {
             col_offset = -3,
             side_padding = 0,
-            border = border 'CmpWinSeparator',
+            border = border 'WinSeparator',
           },
           documentation = {
             border = border 'CmpWinSeparator',

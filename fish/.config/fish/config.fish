@@ -1,6 +1,4 @@
-# if test "$TERM" != "xterm-kitty"
 set TERM xterm-256color
-# end
 
 set PATH ~/.cargo/bin $PATH
 set PATH /usr/bin $PATH
