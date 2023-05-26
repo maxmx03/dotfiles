@@ -22,7 +22,7 @@ return {
   z = { '<cmd>ZenMode<cr>', '󱥸 Zen Mode' },
   t = { '<cmd>ToggleTerm<cr>', ' Open Terminal' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment toggle current line' },
-  [';'] = { "<cmd>Dashboard<cr>", ' Open Dashboard' },
+  [';'] = { '<cmd>Dashboard<cr>', ' Open Dashboard' },
   s = {
     name = ' Search',
     f = { '<cmd>Telescope find_files<cr>', 'Search files' },
@@ -64,7 +64,7 @@ return {
     c = { '<cmd>Lazy clean', 'Clean Plugins' },
     s = { '<cmd>Lazy sync<cr>', 'Sync Plugins' },
   },
-  m = {
+  M = {
     name = ' Package manager',
     m = { '<cmd>Mason<cr>', 'Open Mason' },
     u = { '<cmd>MasonUpdate<cr>', 'Update Mason' },
@@ -84,5 +84,11 @@ return {
     l = { '<cmd>HopLineStart<cr>', 'Hop Line Start' },
     L = { '<cmd>HopLine<cr>', 'Hop Line' },
     v = { '<cmd>HopVertical<cr>', 'Hop Vertical' },
+  },
+  m = {
+    name = ' Markdown',
+    m = { '<cmd>MarkdownPreview<cr>', 'Open Markdown Preview' },
+    s = { '<cmd>MarkdownPreviewStop<cr>', 'Stop Markdown Preview' },
+    t = { '<cmd>MarkdownPreviewToggle<cr>', 'Toggle Markdown Preview' },
   },
 }

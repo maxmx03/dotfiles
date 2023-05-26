@@ -9,4 +9,5 @@ return {
   'vimls',
   'clangd',
   'bashls',
+  'marksman',
 }

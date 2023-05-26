@@ -7,9 +7,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
       return
     end
 
-    vim.cmd 'set colorcolumn=100'
-    vim.cmd 'set spell'
-    utils:preview_markdown()
+    vim.cmd 'set colorcolumn=80'
   end,
 })
 
@@ -17,6 +15,5 @@ vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
   pattern = '*.md',
   callback = function()
     vim.cmd 'set colorcolumn=99999'
-    vim.cmd 'set nospell'
   end,
 })

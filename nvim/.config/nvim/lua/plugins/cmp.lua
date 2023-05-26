@@ -59,10 +59,10 @@ return {
           completion = {
             col_offset = -3,
             side_padding = 0,
-            border = border 'WinSeparator',
+            border = border 'CmpWinSeparator',
           },
           documentation = {
-            border = border 'WinSeparator',
+            border = border 'CmpWinSeparator',
           },
         },
         mapping = cmp.mapping.preset.insert {

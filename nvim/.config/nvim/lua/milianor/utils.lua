@@ -1,9 +1,7 @@
 local M = {}
 
 function M:new()
-  local t = {
-    preview_markdown_dont_show_again = false,
-  }
+  local t = {}
 
   setmetatable(t, self)
   self.__index = self
@@ -31,14 +29,6 @@ function M:smart_quit()
     self.open_ui({ 'save', 'quit' }, 'You have unsaved changes', { 'update', 'quit!' })
   else
     vim.cmd.quit()
-  end
-end
-
-function M:preview_markdown()
-  local cmd = 'lua require("milianor.utils").preview_markdown_dont_show_again = true'
-
-  if not self.preview_markdown_dont_show_again then
-    M.open_ui({ 'yes', 'no', "no, don't show again" }, 'Preview Markdown?', { 'MarkdownPreview', '', cmd })
   end
 end
 
