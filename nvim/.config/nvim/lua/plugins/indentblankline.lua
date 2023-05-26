@@ -13,7 +13,7 @@ return {
       }
 
       vim.g.indent_blankline_filetype_exclude =
-      { 'dashboard', 'lspinfo', 'packer', 'checkhealth', 'help', 'man', 'NvimTree' }
+        { 'dashboard', 'lspinfo', 'packer', 'checkhealth', 'help', 'man', 'NvimTree' }
     end,
   },
 }

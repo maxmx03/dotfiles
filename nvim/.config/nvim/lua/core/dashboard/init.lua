@@ -4,7 +4,7 @@ math.randomseed(os.time())
 local list_ascii = require 'core.dashboard.ascii'
 local headerAscii = list_ascii[math.random(#list_ascii)]
 local neovim_full_version =
-    string.format('Version: v%s.%s.%s', neovim_version.major, neovim_version.minor, neovim_version.patch)
+  string.format('Version: v%s.%s.%s', neovim_version.major, neovim_version.minor, neovim_version.patch)
 local plugins = string.format('Plugins: %s installed', lazy_plugins)
 
 local emmptyLine = string.rep(' ', vim.fn.strwidth(headerAscii[1]))
