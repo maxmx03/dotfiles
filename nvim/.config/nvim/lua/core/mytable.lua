@@ -8,10 +8,13 @@ end
 M.__add = function(...)
   local list = {}
   local tables = { ... }
+  local blacklist = { 'eslint' }
 
   for _, t in pairs(tables) do
     for _, value in pairs(t) do
-      table.insert(list, value)
+      if not vim.list_contains(blacklist, value) then
+        table.insert(list, value)
+      end
     end
   end
 

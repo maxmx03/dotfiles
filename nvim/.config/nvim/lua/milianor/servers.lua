@@ -1,6 +1,7 @@
 return {
   'lua_ls',
   'tsserver',
+  'eslint',
   'html',
   'cssls',
   'cssmodules_ls',
