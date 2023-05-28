@@ -9,3 +9,4 @@ fonts/.local/share/fonts/.uuid
 .vim/.vim/plugged
 .vim/.vim/autoload
 nvim/.config/nvim/.luarc.json
+nvim/.config/nvim/spell
