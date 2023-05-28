@@ -60,6 +60,7 @@ return {
           DashboardShotCut = { fg = '${purple}' },
           ColorColumn = { fg = '${float_bg}', bg = '${float_bg}' },
           NvimTreeNormal = { bg = '${float_bg}' },
+          NvimTreeNormalNC = { link = 'NvimTreeNormal' },
           NvimTreeWinSeparator = { fg = '${float_bg}', bg = '${float_bg}' },
           ['@function.builtin'] = { link = '@function' },
           PMenuSel = { fg = '${blue}', reverse = true },
