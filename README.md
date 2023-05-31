@@ -29,7 +29,7 @@ How to install
 
 Extra Packages to install
 
-    paru -S python-pynvim gcc fd ripgrep nodejs npm
+    paru -S python-pynvim gcc fd ripgrep nodejs npm deno
     stow fonts
 
 - [codicon](https://github.com/microsoft/vscode-codicons)
@@ -44,7 +44,7 @@ Extra Packages to install
 
 How to install
 
-    paru -S vim 
+    paru -S vim
 
 Extra Packages to install
 
