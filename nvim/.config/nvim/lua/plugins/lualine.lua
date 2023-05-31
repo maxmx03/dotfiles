@@ -93,12 +93,15 @@ return {
             local p = tonumber(string.match(progress, '%d+'))
 
             if p ~= nil then
-              local index = math.floor((p - 1) / (100 / #spinners)) + 1
+              local index = math.floor(p / (100 / #spinners)) + 1
               return spinners[index]
             end
           end,
-          separator = { right = icons.block.right },
-          left_padding = 2,
+          separator = { left = icons.default.left },
+          color = { fg = colors.purple }
+        },
+        {
+          'location',
         },
       })
 
