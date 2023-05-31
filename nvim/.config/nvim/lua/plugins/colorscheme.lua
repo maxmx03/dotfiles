@@ -6,6 +6,7 @@ return {
     config = function()
       require('onedarkpro').setup {
         colors = {
+          bglight = '#3a404c',
           bgdark = '#1e2127',
           bgdarker = '#1a1e22',
         },
