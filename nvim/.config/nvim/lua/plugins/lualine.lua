@@ -101,17 +101,15 @@ return {
           fmt = function(progress)
             local spinners = { '󰝦', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰪥' }
 
-            if string.lower(progress) == 'top' then
-              return spinners[1]
-            elseif string.lower(progress) == 'bot' then
-              return spinners[#spinners]
+            if string.match(progress, '%a+') then
+              return progress
             end
 
             local p = tonumber(string.match(progress, '%d+'))
 
             if p ~= nil then
               local index = math.floor(p / (100 / #spinners)) + 1
-              return spinners[index]
+              return '  ' .. spinners[index]
             end
           end,
           separator = { left = icons.default.left },
@@ -153,6 +151,9 @@ return {
           disabled_filetypes = {
             'NvimTree',
             'starter',
+          },
+          refresh = {
+            statusline = 1000,
           },
         },
         sections = sections,
