@@ -9,7 +9,7 @@ return {
         normal = {
           a = { fg = colors.black, bg = colors.blue },
           b = { fg = colors.white, bg = colors.bglight },
-          c = { fg = colors.red, bg = colors.bg_statusline },
+          c = { fg = colors.white, bg = colors.bg_statusline },
         },
         insert = {
           a = { fg = colors.black, bg = colors.purple },
@@ -31,7 +31,8 @@ return {
 
       local icons = {
         vim = '',
-        git = '',
+        git = '',
+        diff = { added = '󰐕', modified = '󰧞', removed = '󰍴' },
         default = { left = '', right = ' ' },
         round = { left = '', right = '' },
         block = { left = '█', right = '█' },
@@ -72,11 +73,22 @@ return {
       ins_config('c', {
         {
           'branch',
-          icon = icons.git,
+          icon = { icons.git, color = { fg = colors.purple } },
         },
       })
 
-      ins_config('x', {})
+      ins_config('x', {
+        {
+          'diff',
+          symbols = icons.diff,
+          colored = true,
+          diff_color = {
+            added = { fg = colors.green },
+            modified = { fg = colors.orange },
+            removed = { fg = colors.red },
+          },
+        },
+      })
 
       ins_config('y', {
         {
@@ -98,7 +110,6 @@ return {
             end
           end,
           separator = { left = icons.default.left },
-          color = { fg = colors.purple }
         },
         {
           'location',
