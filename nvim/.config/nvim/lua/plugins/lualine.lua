@@ -27,6 +27,10 @@ return {
         },
       }
 
+      local hide_in_width = function()
+        return vim.fn.winwidth(0) > 80
+      end
+
       local sections = {}
 
       local icons = {
@@ -74,10 +78,8 @@ return {
         {
           'branch',
           icon = { icons.git, color = { fg = colors.purple } },
+          cond = hide_in_width,
         },
-      })
-
-      ins_config('x', {
         {
           'diff',
           symbols = icons.diff,
@@ -87,8 +89,11 @@ return {
             modified = { fg = colors.orange },
             removed = { fg = colors.red },
           },
+          cond = hide_in_width,
         },
       })
+
+      ins_config('x', {})
 
       ins_config('y', {
         {
@@ -110,9 +115,11 @@ return {
             end
           end,
           separator = { left = icons.default.left },
+          cond = hide_in_width,
         },
         {
           'location',
+          cond = hide_in_width,
         },
       })
 
@@ -141,7 +148,7 @@ return {
       require('lualine').setup {
         options = {
           theme = custom_theme,
-          component_separators = '|',
+          component_separators = '',
           section_separators = { left = icons.default.right, right = icons.default.left },
           disabled_filetypes = {
             'NvimTree',
