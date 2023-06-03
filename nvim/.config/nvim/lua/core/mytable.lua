@@ -12,7 +12,7 @@ M.__add = function(...)
 
   for _, t in pairs(tables) do
     for _, value in pairs(t) do
-      if not vim.list_contains(blacklist, value) then
+      if not vim.tbl_contains(blacklist, value) then
         table.insert(list, value)
       end
     end
