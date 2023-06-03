@@ -69,7 +69,7 @@ return {
     m = { '<cmd>Mason<cr>', 'Open Mason' },
     u = { '<cmd>MasonUpdate<cr>', 'Update Mason' },
     t = { '<cmd>MasonToolsUpdate<cr>', 'Update Mason Tools' },
-    a = { '<cmd>MasonUninstallAll', 'Uninstall all packages' },
+    a = { '<cmd>MasonUninstallAll<cr>', 'Uninstall all packages' },
   },
   h = {
     name = '󰤇 Hop',
