@@ -20,3 +20,7 @@ end
 function notes
  open https://maxmx03.github.io/notes/
 end
+
+function milianor
+  NVIM_APPNAME=milianor-vim nvim $argv
+end

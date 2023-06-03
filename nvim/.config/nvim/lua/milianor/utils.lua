@@ -23,7 +23,7 @@ end
 
 function M:smart_quit()
   local bufnr = vim.api.nvim_get_current_buf()
-  local modified = vim.api.nvim_buf_get_option(bufnr, 'modified')
+  local modified = vim.api.nvim_get_option_value('modified', { buf = bufnr })
 
   if modified then
     self.open_ui({ 'save', 'quit' }, 'You have unsaved changes', { 'update', 'quit!' })
