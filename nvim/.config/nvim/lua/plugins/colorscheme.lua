@@ -6,9 +6,10 @@ return {
     config = function()
       require('onedarkpro').setup {
         colors = {
-          bglight = '#3a404c',
-          bgdark = '#1e2127',
-          bgdarker = '#1a1e22',
+          bg = '#1e2127',
+          bglight = '#313640',
+          bgdark = '#181a1f',
+          bgdarker = '#121417',
         },
         styles = {
           comments = 'italic',
@@ -60,6 +61,9 @@ return {
           DashboardIcon = { fg = '${blue}' },
           DashboardShotCut = { fg = '${purple}' },
           ColorColumn = { fg = '${float_bg}', bg = '${float_bg}' },
+          NvimTreeFolderIcon = { fg = "${blue}" },
+          NvimTreeOpenedFolderName = { fg = "${blue}" },
+          NvimTreeEmptyFolderIcon = { fg = '${blue}' },
           NvimTreeNormal = { bg = '${float_bg}' },
           NvimTreeNormalNC = { link = 'NvimTreeNormal' },
           NvimTreeWinSeparator = { fg = '${float_bg}', bg = '${float_bg}' },

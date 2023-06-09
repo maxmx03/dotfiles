@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "bottom",
   // "output": "HDMI-A-1",
-  "spacing": 5,
+  "spacing": 15,
   "modules-left": [
     "custom/weather"
     // "sway/workspaces"
@@ -25,7 +25,7 @@
     "return-type": "json"
   },
   "custom/launch_wofi": {
-    "format": "<span size='18pt'> </span>",
+    "format": "<span size='18pt'></span>",
     "on-click": "rofi -show drun",
     "tooltip": false
   },
@@ -58,11 +58,11 @@
       "3": ["HDMI-A-1"],
       "4": ["HDMI-A-1"],
       "5": ["HDMI-A-1"],
-      "6": ["DP-1"],
-      "7": ["DP-1"],
-      "8": ["DP-1"],
-      "9": ["DP-1"],
-      "10": ["DP-1"]
+      // "6": ["DP-1"],
+      // "7": ["DP-1"],
+      // "8": ["DP-1"],
+      // "9": ["DP-1"],
+      // "10": ["DP-1"]
     },
     "sort-by-number": true
   },
@@ -79,14 +79,14 @@
     }
   },
   "custom/changebg": {
-    "format": "<span size='12pt' rise='1000'>󰸉 </span>",
+    "format": "<span size='14pt' rise='1000'>󰋩</span>",
     "on-click": "~/.config/waybar/scripts/bgaction",
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "<span size='12pt'>{icon} </span> ",
+    "format": "<span size='14pt'>{icon}</span>",
     "tooltip-format": "volume {volume}%",
-    "format-muted": "<span size='12pt' rise='1000'></span>",
+    "format-muted": "<span size='14pt' rise='1000'></span>",
     "format-icons": {
       "default": ["", ""]
     },
@@ -96,12 +96,12 @@
   },
   "cpu": {
     "interval": 20,
-    "format": "<span size='12pt' rise='1000'> </span>",
+    "format": "<span size='14pt' rise='1000'></span>",
     "max-length": 5
   },
   "memory": {
     "interval": 20,
-    "format": "<span size='12pt' rise='1000'> </span>",
+    "format": "<span size='14pt' rise='1000'></span>",
     "max-length": 5
   },
   "clock": {
