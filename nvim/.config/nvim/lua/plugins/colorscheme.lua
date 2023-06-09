@@ -80,6 +80,7 @@ return {
           TelescopePromptTitle = { fg = '${purple}' },
           TelescopeResultsTitle = { fg = '${green}' },
           TelescopePreviewTitle = { fg = '${blue}' },
+          ["@markdown_italic"] = { fg = "${orange}", italic = true }
         },
       }
 
