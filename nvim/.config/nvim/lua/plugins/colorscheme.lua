@@ -1,6 +1,6 @@
 return {
   {
-    'maxmx03/onedarkpro.nvim',
+    'olimorris/onedarkpro.nvim',
     lazy = false,
     priority = 1000,
     config = function()
