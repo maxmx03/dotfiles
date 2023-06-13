@@ -36,6 +36,10 @@ packages=(
     hyprland-git
     kitty
     fish
+    exa
+    neofetch
+    firefox
+    neovim
     dunst
     mako
     pipewire
@@ -70,6 +74,9 @@ packages=(
     rofi-lbonn-wayland-git
     network-manager-applet
     jq
+    sayonara-player
+    mpv
+    gnome-disk-utility
     waybar-hyprland-git
 )
 
