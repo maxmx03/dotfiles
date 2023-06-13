@@ -40,21 +40,6 @@ Extra Packages to install
 </details>
 
 <details>
-    <summary>Vim - Text Editor</summary>
-
-How to install
-
-    paru -S vim
-
-Extra Packages to install
-
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-- [Repo](https://github.com/vim/vim)
-</details>
-
-<details>
     <summary>Kitty - Terminal Emulator</summary>
 
 How to install
@@ -141,43 +126,6 @@ Theme
 - [Icons](https://www.gnome-look.org/p/1405756/)
 
 [Repo](https://github.com/hyprwm/Hyprland)
-
-</details>
-
-<details>
-    <summary>Sway - Wayland Compositor</summary>
-
-How to install
-
-    pacman -S sway
-
-Packages
-
-     kitty
-     dunst
-     mako
-     pipewire
-     wireplumber
-     xdg-desktop-portal-wlr
-     xorg-xwayland
-     qt5-wayland
-     qt5ct
-     qt6-wayland
-     grim
-     slurp
-     thunar
-     thunar-archive-plugin
-     thunar-media-tags-plugin
-     thunar-volman
-     swww
-     wlogout
-     polkit-kde-agent
-
-Theme
-
-- [Dracula](https://draculatheme.com/gtk)
-- [Mouse](https://www.gnome-look.org/p/1669262/)
-- [Icons](https://www.gnome-look.org/p/1405756/)
 
 </details>
 

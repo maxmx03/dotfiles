@@ -5,7 +5,6 @@
   "spacing": 15,
   "modules-left": [
     "custom/weather"
-    // "sway/workspaces"
   ],
   "modules-center": ["custom/launch_wofi", "wlr/workspaces", "wlr/taskbar"],
   "modules-right": [
@@ -29,19 +28,6 @@
     "on-click": "rofi -show drun",
     "tooltip": false
   },
-  "sway/workspaces": {
-    "format": "<span size='14pt' font_weight='bold'>{name}</span>",
-    "on-click": "activate",
-    "active-only": false,
-    "all-outputs": true,
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
-    }
-  },
   "wlr/workspaces": {
     "format": "<span size='14pt' font_weight='bold'>{icon}</span>",
     "on-click": "activate",
@@ -57,7 +43,7 @@
       "2": ["HDMI-A-1"],
       "3": ["HDMI-A-1"],
       "4": ["HDMI-A-1"],
-      "5": ["HDMI-A-1"],
+      "5": ["HDMI-A-1"]
       // "6": ["DP-1"],
       // "7": ["DP-1"],
       // "8": ["DP-1"],
@@ -111,7 +97,6 @@
     "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
   },
   "tray": {
-    "icon-size": 21,
-    "spacing": 5
+    "icon-size": 21
   }
 }

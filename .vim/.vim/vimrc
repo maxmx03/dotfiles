@@ -1,9 +1,0 @@
-source $VIMRUNTIME/defaults.vim
-import "./options.vim"
-import "./maps.vim"
-import "./plugins.vim"
-
-" fix kitty bug
-let &t_ut=''
-
-colorscheme codedark

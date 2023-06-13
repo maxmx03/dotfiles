@@ -70,7 +70,7 @@ packages=(
     rofi-lbonn-wayland-git
     network-manager-applet
     jq
-    waybar-hyprland
+    waybar-hyprland-git
 )
 
 ## Install all packages
