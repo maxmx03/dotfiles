@@ -2,28 +2,28 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     config = function()
-      local color = require 'solarized.palette'
+      local color = require 'onedarkpro.helpers'
       local colors = color.get_colors()
 
       local custom_theme = {
         normal = {
-          a = { fg = colors.base04, bg = colors.blue },
-          b = { fg = colors.base2, bg = colors.base00 },
-          c = { fg = colors.base2, bg = colors.base03 },
+          a = { fg = colors.black, bg = colors.blue },
+          b = { fg = colors.white, bg = colors.bglight },
+          c = { fg = colors.white, bg = colors.bg_statusline },
         },
         insert = {
-          a = { fg = colors.base04, bg = colors.violet },
+          a = { fg = colors.black, bg = colors.purple },
         },
         visual = {
-          a = { fg = colors.base04, bg = colors.cyan },
+          a = { fg = colors.black, bg = colors.cyan },
         },
         replace = {
-          a = { fg = colors.base04, bg = colors.red },
+          a = { fg = colors.black, bg = colors.red },
         },
         inactive = {
-          a = { fg = colors.base2, bg = colors.base04 },
-          b = { fg = colors.base2, bg = colors.base04 },
-          c = { fg = colors.base04, bg = colors.base04 },
+          a = { fg = colors.white, bg = colors.black },
+          b = { fg = colors.white, bg = colors.black },
+          c = { fg = colors.black, bg = colors.black },
         },
       }
 
@@ -77,7 +77,7 @@ return {
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git, color = { fg = colors.magenta } },
+          icon = { icons.git, color = { fg = colors.purple } },
           cond = hide_in_width,
         },
         {
@@ -99,7 +99,7 @@ return {
         {
           'progress',
           fmt = function(progress)
-            local spinners = { '󰚀', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰚀' }
+            local spinners = { '󰝦', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰪥' }
 
             if string.match(progress, '%a+') then
               return progress
