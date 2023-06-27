@@ -62,7 +62,7 @@ return {
             border = border 'WinSeparator',
           },
           documentation = {
-            border = border 'CmpWinSeparator',
+            border = border 'WinSeparator',
           },
         },
         mapping = cmp.mapping.preset.insert {

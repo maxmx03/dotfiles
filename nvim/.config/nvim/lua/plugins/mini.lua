@@ -3,7 +3,6 @@ return {
     'echasnovski/mini.nvim',
     config = function()
       local modules = {
-        'animate',
         'bracketed',
         'bufremove',
         'cursorword',

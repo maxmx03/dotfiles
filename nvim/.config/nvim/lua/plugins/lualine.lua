@@ -2,28 +2,33 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     config = function()
-      local color = require 'onedarkpro.helpers'
-      local colors = color.get_colors()
+      local solarized_palette = require 'solarized.palette'
+      local colors = solarized_palette.get_colors()
+      local foreground = colors.base2
+
+      if vim.o.background == 'light' then
+        foreground = colors.base02
+      end
 
       local custom_theme = {
         normal = {
-          a = { fg = colors.black, bg = colors.blue },
-          b = { fg = colors.white, bg = colors.bglight },
-          c = { fg = colors.white, bg = colors.bg_statusline },
+          a = { fg = colors.base04, bg = colors.blue },
+          b = { fg = foreground, bg = colors.base1 },
+          c = { fg = colors.base2, bg = colors.base04 },
         },
         insert = {
-          a = { fg = colors.black, bg = colors.purple },
+          a = { fg = colors.base04, bg = colors.violet },
         },
         visual = {
-          a = { fg = colors.black, bg = colors.cyan },
+          a = { fg = colors.base04, bg = colors.cyan },
         },
         replace = {
-          a = { fg = colors.black, bg = colors.red },
+          a = { fg = colors.base04, bg = colors.red },
         },
         inactive = {
-          a = { fg = colors.white, bg = colors.black },
-          b = { fg = colors.white, bg = colors.black },
-          c = { fg = colors.black, bg = colors.black },
+          a = { fg = foreground, bg = colors.base04 },
+          b = { fg = colors.base2, bg = colors.base04 },
+          c = { fg = colors.base04, bg = colors.base04 },
         },
       }
 
@@ -77,7 +82,7 @@ return {
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git, color = { fg = colors.purple } },
+          icon = { icons.git, color = { fg = colors.magenta } },
           cond = hide_in_width,
         },
         {
@@ -99,7 +104,7 @@ return {
         {
           'progress',
           fmt = function(progress)
-            local spinners = { '󰝦', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰪥' }
+            local spinners = { '󰚀', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰚀' }
 
             if string.match(progress, '%a+') then
               return progress

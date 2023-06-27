@@ -36,22 +36,18 @@ return {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-          local bufnr = ev.buf
-          local client = vim.lsp.get_client_by_id(ev.data.client_id)
           local wk = require 'which-key'
-          local navic = require 'core.navic'
 
-          navic.attach(client, bufnr)
           wk.register({
             l = {
-              name = '󰀸 LSP',
-              d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
-              h = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover' },
+              name = ' LSP',
+              d = { '<cmd>Lspsaga goto_definition<cr>', 'Definition' },
+              h = { '<cmd>Lspsaga hover_doc<cr>', 'Hover' },
               s = { '<cmd>Telescope lsp_document_symbols theme=dropdown<cr>', 'Document Symbols' },
-              r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
-              c = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code action' },
+              r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
+              c = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
               f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format file' },
-              e = { '<cmd>lua vim.diagnostic.open_float()<cr>', 'Show diagnostic' },
+              e = { '<cmd>Lspsaga show_diagnostics<cr>', 'Show diagnostic' },
             },
           }, { prefix = '<space>' })
         end,

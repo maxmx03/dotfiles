@@ -87,7 +87,6 @@ return {
   },
   m = {
     name = ' Markdown',
-    m = { '<cmd>lua require("peek").open()<cr>', 'Open Markdown Preview' },
-    s = { '<cmd>lua require("peek").close()<cr>', 'Stop Markdown Preview' },
+    m = { '<cmd>MarkdownPreviewToggle<cr>', 'Open Markdown Preview' },
   },
 }
