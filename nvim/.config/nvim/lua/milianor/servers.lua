@@ -11,4 +11,5 @@ return {
   'clangd',
   'bashls',
   'marksman',
+  'rust_analyzer',
 }

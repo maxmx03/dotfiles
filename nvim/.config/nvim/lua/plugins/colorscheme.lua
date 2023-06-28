@@ -8,6 +8,9 @@ return {
       require('solarized').setup {
         transparent = true,
         theme = 'neo',
+        enables = {
+          neotree = false,
+        },
       }
 
       vim.cmd.colorscheme 'solarized'

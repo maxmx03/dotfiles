@@ -11,7 +11,6 @@ map('n', 'ss', ':split<cr>', opts)
 map('n', 'sv', ':vsplit<cr>', opts)
 map('n', '<F7>', ':Inspect<cr>', opts)
 map('n', '<F8>', ':InspectTree<cr>', opts)
-map('n', '<Enter>', ':HopWord<cr>')
 
 return {
   w = { '<cmd>update<cr>', '󰏫 Save' },
