@@ -4,7 +4,6 @@ return {
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
-      'folke/neodev.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
@@ -14,7 +13,6 @@ return {
       local linters = require 'milianor.linters'
       local packages = formatters + linters
       local masontool = require 'mason-tool-installer'
-      local neodev = require 'neodev'
       local lsp = require 'lspconfig'
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local servers = require 'milianor.servers'
@@ -69,18 +67,26 @@ return {
         auto_update = true,
         run_on_start = true,
       }
-      neodev.setup()
 
       for _, server in ipairs(servers) do
         if server == 'lua_ls' then
           lsp[server].setup {
             settings = {
-              lua = {
+              Lua = {
                 hint = {
                   enable = true,
                 },
-                completion = {
-                  callSnippet = 'Replace',
+                runtime = {
+                  version = 'LuaJIT',
+                },
+                diagnostics = {
+                  globals = { 'vim' },
+                },
+                workspace = {
+                  library = vim.api.nvim_get_runtime_file('', true),
+                },
+                telemetry = {
+                  enable = false,
                 },
               },
             },

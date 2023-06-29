@@ -17,13 +17,16 @@ return {
           c = { fg = colors.base2, bg = colors.base04 },
         },
         insert = {
-          a = { fg = colors.base04, bg = colors.violet },
+          a = { fg = colors.base04, bg = colors.green },
         },
         visual = {
-          a = { fg = colors.base04, bg = colors.cyan },
+          a = { fg = colors.base04, bg = colors.magenta },
         },
         replace = {
           a = { fg = colors.base04, bg = colors.red },
+        },
+        command = {
+          a = { fg = colors.base03, bg = colors.red },
         },
         inactive = {
           a = { fg = foreground, bg = colors.base04 },
