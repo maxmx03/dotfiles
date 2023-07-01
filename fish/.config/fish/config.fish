@@ -12,6 +12,7 @@ alias python python3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
 alias find "fdfind -H -I -i"
+alias lua "luajit"
 
 function fish_greeting
   neofetch

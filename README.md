@@ -79,10 +79,6 @@ How to install
 
     pacman -S tmux
 
-Extra
-
-- [Plugin manager](https://github.com/tmux-plugins/tpm)
-
 [Repo](https://github.com/tmux/tmux)
 
 </details>

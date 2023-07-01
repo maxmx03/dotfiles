@@ -38,7 +38,7 @@ return {
           local wk = require 'which-key'
 
           if client.server_capabilities.inlayHintProvider then
-            vim.lsp.buf.inlay_hint(0, true)
+            vim.lsp.inlay_hint(ev.buf, true)
           end
 
           wk.register({
