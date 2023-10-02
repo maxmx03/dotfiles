@@ -3,7 +3,8 @@ set TERM xterm-256color
 set PATH ~/.cargo/bin $PATH
 set PATH /usr/bin $PATH
 set PATH ~/go/bin $PATH
-set PATH ~/.nvm/versions/node/v18.16.1/bin $PATH
+set PATH ~/.local/share/flutter/bin $PATH
+set PATH ~/.nvm/versions/node/v18.18.0/bin $PATH
 
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
