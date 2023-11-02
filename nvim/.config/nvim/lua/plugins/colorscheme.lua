@@ -1,20 +1,17 @@
 return {
   {
-    'maxmx03/solarized.nvim',
+    'maxmx03/fluoromachine.nvim',
     lazy = false,
     priority = 1000,
-    branch = 'dev',
     config = function()
-      require('solarized').setup {
-        transparent = true,
-        theme = 'neo',
-        enables = {
-          neotree = false,
-          indentblankline = false,
-        },
+      require('fluoromachine').setup {
+        transparent = false,
+        glow = true,
+        theme = 'delta',
+        brightness = 0.15,
       }
 
-      vim.cmd.colorscheme 'solarized'
+      vim.cmd.colorscheme 'fluoromachine'
     end,
   },
 }
