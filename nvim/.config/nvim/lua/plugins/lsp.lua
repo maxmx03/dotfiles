@@ -37,8 +37,8 @@ return {
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local wk = require 'which-key'
 
-          if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint(ev.buf, true)
+          if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(ev.buf, true)
           end
 
           wk.register({
