@@ -37,15 +37,12 @@ return {
     name = ' Git',
     d = { '<cmd>Gitsigns diffthis<cr>', 'Open Diff' },
     p = { '<cmd>Gitsigns preview_hunk_inline<cr>', 'Open Inline Diff' },
+    g = { '<cmd>Neogit kind=floating<cr>', 'Open Neogit' },
+    l = { '<cmd>LazyGit<cr>', 'Open Lazygit' },
     C = { '<cmd>Telescope git_commits<cr>', 'Commits' },
     b = { '<cmd>Telescope git_branches<cr>', 'Branchs' },
     s = { '<cmd>Telescope git_status<cr>', 'Status' },
     S = { '<cmd>Telescope git_stash<cr>', 'Stash' },
-  },
-  G = {
-    name = ' LazyGit',
-    g = { '<cmd>LazyGitCurrentFile<cr>', 'Open Lazygit' },
-    c = { '<cmd>LazyGitConfig<cr>', 'Open Configuration file' },
   },
   b = {
     name = ' Buffer',
@@ -84,8 +81,12 @@ return {
     L = { '<cmd>HopLine<cr>', 'Hop Line' },
     v = { '<cmd>HopVertical<cr>', 'Hop Vertical' },
   },
-  m = {
-    name = ' Markdown',
-    m = { '<cmd>MarkdownPreviewToggle<cr>', 'Open Markdown Preview' },
+  c = {
+    name = '󰚩 Codota',
+    c = { '<cmd>TabnineChat<cr>', 'Tabnine chat' },
+    e = { '<cmd>TabnineEnable<cr>', 'Tabnine enable' },
+    d = { '<cmd>TabnineDisable<cr>', 'Tabnine disable' },
+    s = { '<cmd>TabnineStatus<cr>', 'Tabnine status' },
+    l = { '<cmd>TabnineLoginWithAuthToken<cr>', 'Tabnine login' },
   },
 }

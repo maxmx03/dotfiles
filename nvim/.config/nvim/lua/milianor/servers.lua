@@ -9,4 +9,5 @@ return {
   'vimls',
   'bashls',
   'marksman',
+  'pylsp',
 }

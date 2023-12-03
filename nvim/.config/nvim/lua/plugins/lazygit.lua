@@ -1,5 +1,0 @@
-return {
-  {
-    'kdheepak/lazygit.nvim',
-  },
-}

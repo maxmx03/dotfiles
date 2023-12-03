@@ -88,6 +88,9 @@ return {
                 telemetry = {
                   enable = false,
                 },
+                completion = {
+                  enable = true,
+                }
               },
             },
             capabilities = capabilities,

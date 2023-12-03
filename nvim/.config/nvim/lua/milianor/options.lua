@@ -44,4 +44,4 @@ vim.opt.spelllang = 'en'
 vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.wrap = true
--- vim.opt.shell = 'fish'
+vim.opt.shell = 'fish'
