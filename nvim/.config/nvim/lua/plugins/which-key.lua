@@ -5,12 +5,9 @@ return {
       local wk = require 'which-key'
       local keymappings = require 'milianor.keymappings'
 
-      wk.register(keymappings, { prefix = '<space>' })
-      wk.setup {
-        icons = {
-          group = '',
-        },
-      }
+      wk.register(keymappings.normal, { prefix = '<space>', mode = 'n' })
+      wk.register(keymappings.visual, { prefix = '<space>', mode = 'v' })
+      wk.setup {}
     end,
   },
 }

@@ -9,12 +9,12 @@ local opts = {
   checker = {
     enabled = true,
     concurrency = nil,
-    notify = false,
+    notify = true,
     frequency = 3600,
   },
   change_detection = {
     enabled = true,
-    notify = false,
+    notify = true,
   },
 }
 

@@ -1,7 +1,13 @@
+local build = './dl_binaries.sh'
+
+if vim.fn.has 'win32' == 1 then
+  build = 'pwsh.exe -file .\\dl_binaries.ps1'
+end
+
 return {
   {
     'codota/tabnine-nvim',
-    build = './dl_binaries.sh',
+    build = build,
     config = function()
       local solarized_palette = require 'solarized.palette'
       local colors = solarized_palette.get_colors()

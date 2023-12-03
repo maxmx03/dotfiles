@@ -4,7 +4,6 @@ local map = vim.keymap.set
 map('n', '<C-x>', '<cmd>lua require("mini.bufremove").delete()<cr>', opts)
 map('n', '<C-Left>', "<cmd>lua require('mini.bracketed').buffer('backward')<cr>", opts)
 map('n', '<C-Right>', "<cmd>lua require('mini.bracketed').buffer('forward')<cr>", opts)
-map('v', '/', '<Plug>(comment_toggle_linewise_visual)', opts)
 map('n', '+', '<C-a>', opts)
 map('n', '-', '<C-x>', opts)
 map('n', 'ss', ':split<cr>', opts)
@@ -12,7 +11,7 @@ map('n', 'sv', ':vsplit<cr>', opts)
 map('n', '<F7>', ':Inspect<cr>', opts)
 map('n', '<F8>', ':InspectTree<cr>', opts)
 
-return {
+local normal = {
   w = { '<cmd>update<cr>', '󰏫 Save' },
   q = { '<cmd>lua require("milianor.utils"):smart_quit()<cr>', ' Close' },
   Q = { '<cmd>quitall<cr>', '󰩈 Quit Neovim' },
@@ -69,6 +68,7 @@ return {
   },
   h = {
     name = '󰤇 Hop',
+    h = { '<cmd>HopAnywhere<cr>', 'Hop Anywere' },
     w = { '<cmd>HopWord<cr>', 'Hop Word' },
     W = { '<cmd>HopWordCurrentLine<cr>', 'Hop Word Current Line' },
     a = { '<cmd>HopAnywhere<cr>', 'Hop Anywhere' },
@@ -83,10 +83,25 @@ return {
   },
   c = {
     name = '󰚩 Codota',
-    c = { '<cmd>TabnineChat<cr>', 'Tabnine chat' },
     e = { '<cmd>TabnineEnable<cr>', 'Tabnine enable' },
     d = { '<cmd>TabnineDisable<cr>', 'Tabnine disable' },
     s = { '<cmd>TabnineStatus<cr>', 'Tabnine status' },
     l = { '<cmd>TabnineLoginWithAuthToken<cr>', 'Tabnine login' },
   },
+  o = {
+    name = '󰚩 Ollama',
+    c = { '<cmd>Gen Chat<cr>', 'Chat' },
+    a = { '<cmd>Gen Ask<cr>', 'Ask' },
+  }
 }
+
+local visual = {
+  ['/'] = { '<Plug>(comment_toggle_linewise_visual)', ' Comment toggle current line' },
+  o = {
+    name = '󰚩 Ollama',
+    c = { ':Gen Enhance_Code<cr>', 'Enhance Code' },
+    r = { ':Gen Review_Code<cr>', 'Review Code' },
+  },
+}
+
+return { normal = normal, visual = visual }
