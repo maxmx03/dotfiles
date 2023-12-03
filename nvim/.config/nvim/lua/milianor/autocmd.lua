@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWinEnter', {
+vim.api.nvim_create_autocmd('BufEnter', {
   pattern = '*.*',
   callback = function()
     local discipline = require 'core.discipline'
@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWinEnter', {
+vim.api.nvim_create_autocmd('BufEnter', {
   pattern = {'*.txt', 'NvimTree*'},
   callback = function()
     local discipline = require 'core.discipline'

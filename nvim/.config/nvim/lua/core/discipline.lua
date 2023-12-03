@@ -5,8 +5,6 @@ local keys = {
   'j',
   'k',
   'l',
-  '+',
-  '-',
   '<Left>',
   '<Down>',
   '<Up>',
