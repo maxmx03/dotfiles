@@ -92,7 +92,7 @@ local normal = {
     name = '󰚩 Ollama',
     c = { '<cmd>Gen Chat<cr>', 'Chat' },
     a = { '<cmd>Gen Ask<cr>', 'Ask' },
-  }
+  },
 }
 
 local visual = {

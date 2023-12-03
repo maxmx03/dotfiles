@@ -17,3 +17,21 @@ vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
     vim.cmd 'set colorcolumn=99999'
   end,
 })
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = '*.*',
+  callback = function()
+    local discipline = require 'core.discipline'
+
+    discipline.cowboy()
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = {'*.txt', 'NvimTree*'},
+  callback = function()
+    local discipline = require 'core.discipline'
+
+    discipline.cowboy_gets_shot()
+  end,
+})
