@@ -9,7 +9,10 @@ local keys = {
   '<Down>',
   '<Up>',
   '<Right>',
+  '+',
+  '-',
 }
+local icon = '🤠'
 
 function M.cowboy()
   local id
@@ -24,7 +27,7 @@ function M.cowboy()
       end
       if count >= 10 then
         ok, id = pcall(vim.notify, 'Hold it Cowboy!', vim.log.levels.WARN, {
-          icon = '🤠',
+          icon = icon,
           replace = id,
           keep = function()
             return count >= 10
@@ -47,10 +50,13 @@ end
 
 function M.cowboy_gets_shot()
   for _, key in ipairs(keys) do
-    vim.keymap.del('n', key)
+    local map = key
+    vim.keymap.set('n', key, function()
+      return map
+    end, { expr = true, silent = true })
   end
 
-  vim.notify('Cowboy gets shot', vim.log.levels.WARN, { icon = '🤠' })
+  vim.notify('Cowboy got shot', vim.log.levels.WARN, { icon = icon })
 end
 
 return M
