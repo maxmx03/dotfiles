@@ -40,6 +40,6 @@ vim.api.nvim_create_autocmd('BufLeave', {
 
     local discipline = require 'core.discipline'
 
-    discipline.cowboy_got_shot()
+    discipline.cowboy_gets_shot()
   end,
 })
