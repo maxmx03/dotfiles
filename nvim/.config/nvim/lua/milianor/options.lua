@@ -40,8 +40,8 @@ vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.signcolumn = 'yes' -- always show the sign column otherwise it would shift the text each time
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.spell = true
-vim.opt.spelllang = 'en'
-vim.opt.scrolloff = 8 -- is one of my fav
+vim.opt.spelllang = 'en_us'
+vim.opt.scrolloff = 8 -- is one of my favorite
 vim.opt.sidescrolloff = 8
 vim.opt.wrap = true
 

@@ -49,6 +49,7 @@ function M.cowboy()
 end
 
 function M.cowboy_gets_shot()
+  local ok = true
   for _, key in ipairs(keys) do
     local map = key
     vim.keymap.set('n', key, function()
@@ -56,7 +57,14 @@ function M.cowboy_gets_shot()
     end, { expr = true, silent = true })
   end
 
-  vim.notify('Cowboy got shot', vim.log.levels.WARN, { icon = icon })
+  ok, _G.cowboy_id = pcall(vim.notify, 'Cowboy got shot', vim.log.levels.WARN, {
+    icon = icon,
+    replace = _G.cowboy_id,
+  })
+
+  if not ok then
+    _G.cowboy_id = nil
+  end
 end
 
 return M

@@ -3,6 +3,7 @@ return {
     'maxmx03/solarized.nvim',
     lazy = false,
     priority = 1000,
+    branch = 'dev',
     config = function()
       require('solarized').setup {
         transparent = true,
