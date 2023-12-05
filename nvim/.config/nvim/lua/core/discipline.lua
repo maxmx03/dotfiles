@@ -9,8 +9,6 @@ local keys = {
   '<Down>',
   '<Up>',
   '<Right>',
-  '+',
-  '-',
 }
 local icon = '🤠'
 
