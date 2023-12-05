@@ -6,7 +6,7 @@
   "modules-left": [
     "custom/weather"
   ],
-  "modules-center": ["custom/launch_wofi", "wlr/workspaces", "wlr/taskbar"],
+  "modules-center": ["custom/launch_wofi", "hyprland/workspaces", "hyprland/taskbar"],
   "modules-right": [
     "custom/changebg",
     "pulseaudio",
@@ -28,7 +28,7 @@
     "on-click": "rofi -show drun",
     "tooltip": false
   },
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "format": "<span size='14pt' font_weight='bold'>{icon}</span>",
     "on-click": "activate",
     "active-only": false,
@@ -52,7 +52,7 @@
     },
     "sort-by-number": true
   },
-  "wlr/taskbar": {
+  "hyprland/taskbar": {
     "format": "{icon}",
     "icon-size": 24,
     "icon-theme": "WhiteSur-purple-dark",
