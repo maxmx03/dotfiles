@@ -78,8 +78,8 @@ thunar_packages=(
     dracula-cursors
     gnome-disk-utility
     ristretto
-    smplayer
-    xreader
+    mpv
+    evince-no-gnome
 )
 
 paru -S "${thunar_packages[@]}"
@@ -92,9 +92,12 @@ neovim_packages=(
     fzf
     fd
     ripgrep
+    lazygit
 )
 
 paru -S "${neovim_packages[@]}"
+
+stow nvim
 
 cd "$HOME"
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
