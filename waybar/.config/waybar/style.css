@@ -1,54 +1,88 @@
-window#waybar {
-  background: rgba(34, 33, 44, 0.5);
+* {
+  border: none;
   border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#waybar {
+  background: rgba(26, 27, 38, 0.95);
+  color: #eeeeef;
+  font-size: 14px;
+  font-family: "Hack Nerd Font";
 }
 
 .modules-left {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .modules-right {
-  margin-right: 10px;
-}
-
-#custom-launch_wofi {
-  color: rgba(248, 248, 242, 1);
-}
-
-button:hover {
-  background: inherit;
+  margin-right: 8px;
 }
 
 #workspaces button {
-  color: rgba(248, 248, 242, 0.5);
-  transition: color 1s ease-in;
+  padding: 0 5px;
+  color: #eeeeef;
 }
-
+/* Fix: active workspace doesn't show up */
+/* #workspaces button.focused { */
 #workspaces button.active {
-  color: rgba(248, 248, 242, 1);
+  color: #bb9af7;
 }
 
-#workspaces button.focused {
-  color: rgba(248, 248, 242, 1);
+#custom-powermenu,
+#cpu,
+#custom-weather,
+#temperature,
+#memory,
+#workspaces,
+#custom-changebg,
+#clock,
+#window,
+#pulseaudio,
+#tray,
+#network {
+  padding: 4px 8px;
+  background-color: #292e42;
+  border-radius: 30px;
+  margin: 6px 4px;
 }
 
-#workspace button.urgent {
-  color: rgba(149, 128, 255, 1);
+#window {
+  color: #929db1;
+}
+
+#custom-powermenu {
+  color: #e06c75;
+  padding-right: 11px;
 }
 
 #pulseaudio {
-  color: rgba(248, 248, 242, 1);
+  color: #1abc9c;
+  padding-right: 14px;
 }
 
-#pulseaudio.muted {
-  color: rgba(248, 248, 242, 0.5);
+#cpu {
+  color: #7aa2f7;
 }
 
-#taskbar button {
-  background: transparent;
-  transition: background 1s linear;
+#temperature {
+  color: #9ece6a;
 }
 
-#taskbar button.active {
-  background: rgba(248, 248, 242, 0.3);
+#memory {
+  color: #ff9e64;
+}
+
+
+#network {
+  color: #9d7cd8;
+  min-width: 200px;
+}
+
+#clock {
+  color: #fff;
+  /* opacity: 0.7; */
+  /* font-size: 18px; */
 }

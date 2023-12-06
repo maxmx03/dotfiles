@@ -43,3 +43,8 @@ vim.api.nvim_create_autocmd('BufLeave', {
     discipline.cowboy_gets_shot()
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+  pattern = '*.*',
+  command = 'update',
+})

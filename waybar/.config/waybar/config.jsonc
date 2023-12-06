@@ -1,42 +1,53 @@
 {
   "layer": "top",
-  "position": "bottom",
-  // "output": "HDMI-A-1",
-  "spacing": 15,
-  "modules-left": [
-    "custom/weather"
-  ],
-  "modules-center": ["custom/launch_wofi", "hyprland/workspaces", "wlr/taskbar"],
+  "position": "top",
+  "margin-bottom": 0,
+  "modules-left": ["clock", "hyprland/workspaces", "custom/changebg"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
-    "custom/changebg",
-    "pulseaudio",
-    "cpu",
+    "network",
+    "custom/weather",
+    "temperature",
     "memory",
-    "clock",
-    "tray"
+    "cpu",
+    "pulseaudio",
+    "tray",
+    "custom/powermenu"
   ],
-  "custom/weather": {
-    //shows the current weather and forecast
-    "tooltip": true,
-    "format": "<span size='14pt' font_weight='bold'>{}</span>",
-    "interval": 30,
-    "exec": "~/.config/waybar/scripts/weather",
-    "return-type": "json"
-  },
-  "custom/launch_wofi": {
-    "format": "<span size='18pt'> </span>",
-    "on-click": "rofi -show drun",
+  "custom/changebg": {
+    "format": "change  ",
+    "on-click": "~/.config/waybar/scripts/changebg",
     "tooltip": false
   },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 10
+  },
+  "hyprland/window": {
+    "format": " {}",
+    "rewrite": {
+      "(\\d\\. )?(.*) - nvim": "<span color=\"#9ece6a\"> Neovim</span> ",
+      "nvim (.*)": "<span color=\"#9ece6a\"> </span>  $1",
+      "nvim": "<span color=\"#9ece6a\"> Neovim</span> "
+    },
+    "separate-outputs": false
+  },
   "hyprland/workspaces": {
-    "format": "<span size='14pt' font_weight='bold'>{icon}</span>",
-    "on-click": "activate",
-    "active-only": false,
-    "all-outputs": false,
+    "format": "{icon}",
     "format-icons": {
-      "urgent": "󱋯",
-      "active": "󰝤",
-      "default": "󰝣"
+      "1": "󰲠",
+      "2": "󰲢",
+      "3": "󰲤",
+      "4": "󰲦",
+      "5": "󰲨",
+      "6": "󰲪",
+      "7": "󰲬",
+      "8": "󰲮",
+      "9": "󰲰",
+      "10": "󰿬",
+      "-99": "",
+      "active": "",
+      "default": ""
     },
     "persistent_workspaces": {
       "1": ["HDMI-A-1"],
@@ -49,54 +60,67 @@
       // "8": ["DP-1"],
       // "9": ["DP-1"],
       // "10": ["DP-1"]
-    },
-    "sort-by-number": true
-  },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 24,
-    "icon-theme": "WhiteSur-purple-dark",
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "ignore-list": ["Alacritty"],
-    "app_ids-mapping": {
-      "firefoxdeveloperedition": "firefox-developer-edition"
     }
   },
-  "custom/changebg": {
-    "format": "<span size='14pt' rise='1000'>󰋩 </span>",
-    "on-click": "~/.config/waybar/scripts/bgaction",
-    "tooltip": false
+  "network": {
+    "interface": "enp5s0",
+    "tooltip-format-ethernet": "{ifname} ",
+    "interval": 2,
+    "format": " {bandwidthDownBits}  {bandwidthUpBits}"
+  },
+  "temperature": {
+    "format": "{icon} {temperatureC}°C",
+    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "critical-threshold": 80,
+    "format-icons": ["", "", ""]
+  },
+  "memory": {
+    "format": " {}%",
+    "tooltip": "false"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": "false"
+  },
+  "custom/powermenu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "exec wlogout -p layer-shell"
+  },
+  "custom/updates": {
+    "format": "<span color=\"#61afef\"></span> {}",
+    "tooltip": false,
+    "interval": 3600,
+    "exec": "exec $HOME/.config/waybar/checkupdate.sh"
   },
   "pulseaudio": {
-    "format": "<span size='14pt'>{icon}</span>",
-    "tooltip-format": "volume {volume}%",
-    "format-muted": "<span size='14pt' rise='1000'> </span>",
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
     "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
       "default": ["", ""]
     },
     "scroll-step": 1,
-    "on-click": "pavucontrol",
-    "ignored-sinks": ["Easy Effects Sink"]
+    "on-click": "pavucontrol"
   },
-  "cpu": {
-    "interval": 20,
-    "format": "<span size='14pt' rise='1000'> </span>",
-    "max-length": 5
-  },
-  "memory": {
-    "interval": 20,
-    "format": "<span size='14pt' rise='1000'> </span>",
-    "max-length": 5
+  "custom/weather": {
+    //shows the current weather and forecast
+    "tooltip": true,
+    "format": "{}",
+    "interval": 30,
+    "exec": "~/.config/waybar/scripts/weather",
+    "return-type": "json"
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
     "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
-  },
-  "tray": {
-    "icon-size": 21
   }
 }

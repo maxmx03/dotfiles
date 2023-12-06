@@ -9,8 +9,7 @@ return {
     'codota/tabnine-nvim',
     build = build,
     config = function()
-      local solarized_palette = require 'solarized.palette'
-      local colors = solarized_palette.get_colors()
+      local colors = _G.colors
 
       require('tabnine').setup {
         disable_auto_comment = true,

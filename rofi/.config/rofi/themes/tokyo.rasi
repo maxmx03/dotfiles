@@ -1,0 +1,12 @@
+
+* {
+    bg-col: #1a1b26;
+    bg-col-light: #283457;
+    border-col: #283457;
+    selected-col: #283457;
+    blue: #7dcfff;
+    fg-col: #a9b1d6;
+    fg-col2: #a9b1d6;
+    grey: #565c64;
+    width: 600;
+}

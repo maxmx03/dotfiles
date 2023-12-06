@@ -13,7 +13,7 @@ configuration{
     display-drun: "   Apps ";
 }
 
-@theme "onedark"
+@theme "tokyo"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;

@@ -3,7 +3,7 @@
 # Define the weather codes
 declare -A WEATHER_CODES=(
   ["113"]="☀️ "
-  ["116"]="⛅ "
+  ["116"]="⛅"
   ["119"]="☁️ "
   ["122"]="☁️ "
   ["143"]="☁️ "
@@ -69,7 +69,7 @@ else
   if [[ $tempint -gt 0 && $tempint -lt 10 ]]; then
     extrachar='+'
   fi
-  text=$(printf " %s%s°C" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
+  text=$(printf " %s%s°C" "${WEATHER_CODES[$weather_code]} " "$extrachar$feels_like")
 
   # Print the formatted weather data as JSON
   echo "{\"text\":\"$text\"}"

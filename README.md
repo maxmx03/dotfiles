@@ -130,7 +130,7 @@ Theme
 
 How to install
 
-    paru -S waybar-hyprland
+    paru -S waybar-git
 
 Extra Packages to Install
 

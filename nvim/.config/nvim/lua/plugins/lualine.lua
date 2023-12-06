@@ -2,38 +2,7 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     config = function()
-      local solarized_palette = require 'solarized.palette'
-      local colors = solarized_palette.get_colors()
-      local foreground = colors.base2
-
-      if vim.o.background == 'light' then
-        foreground = colors.base02
-      end
-
-      local custom_theme = {
-        normal = {
-          a = { fg = colors.base04, bg = colors.blue },
-          b = { fg = foreground, bg = colors.base1 },
-          c = { fg = colors.base2, bg = colors.base04 },
-        },
-        insert = {
-          a = { fg = colors.base04, bg = colors.green },
-        },
-        visual = {
-          a = { fg = colors.base04, bg = colors.magenta },
-        },
-        replace = {
-          a = { fg = colors.base04, bg = colors.red },
-        },
-        command = {
-          a = { fg = colors.base03, bg = colors.red },
-        },
-        inactive = {
-          a = { fg = foreground, bg = colors.base04 },
-          b = { fg = colors.base2, bg = colors.base04 },
-          c = { fg = colors.base04, bg = colors.base04 },
-        },
-      }
+      local colors = _G.colors
 
       local hide_in_width = function()
         return vim.fn.winwidth(0) > 80
@@ -85,7 +54,7 @@ return {
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git, color = { fg = colors.magenta } },
+          icon = { icons.git, color = { fg = colors.red } },
           cond = hide_in_width,
         },
         {
@@ -93,9 +62,9 @@ return {
           symbols = icons.diff,
           colored = true,
           diff_color = {
-            added = { fg = colors.green },
-            modified = { fg = colors.orange },
-            removed = { fg = colors.red },
+            added = { fg = colors.git.add },
+            modified = { fg = colors.git.change },
+            removed = { fg = colors.git.delete },
           },
           cond = hide_in_width,
         },
@@ -153,7 +122,7 @@ return {
 
       require('lualine').setup {
         options = {
-          theme = custom_theme,
+          theme = 'tokyonight',
           component_separators = '',
           section_separators = { left = icons.default.right, right = icons.default.left },
           disabled_filetypes = {

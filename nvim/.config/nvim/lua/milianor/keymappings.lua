@@ -12,7 +12,6 @@ map('n', '<F7>', ':Inspect<cr>', opts)
 map('n', '<F8>', ':InspectTree<cr>', opts)
 
 local normal = {
-  w = { '<cmd>update<cr>', '󰏫 Save' },
   q = { '<cmd>lua require("milianor.utils"):smart_quit()<cr>', ' Close' },
   Q = { '<cmd>quitall<cr>', '󰩈 Quit Neovim' },
   e = { '<cmd>NvimTreeToggle<cr>', '󰙅 Open File Tree' },
@@ -21,6 +20,7 @@ local normal = {
   t = { '<cmd>ToggleTerm<cr>', ' Open Terminal' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment toggle current line' },
   [';'] = { '<cmd>Dashboard<cr>', ' Open Dashboard' },
+  ['w'] = { '<cmd>HopWord<cr>', '󰤇 Hop Word' },
   s = {
     name = ' Search',
     f = { '<cmd>Telescope find_files<cr>', 'Search files' },
@@ -31,6 +31,18 @@ local normal = {
     c = { '<cmd>Telescope commands<cr>', 'Search commands' },
     k = { '<cmd>Telescope keymaps<cr>', 'Search keymaps' },
     p = { '<cmd>Telescope projects<cr>', 'Search Projects' },
+  },
+  l = {
+    name = ' LSP',
+    d = { '<cmd>Lspsaga goto_definition<cr>', 'Go to Definition' },
+    p = { '<cmd>Lspsaga peek_definition<cr>', 'Peek Definition' },
+    h = { '<cmd>Lspsaga hover_doc<cr>', 'Hover' },
+    s = { '<cmd>Telescope lsp_document_symbols theme=dropdown<cr>', 'Document Symbols' },
+    r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
+    c = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
+    f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format file' },
+    e = { '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Show diagnostic' },
+    o = { '<cmd>Lspsaga outline<cr>', 'Show outline' },
   },
   g = {
     name = ' Git',

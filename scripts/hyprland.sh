@@ -47,10 +47,12 @@ hypr_packages=(
     swww
     wlogout
     pavucontrol
+    pamixer
     kitty
     fish
     exa
     neofetch
+    htop
     jq
     waybar-git
     firefox

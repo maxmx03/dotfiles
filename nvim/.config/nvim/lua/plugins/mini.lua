@@ -8,7 +8,6 @@ return {
         'cursorword',
         'move',
         'surround',
-        'trailspace',
       }
 
       for _, module in pairs(modules) do

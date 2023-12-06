@@ -35,26 +35,10 @@ return {
         callback = function(ev)
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-          local wk = require 'which-key'
 
           if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
             vim.lsp.inlay_hint.enable(ev.buf, true)
           end
-
-          wk.register({
-            l = {
-              name = ' LSP',
-              d = { '<cmd>Lspsaga goto_definition<cr>', 'Go to Definition' },
-              p = { '<cmd>Lspsaga peek_definition<cr>', 'Peek Definition' },
-              h = { '<cmd>Lspsaga hover_doc<cr>', 'Hover' },
-              s = { '<cmd>Telescope lsp_document_symbols theme=dropdown<cr>', 'Document Symbols' },
-              r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
-              c = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
-              f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format file' },
-              e = { '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Show diagnostic' },
-              o = { '<cmd>Lspsaga outline<cr>', 'Show outline' },
-            },
-          }, { prefix = '<space>' })
         end,
       })
 

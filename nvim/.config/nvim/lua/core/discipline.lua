@@ -55,10 +55,12 @@ function M.cowboy_gets_shot()
     end, { expr = true, silent = true })
   end
 
-  ok, _G.cowboy_id = pcall(vim.notify, 'Cowboy got shot', vim.log.levels.WARN, {
-    icon = icon,
-    replace = _G.cowboy_id,
-  })
+  if _G.cowboy_id == nil then
+    ok, _G.cowboy_id = pcall(vim.notify, 'Cowboy got shot', vim.log.levels.WARN, {
+      icon = icon,
+      replace = _G.cowboy_id,
+    })
+  end
 
   if not ok then
     _G.cowboy_id = nil
