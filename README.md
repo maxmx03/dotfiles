@@ -1,6 +1,6 @@
 ## Milianor's dotfiles
 
-![moon](https://user-images.githubusercontent.com/50273941/236974928-91266362-d7a5-46ce-b46b-4253fedc513e.png)
+![2b](https://github.com/maxmx03/dotfiles/assets/50273941/75516a68-966f-453c-94c9-b83de37d5355)
 
 ### Install GNU Stow
 
@@ -152,5 +152,3 @@ How to install
 [rofi](https://github.com/lbonn/rofi)
 
 </details>
-
-![waybar](https://user-images.githubusercontent.com/50273941/236975009-cb01a4f8-9afb-4a7e-b472-a6718da6c01a.png)
