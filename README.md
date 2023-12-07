@@ -1,6 +1,6 @@
 ## Milianor's dotfiles
 
-![2b](https://github.com/maxmx03/dotfiles/assets/50273941/75516a68-966f-453c-94c9-b83de37d5355)
+![kroni](https://github.com/maxmx03/dotfiles/assets/50273941/56cf13b0-bf45-451d-a2b2-8316cf5a6b76)
 
 ### Install GNU Stow
 
