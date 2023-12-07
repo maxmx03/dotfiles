@@ -24,6 +24,7 @@
 #workspaces button {
   padding: 0 5px;
   color: #eeeeef;
+  background: none;
 }
 /* Fix: active workspace doesn't show up */
 /* #workspaces button.focused { */
@@ -74,7 +75,6 @@
 #memory {
   color: #ff9e64;
 }
-
 
 #network {
   color: #9d7cd8;
