@@ -35,11 +35,13 @@ return {
         callback = function(ev)
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+          local navic = require 'core.navic'
 
           if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
             vim.lsp.inlay_hint.enable(ev.buf, true)
           end
 
+          navic.attach(client, ev.buf)
           vim.api.nvim_create_autocmd('BufWrite', {
             buffer = ev.buf,
             callback = function()

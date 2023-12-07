@@ -40,7 +40,7 @@ local normal = {
     s = { '<cmd>Telescope lsp_document_symbols theme=dropdown<cr>', 'Document Symbols' },
     r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
     c = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
-    f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format file' },
+    f = { '<cmd>lua require("milianor.utils"):format()<cr>', 'Format file' },
     e = { '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Show diagnostic' },
     o = { '<cmd>Lspsaga outline<cr>', 'Show outline' },
   },
@@ -100,20 +100,16 @@ local normal = {
     s = { '<cmd>TabnineStatus<cr>', 'Tabnine status' },
     l = { '<cmd>TabnineLoginWithAuthToken<cr>', 'Tabnine login' },
   },
-  o = {
-    name = '󰚩 Ollama',
-    c = { '<cmd>Gen Chat<cr>', 'Chat' },
-    a = { '<cmd>Gen Ask<cr>', 'Ask' },
+  m = {
+    name = ' Markdown',
+    m = { '<cmd>MarkdownPreview<cr>', 'Open Markdown Preview' },
+    s = { '<cmd>MarkdownPreviewStop<cr>', 'Stop Markdown Preview' },
+    t = { '<cmd>MarkdownPreviewToggle<cr>', 'Toggle Markdown Preview' },
   },
 }
 
 local visual = {
   ['/'] = { '<Plug>(comment_toggle_linewise_visual)', ' Comment toggle current line' },
-  o = {
-    name = '󰚩 Ollama',
-    c = { ':Gen Enhance_Code<cr>', 'Enhance Code' },
-    r = { ':Gen Review_Code<cr>', 'Review Code' },
-  },
 }
 
 return { normal = normal, visual = visual }

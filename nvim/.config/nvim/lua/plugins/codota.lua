@@ -16,7 +16,7 @@ return {
         accept_keymap = '<Tab>',
         dismiss_keymap = '<C-]>',
         debounce_ms = 800,
-        suggestion_color = { gui = colors.base01, cterm = 244 },
+        suggestion_color = { gui = colors.comment, cterm = 244 },
         exclude_filetypes = { 'TelescopePrompt', 'NvimTree' },
         log_file_path = nil, -- absolute path to Tabnine log file
       }
