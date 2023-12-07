@@ -39,6 +39,13 @@ return {
           if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
             vim.lsp.inlay_hint.enable(ev.buf, true)
           end
+
+          vim.api.nvim_create_autocmd('BufWrite', {
+            buffer = ev.buf,
+            callback = function()
+              vim.lsp.buf.format()
+            end,
+          })
         end,
       })
 

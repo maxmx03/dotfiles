@@ -11,6 +11,7 @@ return {
       'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
       'onsails/lspkind.nvim',
+      'f3fora/cmp-spell',
     },
     config = function()
       local ok, luasnip = pcall(require, 'luasnip.loaders.from_vscode')
@@ -42,7 +43,7 @@ return {
               mode = 'symbol_text',
               maxwidth = 30,
               -- preset = 'codicons',
-            }(entry, vim_item)
+            } (entry, vim_item)
             local strings = vim.split(kind.kind, '%s', { trimempty = true })
             kind.kind = ' ' .. (strings[1] or '') .. ' '
             kind.menu = '    (' .. (strings[2] or '') .. ')'
@@ -76,6 +77,15 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'emoji' },
+          {
+            name = 'spell',
+            option = {
+              keep_all_entries = false,
+              enable_in_context = function()
+                return true
+              end,
+            },
+          },
         }, {
           { name = 'buffer' },
         }),

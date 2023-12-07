@@ -12,6 +12,7 @@ map('n', '<F7>', ':Inspect<cr>', opts)
 map('n', '<F8>', ':InspectTree<cr>', opts)
 
 local normal = {
+  ['w'] = { '<cmd>update<cr>', ' Save' },
   q = { '<cmd>lua require("milianor.utils"):smart_quit()<cr>', ' Close' },
   Q = { '<cmd>quitall<cr>', '󰩈 Quit Neovim' },
   e = { '<cmd>NvimTreeToggle<cr>', '󰙅 Open File Tree' },
@@ -20,7 +21,6 @@ local normal = {
   t = { '<cmd>ToggleTerm<cr>', ' Open Terminal' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment toggle current line' },
   [';'] = { '<cmd>Dashboard<cr>', ' Open Dashboard' },
-  ['w'] = { '<cmd>HopWord<cr>', '󰤇 Hop Word' },
   s = {
     name = ' Search',
     f = { '<cmd>Telescope find_files<cr>', 'Search files' },
