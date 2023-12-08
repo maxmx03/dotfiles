@@ -98,7 +98,7 @@
     "format-icons": ["", "", ""]
   },
   "memory": {
-    "format": " {}%",
+    "format": "󰍛 {}%",
     "tooltip": "false"
   },
   "cpu": {
