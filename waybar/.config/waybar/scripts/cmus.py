@@ -16,7 +16,7 @@ result = subprocess.run(
 
 # Get the output and use it within a JSON structure
 # Assuming the output needs trimming
-max_chars = 45  # Define the maximum number of characters
+max_chars = 25  # Define the maximum number of characters
 
 if len(result.stdout.strip()) > max_chars:
     # Truncate and add ellipsis
