@@ -55,6 +55,7 @@ hypr_packages=(
     htop
     jq
     waybar-git
+    cmus
     firefox
     ttf-dejavu
     ttf-liberation

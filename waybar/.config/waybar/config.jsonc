@@ -2,7 +2,12 @@
   "layer": "top",
   "position": "top",
   "margin-bottom": 0,
-  "modules-left": ["clock", "hyprland/workspaces", "custom/changebg"],
+  "modules-left": [
+    "clock",
+    "hyprland/workspaces",
+    "custom/changebg",
+    "custom/cmus"
+  ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "network",
@@ -14,6 +19,16 @@
     "tray",
     "custom/powermenu"
   ],
+  "custom/cmus": {
+    "format": "♪ {}",
+    //"max-length": 15,
+    "interval": 10,
+    "exec": "python ~/.config/waybar/scripts/cmus.py",
+    "return-type": "json",
+    "exec-if": "pgrep cmus",
+    "on-click": "cmus-remote -u",
+    "escape": true
+  },
   "custom/changebg": {
     "format": "change  ",
     "on-click": "~/.config/waybar/scripts/changebg",
@@ -24,17 +39,17 @@
     "spacing": 10
   },
   "hyprland/window": {
-    "format": " {}",
+    "format": "{}",
     "rewrite": {
-      "(\\d\\. )?(.*) nvim": "<span color=\"#9ece6a\"> Neovim</span> ",
-      "nvim (.*)": "<span color=\"#9ece6a\"> </span> ",
-      "nvim": "<span color=\"#9ece6a\"> Neovim</span> ",
-      "(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#ff9e64\">󰈹 Firefox</span> ",
-      "Mozilla Firefox (.*)": "<span color=\"#ff9e64\">󰈹 Firefox</span> ",
-      "Mozilla Firefox": "<span color=\"#ff9e64\">󰈹 Firefox</span> ",
-      "(\\d\\. )?(.*) Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span> ",
-      "Google Chrome (.*)": "<span color=\"#f7768e\"> Google Chrome</span> ",
-      "Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span> "
+      "(\\d\\. )?(.*) nvim": "<span color=\"#9ece6a\"> Neovim</span>",
+      "nvim (.*)": "<span color=\"#9ece6a\"> </span>",
+      "nvim": "<span color=\"#9ece6a\"> Neovim</span>",
+      "(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#ff9e64\">󰈹 Firefox</span>",
+      "Mozilla Firefox (.*)": "<span color=\"#ff9e64\">󰈹 Firefox</span>",
+      "Mozilla Firefox": "<span color=\"#ff9e64\">󰈹 Firefox</span>",
+      "(\\d\\. )?(.*) Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span>",
+      "Google Chrome (.*)": "<span color=\"#f7768e\"> Google Chrome</span ",
+      "Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span>"
     },
     "separate-outputs": false
   },

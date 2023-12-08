@@ -1,6 +1,6 @@
 return {
   {
-    'folke/tokyonight.nvim',
+    'maxmx03/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     opts = {},
@@ -25,6 +25,7 @@ return {
           group.LspInlayHint = { fg = darken(c.blue1, 0.7), bg = 'NONE' }
           group['@lsp.typemod.function.defaultLibrary'] = { link = 'Function' }
           group['HopNextKey'] = { fg = c.orange }
+          group['TelescopeSelectionCaret'] = { fg = c.purple }
           dashboard(group, 'Header', { fg = c.purple })
           dashboard(group, 'Desc', { fg = c.fg })
           dashboard(group, 'Icon', { link = 'Directory' })
