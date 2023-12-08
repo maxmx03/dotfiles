@@ -27,6 +27,8 @@
     "return-type": "json",
     "exec-if": "pgrep cmus",
     "on-click": "cmus-remote -u",
+    "on-scroll-up": "cmus-remote --next",
+    "on-scroll-down": "cmus-remote --prev",
     "escape": true
   },
   "custom/changebg": {
