@@ -42,7 +42,7 @@ return {
           end
 
           navic.attach(client, ev.buf)
-          vim.api.nvim_create_autocmd('BufWrite', {
+          vim.api.nvim_create_autocmd('BufWritePost', {
             buffer = ev.buf,
             callback = function()
               vim.lsp.buf.format()
