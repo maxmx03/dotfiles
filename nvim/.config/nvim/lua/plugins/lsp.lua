@@ -42,12 +42,6 @@ return {
           end
 
           navic.attach(client, ev.buf)
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = ev.buf,
-            callback = function()
-              require('milianor.utils').format(ev.buf)
-            end,
-          })
         end,
       })
 
