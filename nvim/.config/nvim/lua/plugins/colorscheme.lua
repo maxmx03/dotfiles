@@ -3,7 +3,6 @@ return {
     'maxmx03/tokyonight.nvim',
     lazy = false,
     priority = 1000,
-    opts = {},
     config = function()
       local transparent = false
       _G.colors = require('tokyonight.colors').default

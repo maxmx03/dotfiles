@@ -10,4 +10,5 @@ return {
   'bashls',
   'marksman',
   'pylsp',
+  'rust_analyzer',
 }

@@ -102,7 +102,7 @@ return {
         {
           function()
             local msg = 'No Active Lsp'
-            local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+            local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
             local clients = vim.lsp.get_clients()
             if next(clients) == nil then
               return msg

@@ -40,7 +40,7 @@ local normal = {
     s = { '<cmd>Telescope lsp_document_symbols theme=dropdown<cr>', 'Document Symbols' },
     r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
     c = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
-    f = { '<cmd>lua require("milianor.utils"):format()<cr>', 'Format file' },
+    f = { '<cmd>lua require("milianor.utils").format()<cr>', 'Format file' },
     e = { '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Show diagnostic' },
     o = { '<cmd>Lspsaga outline<cr>', 'Show outline' },
   },
@@ -105,6 +105,12 @@ local normal = {
     m = { '<cmd>MarkdownPreview<cr>', 'Open Markdown Preview' },
     s = { '<cmd>MarkdownPreviewStop<cr>', 'Stop Markdown Preview' },
     t = { '<cmd>MarkdownPreviewToggle<cr>', 'Toggle Markdown Preview' },
+  },
+  n = {
+    name = ' Todo',
+    T = { '<cmd>TodoTelescope<cr>', 'Show todos with telescope' },
+    q = { '<cmd>TodoQuickFix<cr>', 'Show todos with quickfix' },
+    l = { '<cmd>TodoLocList<cr>', 'Show todos with loclist' },
   },
 }
 

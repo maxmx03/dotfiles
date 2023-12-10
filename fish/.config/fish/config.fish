@@ -9,6 +9,7 @@ set PATH ~/.nvm/versions/node/v20.10.0/bin $PATH
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
 alias python python3
+alias vim "/home/milianor/.local/bin/lvim"
 # alias pip pip3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
