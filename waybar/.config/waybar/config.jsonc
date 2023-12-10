@@ -20,7 +20,7 @@
     "custom/powermenu"
   ],
   "custom/cmus": {
-    "format": "♪ {}",
+    "format": "󰎈 {} 󰕾",
     //"max-length": 15,
     "interval": 10,
     "exec": "python ~/.config/waybar/scripts/cmus.py",
@@ -110,23 +110,12 @@
     "tooltip": false,
     "on-click": "exec wlogout -p layer-shell"
   },
-  "custom/updates": {
-    "format": "<span color=\"#61afef\"></span> {}",
-    "tooltip": false,
-    "interval": 3600,
-    "exec": "exec $HOME/.config/waybar/checkupdate.sh"
-  },
   "pulseaudio": {
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}",
     "format-muted": "",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
+      "headphone": "󰋎",
       "default": ["", ""]
     },
     "scroll-step": 1,

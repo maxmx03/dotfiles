@@ -1,30 +1,27 @@
 import subprocess
 import json
 
-cmus_remote = "cmus-remote -C \"format_print '%f'\""
+cmus_remote = "cmus-remote -C \"format_print '%f %{lvolume}'\""
 basename = "xargs -I {} basename {}"
-search = f"{cmus_remote} | {basename}"
+cmd = f"{cmus_remote} | {basename}"
 
-# Run the shell command and capture its output
 result = subprocess.run(
-    search,
+    cmd,
     shell=True,
     capture_output=True,
     text=True
 )
 
-# Get the output and use it within a JSON structure
-# Assuming the output needs trimming
-max_chars = 25  # Define the maximum number of characters
+output = result.stdout.strip()
+filename, _, volume = output.rpartition(' ')
 
-if len(result.stdout.strip()) > max_chars:
-    # Truncate and add ellipsis
-    output = result.stdout.strip()[:max_chars - 3] + '...'
-else:
-    output = result.stdout.strip()
+max_chars = 25
+
+if len(filename) > max_chars:
+    filename = filename[:max_chars - 3] + '...'
+
 json_data = {
-    "text": output  # Place the output into a JSON structure
+    "text": f"{filename} {volume}%",
 }
 
-# Convert the JSON to a string and print it
 print(json.dumps(json_data))
