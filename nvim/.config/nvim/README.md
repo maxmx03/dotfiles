@@ -1,30 +1,142 @@
-# Milianor-vim
+# dotfiles/nvim/.config/nvim
 
-A Neovim configuration focused on productivity and ease of use.
+<a href="https://dotfyle.com/maxmx03/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/maxmx03/dotfiles-nvim-config-nvim/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/maxmx03/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/maxmx03/dotfiles-nvim-config-nvim/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/maxmx03/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/maxmx03/dotfiles-nvim-config-nvim/badges/plugin-manager?style=flat" /></a>
 
-## Quick Start
+## Install Instructions
 
-Clone the repository:
+> Install requires Neovim 0.9+. Always review the code before installing a configuration.
 
-    git clone https://github.com/maxmx03/milianor-vim.git ~/.config/nvim
+Clone the repository and install the plugins:
 
-Install the required dependencies:
+```sh
+git clone git@github.com:maxmx03/dotfiles ~/.config/maxmx03/dotfiles
+NVIM_APPNAME=maxmx03/dotfiles/nvim/.config/nvim nvim --headless +"Lazy! sync" +qa
+```
 
-- `Neovim v.10.0+`
-- [Nerdfonts](https://www.nerdfonts.com/font-downloads)
-- [codicons (optional)](https://github.com/microsoft/vscode-codicons/blob/main/dist/codicon.ttf)
-- [NotoEmoji](https://github.com/googlefonts/noto-emoji/blob/main/fonts/NotoColorEmoji.ttf)
-- [LazyGit (optional)](https://github.com/jesseduffield/lazygit)
+Open Neovim with this config:
 
-Make sure to install these dependencies before starting Neovim.
+```sh
+NVIM_APPNAME=maxmx03/dotfiles/nvim/.config/nvim nvim
+```
 
-Launch Neovim:
+## Plugins
 
-    nvim
+### bars-and-lines
 
-## Codicon
+- [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 
-Codicon may not work in some terminals. To get it working, try using the kitty
-terminal and add the following line to your kitty.conf configuration file:
+### color
 
-`symbol_map U+f101-U+f208 nonicon regular`
+- [brenoprata10/nvim-highlight-colors](https://dotfyle.com/plugins/brenoprata10/nvim-highlight-colors)
+
+### comment
+
+- [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
+- [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
+
+### completion
+
+- [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
+
+### editing-support
+
+- [folke/zen-mode.nvim](https://dotfyle.com/plugins/folke/zen-mode.nvim)
+- [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
+- [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
+
+### fuzzy-finder
+
+- [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
+- [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
+
+### git
+
+- [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
+- [kdheepak/lazygit.nvim](https://dotfyle.com/plugins/kdheepak/lazygit.nvim)
+- [NeogitOrg/neogit](https://dotfyle.com/plugins/NeogitOrg/neogit)
+- [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
+
+### keybinding
+
+- [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
+
+### lsp
+
+- [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
+- [jose-elias-alvarez/null-ls.nvim](https://dotfyle.com/plugins/jose-elias-alvarez/null-ls.nvim)
+- [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
+- [ray-x/lsp_signature.nvim](https://dotfyle.com/plugins/ray-x/lsp_signature.nvim)
+- [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
+- [glepnir/lspsaga.nvim](https://dotfyle.com/plugins/glepnir/lspsaga.nvim)
+
+### lsp-installer
+
+- [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
+
+### markdown-and-latex
+
+- [iamcco/markdown-preview.nvim](https://dotfyle.com/plugins/iamcco/markdown-preview.nvim)
+
+### motion
+
+- [phaazon/hop.nvim](https://dotfyle.com/plugins/phaazon/hop.nvim)
+
+### nvim-dev
+
+- [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
+- [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
+
+### plugin-manager
+
+- [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
+
+### project
+
+- [ahmedkhalf/project.nvim](https://dotfyle.com/plugins/ahmedkhalf/project.nvim)
+
+### snippet
+
+- [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
+- [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
+
+### startup
+
+- [nvimdev/dashboard-nvim](https://dotfyle.com/plugins/nvimdev/dashboard-nvim)
+
+### statusline
+
+- [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
+
+### syntax
+
+- [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
+
+### tabline
+
+- [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
+
+### utility
+
+- [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
+- [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
+- [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
+- [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
+
+## Language Servers
+
+- bashls
+- cssls
+- cssmodules_ls
+- emmet_ls
+- eslint
+- html
+- lua_ls
+- marksman
+- pylsp
+- rust_analyzer
+- tsserver
+- vimls
+
+This readme was generated by [Dotfyle](https://dotfyle.com)
