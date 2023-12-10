@@ -43,3 +43,4 @@ vim.api.nvim_create_autocmd('BufLeave', {
     discipline.cowboy_gets_shot()
   end,
 })
+

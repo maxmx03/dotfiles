@@ -34,11 +34,8 @@ end
 
 function M.format(buf)
   local bufnr = buf or vim.api.nvim_get_current_buf()
-  local modified = vim.api.nvim_get_option_value('modified', { buf = bufnr })
 
-  if modified then
-    vim.lsp.buf.format { buf = bufnr }
-  end
+  vim.lsp.buf.format { buf = bufnr }
 end
 
 return M:new()

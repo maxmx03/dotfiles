@@ -20,7 +20,7 @@
     "custom/powermenu"
   ],
   "custom/cmus": {
-    "format": "󰎈 {} 󰕾",
+    "format": "󰎈 {}",
     //"max-length": 15,
     "interval": 10,
     "exec": "python ~/.config/waybar/scripts/cmus.py",

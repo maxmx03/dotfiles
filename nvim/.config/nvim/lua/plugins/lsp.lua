@@ -42,6 +42,10 @@ return {
           end
 
           navic.attach(client, ev.buf)
+          vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+            buffer = ev.buf,
+            command = 'update',
+          })
         end,
       })
 

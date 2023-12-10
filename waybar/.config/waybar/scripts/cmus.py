@@ -5,6 +5,7 @@ cmus_remote = "cmus-remote -C \"format_print '%f %{lvolume}'\""
 basename = "xargs -I {} basename {}"
 cmd = f"{cmus_remote} | {basename}"
 
+
 result = subprocess.run(
     cmd,
     shell=True,
@@ -20,8 +21,15 @@ max_chars = 25
 if len(filename) > max_chars:
     filename = filename[:max_chars - 3] + '...'
 
-json_data = {
-    "text": f"{filename} {volume}%",
-}
+
+if volume.isnumeric() and type(int(volume)) is int:
+    json_data = {
+        "text": f"{filename} {volume}% 󰕾"
+    }
+else:
+    json_data = {
+        "text": f"{filename} {volume}"
+    }
+
 
 print(json.dumps(json_data))
