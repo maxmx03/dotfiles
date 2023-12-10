@@ -1,10 +1,9 @@
 import subprocess
 import json
 
-cmus_remote = "cmus-remote -Q "
-grep = "grep -oP '(?<=file ).*\\.mp3'"
-sed = "sed 's|.*/||; s/([^)]*)//g'"
-search = f"{cmus_remote} | {grep} | {sed}"
+cmus_remote = "cmus-remote -C \"format_print '%f'\""
+basename = "xargs -I {} basename {}"
+search = f"{cmus_remote} | {basename}"
 
 # Run the shell command and capture its output
 result = subprocess.run(
