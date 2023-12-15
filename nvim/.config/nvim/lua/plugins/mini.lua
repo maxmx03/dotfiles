@@ -6,7 +6,6 @@ return {
         'bracketed',
         'bufremove',
         'cursorword',
-        'move',
         'surround',
       }
 

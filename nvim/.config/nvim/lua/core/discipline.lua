@@ -15,6 +15,7 @@ local icon = '🤠'
 function M.cowboy()
   local id
   local ok = true
+  local limit = 10
   for _, key in ipairs(keys) do
     local count = 0
     local timer = assert(vim.uv.new_timer())
@@ -23,12 +24,12 @@ function M.cowboy()
       if vim.v.count > 0 then
         count = 0
       end
-      if count >= 10 then
+      if count >= limit then
         ok, id = pcall(vim.notify, 'Hold it Cowboy!', vim.log.levels.WARN, {
           icon = icon,
           replace = id,
           keep = function()
-            return count >= 10
+            return count >= limit
           end,
         })
         if not ok then

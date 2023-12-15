@@ -1,12 +1,6 @@
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*.md',
   callback = function()
-    local utils = require 'milianor.utils'
-
-    if not utils then
-      return
-    end
-
     vim.cmd 'set colorcolumn=80'
   end,
 })
@@ -43,4 +37,3 @@ vim.api.nvim_create_autocmd('BufLeave', {
     discipline.cowboy_gets_shot()
   end,
 })
-

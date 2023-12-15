@@ -8,16 +8,22 @@ return {
     },
     config = function()
       local mason = require 'mason'
-      local masonlspconfig = require 'mason-lspconfig'
+      local mason_lspconfig = require 'mason-lspconfig'
       local formatters = require 'milianor.formatters'
       local linters = require 'milianor.linters'
       local packages = formatters + linters
-      local masontool = require 'mason-tool-installer'
+      local mason_installer = require 'mason-tool-installer'
       local lsp = require 'lspconfig'
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local servers = require 'milianor.servers'
+      local icons = require 'core.navic.icons'
 
-      local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+      local signs = {
+        Error = icons.diagnostics.Error,
+        Warn = icons.diagnostics.Warning,
+        Hint = icons.diagnostics.Hint,
+        Info = icons.diagnostics.Information,
+      }
 
       for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
@@ -46,14 +52,18 @@ return {
             buffer = ev.buf,
             command = 'update',
           })
+
+          if client and client.name == 'tsserver' then
+            vim.api.nvim_command 'TSC'
+          end
         end,
       })
 
       mason.setup()
-      masonlspconfig.setup {
+      mason_lspconfig.setup {
         automatic_installation = true,
       }
-      masontool.setup {
+      mason_installer.setup {
         ensure_installed = packages,
         auto_update = true,
         run_on_start = true,

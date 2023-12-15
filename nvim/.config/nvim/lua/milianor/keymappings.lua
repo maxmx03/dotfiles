@@ -1,116 +1,152 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
+local utils = require 'milianor.utils'
+local buffer = require('mini.bracketed').buffer
 
-map('n', '<C-x>', '<cmd>lua require("mini.bufremove").delete()<cr>', opts)
-map('n', '<C-Left>', "<cmd>lua require('mini.bracketed').buffer('backward')<cr>", opts)
-map('n', '<C-Right>', "<cmd>lua require('mini.bracketed').buffer('forward')<cr>", opts)
+local mini = {
+  forward = function()
+    buffer 'forward'
+  end,
+  backward = function()
+    buffer 'backward'
+  end,
+  first = function()
+    buffer 'first'
+  end,
+  last = function()
+    buffer 'last'
+  end,
+  delete = function()
+    require('mini.bufremove').delete()
+  end,
+}
+
+local milianor = {
+  format = function()
+    utils.format()
+  end,
+  quit = function()
+    utils:smart_quit()
+  end,
+}
+
+map('n', '<C-x>', mini.delete, opts)
+map('n', '<C-Left>', ':BufferLineCyclePrev<Return>', opts)
+map('n', '<C-Right>', ':BufferLineCycleNext<Return>', opts)
 map('n', '+', '<C-a>', opts)
 map('n', '-', '<C-x>', opts)
-map('n', 'ss', ':split<cr>', opts)
-map('n', 'sv', ':vsplit<cr>', opts)
-map('n', '<F7>', ':Inspect<cr>', opts)
-map('n', '<F8>', ':InspectTree<cr>', opts)
+map('n', 'ss', ':split<Return>', opts)
+map('n', 'sv', ':vsplit<Return>', opts)
+map('n', '<F7>', ':Inspect<Return>', opts)
+map('n', '<F8>', ':InspectTree<Return>', opts)
 
 local normal = {
-  ['w'] = { '<cmd>update<cr>', ' Save' },
-  q = { '<cmd>lua require("milianor.utils"):smart_quit()<cr>', ' Close' },
-  Q = { '<cmd>quitall<cr>', '󰩈 Quit Neovim' },
-  e = { '<cmd>NvimTreeToggle<cr>', '󰙅 Open File Tree' },
-  f = { '<cmd>Telescope find_files<cr>', ' Find Files' },
-  z = { '<cmd>ZenMode<cr>', '󱥸 Zen Mode' },
-  t = { '<cmd>ToggleTerm<cr>', ' Open Terminal' },
+  ['w'] = { ':update<Return>', ' Save' },
+  q = { milianor.quit, ' Close' },
+  Q = { ':quitall<Return>', '󰩈 Quit Neovim' },
+  e = { ':NvimTreeToggle<Return>', '󰙅 Open File Tree' },
+  f = { ':Telescope find_files<Return>', ' Find Files' },
+  z = { ':ZenMode<Return>', '󱥸 Zen Mode' },
+  t = { ':ToggleTerm direction=horizontal<Return>', ' Open Terminal' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment toggle current line' },
-  [';'] = { '<cmd>Dashboard<cr>', ' Open Dashboard' },
+  [';'] = { ':Dashboard<Return>', ' Open Dashboard' },
   s = {
     name = ' Search',
-    f = { '<cmd>Telescope find_files<cr>', 'Search files' },
-    w = { '<cmd>Telescope live_grep<cr>', 'Search words' },
-    b = { '<cmd>Telescope buffers<cr>', 'Search buffers' },
-    h = { '<cmd>Telescope help_tags<cr>', 'Search Help Tags' },
-    H = { '<cmd>Telescope highlights<cr>', 'Search highlights' },
-    c = { '<cmd>Telescope commands<cr>', 'Search commands' },
-    k = { '<cmd>Telescope keymaps<cr>', 'Search keymaps' },
-    p = { '<cmd>Telescope projects<cr>', 'Search Projects' },
+    f = { ':Telescope find_files<Return>', 'Search files' },
+    w = { ':Telescope live_grep<Return>', 'Search words' },
+    b = { ':Telescope buffers<Return>', 'Search buffers' },
+    h = { ':Telescope help_tags<Return>', 'Search Help Tags' },
+    H = { ':Telescope highlights<Return>', 'Search highlights' },
+    c = { ':Telescope commands<Return>', 'Search commands' },
+    k = { ':Telescope keymaps<Return>', 'Search keymaps' },
+    p = { ':Telescope projects<Return>', 'Search Projects' },
   },
   l = {
     name = ' LSP',
-    d = { '<cmd>Lspsaga goto_definition<cr>', 'Go to Definition' },
-    p = { '<cmd>Lspsaga peek_definition<cr>', 'Peek Definition' },
-    h = { '<cmd>Lspsaga hover_doc<cr>', 'Hover' },
-    s = { '<cmd>Telescope lsp_document_symbols theme=dropdown<cr>', 'Document Symbols' },
-    r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
-    c = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
-    f = { '<cmd>lua require("milianor.utils").format()<cr>', 'Format file' },
-    e = { '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Show diagnostic' },
-    o = { '<cmd>Lspsaga outline<cr>', 'Show outline' },
+    l = { ':LspRestart<Return>', 'Lsp restart' },
+    d = { ':Lspsaga goto_definition<Return>', 'Go to Definition' },
+    p = { ':Lspsaga peek_definition<Return>', 'Peek Definition' },
+    h = { ':Lspsaga hover_doc<Return>', 'Hover' },
+    s = { ':Telescope lsp_document_symbols theme=dropdown<Return>', 'Document Symbols' },
+    r = { ':Lspsaga rename<Return>', 'Rename' },
+    c = { ':Lspsaga code_action<Return>', 'Code action' },
+    f = { milianor.format, 'Format file' },
+    e = { ':Lspsaga show_buf_diagnostics<Return>', 'Show diagnostic' },
+    o = { ':Lspsaga outline<Return>', 'Show outline' },
+    n = { ':Lspsaga diagnostic_jump_next<Return>', 'Jump next Diagnostic' },
+    b = { ':Lspsaga diagnostic_jump_prev<Return>', 'Jump previous Diagnostic' },
   },
   g = {
     name = ' Git',
-    d = { '<cmd>Gitsigns diffthis<cr>', 'Open Diff' },
-    p = { '<cmd>Gitsigns preview_hunk_inline<cr>', 'Open Inline Diff' },
-    g = { '<cmd>Neogit kind=floating<cr>', 'Open Neogit' },
-    l = { '<cmd>LazyGit<cr>', 'Open Lazygit' },
-    C = { '<cmd>Telescope git_commits<cr>', 'Commits' },
-    b = { '<cmd>Telescope git_branches<cr>', 'Branchs' },
-    s = { '<cmd>Telescope git_status<cr>', 'Status' },
-    S = { '<cmd>Telescope git_stash<cr>', 'Stash' },
+    d = { ':Gitsigns diffthis<Return>', 'Open Diff' },
+    p = { ':Gitsigns preview_hunk_inline<Return>', 'Open Inline Diff' },
+    g = { ':Neogit kind=floating<Return>', 'Open Neogit' },
+    l = { ':LazyGit<Return>', 'Open Lazygit' },
+    C = { ':Telescope git_commits<Return>', 'Commits' },
+    b = { ':Telescope git_branches<Return>', 'Branchs' },
+    s = { ':Telescope git_status<Return>', 'Status' },
+    S = { ':Telescope git_stash<Return>', 'Stash' },
   },
   b = {
     name = ' Buffer',
-    b = { "<cmd>lua require('mini.bracketed').buffer('forward')<cr>", 'Move to Next buffer' },
-    p = { "<cmd>lua require('mini.bracketed').buffer('backward')<cr>", 'Move to Prev buffer' },
-    f = { "<cmd>lua require('mini.bracketed').buffer('first')<cr>", 'Move to First buffer' },
-    l = { "<cmd>lua require('mini.bracketed').buffer('last')<cr>", 'Move to Last buffer' },
-    x = { "<cmd>lua require('mini.bufremove').delete()<cr>", 'Exit buffer' },
+    n = { mini.forward, 'Move to Next buffer' },
+    b = { mini.backward, 'Move to Prev buffer' },
+    f = { mini.first, 'Move to First buffer' },
+    l = { mini.last, 'Move to Last buffer' },
+    x = { mini.delete, 'Exit buffer' },
+    p = { ':BufferLinePick <Return>', 'Pick Buffer' },
+    X = { ':BufferLineCloseOther <Return>', 'Exit Others' },
+    s = { ':BufferLineSortByTabs <Return>', 'Exit Others' },
   },
   p = {
     name = ' Plugins',
-    p = { '<cmd>Lazy home<cr>', 'Open Lazy' },
-    P = { '<cmd>Lazy profile<cr>', 'Open Profile' },
-    u = { '<cmd>Lazy update<cr>', 'Update Plugins' },
-    c = { '<cmd>Lazy clean', 'Clean Plugins' },
-    s = { '<cmd>Lazy sync<cr>', 'Sync Plugins' },
+    p = { ':Lazy home<Return>', 'Open Lazy' },
+    P = { ':Lazy profile<Return>', 'Open Profile' },
+    u = { ':Lazy update<Return>', 'Update Plugins' },
+    c = { ':Lazy clean', 'Clean Plugins' },
+    s = { ':Lazy sync<Return>', 'Sync Plugins' },
   },
   M = {
     name = ' Package manager',
-    m = { '<cmd>Mason<cr>', 'Open Mason' },
-    u = { '<cmd>MasonUpdate<cr>', 'Update Mason' },
-    t = { '<cmd>MasonToolsUpdate<cr>', 'Update Mason Tools' },
-    a = { '<cmd>MasonUninstallAll<cr>', 'Uninstall all packages' },
+    m = { ':Mason<Return>', 'Open Mason' },
+    u = { ':MasonUpdate<Return>', 'Update Mason' },
+    t = { ':MasonToolsUpdate<Return>', 'Update Mason Tools' },
+    a = { ':MasonUninstallAll<Return>', 'Uninstall all packages' },
   },
   h = {
     name = '󰤇 Hop',
-    h = { '<cmd>HopAnywhere<cr>', 'Hop Anywere' },
-    w = { '<cmd>HopWord<cr>', 'Hop Word' },
-    W = { '<cmd>HopWordCurrentLine<cr>', 'Hop Word Current Line' },
-    a = { '<cmd>HopAnywhere<cr>', 'Hop Anywhere' },
-    A = { '<cmd>HopAnywhereCurrentLine<cr>', 'Hop Anywhere Current Line' },
-    c = { '<cmd>HopChar2<cr>', 'Hop Char' },
-    C = { '<cmd>HopChar2CurrentLine<cr>', 'Hop Char Current Line' },
-    p = { '<cmd>HopPattern<cr>', 'Hop Pattern' },
-    P = { '<cmd>HopPatternCurrentLine<cr>', 'Hop Pattern Current Line' },
-    l = { '<cmd>HopLineStart<cr>', 'Hop Line Start' },
-    L = { '<cmd>HopLine<cr>', 'Hop Line' },
-    v = { '<cmd>HopVertical<cr>', 'Hop Vertical' },
+    h = { ':HopAnywhere<Return>', 'Hop Anywere' },
+    w = { ':HopWord<Return>', 'Hop Word' },
+    W = { ':HopWordCurrentLine<Return>', 'Hop Word Current Line' },
+    a = { ':HopAnywhere<Return>', 'Hop Anywhere' },
+    A = { ':HopAnywhereCurrentLine<Return>', 'Hop Anywhere Current Line' },
+    c = { ':HopChar2<Return>', 'Hop Char' },
+    C = { ':HopChar2CurrentLine<Return>', 'Hop Char Current Line' },
+    p = { ':HopPattern<Return>', 'Hop Pattern' },
+    P = { ':HopPatternCurrentLine<Return>', 'Hop Pattern Current Line' },
+    l = { ':HopLineStart<Return>', 'Hop Line Start' },
+    L = { ':HopLine<Return>', 'Hop Line' },
+    v = { ':HopVertical<Return>', 'Hop Vertical' },
   },
   c = {
     name = '󰚩 Codota',
-    e = { '<cmd>TabnineEnable<cr>', 'Tabnine enable' },
-    d = { '<cmd>TabnineDisable<cr>', 'Tabnine disable' },
-    s = { '<cmd>TabnineStatus<cr>', 'Tabnine status' },
-    l = { '<cmd>TabnineLoginWithAuthToken<cr>', 'Tabnine login' },
+    e = { ':TabnineEnable<Return>', 'Tabnine enable' },
+    d = { ':TabnineDisable<Return>', 'Tabnine disable' },
+    s = { ':TabnineStatus<Return>', 'Tabnine status' },
+    l = { ':TabnineLoginWithAuthToken<Return>', 'Tabnine login' },
   },
   m = {
     name = ' Markdown',
-    m = { '<cmd>MarkdownPreview<cr>', 'Open Markdown Preview' },
-    s = { '<cmd>MarkdownPreviewStop<cr>', 'Stop Markdown Preview' },
-    t = { '<cmd>MarkdownPreviewToggle<cr>', 'Toggle Markdown Preview' },
+    m = { ':MarkdownPreview<Return>', 'Open Markdown Preview' },
+    s = { ':MarkdownPreviewStop<Return>', 'Stop Markdown Preview' },
+    t = { ':MarkdownPreviewToggle<Return>', 'Toggle Markdown Preview' },
   },
   n = {
-    name = ' Todo',
-    T = { '<cmd>TodoTelescope<cr>', 'Show todos with telescope' },
-    q = { '<cmd>TodoQuickFix<cr>', 'Show todos with quickfix' },
-    l = { '<cmd>TodoLocList<cr>', 'Show todos with loclist' },
+    name = ' Todo and Trouble',
+    n = { ':TodoTelescope<Return>', 'Show todos with telescope' },
+    q = { ':TodoQuickFix<Return>', 'Show todos with quickfix' },
+    l = { ':TodoLocList<Return>', 'Show todos with loclist' },
+    t = { ':Trouble workspace_diagnostics<Return>', 'Show trouble' },
   },
 }
 

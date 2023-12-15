@@ -18,7 +18,7 @@ return {
         debounce_ms = 800,
         suggestion_color = { gui = colors.comment, cterm = 244 },
         exclude_filetypes = { 'TelescopePrompt', 'NvimTree' },
-        log_file_path = nil, -- absolute path to Tabnine log file
+        log_file_path = nil,
       }
     end,
   },
