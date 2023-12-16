@@ -21,6 +21,7 @@ return {
 
       require('tokyonight').setup {
         transparent = transparent,
+        style = 'night',
         on_highlights = function(group, c)
           local util = require 'tokyonight.util'
           local darken = util.darken
@@ -51,7 +52,7 @@ return {
         end,
       }
 
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight'
     end,
   },
 }

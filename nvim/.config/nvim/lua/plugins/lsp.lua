@@ -25,14 +25,17 @@ return {
         Info = icons.diagnostics.Information,
       }
 
-      for type, icon in pairs(signs) do
-        local hl = 'DiagnosticSign' .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
-
       vim.diagnostic.config {
         virtual_text = {
           prefix = '●',
+        },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = signs.Error,
+            [vim.diagnostic.severity.WARN] = signs.Warn,
+            [vim.diagnostic.severity.INFO] = signs.Info,
+            [vim.diagnostic.severity.HINT] = signs.Hint,
+          },
         },
       }
 
@@ -48,14 +51,10 @@ return {
           end
 
           navic.attach(client, ev.buf)
-          vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+          vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
             buffer = ev.buf,
             command = 'update',
           })
-
-          if client and client.name == 'tsserver' then
-            vim.api.nvim_command 'TSC'
-          end
         end,
       })
 
