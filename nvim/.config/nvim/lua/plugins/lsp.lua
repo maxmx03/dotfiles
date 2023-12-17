@@ -29,14 +29,7 @@ return {
         virtual_text = {
           prefix = '●',
         },
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = signs.Error,
-            [vim.diagnostic.severity.WARN] = signs.Warn,
-            [vim.diagnostic.severity.INFO] = signs.Info,
-            [vim.diagnostic.severity.HINT] = signs.Hint,
-          },
-        },
+        signs = {},
       }
 
       vim.api.nvim_create_autocmd('LspAttach', {

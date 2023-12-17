@@ -27,7 +27,6 @@ stow hypr
 stow waybar
 stow kitty
 stow fish
-stow fonts
 stow rofi
 stow Wallpapers
 
@@ -62,6 +61,8 @@ hypr_packages=(
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    ttf-jetbrains-mono-nerd
+    vscode-codicons-git
 )
 
 paru -S "${hypr_packages[@]}"

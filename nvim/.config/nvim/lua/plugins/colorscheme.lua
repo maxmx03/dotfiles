@@ -32,6 +32,7 @@ return {
           group['PmenuThumb'] = { bg = c.purple }
           group['WinSeparator'] = { fg = c.blue }
           group['WhichKeyBorder'] = { link = 'WinSeparator' }
+          group['CursorLineNr'] = { fg = c.green1 }
           dashboard(group, 'Header', { fg = c.purple })
           dashboard(group, 'Desc', { fg = c.fg })
           dashboard(group, 'Icon', { link = 'Directory' })
