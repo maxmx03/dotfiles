@@ -29,8 +29,7 @@ How to install
 
 Extra Packages to install
 
-    paru -S python-pynvim gcc fd ripgrep nodejs npm deno
-    stow fonts
+    paru -S python-pynvim gcc fd ripgrep nodejs npm ttf-jetbrains-mono-nerd vscode-codicons-git
 
 - [codicon](https://github.com/microsoft/vscode-codicons)
 - [lazygit](https://github.com/jesseduffield/lazygit)
@@ -48,8 +47,7 @@ How to install
 
 Extra Packages to Install
 
-    paru -S
-    stow fonts
+    paru -S ttf-jetbrains-mono-nerd
 
 [Repo](https://github.com/kovidgoyal/kitty)
 
