@@ -46,7 +46,13 @@ local normal = {
   Q = { ':quitall<Return>', '󰩈 Quit Neovim' },
   e = { ':NvimTreeToggle<Return>', '󰙅 Open File Tree' },
   f = { ':Telescope find_files<Return>', ' Find Files' },
-  z = { ':ZenMode<Return>', '󱥸 Zen Mode' },
+  z = {
+    function()
+      vim.api.nvim_command 'ZenMode'
+      vim.api.nvim_command 'Solarized zen'
+    end,
+    '󱥸 Zen Mode',
+  },
   t = { ':ToggleTerm direction=horizontal<Return>', ' Open Terminal' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment toggle current line' },
   [';'] = { ':Dashboard<Return>', ' Open Dashboard' },

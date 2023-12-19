@@ -5,6 +5,7 @@ return {
     config = function()
       local config = require 'core.dashboard'
 
+      ---@diagnostic disable-next-line: different-requires
       require('dashboard').setup {
         theme = 'doom',
         config = config,

@@ -2,7 +2,7 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     config = function()
-      local colors = _G.colors
+      local colors = require 'solarized.palette'.get_colors()
 
       local hide_in_width = function()
         return vim.fn.winwidth(0) > 80
@@ -54,7 +54,7 @@ return {
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git, color = { fg = colors.red } },
+          icon = { icons.git, color = { fg = colors.magenta } },
           cond = hide_in_width,
         },
         {
@@ -62,9 +62,9 @@ return {
           symbols = icons.diff,
           colored = true,
           diff_color = {
-            added = { fg = colors.git.add },
-            modified = { fg = colors.git.change },
-            removed = { fg = colors.git.delete },
+            added = { fg = colors.add },
+            modified = { fg = colors.change },
+            removed = { fg = colors.delete },
           },
           cond = hide_in_width,
         },
@@ -108,6 +108,7 @@ return {
               return msg
             end
             for _, client in ipairs(clients) do
+              ---@diagnostic disable-next-line: undefined-field
               local filetypes = client.config.filetypes
               if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
                 if client.name ~= 'null-ls' then
@@ -122,7 +123,7 @@ return {
 
       require('lualine').setup {
         options = {
-          theme = 'tokyonight',
+          theme = 'solarized',
           component_separators = '',
           section_separators = { left = icons.default.right, right = icons.default.left },
           disabled_filetypes = {

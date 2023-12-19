@@ -74,11 +74,13 @@ thunar_packages=(
     file-roller
     thunar-media-tags-plugin
     thunar-volman
+    xdg-user-dirs
     gvfs
     grim
     slurp
     cliphist
-    dracula-gtk-theme
+    luv-icon-theme-git
+    adapta-gtk-theme
     dracula-cursors
     gnome-disk-utility
     ristretto
@@ -103,16 +105,11 @@ paru -S "${neovim_packages[@]}"
 
 stow nvim
 
-cd "$HOME"
-git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-cd "$HOME/WhiteSur-icon-theme"
-./install.sh -t purple
-
 # set themes
-gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
-gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto-Eta"
+gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto-Eta"
 gsettings set org.gnome.desktop.interface cursor-theme "Dracula-cursors"
-gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-purple-dark"
+gsettings set org.gnome.desktop.interface icon-theme "Luv"
 
 echo 'if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec Hyprland

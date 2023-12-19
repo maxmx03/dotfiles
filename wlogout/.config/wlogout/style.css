@@ -5,10 +5,10 @@ window {
   background-color: transparent;
 }
 button {
-  color: #ffffff;
-  background-color: #1a1b26;
+  color: #839496;
+  background-color: #002b36;
   border-style: solid;
-  border-color: #16161e;
+  border-color: #002b36;
   border-width: 2px;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,7 +18,7 @@ button {
 button:focus,
 button:active,
 button:hover {
-  background-color: #292e42;
+  background-color: #073642;
   outline-style: none;
 }
 

@@ -43,15 +43,15 @@
   "hyprland/window": {
     "format": "{}",
     "rewrite": {
-      "(\\d\\. )?(.*) nvim": "<span color=\"#9ece6a\"> Neovim</span>",
-      "nvim (.*)": "<span color=\"#9ece6a\"> </span>",
-      "nvim": "<span color=\"#9ece6a\"> Neovim</span>",
-      "(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#ff9e64\">󰈹 Firefox</span>",
-      "Mozilla Firefox (.*)": "<span color=\"#ff9e64\">󰈹 Firefox</span>",
-      "Mozilla Firefox": "<span color=\"#ff9e64\">󰈹 Firefox</span>",
-      "(\\d\\. )?(.*) Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span>",
-      "Google Chrome (.*)": "<span color=\"#f7768e\"> Google Chrome</span ",
-      "Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span>"
+      "(\\d\\. )?(.*) nvim": "<span color=\"#859900\"> Neovim</span>",
+      "nvim (.*)": "<span color=\"#859900\"> </span>",
+      "nvim": "<span color=\"#859900\"> Neovim</span>",
+      "(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#cb4b16\">󰈹 Firefox</span>",
+      "Mozilla Firefox (.*)": "<span color=\"#cb4b16\">󰈹 Firefox</span>",
+      "Mozilla Firefox": "<span color=\"#cb4b16\">󰈹 Firefox</span>",
+      "(\\d\\. )?(.*) Google Chrome": "<span color=\"#dc322f\"> Google Chrome</span>",
+      "Google Chrome (.*)": "<span color=\"#dc322f\"> Google Chrome</span ",
+      "Google Chrome": "<span color=\"#dc322f\"> Google Chrome</span>"
     },
     "separate-outputs": false
   },

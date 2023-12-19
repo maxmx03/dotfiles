@@ -7,8 +7,8 @@
 }
 
 #waybar {
-  background: rgba(26, 27, 38, 0.95);
-  color: #eeeeef;
+  background: rgba(0, 43, 54, 0.95);
+  color: #93a1a1;
   font-size: 14px;
   font-family: "Hack Nerd Font";
 }
@@ -23,14 +23,18 @@
 
 #workspaces button {
   padding: 0 5px;
-  color: #eeeeef;
+  color: #93a1a1;
   background: none;
+}
+
+#workspaces button:hover {
+  color: #268bd2;
 }
 
 /* Fix: active workspace doesn't show up */
 /* #workspaces button.focused { */
 #workspaces button.active {
-  color: #bb9af7;
+  color: #268bd2;
 }
 
 #custom-powermenu,
@@ -47,44 +51,44 @@
 #tray,
 #network {
   padding: 4px 8px;
-  background-color: #292e42;
+  background-color: #00222b;
   border-radius: 30px;
   margin: 6px 4px;
 }
 
 #window {
-  color: #929db1;
+  color: #93a1a1;
 }
 
 #custom-powermenu {
-  color: #e06c75;
+  color: #dc322f;
   padding-right: 11px;
 }
 
 #pulseaudio {
-  color: #1abc9c;
+  color: #859900;
   padding-right: 14px;
 }
 
 #cpu {
-  color: #7aa2f7;
+  color: #268bd2;
 }
 
 #temperature {
-  color: #9ece6a;
+  color: #cb4b16;
 }
 
 #memory {
-  color: #ff9e64;
+  color: #2aa198;
 }
 
 #network {
-  color: #9d7cd8;
+  color: #6c71c4;
   min-width: 200px;
 }
 
 #clock {
-  color: #fff;
+  color: #93a1a1;
   /* opacity: 0.7; */
   /* font-size: 18px; */
 }
