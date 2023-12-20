@@ -81,7 +81,7 @@ thunar_packages=(
     cliphist
     luv-icon-theme-git
     adapta-gtk-theme
-    dracula-cursors
+    qogir-cursor-theme-git
     gnome-disk-utility
     ristretto
     mpv
@@ -108,7 +108,7 @@ stow nvim
 # set themes
 gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto-Eta"
 gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto-Eta"
-gsettings set org.gnome.desktop.interface cursor-theme "Dracula-cursors"
+gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
 gsettings set org.gnome.desktop.interface icon-theme "Luv"
 
 echo 'if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
