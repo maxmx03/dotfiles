@@ -21,6 +21,12 @@ plug "agkozak/zsh-z"
 autoload -Uz compinit
 compinit
 
+# Plugins configuration
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#586e75"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=#dc322f"
+
 # User configuration
 alias ls="exa --long --icons --tree --level=1 -a"
 alias find="fd -H -I -i"
+
+neofetch
