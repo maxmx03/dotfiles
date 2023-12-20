@@ -28,6 +28,7 @@ stow waybar
 stow kitty
 stow zsh
 stow rofi
+stow neofetch
 stow Wallpapers
 
 ## Install hyprland and dependencies
