@@ -1,4 +1,6 @@
-local mytable = require 'core.mytable'
-local formatters = mytable:new { 'prettier', 'stylua', 'beautysh' }
-
-return formatters
+return {
+  'prettier',
+  'stylua',
+  'beautysh',
+  'google_java_format',
+}

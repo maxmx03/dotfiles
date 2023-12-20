@@ -62,6 +62,7 @@ hypr_packages=(
     noto-fonts-cjk
     noto-fonts-emoji
     ttf-jetbrains-mono-nerd
+    ttf-hack-nerd
     vscode-codicons-git
 )
 

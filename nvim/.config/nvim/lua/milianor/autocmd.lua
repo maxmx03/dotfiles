@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
     end
 
     local discipline = require 'core.discipline'
-
     discipline.cowboy()
   end,
 })
@@ -33,7 +32,6 @@ vim.api.nvim_create_autocmd('BufLeave', {
     end
 
     local discipline = require 'core.discipline'
-
     discipline.cowboy_gets_shot()
   end,
 })

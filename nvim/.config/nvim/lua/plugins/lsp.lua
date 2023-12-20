@@ -4,15 +4,11 @@ return {
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
       local mason = require 'mason'
       local mason_lspconfig = require 'mason-lspconfig'
-      local formatters = require 'milianor.formatters'
-      local linters = require 'milianor.linters'
-      local packages = formatters + linters
-      local mason_installer = require 'mason-tool-installer'
+      local mason_null_ls = require 'mason-null-ls'
       local lsp = require 'lspconfig'
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local servers = require 'milianor.servers'
@@ -62,12 +58,9 @@ return {
       mason_lspconfig.setup {
         automatic_installation = true,
       }
-      mason_installer.setup {
-        ensure_installed = packages,
-        auto_update = true,
-        run_on_start = true,
+      mason_null_ls.setup {
+        automatic_installation = true,
       }
-
       for _, server in ipairs(servers) do
         if server == 'lua_ls' then
           lsp[server].setup {

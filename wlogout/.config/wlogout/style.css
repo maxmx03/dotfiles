@@ -6,25 +6,29 @@ window {
 }
 button {
   color: #839496;
-  background-color: #002b36;
+  background-color: rgba(0, 43, 54, 0.5);
   border-style: solid;
-  border-color: #002b36;
+  border-color: rgba(0, 43, 54, 0.5);
   border-width: 2px;
+  border-radius: 7px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;
+  margin: 10px;
 }
 
 button:focus,
 button:active,
 button:hover {
-  background-color: #073642;
+  background-color: rgba(0, 43, 54, 0.3);
+  border-color: rgba(0, 43, 54, 0.3);
+  color: #eee8d5;
   outline-style: none;
 }
 
 #lock {
   background-image: image(
-    url("./icons/lock.svg"),
+    url("./icons/lock.png"),
     url("/usr/share/wlogout/icons/lock.png"),
     url("/usr/local/share/wlogout/icons/lock.png")
   );
@@ -32,7 +36,7 @@ button:hover {
 
 #logout {
   background-image: image(
-    url("./icons/logout.svg"),
+    url("./icons/logout.png"),
     url("/usr/share/wlogout/icons/logout.png"),
     url("/usr/local/share/wlogout/icons/logout.png")
   );
@@ -40,7 +44,7 @@ button:hover {
 
 #suspend {
   background-image: image(
-    url("./icons/suspend.svg"),
+    url("./icons/suspend.png"),
     url("/usr/share/wlogout/icons/suspend.png"),
     url("/usr/local/share/wlogout/icons/suspend.png")
   );
@@ -48,7 +52,7 @@ button:hover {
 
 #hibernate {
   background-image: image(
-    url("./icons/hibernate.svg"),
+    url("./icons/hibernate.png"),
     url("/usr/share/wlogout/icons/hibernate.png"),
     url("/usr/local/share/wlogout/icons/hibernate.png")
   );
@@ -56,7 +60,7 @@ button:hover {
 
 #shutdown {
   background-image: image(
-    url("./icons/shutdown.svg"),
+    url("./icons/shutdown.png"),
     url("/usr/share/wlogout/icons/shutdown.png"),
     url("/usr/local/share/wlogout/icons/shutdown.png")
   );
@@ -64,7 +68,7 @@ button:hover {
 
 #reboot {
   background-image: image(
-    url("./icons/reboot.svg"),
+    url("./icons/reboot.png"),
     url("/usr/share/wlogout/icons/reboot.png"),
     url("/usr/local/share/wlogout/icons/reboot.png")
   );

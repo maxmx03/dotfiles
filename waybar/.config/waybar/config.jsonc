@@ -32,7 +32,7 @@
     "escape": true
   },
   "custom/changebg": {
-    "format": "change  ",
+    "format": "switch  ",
     "on-click": "~/.config/waybar/scripts/changebg",
     "tooltip": false
   },

@@ -8,7 +8,7 @@ return {
         highlights = {
           DashboardHeader = { fg = '#839496' },
           DashboardFooter = { fg = '#586e75' },
-          DashboardKey = { fg = '#2aa198'},
+          DashboardKey = { fg = '#2aa198' },
           Directory = { fg = '#268bd2' },
         },
       }
