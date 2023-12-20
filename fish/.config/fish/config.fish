@@ -13,7 +13,7 @@ alias vim "/home/milianor/.local/bin/lvim"
 # alias pip pip3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
-alias find "fdfind -H -I -i"
+alias find "fd -H -I -i"
 
 function fish_greeting
   neofetch

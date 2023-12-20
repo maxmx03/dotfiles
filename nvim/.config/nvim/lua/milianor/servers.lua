@@ -11,5 +11,5 @@ return {
   'marksman',
   'pylsp',
   'rust_analyzer',
-  'java_language_server',
+  'jdtls',
 }

@@ -26,7 +26,7 @@ cd "$HOME/dotfiles"
 stow hypr
 stow waybar
 stow kitty
-stow fish
+stow zsh
 stow rofi
 stow Wallpapers
 
@@ -48,9 +48,8 @@ hypr_packages=(
     pavucontrol
     pamixer
     kitty
-    fish
+    zsh
     exa
-    neofetch
     htop
     jq
     waybar-git
@@ -58,9 +57,15 @@ hypr_packages=(
     firefox
     ttf-dejavu
     ttf-liberation
+    ttf-hanazono
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    adobe-source-code-pro-fonts
+    adobe-source-sans-fonts
+    adobe-source-serif-fonts
+    adobe-source-han-sans-otc-fonts
+    adobe-source-han-serif-otc-fonts
     ttf-jetbrains-mono-nerd
     ttf-hack-nerd
     vscode-codicons-git
@@ -115,3 +120,6 @@ gsettings set org.gnome.desktop.interface icon-theme "Luv"
 echo 'if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec Hyprland
 fi' >> ~/.bashrc
+
+# zsh plugin manager
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
