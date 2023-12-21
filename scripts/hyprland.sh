@@ -117,6 +117,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto-Eta"
 gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto-Eta"
 gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
 gsettings set org.gnome.desktop.interface icon-theme "Luv"
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 echo 'if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec Hyprland

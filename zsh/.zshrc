@@ -9,6 +9,8 @@ plug "zap-zsh/supercharge"
 plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "agkozak/zsh-z"
+plug "zap-zsh/vim"
+plug "MAHcodes/distro-prompt"
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -21,5 +23,6 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=#dc322f"
 # User configuration
 alias ls="exa --long --icons --tree --level=1 -a"
 alias find="fd -H -I -i"
+alias ll="ls"
 
 neofetch
