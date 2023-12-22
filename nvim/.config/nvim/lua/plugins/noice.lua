@@ -28,7 +28,7 @@ return {
             { find = '%d more lines' },
           },
         },
-        -- opts = { skip = true },
+        opts = { skip = true },
       },
     },
     presets = {
