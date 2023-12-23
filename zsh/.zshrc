@@ -1,4 +1,6 @@
 source ~/.bash_profile;
+# Load Angular CLI autocompletion.
+source <(ng completion script)
 
 sed -i 's/command hash -r/hash -r/g' $NVM_DIR/nvm.sh
 

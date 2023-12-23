@@ -12,4 +12,5 @@ return {
   'pylsp',
   'rust_analyzer',
   'jdtls',
+  'angularls',
 }
