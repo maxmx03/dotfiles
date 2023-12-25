@@ -48,7 +48,10 @@ local normal = {
   f = { ':Telescope find_files<Return>', ' Find Files' },
   z = { ':Solarized zen<Return>', '󱥸 Zen Mode' },
   t = { ':ToggleTerm direction=horizontal<Return>', ' Open Terminal' },
-  ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment toggle current line' },
+  ['/'] = {
+    '<Plug>(comment_toggle_linewise_current)',
+    ' Comment toggle current line',
+  },
   [';'] = { ':Dashboard<Return>', ' Open Dashboard' },
   s = {
     name = ' Search',
@@ -67,7 +70,10 @@ local normal = {
     d = { ':Lspsaga goto_definition<Return>', 'Go to Definition' },
     p = { ':Lspsaga peek_definition<Return>', 'Peek Definition' },
     h = { ':Lspsaga hover_doc<Return>', 'Hover' },
-    s = { ':Telescope lsp_document_symbols theme=dropdown<Return>', 'Document Symbols' },
+    s = {
+      ':Telescope lsp_document_symbols theme=dropdown<Return>',
+      'Document Symbols',
+    },
     r = { ':Lspsaga rename<Return>', 'Rename' },
     c = { ':Lspsaga code_action<Return>', 'Code action' },
     f = { milianor.format, 'Format file' },
@@ -152,7 +158,10 @@ local normal = {
 }
 
 local visual = {
-  ['/'] = { '<Plug>(comment_toggle_linewise_visual)', ' Comment toggle current line' },
+  ['/'] = {
+    '<Plug>(comment_toggle_linewise_visual)',
+    ' Comment toggle current line',
+  },
 }
 
 return { normal = normal, visual = visual }

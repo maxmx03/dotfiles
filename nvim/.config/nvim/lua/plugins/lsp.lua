@@ -42,7 +42,11 @@ return {
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local navic = require 'core.navic'
 
-          if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
+          if
+            client
+            and client.server_capabilities
+            and client.server_capabilities.inlayHintProvider
+          then
             vim.lsp.inlay_hint.enable(ev.buf, true)
           end
 

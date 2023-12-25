@@ -6,7 +6,7 @@ return {
         'bracketed',
         'bufremove',
         'cursorword',
-        'surround',
+        'indentscope',
       }
 
       for _, module in pairs(modules) do

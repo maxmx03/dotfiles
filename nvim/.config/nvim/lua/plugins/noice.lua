@@ -12,7 +12,16 @@ return {
         enabled = false,
       },
       progress = {
-        enabled = false,
+        enabled = true,
+        format = 'lsp_progress',
+        format_done = 'lsp_progress_done',
+      },
+    },
+    views = {
+      mini = {
+        win_options = {
+          winblend = 0,
+        },
       },
     },
     routes = {

@@ -31,6 +31,7 @@ vim.opt.undofile = true                    -- enable persistent undo
 vim.opt.updatetime = 300                   -- faster completion
 vim.opt.writebackup = false                -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 vim.opt.expandtab = true                   -- convert tabs to spaces
+vim.opt.shiftround = true                  -- Round indent
 vim.opt.shiftwidth = 2                     -- the number of spaces inserted for each indentation
 vim.opt.softtabstop = 4
 vim.opt.cursorline = true                  -- highlight the current line
@@ -38,13 +39,16 @@ vim.opt.number = true                      -- set numbered lines
 vim.opt.relativenumber = false             -- set relative numbered lines
 vim.opt.numberwidth = 4                    -- set number column width to 2 {default 4}
 vim.opt.signcolumn = 'yes'                 -- always show the sign column otherwise it would shift the text each time
-vim.opt.wrap = false                       -- display lines as one long line
 vim.opt.spell = false
 vim.opt.spelllang = 'en_us'
-vim.opt.scrolloff = 8 -- is one of my favorite
+vim.opt.scrolloff = 4 -- is one of my favorite
 vim.opt.sidescrolloff = 8
-vim.opt.wrap = true
-vim.opt.shortmess:append 'IWs'
+vim.opt.wrap = false
+vim.opt.virtualedit = 'block'          -- Allow cursor to move where there is no text in visual block mode
+vim.opt.wildmode = 'longest:full,full' -- Command-line completion mode
+vim.opt.shortmess:append { W = true, I = true, c = true, C = true }
+vim.opt.fillchars:append { eob = ' ' } -- remove endofbuffer characters
+vim.opt.smoothscroll = true
 
 if vim.fn.has 'win32' == 1 then
   vim.cmd [[
@@ -57,4 +61,3 @@ if vim.fn.has 'win32' == 1 then
 else
   vim.opt.shell = 'zsh'
 end
-

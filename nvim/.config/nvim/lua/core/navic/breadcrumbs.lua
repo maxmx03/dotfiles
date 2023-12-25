@@ -21,7 +21,8 @@ M.get_filename = function()
   if not isempty(filename) then
     local file_icon, hl_group
     local devicons = require 'nvim-web-devicons'
-    file_icon, hl_group = devicons.get_icon(filename, extension, { default = true })
+    file_icon, hl_group =
+      devicons.get_icon(filename, extension, { default = true })
 
     if isempty(file_icon) then
       file_icon = icons.kind.File
@@ -48,7 +49,16 @@ M.get_filename = function()
     local navic_text = vim.api.nvim_get_hl(0, { name = 'Normal', link = false })
     vim.api.nvim_set_hl(0, 'Winbar', { fg = navic_text.fg })
 
-    return ' ' .. '%#' .. hl_group .. '#' .. file_icon .. '%*' .. ' ' .. '%#Winbar#' .. filename .. '%*'
+    return ' '
+      .. '%#'
+      .. hl_group
+      .. '#'
+      .. file_icon
+      .. '%*'
+      .. ' '
+      .. '%#Winbar#'
+      .. filename
+      .. '%*'
   end
 end
 
@@ -137,7 +147,8 @@ M.get_winbar = function()
     value = value .. '%=' .. tabpage_number .. '/' .. tostring(num_tabs)
   end
 
-  local status_ok, _ = pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })
+  local status_ok, _ =
+    pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })
   if not status_ok then
     return
   end
@@ -158,7 +169,8 @@ M.create_winbar = function()
     }, {
       group = '_winbar',
       callback = function()
-        local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, 'lsp_floating_window')
+        local status_ok, _ =
+          pcall(vim.api.nvim_buf_get_var, 0, 'lsp_floating_window')
         if not status_ok then
           require('core.navic.breadcrumbs').get_winbar()
         end

@@ -67,3 +67,7 @@ swapfile
 gui
 titlestring
 nowixes
+Django
+ASGI
+WSGI
+ip
