@@ -38,7 +38,6 @@ end
 
 function M.format(buf)
   local bufnr = buf or vim.api.nvim_get_current_buf()
-
   vim.lsp.buf.format { buf = bufnr }
 end
 

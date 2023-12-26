@@ -43,7 +43,7 @@ vim.opt.spell = false
 vim.opt.spelllang = 'en_us'
 vim.opt.scrolloff = 4 -- is one of my favorite
 vim.opt.sidescrolloff = 8
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.virtualedit = 'block'          -- Allow cursor to move where there is no text in visual block mode
 vim.opt.wildmode = 'longest:full,full' -- Command-line completion mode
 vim.opt.shortmess:append { W = true, I = true, c = true, C = true }

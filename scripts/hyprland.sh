@@ -83,6 +83,8 @@ thunar_packages=(
     thunar-volman
     xdg-user-dirs
     gvfs
+    gvfs-mtp
+    jmtpfs
     grim
     slurp
     cliphist

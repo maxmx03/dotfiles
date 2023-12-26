@@ -43,9 +43,9 @@ return {
           local navic = require 'core.navic'
 
           if
-            client
-            and client.server_capabilities
-            and client.server_capabilities.inlayHintProvider
+              client
+              and client.server_capabilities
+              and client.server_capabilities.inlayHintProvider
           then
             vim.lsp.inlay_hint.enable(ev.buf, true)
           end
@@ -91,6 +91,35 @@ return {
             },
             capabilities = capabilities,
           }
+        elseif server == 'tsserver' then
+          local function organize_imports()
+            local params = {
+              command = '_typescript.organizeImports',
+              arguments = { vim.api.nvim_buf_get_name(0) },
+              title = '',
+            }
+            vim.lsp.buf.execute_command(params)
+          end
+
+          lsp[server].setup {
+            capabilities = capabilities,
+            commands = {
+              OrganizeImports = {
+                organize_imports,
+                description = 'Organize Imports',
+              },
+            },
+          }
+
+          local milianor = require 'milianor.utils'
+          local utils = vim.deepcopy(milianor)
+          milianor.format = function()
+            utils.format()
+            local ok = pcall(vim.api.nvim_command, 'OrganizeImports')
+            if not ok then
+              milianor.format = utils.format
+            end
+          end
         else
           lsp[server].setup {
             capabilities = capabilities,
