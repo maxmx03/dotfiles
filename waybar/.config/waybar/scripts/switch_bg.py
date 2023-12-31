@@ -22,6 +22,8 @@ def get_random_img_file(path: str) -> str:
         if file.lower().endswith(".png")
         or file.lower().endswith(".jpg")
         or file.lower().endswith(".webp")
+        or file.lower().endswith(".jpeg")
+        or file.lower().endswith(".gif")
     ]
 
     if png_files:
