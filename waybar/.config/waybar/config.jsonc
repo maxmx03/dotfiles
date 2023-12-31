@@ -33,7 +33,7 @@
   },
   "custom/changebg": {
     "format": "switch  ",
-    "on-click": "~/.config/waybar/scripts/changebg",
+    "on-click": "python ~/.config/waybar/scripts/switch_bg.py",
     "tooltip": false
   },
   "tray": {
