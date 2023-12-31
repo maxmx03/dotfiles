@@ -65,6 +65,7 @@ return {
       mason_null_ls.setup {
         automatic_installation = true,
       }
+
       for _, server in ipairs(servers) do
         if server == 'lua_ls' then
           lsp[server].setup {
@@ -91,6 +92,19 @@ return {
             },
             capabilities = capabilities,
           }
+        elseif server == 'pyright' then
+          lsp[server].setup {
+            capabilities = capabilities,
+          }
+          local milianor = require 'milianor.utils'
+          local utils = vim.deepcopy(milianor)
+          milianor.format = function()
+            utils.format()
+            local ok = pcall(vim.api.nvim_command, 'PyrightOrganizeImports')
+            if not ok then
+              milianor.format = utils.format
+            end
+          end
         elseif server == 'tsserver' then
           local function organize_imports()
             local params = {

@@ -87,7 +87,6 @@ local normal = {
     name = ' Git',
     d = { ':Gitsigns diffthis<Return>', 'Open Diff' },
     p = { ':Gitsigns preview_hunk_inline<Return>', 'Open Inline Diff' },
-    g = { ':Neogit kind=floating<Return>', 'Open Neogit' },
     l = { ':LazyGit<Return>', 'Open Lazygit' },
     C = { ':Telescope git_commits<Return>', 'Commits' },
     b = { ':Telescope git_branches<Return>', 'Branchs' },
@@ -144,9 +143,8 @@ local normal = {
   },
   m = {
     name = ' Markdown',
-    m = { ':MarkdownPreview<Return>', 'Open Markdown Preview' },
-    s = { ':MarkdownPreviewStop<Return>', 'Stop Markdown Preview' },
-    t = { ':MarkdownPreviewToggle<Return>', 'Toggle Markdown Preview' },
+    m = { ':PeekOpen<Return>', 'Open Markdown Preview' },
+    s = { ':PeekClose<Return>', 'Stop Markdown Preview' },
   },
   n = {
     name = ' Todo and Trouble',

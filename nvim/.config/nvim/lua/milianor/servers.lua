@@ -9,7 +9,7 @@ return {
   'vimls',
   'bashls',
   'marksman',
-  'pylsp',
+  'pyright',
   'rust_analyzer',
   'jdtls',
   'angularls',

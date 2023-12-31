@@ -9,3 +9,4 @@ packages=(
 )
 
 paru -S "${packages[@]}"
+cargo install amdgpu_top

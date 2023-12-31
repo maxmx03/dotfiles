@@ -21,5 +21,8 @@ return {
         log_file_path = nil,
       }
     end,
+    dependencies = {
+      'maxmx03/solarized.nvim',
+    },
   },
 }
