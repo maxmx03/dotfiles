@@ -2,10 +2,9 @@ import os
 import random
 import subprocess
 
-hyprland_folder = "/usr/share/hyprland"
-home_dir = os.path.expanduser("~")
-wallpaper_folder = os.path.join(home_dir, "Wallpapers")
-
+HYPRLAND_FOLDER = "/usr/share/hyprland"
+HOMEDIR = os.path.expanduser("~")
+WALLPAPER_FOLDER = os.path.join(HOMEDIR, 'Wallpapers')
 
 def switch_wallpaper(path):
     cmd = f"swww img {path} --transition-fps 60 --transition-type wipe --transition-duration 3"
@@ -16,7 +15,7 @@ def switch_wallpaper(path):
 
 
 def get_random_img_file(path: str) -> str:
-    png_files = [
+    img = [
         file
         for file in os.listdir(path)
         if file.lower().endswith(".png")
@@ -26,25 +25,18 @@ def get_random_img_file(path: str) -> str:
         or file.lower().endswith(".gif")
     ]
 
-    if png_files:
-        return os.path.join(path, random.choice(png_files))
+    if img:
+        return os.path.join(path, random.choice(img))
     else:
         return ""
 
 
-basename = os.path.basename
-result = subprocess.run("swww query", shell=True, capture_output=True, text=True)
-actual_wallpaper = basename(result.stdout).replace("\n", "")
+query = subprocess.run("swww query", shell=True, capture_output=True, text=True)
+current_wallpaper = os.path.basename(query.stdout).replace("\n", "")
+new_wallpaper = get_random_img_file(path=WALLPAPER_FOLDER)
 
-changed_wallpaper = False
-
-while not changed_wallpaper:
-    new_wallpaper = get_random_img_file(path=wallpaper_folder)
-
-    if actual_wallpaper != basename(new_wallpaper):
-        switch_wallpaper(path=new_wallpaper)
-        changed_wallpaper = True
-    else:
-        hyprland_wallpaper = get_random_img_file(path=hyprland_folder)
-        switch_wallpaper(path=hyprland_wallpaper)
-        changed_wallpaper = True
+if current_wallpaper != os.path.basename(new_wallpaper):
+ switch_wallpaper(path=new_wallpaper)
+else:
+ hyprland_wallpaper = get_random_img_file(path=HYPRLAND_FOLDER)
+ switch_wallpaper(path=hyprland_wallpaper)
