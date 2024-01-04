@@ -1,9 +1,0 @@
-.zshrc
-hypr
-nvim
-rofi
-wlogout
-waybar
-.tmux.conf
-neofetch
-kitty
