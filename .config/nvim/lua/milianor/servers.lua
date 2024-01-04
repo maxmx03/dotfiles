@@ -1,0 +1,17 @@
+return {
+  'lua_ls',
+  'tsserver',
+  'eslint',
+  'html',
+  'cssls',
+  'cssmodules_ls',
+  'emmet_ls',
+  'vimls',
+  'bashls',
+  'marksman',
+  'pyright',
+  'rust_analyzer',
+  'jdtls',
+  'angularls',
+  'gopls',
+}

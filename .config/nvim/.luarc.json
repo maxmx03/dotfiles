@@ -1,0 +1,11 @@
+{
+  "workspace": {
+    "library": [
+      "/usr/share/nvim/runtime",
+      "~/.local/share/nvim/lazy/hydra.nvim"
+    ],
+    "ignoreDir": ["test"],
+    "checkThirdParty": true
+  },
+  "diagnostics.disable": ["undefined-field"]
+}

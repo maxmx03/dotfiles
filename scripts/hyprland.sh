@@ -88,9 +88,8 @@ thunar_packages=(
     grim
     slurp
     cliphist
-    luv-icon-theme-git
-    adapta-gtk-theme
-    qogir-cursor-theme-git
+    dracula-gtk-theme
+    dracula-cursors
     gnome-disk-utility
     ristretto
     mpv
@@ -114,11 +113,17 @@ paru -S "${neovim_packages[@]}"
 
 stow nvim
 
+cd "$HOME"
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
+cd "$HOME/WhiteSur-icon-theme"
+./install.sh -t purple
+rm -rf "$HOME/WhiteSur-icon-theme"
+
 # set themes
-gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto-Eta"
-gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto-Eta"
-gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
-gsettings set org.gnome.desktop.interface icon-theme "Luv"
+gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
+gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+gsettings set org.gnome.desktop.interface cursor-theme "Dracula-cursors"
+gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-purple-dark"
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 echo 'if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
