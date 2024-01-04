@@ -3,7 +3,7 @@
 ## Quick start
 
 ```bash
-paru -S zsh
+paru -S zsh fd
 ```
 
 ### Install dots script
