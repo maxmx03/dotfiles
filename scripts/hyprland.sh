@@ -18,19 +18,6 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-## install stow
-paru -S stow
-
-## stow
-cd "$HOME/dotfiles"
-stow hypr
-stow waybar
-stow kitty
-stow zsh
-stow rofi
-stow neofetch
-stow Wallpapers
-
 ## Install hyprland and dependencies
 hypr_packages=(
     hyprland-git
