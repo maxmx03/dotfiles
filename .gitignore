@@ -1,8 +1,3 @@
-fish/.config/fish/completions
-fish/.config/fish/functions
-fish/.config/fish/fish_plugins
-fish/.config/fish/fish_variables
-fish/.config/fish/conf.d/_tide_init.fish
-fish/.config/fish/conf.d/fzf.fish
-fish/.config/fish/conf.d/z.fish
 *.gif
+
+dots_configs.txt
