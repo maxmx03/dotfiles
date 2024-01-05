@@ -6,81 +6,54 @@ declare wc=(
     "☁️"
     "🌧️"
     "⛈️"
-    "☁️"
     "❄️"
 )
 
-# Define the weather codes
 declare -A WEATHER_CODES=(
-    ["113"]="${wc[0]}"
-    ["116"]="${wc[1]}"
-    ["119"]="${wc[2]}"
-    ["122"]="${wc[2]}"
-    ["143"]="${wc[2]}"
-    ["176"]="${wc[3]}"
-    ["179"]="${wc[3]}"
-    ["182"]="${wc[3]}"
-    ["185"]="${wc[3]}"
-    ["200"]="${wc[4]}"
-    ["227"]="${wc[5]}"
-    ["230"]="${wc[5]}"
-    ["248"]="${wc[2]}"
-    ["260"]="${wc[2]}"
-    ["263"]="${wc[3]}"
-    ["266"]="${wc[3]}"
-    ["281"]="${wc[3]}"
-    ["284"]="${wc[3]}"
-    ["293"]="${wc[3]}"
-    ["296"]="${wc[3]}"
-    ["299"]="${wc[3]}"
-    ["302"]="${wc[3]}"
-    ["305"]="${wc[3]}"
-    ["308"]="${wc[3]}"
-    ["311"]="${wc[3]}"
-    ["314"]="${wc[3]}"
-    ["317"]="${wc[3]}"
-    ["320"]="${wc[5]}"
-    ["323"]="${wc[5]}"
-    ["326"]="${wc[5]}"
-    ["329"]="${wc[6]}"
-    ["332"]="${wc[6]}"
-    ["335"]="${wc[6]}"
-    ["338"]="${wc[6]}"
-    ["350"]="${wc[3]}"
-    ["353"]="${wc[3]}"
-    ["356"]="${wc[3]}"
-    ["359"]="${wc[3]}"
-    ["362"]="${wc[3]}"
-    ["365"]="${wc[3]}"
-    ["368"]="${wc[3]}"
-    ["371"]="${wc[6]}"
-    ["374"]="${wc[5]}"
-    ["377"]="${wc[5]}"
-    ["386"]="${wc[5]}"
-    ["389"]="${wc[5]}"
-    ["392"]="${wc[3]}"
-    ["395"]="${wc[6]}"
+    ["0"]="${wc[0]}"
+    ["1"]="${wc[1]}"
+    ["2"]="${wc[1]}"
+    ["3"]="${wc[1]}"
+    ["45"]="${wc[2]}"
+    ["48"]="${wc[2]}"
+    ["51"]="${wc[3]}"
+    ["53"]="${wc[3]}"
+    ["55"]="${wc[3]}"
+    ["61"]="${wc[3]}"
+    ["63"]="${wc[3]}"
+    ["65"]="${wc[3]}"
+    ["66"]="${wc[3]}"
+    ["67"]="${wc[3]}"
+    ["71"]="${wc[5]}"
+    ["73"]="${wc[5]}"
+    ["75"]="${wc[5]}"
+    ["77"]="${wc[5]}"
+    ["80"]="${wc[3]}"
+    ["81"]="${wc[3]}"
+    ["82"]="${wc[3]}"
+    ["85"]="${wc[5]}"
+    ["86"]="${wc[5]}"
+    ["95"]="${wc[4]}"
+    ["96"]="${wc[4]}"
+    ["99"]="${wc[4]}"
 )
 
-# Make a request to wttr.in and store the response in a variable
-weather=$(curl -s "wttr.in/$1?format=j1")
+# api: https://open-meteo.com/
+weather=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=-26.3044&longitude=-48.8456&current=apparent_temperature,weather_code&timezone=auto")
 
-# Parse the JSON response to get the current weather data
-weather_code=$(echo "$weather" | jq -r '.current_condition[0].weatherCode' 2>/dev/null)
+weather_code=$(echo "$weather" | jq -r '.current.weather_code' 2>/dev/null)
 
 if [ -z "$weather_code" ]; then
     echo "{\"text\":\"⛅\"}"
 else
-    feels_like=$(echo "$weather" | jq -r '.current_condition[0].FeelsLikeC')
+    feels_like=$(echo "$weather" | jq -r '.current.apparent_temperature')
 
-    # Format the weather data
     tempint=$(echo "$feels_like" | cut -d. -f1)
     extrachar=''
     if [[ $tempint -gt 0 && $tempint -lt 10 ]]; then
         extrachar='+'
     fi
-    text=$(printf "%s%s°C" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
+    text=$(printf "%s %s°C" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
 
-    # Print the formatted weather data as JSON
     echo "{\"text\":\"$text\"}"
 fi

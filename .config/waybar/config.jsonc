@@ -33,7 +33,7 @@
   },
   "custom/changebg": {
     "format": "switch  ",
-    "on-click": "python ~/.config/waybar/scripts/switch_bg.py",
+    "on-click": "python ~/.config/waybar/scripts/wallpaper.py",
     "tooltip": false
   },
   "tray": {
@@ -126,7 +126,7 @@
     "tooltip": true,
     "format": "{}",
     "interval": 30,
-    "exec": "~/.config/waybar/scripts/weather joinville", // <- your city
+    "exec": "~/.config/waybar/scripts/weather",
     "return-type": "json"
   },
   "clock": {
