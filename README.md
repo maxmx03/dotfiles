@@ -1,5 +1,7 @@
 # Dotfiles
 
+![screenshot](https://github.com/maxmx03/dotfiles/assets/50273941/c01e7405-4b71-4ffd-8d91-75fd370e2e0f)
+
 ## Quick start
 
 ```bash
