@@ -37,6 +37,7 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.timeoutlen = 300
 opt.undofile = true
+opt.undodir = vim.fn.stdpath 'cache' .. '/undo'
 opt.undolevels = 10000
 opt.updatetime = 200
 opt.virtualedit = 'block' -- move cursor where there is not text in visual block mode
