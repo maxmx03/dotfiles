@@ -1,4 +1,5 @@
-return {
+---@class milianor.icons
+local M = {
   kind = {
     Array = '',
     Boolean = '',
@@ -152,3 +153,5 @@ return {
     CircuitBoard = '',
   },
 }
+
+return M

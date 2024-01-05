@@ -1,3 +1,15 @@
+local function navic_attach(client, bufnr)
+  local navic = require 'nvim-navic'
+  vim.g.navic_silence = false
+  local symbols_supported = client.supports_method 'textDocument/documentSymbol'
+
+  if not symbols_supported then
+    return
+  end
+
+  navic.attach(client, bufnr)
+end
+
 return {
   {
     'williamboman/mason.nvim',
@@ -11,8 +23,8 @@ return {
       local mason_null_ls = require 'mason-null-ls'
       local lsp = require 'lspconfig'
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local servers = require 'milianor.servers'
-      local icons = require 'core.navic.icons'
+      local milianor = require 'milianor'
+      local icons = milianor.icons
 
       local signs = {
         Error = icons.diagnostics.Error,
@@ -40,17 +52,13 @@ return {
         callback = function(ev)
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-          local navic = require 'core.navic'
 
-          if
-              client
-              and client.server_capabilities
-              and client.server_capabilities.inlayHintProvider
-          then
+          navic_attach(client, ev.buf)
+
+          if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
             vim.lsp.inlay_hint.enable(ev.buf, true)
           end
 
-          navic.attach(client, ev.buf)
           vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
             buffer = ev.buf,
             command = 'update',
@@ -66,7 +74,7 @@ return {
         automatic_installation = true,
       }
 
-      for _, server in ipairs(servers) do
+      for _, server in ipairs(milianor.servers) do
         if server == 'lua_ls' then
           lsp[server].setup {
             settings = {

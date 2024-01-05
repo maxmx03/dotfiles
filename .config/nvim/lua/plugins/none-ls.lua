@@ -6,6 +6,7 @@ return {
     },
     config = function()
       local null_ls = require 'null-ls'
+      local milianor = require 'milianor'
 
       local function map(builtins, sources, callback)
         if sources then
@@ -36,8 +37,8 @@ return {
       null_ls.setup {
         debug = false,
         sources = sources {
-          formattings = require 'milianor.formatters',
-          diagnostics = require 'milianor.linters',
+          formattings = milianor.formatters,
+          diagnostics = milianor.linters,
         },
       }
     end,

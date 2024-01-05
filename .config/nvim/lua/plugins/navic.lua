@@ -3,8 +3,8 @@ return {
     'SmiteshP/nvim-navic',
     config = function()
       local navic = require 'nvim-navic'
-      local breadcrumbs = require 'core.navic.breadcrumbs'
-      local icons = require 'core.navic.icons'
+      local breadcrumbs = require 'core.breadcrumbs'
+      local icons = require('milianor').icons
 
       breadcrumbs.create_winbar()
 

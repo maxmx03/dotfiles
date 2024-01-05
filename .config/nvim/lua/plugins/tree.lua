@@ -5,7 +5,7 @@ return {
       'nvim-tree/nvim-web-devicons',
     },
     config = function()
-      local icons = require 'core.navic.icons'
+      local icons = require('milianor').icons
 
       require('nvim-tree').setup {
         auto_reload_on_write = false,

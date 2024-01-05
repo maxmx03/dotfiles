@@ -1,2 +1,3 @@
 *.gif
 dots_configs.txt
+.config/nvim/lazy-lock.json

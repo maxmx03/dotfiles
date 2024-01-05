@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
-local map = vim.keymap.set
-local utils = require 'milianor.utils'
+local keymap = vim.keymap.set
 local buffer = require('mini.bracketed').buffer
+local milianor = require 'milianor'
 
 local mini = {
   forward = function()
@@ -21,24 +21,15 @@ local mini = {
   end,
 }
 
-local milianor = {
-  format = function()
-    utils.format()
-  end,
-  quit = function()
-    utils:smart_quit()
-  end,
-}
-
-map('n', '<C-x>', mini.delete, opts)
-map('n', '<C-Left>', ':BufferLineCyclePrev<Return>', opts)
-map('n', '<C-Right>', ':BufferLineCycleNext<Return>', opts)
-map('n', '+', '<C-a>', opts)
-map('n', '-', '<C-x>', opts)
-map('n', 'ss', ':split<Return>', opts)
-map('n', 'sv', ':vsplit<Return>', opts)
-map('n', '<F7>', ':Inspect<Return>', opts)
-map('n', '<F8>', ':InspectTree<Return>', opts)
+keymap('n', '<C-x>', mini.delete, opts)
+keymap('n', '<C-Left>', ':BufferLineCyclePrev<Return>', opts)
+keymap('n', '<C-Right>', ':BufferLineCycleNext<Return>', opts)
+keymap('n', '+', '<C-a>', opts)
+keymap('n', '-', '<C-x>', opts)
+keymap('n', 'ss', ':split<Return>', opts)
+keymap('n', 'sv', ':vsplit<Return>', opts)
+keymap('n', '<F7>', ':Inspect<Return>', opts)
+keymap('n', '<F8>', ':InspectTree<Return>', opts)
 
 local normal = {
   ['w'] = { ':update<Return>', ' Save' },

@@ -3,9 +3,7 @@
     "library": [
       "/usr/share/nvim/runtime",
       "~/.local/share/nvim/lazy/hydra.nvim"
-    ],
-    "ignoreDir": ["test"],
-    "checkThirdParty": true
+    ]
   },
-  "diagnostics.disable": ["undefined-field"]
+  "diagnostics.disable": ["missing-fields", "undefined-field"]
 }

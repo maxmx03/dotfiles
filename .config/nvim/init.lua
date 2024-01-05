@@ -1,10 +1,11 @@
-require 'milianor'
-require 'install-lazy'
+require 'milianor.options'
+require 'milianor.autocmd'
+require 'bootstrap'
 
 local opts = {
   install = {
     missing = true,
-    colorscheme = { 'solarized' },
+    colorscheme = { 'hydra' },
   },
   checker = {
     enabled = true,

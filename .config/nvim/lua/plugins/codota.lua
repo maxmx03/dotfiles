@@ -9,7 +9,7 @@ return {
     'codota/tabnine-nvim',
     build = build,
     config = function()
-      local colors = require('hydra.colors')
+      local colors = require 'hydra.colors'
 
       require('tabnine').setup {
         disable_auto_comment = true,
