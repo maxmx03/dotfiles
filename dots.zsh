@@ -2,9 +2,9 @@
 
 export DOTS_DIR="${XDG_DATA_HOME:-$HOME}/dotfiles"
 export DOTS_CONFIG_FILE="$DOTS_DIR/dots_configs.txt"
-default_msg="⚡ Dots"
+dots_brand="⚡ Dots"
 
-function register_config() {
+function _dots_register() {
     if [ ! -e "$DOTS_CONFIG_FILE" ]; then
         touch "$DOTS_CONFIG_FILE"
     fi
@@ -14,23 +14,35 @@ function register_config() {
     fi
 }
 
+function _dots_unregister() {
+    sed -i "s/$1//g" $DOTS_CONFIG_FILE
+    sed -i '/^$/d' $DOTS_CONFIG_FILE
+}
+
 function _dots_remove() {
-    echo "$default_msg - remove"
     pushd -q "$HOME"
     config=$(fd -H -I --maxdepth 2 -E .cache -E .local -E dotfiles "^$1$")
 
-    echo "$default_msg - The following commands are going to be executed:"
-    echo "sed -i 's/$1//g' $DOTS_CONFIG_FILE"
-    echo "rm -rf $config"
-    echo "Proceed with these commands? (y/n): "
-    read answer
+    if [ ! -z "$config" ] && [ -e "$config" ]; then
+        echo "$dots_brand - The following commands are going to be executed:"
+        echo "sed -i 's/$1//g' $DOTS_CONFIG_FILE"
+        echo "rm -rf $config"
+        echo "Proceed with these commands? (y/n): "
+        read answer
 
-    if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
-        sed -i "s/$1//g" $DOTS_CONFIG_FILE
-        rm -rf $config
+        if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
+            echo "$dots_brand - removing $config ..."
+            sleep 5
+            _dots_unregister $1
+            rm -rf $config
+            echo "$dots_brand - The $config has been removed"
+        else
+            echo "$dots_brand - Operation canceled."
+        fi
     else
-        echo "$default_msg - Operation canceled."
+        echo "$dots_brand - Config not found"
     fi
+
     popd -q
 }
 
@@ -38,36 +50,59 @@ function _dots_list() {
     if [ ! -e "$DOTS_CONFIG_FILE" ]; then
         touch "$DOTS_CONFIG_FILE"
     fi
-    echo "$default_msg - list"
+    echo "$dots_brand - list"
     cat "$DOTS_CONFIG_FILE"
 }
 
-function _dots_install() {
-    echo "$default_msg - Install"
-    pushd -q "$DOTS_DIR"
-    config=$(fd -H -I --maxdepth 2 -E .local -E .cache "^$1$")
-
-    echo "$default_msg - The following commands are going to be executed:"
+function _dots_installation() {
+    config=$1
+    echo "$dots_brand - The following commands are going to be executed:"
     echo "cp -r $DOTS_DIR/$config $HOME/$config"
     echo "Proceed with these commands? (y/n): "
     read answer
+
     if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
-        if [ -e "$config" ] && [ ! -e "$HOME/$config" ]; then
-            cp -r "$DOTS_DIR/$config" "$HOME/$config"
-            echo "$default_msg - $config was installed"
-            register_config "$1"
+        echo "$dots_brand - copying $DOTS_DIR/$config to $HOME/$config ..."
+        sleep 5
+        cp -r "$DOTS_DIR/$config" "$HOME/$config"
+        echo "$dots_brand - The $config has been installed"
+    else
+        echo "$dots_brand - Operation canceled."
+    fi
+}
+
+function _dots_install() {
+    pushd -q "$DOTS_DIR"
+    config=$(fd -H -I --maxdepth 2 -E .local -E .cache "^$1$")
+
+    if [ ! -z "$config" ] && [ -e "$config" ]; then
+        if [ -e "$HOME/$config" ]; then
+            echo "$dots_brand - '$HOME/$config' already exists."
+            echo "Do you want to overwrite it? (y/n)"
+            read answer
+
+            if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
+                echo "$dots_brand - removing $HOME/$config ..."
+                sleep 5
+                rm -rf "$HOME/$config"
+                _dots_installation $config
+                _dots_register "$1"
+            else
+                echo "$dots_brand - Operation canceled."
+            fi
         else
-            echo "$default_msg - '$config' not found or already exists"
+            _dots_installation $config
+            _dots_register "$1"
         fi
     else
-        echo "$default_msg - Operation canceled."
+        echo "$dots_brand - Config not found"
     fi
 
     popd -q
 }
 
 function _dots_help() {
-    echo "$default_msg - Help
+    echo "$dots_brand - Help
 
 Usage: dots <command> [options]
 
@@ -80,26 +115,31 @@ COMMANDS:
 }
 
 function _dots_update() {
-    echo "$default_msg - update"
     pushd -q "$HOME"
     config=$(fd -H -I --maxdepth 2 -E dotfiles -E .cache -E .local -E GitHub "^$1$")
 
-    if [ -e "$config" ] ; then
-        echo "$default_msg - The following commands are going to be executed:"
+    if [ ! -z "$config" ] && [ -e "$config" ]; then
+        echo "$dots_brand - The following commands are going to be executed:"
         echo "rm -rf '$DOTS_DIR/$config'"
         echo "cp -r '$config' '$DOTS_DIR/$config'"
         echo "Proceed with these commands? (y/n): "
         read answer
+
         if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
+            echo "$dots_brand - removing $DOTS_DIR/$config ..."
+            sleep 5
             rm -rf "$DOTS_DIR/$config"
+
+            echo "$dots_brand - copying $config to $DOTS_DIR/$config"
+            sleep 5
             cp -r "$config" "$DOTS_DIR/$config"
 
-            echo "$default_msg - $DOTS_DIR/$config was updated"
+            echo "$dots_brand - The $DOTS_DIR/$config has been updated"
         else
-            echo "$default_msg - Operation canceled."
+            echo "$dots_brand - Operation canceled."
         fi
     else
-        echo "$default_msg - $config not found"
+        echo "$dots_brand - $config not found"
     fi
 
     popd -q
