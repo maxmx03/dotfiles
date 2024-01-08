@@ -1,16 +1,27 @@
 # Dotfiles
 
+- [zsh](https://www.zsh.org/) - shell
+- [zap](https://github.com/zap-zsh/zap) - zsh plugin manager
+- [tmux](https://github.com/tmux/tmux) - terminal multiplexer
+- [hyprland](https://github.com/hyprwm/Hyprland) - Wayland compositor
+- [neofetch](https://github.com/dylanaraps/neofetch) - system info
+- [neovim](https://github.com/neovim/neovim) - Vim-based text editor
+- [rofi](https://github.com/davatorium/rofi) - Application launcher
+- [waybar](https://github.com/Alexays/Waybar) - Wayland bar
+- [wlogout](https://github.com/ArtsyMacaw/wlogout) - Wayland logout menu
+
 ![screenshot](https://github.com/maxmx03/dotfiles/assets/50273941/c01e7405-4b71-4ffd-8d91-75fd370e2e0f)
 
 ## Quick start
 
 ```bash
-paru -S zsh fd
+git clone git@github.com:maxmx03/dotfiles $HOME/dotfiles
 ```
 
 ### Install dots script
 
 ```bash
+paru -S zsh fd
 echo "source ~/dotfiles/dots.zsh" >> $HOME/.zshrc
 ```
 
