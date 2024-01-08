@@ -23,7 +23,7 @@
     "format": "󰎈 {}",
     //"max-length": 15,
     "interval": 10,
-    "exec": "python ~/.config/waybar/scripts/cmus.py",
+    "exec": "~/.config/waybar/scripts/cmus",
     "return-type": "json",
     "exec-if": "pgrep cmus",
     "on-click": "cmus-remote -u",
