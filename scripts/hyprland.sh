@@ -4,21 +4,18 @@ read -n1 -p "[ACTION] - Would you like to continue with the install (y/n): " INS
 
 if [[ $INST == "y" ]]; then
     echo "Installation will proceed."
-    # Perform installation steps
 else
     echo "Installation canceled."
     exit 1
-    # Perform cancellation steps or exit the script
 fi
 
-# install paru
-sudo pacman -S --needed base-devel
 cd "$HOME"
+sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/paru.git
-cd paru
+pushd "$HOME/paru"
 makepkg -si
+popd
 
-## Install hyprland and dependencies
 hypr_packages=(
     hyprland-git
     xdg-desktop-portal-hyprland
@@ -61,9 +58,11 @@ hypr_packages=(
     vscode-codicons-git
 )
 
-paru -S "${hypr_packages[@]}"
+paru -S "${hypr_packages[@]}" --noconfirm
 
-## Install File Manager and extras
+echo "Hyprland has been installed, the script is going to install Thunar."
+sleep 3
+
 thunar_packages=(
     thunar
     thunar-archive-plugin
@@ -77,47 +76,39 @@ thunar_packages=(
     grim
     slurp
     cliphist
-    dracula-gtk-theme
-    dracula-cursors
     gnome-disk-utility
     ristretto
     mpv
     evince-no-gnome
 )
 
-paru -S "${thunar_packages[@]}"
+paru -S "${thunar_packages[@]}" --noconfirm
 
-## Install neovim and dependencies
-neovim_packages=(
-    neovim-git
-    python-pynvim
-    gcc
-    fzf
-    fd
-    ripgrep
-    lazygit
-)
+echo "Thunar has been installed, the script is going to install themes, icons, and cursor."
+sleep 3
 
-paru -S "${neovim_packages[@]}"
-
-stow nvim
-
-cd "$HOME"
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-cd "$HOME/WhiteSur-icon-theme"
-./install.sh -t purple
+pushd "$HOME/WhiteSur-icon-theme"
+./install.sh -t red
+popd
 rm -rf "$HOME/WhiteSur-icon-theme"
 
-# set themes
-gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
-gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
-gsettings set org.gnome.desktop.interface cursor-theme "Dracula-cursors"
-gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-purple-dark"
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git --depth=1
+pushd "$HOME/WhiteSur-gtk-theme"
+./install.sh -t red
+popd
+rm -rf "$HOME/WhiteSur-gtk-theme"
+
+theming_packages=(
+    qogir-cursor-theme-git
+    nwg-look
+)
+
+paru -S "${theming_packages[@]}" --noconfirm
+
+echo "Theming packages have been installed. Run nwg-look after the installation."
+sleep 3
 
 echo 'if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec Hyprland
 fi' >> ~/.bashrc
-
-# zsh plugin manager
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
