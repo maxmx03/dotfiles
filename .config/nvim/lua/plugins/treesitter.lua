@@ -3,7 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'markdown', 'markdown_inline', 'lua' },
+        ensure_installed = { 'markdown', 'markdown_inline', 'lua', 'regex', 'vim' },
         auto_install = true,
         sync_install = false,
         ignore_install = {},
@@ -16,5 +16,8 @@ return {
         },
       }
     end,
+  },
+  {
+    'luckasRanarison/tree-sitter-hyprlang',
   },
 }

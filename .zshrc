@@ -20,6 +20,10 @@ plug "zap-zsh/exa"
 autoload -Uz compinit
 compinit
 
+# alias
+alias love='love-git'
+alias g='lazygit'
+
 # Plugins configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#b392f0"
 ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=#ef596f"

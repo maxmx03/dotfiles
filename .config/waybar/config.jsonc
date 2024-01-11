@@ -43,6 +43,9 @@
   "hyprland/window": {
     "format": "{}",
     "rewrite": {
+      "(\\d\\. )?(.*) foot": "<span color=\"#e5c07b\">󰽒 Foot</span>",
+      "foot (.*)": "<span color=\"#e5c07b\">󰽒</span>",
+      "foot": "<span color=\"#e5c07b\">󰽒 Foot</span>",
       "(\\d\\. )?(.*) nvim": "<span color=\"#89ca78\"> Neovim</span>",
       "nvim (.*)": "<span color=\"#89ca78\"> </span>",
       "nvim": "<span color=\"#89ca78\"> Neovim</span>",

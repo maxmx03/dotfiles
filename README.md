@@ -4,6 +4,8 @@
 
 - [zsh](https://www.zsh.org/) - shell
 - [zap](https://github.com/zap-zsh/zap) - zsh plugin manager
+- [foot](https://codeberg.org/dnkl/foot/wiki) - Wayland terminal emulator
+- [kitty](https://github.com/kovidgoyal/kitty) - GPU based Terminal
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
 - [hyprland](https://github.com/hyprwm/Hyprland) - Wayland compositor
 - [neofetch](https://github.com/dylanaraps/neofetch) - system info

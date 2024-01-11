@@ -37,7 +37,7 @@ local normal = {
   Q = { ':quitall<Return>', '󰩈 Quit Neovim' },
   e = { ':NvimTreeToggle<Return>', '󰙅 Open File Tree' },
   f = { ':Telescope find_files<Return>', ' Find Files' },
-  t = { ':ToggleTerm direction=horizontal<Return>', ' Open Terminal' },
+  t = { ':ToggleTerm direction=float<Return>', ' Open Terminal' },
   ['/'] = {
     '<Plug>(comment_toggle_linewise_current)',
     ' Comment toggle current line',

@@ -36,6 +36,8 @@ hypr_packages=(
     pavucontrol
     pamixer
     kitty
+    foot
+    chafa
     zsh
     exa
     htop

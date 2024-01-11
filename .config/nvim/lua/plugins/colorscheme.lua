@@ -8,6 +8,11 @@ return {
       local hydra = require 'hydra'
 
       hydra.setup {
+        on_highlights = function()
+          return {
+            Pmenu = { bg = 'NONE' },
+          }
+        end,
         modules = {
           neogit = false,
           illuminate = false,

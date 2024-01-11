@@ -25,6 +25,7 @@ M.servers = {
   'marksman',
   'pyright',
   'angularls',
+  'clangd',
 }
 
 M.formatters = {
