@@ -29,5 +29,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#b392f0"
 ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=#ef596f"
 
 if [ -z "$TMUX" ]; then
-    neofetch
+    if [ "$TERM" = 'foot' ]; then
+        neofetch
+    else
+        neofetch --backend kitty
+    fi
 fi
