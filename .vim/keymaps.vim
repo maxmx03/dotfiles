@@ -13,3 +13,7 @@ map <Space>t :tab term ++close<cr>
 tmap <Space>t <C-D>
 tmap <C-Right> <c-w>:tabnext<CR>
 tmap <C-Left> <c-w>:tabprevious<CR>
+nmap ss :split<CR>
+nmap sv :vsplit<CR>
+nmap + <C-a>
+nmap - <C-x>

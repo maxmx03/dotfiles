@@ -25,6 +25,7 @@ set shell=zsh
 set title
 set noshowmode
 set stal=2
+set awa
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"

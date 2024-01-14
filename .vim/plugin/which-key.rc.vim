@@ -18,6 +18,8 @@ g:which_key_map = {
 	f: [':Files', 'find files'],
 	b: [':Buffers', 'find buffers'],
 	e: [defx, 'open folder'],
+	m: [':CocCommand markdown-preview-enhanced.openPreview', 'markdown preview'],
+	mi: [':CocCommand markmap.create', 'open mindmap'],
 	p: {
 		name: 'plugin manager',
 		i: [':PlugInstall', 'plug install'],
