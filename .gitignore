@@ -1,3 +1,7 @@
 *.gif
 dots_configs.txt
 .config/nvim/lazy-lock.json
+.vim/autoload
+.vim/pack/minpac
+.vim/.netrwhist
+.vim/plugged

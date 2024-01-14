@@ -17,7 +17,7 @@ makepkg -si
 popd
 
 hypr_packages=(
-    hyprland-git
+    hyprland
     xdg-desktop-portal-hyprland
     qt5-wayland
     qt6-wayland

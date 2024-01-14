@@ -10,6 +10,7 @@
 - [hyprland](https://github.com/hyprwm/Hyprland) - Wayland compositor
 - [neofetch](https://github.com/dylanaraps/neofetch) - system info
 - [neovim](https://github.com/neovim/neovim) - Vim-based text editor
+- [vim](https://github.com/vim/vim) - Vim - Improved version of Vi
 - [rofi](https://github.com/davatorium/rofi) - Application launcher
 - [waybar](https://github.com/Alexays/Waybar) - Wayland bar
 - [wlogout](https://github.com/ArtsyMacaw/wlogout) - Wayland logout menu
@@ -32,6 +33,7 @@ echo "source ~/dotfiles/dots.zsh" >> $HOME/.zshrc
 ```bash
 # example1: dots install nvim
 # example2: dots install .tmux.conf
+# example3: dots install "\.vim"
 dots install <config>
 # dots help to see more commands
 ```
