@@ -4,6 +4,3 @@ import $VIMRUNTIME .. "/defaults.vim"
 import DIRCONF .. "plugins.vim"
 import DIRCONF .. "options.vim"
 import DIRCONF .. "keymap.vim"
-
-&t_SI = "\e[6 q"
-&t_EI = "\e[2 q"

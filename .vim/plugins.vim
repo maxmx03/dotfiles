@@ -1,7 +1,7 @@
 vim9script
 plug#begin()
 # colorscheme and syntax highlighting
-Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 
 # editor
 Plug 'Shougo/defx.nvim'

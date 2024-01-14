@@ -16,6 +16,7 @@ g:which_key_map = {
 	u: [':update', 'update'],
 	o: [':on', 'only screen'],
 	f: [':Files', 'find files'],
+	b: [':Buffers', 'find buffers'],
 	e: [defx, 'open folder'],
 	t: [':term ++rows=10', 'open terminal'],
 	p: {

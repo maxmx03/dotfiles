@@ -1,7 +1,7 @@
 vim9script
-g:lightline = { colorscheme: 'one' }
+g:lightline = { colorscheme: 'onedark' }
 syntax on
-colorscheme one
+colorscheme onedark
 hi Normal guibg=#1c1e24
 hi EndOfBuffer guifg=#1c1e24 guibg=#1c1e24
 hi SignColumn guibg=#1c1e24

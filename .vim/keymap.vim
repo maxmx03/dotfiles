@@ -3,3 +3,4 @@ vim9script
 nmap <C-f>  <Plug>(coc-format-selected)
 xnoremap <C-c> y:call system("wl-copy", @")<CR>
 nmap <C-c> v$<C-c>
+nmap <Space>; gcc<CR>

@@ -21,3 +21,7 @@ set splitbelow
 set ls=2
 set scl=yes
 set cole=3
+set shell=zsh
+
+&t_SI = "\e[6 q"
+&t_EI = "\e[2 q"
