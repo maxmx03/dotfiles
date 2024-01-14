@@ -1,13 +1,4 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "json",
-    "typescript",
-    "typescriptreact",
-    "javascript",
-    "lua",
-    "html"
-  ],
+  "coc.preferences.formatOnSave": true,
   "angular.enable-strict-mode-prompt": false
 }

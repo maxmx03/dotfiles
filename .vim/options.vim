@@ -22,6 +22,9 @@ set ls=2
 set scl=yes
 set cole=3
 set shell=zsh
+set title
+set noshowmode
+set stal=2
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"

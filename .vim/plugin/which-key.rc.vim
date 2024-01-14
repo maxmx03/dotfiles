@@ -18,7 +18,6 @@ g:which_key_map = {
 	f: [':Files', 'find files'],
 	b: [':Buffers', 'find buffers'],
 	e: [defx, 'open folder'],
-	t: [':term ++rows=10', 'open terminal'],
 	p: {
 		name: 'plugin manager',
 		i: [':PlugInstall', 'plug install'],
@@ -37,7 +36,7 @@ g:which_key_map = {
 		a: ['<Plug>(coc-codeaction-cursor)', 'code action'],
 		l: ['<Plug>(coc-codelens-action)', 'code lens action'],
 		c: ['<Plug>(coc-fix-current)', 'fix diagnostic'],
-	}
+	},
 }
 
 which_key#register('<Space>', "g:which_key_map")
