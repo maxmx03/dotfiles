@@ -6,6 +6,7 @@ nmap <C-c> v$<C-c>
 nmap <Space>/ gcc<CR>
 nmap <C-Right> :bnext<CR>
 nmap <C-Left> :bprev<CR>
+nmap <C-x> :bd<CR>
 nmap ss :split<CR>
 nmap sv :vsplit<CR>
 nmap + <C-a>

@@ -20,7 +20,7 @@ function _dots_unregister() {
 
 function _dots_remove() {
     pushd -q "$HOME"
-    local config=$(fd -H -I --maxdepth 2 -E .cache -E .local -E dotfiles "^$1$")
+    local config=$(fd -p -g -H -I --maxdepth 2 -E .cache -E .local -E dotfiles "**/$1")
 
     if [ ! -z "$config" ] && [ -e "$config" ]; then
         echo "⚡ Dots - The following commands are going to be executed:"
@@ -72,7 +72,7 @@ function _dots_installation() {
 
 function _dots_install() {
     pushd -q "$DOTS_DIR"
-    local config=$(fd -H -I --maxdepth 2 -E .local -E .cache "^$1$")
+    local config=$(fd -p -g -H -I --maxdepth 2 -E .local -E .cache "**/$1")
 
     if [ ! -z "$config" ] && [ -e "$config" ]; then
         if [ -e "$HOME/$config" ]; then
@@ -115,7 +115,7 @@ COMMANDS:
 
 function _dots_update() {
     pushd -q "$HOME"
-    local config=$(fd -H -I --maxdepth 2 -E dotfiles -E .cache -E .local -E GitHub "^$1$")
+    local config=$(fd -p -g -H -I --maxdepth 2 -E dotfiles -E .cache -E .local -E GitHub "**/$1")
 
     if [ ! -z "$config" ] && [ -e "$config" ]; then
         echo "⚡ Dots - The following commands are going to be executed:"

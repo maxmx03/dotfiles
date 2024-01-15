@@ -1,8 +1,5 @@
 vim9script
 plug#begin()
-# colorscheme and syntax highlighting
-Plug 'joshdick/onedark.vim'
-
 # editor
 Plug 'Shougo/defx.nvim'
 if !has('nvim')

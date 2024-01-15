@@ -16,9 +16,8 @@ g:which_key_map = {
 	w: [':update', ' Update'],
 	o: [':on', 'Only Screen'],
 	e: [defx, '󰙅 Open File Tree'],
-	f: [':FuzzyFiles', ' Search File'],
+	f: [':Files', ' Search File'],
 	m: [':CocCommand markdown-preview-enhanced.openPreview', 'markdown preview'],
-	mi: [':CocCommand markmap.create', 'open mindmap'],
 	s: {
 		name: ' Search',
 		f: [ ':FuzzyFiles', 'Search Files' ],

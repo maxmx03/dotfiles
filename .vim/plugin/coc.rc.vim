@@ -27,7 +27,6 @@ g:coc_global_extensions = [
 	'coc-css',
 	'coc-angular',
 	'coc-markdownlint',
-	'coc-markmap',
-	'coc-webview',
 	'coc-markdown-preview-enhanced',
+	'coc-emoji',
 ]
