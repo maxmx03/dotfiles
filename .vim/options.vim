@@ -23,7 +23,6 @@ set cole=3
 set shell=zsh
 set title
 set noshowmode
-set stal=2
 set awa
 set so=8
 set siso=8

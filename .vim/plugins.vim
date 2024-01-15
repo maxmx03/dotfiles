@@ -12,6 +12,7 @@ endif
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
 Plug 'wsdjeg/dein-ui.vim'
+Plug 'Donaldttt/fuzzyy'
 Plug 'junegunn/fzf.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'machakann/vim-highlightedyank'
@@ -20,7 +21,9 @@ Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vim-which-key'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
-Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
+Plug 'hahdookin/miniterm.vim'
+Plug 'justinmk/vim-sneak'
 
 # coding
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }

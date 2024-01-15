@@ -3,17 +3,14 @@ vim9script
 nmap <C-f>  <Plug>(coc-format-selected)
 xnoremap <C-c> y:call system("wl-copy", @")<CR>
 nmap <C-c> v$<C-c>
-nmap <Space>; gcc<CR>
-nmap <C-Right> :tabnext<CR>
-nmap <C-Left> :tabprevious<CR>
-nmap bx :tabclose<CR>
-nmap bo :tabonly<CR>
-nmap bb :tabnext<CR>
-map <Space>t :tab term ++close<cr>
-tmap <Space>t <C-D>
-tmap <C-Right> <c-w>:tabnext<CR>
-tmap <C-Left> <c-w>:tabprevious<CR>
+nmap <Space>/ gcc<CR>
+nmap <C-Right> :bnext<CR>
+nmap <C-Left> :bprev<CR>
 nmap ss :split<CR>
 nmap sv :vsplit<CR>
 nmap + <C-a>
 nmap - <C-x>
+nmap <Space>t :MinitermToggle<CR>
+tmap <Space>t <c-w>:MinitermToggle<CR>
+nmap s gg <CR><Plug>Sneak_s
+nmap f gg <CR><Plug>Sneak_s

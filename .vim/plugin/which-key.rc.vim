@@ -11,15 +11,21 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 var defx = ":Defx -listed -resume "
 defx = defx .. "-columns=indent:mark:icon:icons:filename:git:size"
 g:which_key_map = {
-	q: [':quit', 'quit'],
-	w: [':write', 'write'],
-	u: [':update', 'update'],
-	o: [':on', 'only screen'],
-	f: [':Files', 'find files'],
-	b: [':Buffers', 'find buffers'],
-	e: [defx, 'open folder'],
+	q: [':quit', ' Quit'],
+	Q: ['quitall', '󰩈 Quit neovim'],
+	w: [':update', ' Update'],
+	o: [':on', 'Only Screen'],
+	e: [defx, '󰙅 Open File Tree'],
+	f: [':FuzzyFiles', ' Search File'],
 	m: [':CocCommand markdown-preview-enhanced.openPreview', 'markdown preview'],
 	mi: [':CocCommand markmap.create', 'open mindmap'],
+	s: {
+		name: ' Search',
+		f: [ ':FuzzyFiles', 'Search Files' ],
+		w: [ ':FuzzyGrep', 'Search Words'  ],
+		b: [ ':Buffers', 'Search Buffers' ],
+		h: [ ':FuzzyHighlights', 'Search Highlights' ],
+	},
 	p: {
 		name: 'plugin manager',
 		i: [':PlugInstall', 'plug install'],
@@ -27,7 +33,7 @@ g:which_key_map = {
 		u: [':PlugUpdate', 'plug update'],
 	},
 	c: {
-		name: 'code',
+		name: 'Code',
 		f: ['<Plug>(coc-format-selected)', 'format code'],
 		n: ['<Plug>(coc-diagnostic-next)', 'diagnostic next'],
 		N: ['<Plug>(coc-diagnostic-prev)', 'diagnostic prev'],
