@@ -1,2 +1,6 @@
 au BufWinEnter *.md set colorcolumn=80
 au BufWinLeave *.md set colorcolumn=
+
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END

@@ -21,6 +21,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-buftabline'
 Plug 'hahdookin/miniterm.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 # coding
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
