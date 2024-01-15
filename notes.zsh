@@ -52,6 +52,18 @@ function _nt_write() {
 	fi
 }
 
+function _nt_add() {
+	if [ -z $1 ]; then
+		echo "You need to pass the folder that have all your notes."
+		echo "Example: nt add mynotes"
+	else
+	  pushd -q "$1"
+		cp -r * "$NOTES_DIR"
+		echo "$(fd md)" >> "$NOTES_NOTE_LIST"
+		popd -q
+	fi
+}
+
 function _nt_remove() {
 	pushd -q "$NOTES_DIR"
 	local note=$(fd -p -g "**/$1")
@@ -92,6 +104,7 @@ COMMANDS:
     list           list notes
     read           read note
     write          write note
+		add            add all your notes to the notes folder
     remove         remove note"
 }
 
@@ -100,6 +113,7 @@ function nt() {
     help "_nt_help"
 		read "_nt_read"
 		write "_nt_write"
+		add "_nt_add"
 		remove "_nt_remove"
 		list "_nt_list"
   )
