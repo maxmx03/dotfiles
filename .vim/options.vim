@@ -11,7 +11,6 @@ set udf
 set wrap
 set ts=2
 set sw=2
-set siso=8
 set rnu
 set tgc
 set fillchars+=eob:.
@@ -26,6 +25,8 @@ set title
 set noshowmode
 set stal=2
 set awa
+set so=8
+set siso=8
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"

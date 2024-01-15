@@ -24,6 +24,4 @@ Plug 'itchyny/lightline.vim'
 
 # coding
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 plug#end()

@@ -19,6 +19,7 @@ g:coc_global_extensions = [
 	'coc-eslint',
 	'coc-emmet',
 	'coc-tsserver',
+	'coc-sumneko-lua',
 	'coc-stylua',
 	'coc-sh',
 	'coc-pyright',
