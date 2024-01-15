@@ -4,10 +4,12 @@ export NOTES_DIR="$HOME/notes"
 export NOTES_NOTE_LIST="$HOME/notes/list.txt"
 export EDITOR="vim"
 
+if [ ! -e "$NOTES_DIR" ]; then
+	mkdir "$NOTES_DIR"
+	touch "$NOTES_DIR/list.txt"
+fi
+
 function _nt_register() {
-	if [ ! -e "$NOTES_NOTE_LIST" ]; then
-		touch "$NOTES_NOTE_LIST"
-	fi
 	local note=$(grep -w "$1" "$NOTES_NOTE_LIST")
 	if [ -z "$note" ]; then
 		echo "$1" >> "$NOTES_NOTE_LIST"
@@ -46,7 +48,7 @@ function _nt_write() {
 		  _nt_register $user_path
 		fi
 
-		vim $user_path
+		$EDITOR $user_path
 	fi
 }
 
