@@ -11,18 +11,24 @@ fi
 
 function _nt_register() {
 	local note=$(grep -i -x "$1" "$NOTES_NOTE_LIST")
-	echo "$note to register"
-	sleep 5
 	if [ -z "$note" ]; then
 		echo "$1" >> "$NOTES_NOTE_LIST"
+    echo "Note registered successfully."
+	else
+    echo "Note not found in $NOTES_NOTE_LIST."
 	fi
 }
 
 function _nt_unregister() {
-	local sanitized_path=$(echo "$1" | sed 's/[^^]/[&]/g; s/\^/\\^/g')
+    local note="$1"
+    local line_to_remove=$(grep -i -x "$note" "$NOTES_NOTE_LIST")
 
-	sed -i "\|$sanitized_path|d" "$NOTES_NOTE_LIST"
-	sed -i '/^$/d' "$NOTES_NOTE_LIST"
+    if [ -n "$line_to_remove" ]; then
+        sed -i "/^$(printf '%s\n' "$line_to_remove" | sed 's/[^^]/[&]/g; s/\^/\\^/g')$/d" "$NOTES_NOTE_LIST"
+        echo "Note unregistered successfully."
+    else
+        echo "Note not found in $NOTES_NOTE_LIST."
+    fi
 }
 
 function _nt_read() {
@@ -52,8 +58,6 @@ function _nt_write() {
 				content+="Author: $USER\n\n"
 				content+="---\n"
 				echo "$content" >> "$file_path"
-				echo "register $file"
-				sleep 5
 				_nt_register $file
 			fi
 
