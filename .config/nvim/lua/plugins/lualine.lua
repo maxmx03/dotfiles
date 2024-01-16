@@ -101,9 +101,7 @@ return {
       ins_config('z', {
         {
           function()
-            local version = vim.version()
-            local neovim_version = string.format('Version: v%s.%s.%s', version.major, version.minor, version.patch)
-            return neovim_version
+            return "%{coc#status()}"
           end,
         },
       })

@@ -7,7 +7,7 @@ return {
           '.git',
           'LICENSE',
           'package.json',
-          '.luarc.json'
+          '.luarc.json',
         },
       }
     end,
