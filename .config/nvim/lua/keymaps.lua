@@ -93,7 +93,7 @@ local normal = {
   },
   n = {
     name = ' Neorg',
-    w = { ':Neorg worspace notes<Return>', 'Open Workspace' },
+    w = { ':Neorg workspace notes<Return>', 'Open Workspace' },
     u = { ':Neorg upgrade<Return>', 'Upgrade Neorg' },
   }
 }
