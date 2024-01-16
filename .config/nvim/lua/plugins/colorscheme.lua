@@ -8,9 +8,10 @@ return {
       local hydra = require 'hydra'
 
       hydra.setup {
-        on_highlights = function()
+        on_highlights = function(colors, color)
           return {
             Pmenu = { bg = 'NONE' },
+            StatusLineNC = { fg = 'NONE', bg = 'NONE' },
           }
         end,
         modules = {

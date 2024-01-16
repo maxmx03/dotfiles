@@ -1,0 +1,4 @@
+{
+  "coc.preferences.formatOnSave": true,
+  "angular.enable-strict-mode-prompt": false
+}

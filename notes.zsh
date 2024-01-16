@@ -42,7 +42,7 @@ function _nt_write() {
 	local file_from_list=$(grep -i -x $1 $NOTES_NOTE_LIST)
 
 	if [ ! -z "$file_from_list" ]; then
-		vim $NOTES_DIR/$file_from_list
+		$EDITOR $NOTES_DIR/$file_from_list
 	else
 		if [[ "$content" == *.md ]]; then
 			directory_path="${file_path%/*}"

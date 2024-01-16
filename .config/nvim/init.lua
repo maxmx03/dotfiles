@@ -1,11 +1,11 @@
-require 'milianor.options'
-require 'milianor.autocmd'
+require 'options'
+require 'autocmds'
 require 'bootstrap'
 
 local opts = {
   install = {
     missing = true,
-    colorscheme = { 'hydra' },
+    colorscheme = { 'gruvbox' },
   },
   checker = {
     enabled = true,

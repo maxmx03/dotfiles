@@ -101,22 +101,9 @@ return {
       ins_config('z', {
         {
           function()
-            local msg = 'No Active Lsp'
-            local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
-            local clients = vim.lsp.get_clients()
-            if next(clients) == nil then
-              return msg
-            end
-            for _, client in ipairs(clients) do
-              ---@diagnostic disable-next-line: undefined-field
-              local filetypes = client.config.filetypes
-              if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                if client.name ~= 'null-ls' then
-                  return client.name
-                end
-              end
-            end
-            return msg
+            local version = vim.version()
+            local neovim_version = string.format('Version: v%s.%s.%s', version.major, version.minor, version.patch)
+            return neovim_version
           end,
         },
       })
