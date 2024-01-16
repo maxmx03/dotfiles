@@ -12,7 +12,7 @@ return {
           return {
             Pmenu = { bg = 'NONE' },
             StatusLineNC = { fg = 'NONE', bg = 'NONE' },
-            CocInlayHint = { fg = color.shade(colors.yellow, 3) }
+            CocInlayHint = { fg = color.shade(colors.yellow, 3) },
           }
         end,
         modules = {

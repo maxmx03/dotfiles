@@ -1,5 +1,6 @@
 vim.loader.enable()
-vim.g.mapleader = ' '
+vim.g.mapleader = ' '      -- which-key
+vim.g.maplocalleader = ']' -- neorg
 
 local opt = vim.opt
 
@@ -19,7 +20,7 @@ opt.list = true
 opt.mouse = 'a'
 opt.number = true
 -- opt.pumblend = 10 -- enables pseudo-transparency
-opt.pumheight = 10 -- maximun number of items to show in the popup menu
+opt.pumheight = 10        -- maximun number of items to show in the popup menu
 opt.relativenumber = true -- number relative to the cursor
 opt.scrolloff = 4
 opt.shiftround = true

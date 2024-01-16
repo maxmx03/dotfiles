@@ -5,8 +5,8 @@ local quit = require 'core.quit'
 map('n', '<C-x>', ':bd<Return>', opts)
 map('n', '<C-Left>', ':BufferLineCyclePrev<Return>', opts)
 map('n', '<C-Right>', ':BufferLineCycleNext<Return>', opts)
-map('n', '+', '<C-a>', opts)
-map('n', '-', '<C-x>', opts)
+map('n', '+', '^ylp', opts)
+map('n', '-', '^x', opts)
 map('n', 'ss', ':split<Return>', opts)
 map('n', 'sv', ':vsplit<Return>', opts)
 map('n', '<F7>', ':Inspect<Return>', opts)
@@ -43,7 +43,7 @@ local normal = {
     d = { '<Plug>(coc-definition)', 'defition' },
     i = { '<Plug>(coc-implementation)', 'implementation' },
     r = { '<Plug>(coc-reference)', 'reference' },
-    h = { ':call CocActionAsync("doHover")', 'show docs' },
+    h = { ':call CocActionAsync("doHover")<Return>', 'show docs' },
     a = { '<Plug>(coc-codeaction-cursor)', 'code action' },
     l = { '<Plug>(coc-codelens-action)', 'code lens action' },
     c = { '<Plug>(coc-fix-current)', 'fix diagnostic' },
@@ -62,7 +62,7 @@ local normal = {
     name = ' Buffer',
     p = { ':BufferLinePick <Return>', 'Pick Buffer' },
     X = { ':BufferLineCloseOther <Return>', 'Exit Others' },
-    s = { ':BufferLineSortByTabs <Return>', 'Exit Others' },
+    s = { ':BufferLineSortByTabs <Return>', 'Sortby Tabs' },
   },
   p = {
     name = ' Plugins',
@@ -89,12 +89,13 @@ local normal = {
   },
   m = {
     name = ' Markdown',
-    m = { ':CocCommand markdown-preview-enhanced.openPreview', 'Open Markdown Preview' },
+    m = { ':CocCommand markdown-preview-enhanced.openPreview<Return>', 'Open Markdown Preview' },
   },
   n = {
     name = ' Neorg',
     w = { ':Neorg workspace notes<Return>', 'Open Workspace' },
     u = { ':Neorg upgrade<Return>', 'Upgrade Neorg' },
+    r = { ':Neorg return<Return>', 'Return' },
   }
 }
 
