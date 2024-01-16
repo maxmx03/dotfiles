@@ -4,6 +4,7 @@ vim.g.mapleader = ' '
 local opt = vim.opt
 
 opt.autowrite = true
+opt.autowriteall = true
 opt.clipboard = 'unnamedplus'
 opt.completeopt = 'menu,menuone,noselect'
 opt.conceallevel = 3
@@ -18,7 +19,7 @@ opt.list = true
 opt.mouse = 'a'
 opt.number = true
 -- opt.pumblend = 10 -- enables pseudo-transparency
-opt.pumheight = 10 -- maximun number of items to show in the popup menu
+opt.pumheight = 10        -- maximun number of items to show in the popup menu
 opt.relativenumber = true -- number relative to the cursor
 opt.scrolloff = 4
 opt.shiftround = true
