@@ -91,6 +91,11 @@ local normal = {
     name = ' Markdown',
     m = { ':CocCommand markdown-preview-enhanced.openPreview', 'Open Markdown Preview' },
   },
+  n = {
+    name = ' Neorg',
+    w = { ':Neorg worspace default<Return>' },
+    u = { ':Neorg upgrade<Return>' },
+  }
 }
 
 local visual = {
