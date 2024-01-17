@@ -1,4 +1,41 @@
 {
   "coc.preferences.formatOnSave": true,
-  "angular.enable-strict-mode-prompt": false
+  "angular.enable-strict-mode-prompt": false,
+  "emmet.includeLanguages": {
+    "norg": "html",
+    "markdown": "html"
+  },
+  "emmet.excludeLanguages": [],
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "󰌶",
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.enable": true,
+  "suggest.completionItemKindLabels": {
+    "keyword": "",
+    "variable": "",
+    "value": "",
+    "operator": "",
+    "function": "",
+    "reference": "",
+    "constant": "",
+    "method": "",
+    "struct": "",
+    "class": "",
+    "interface": "",
+    "text": "",
+    "enum": "",
+    "enumMember": "",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "",
+    "unit": "",
+    "event": "",
+    "file": "",
+    "folder": "",
+    "snippet": "",
+    "typeParameter": "",
+    "default": ""
+  }
 }

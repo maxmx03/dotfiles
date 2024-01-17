@@ -15,4 +15,5 @@ nmap - <C-x>
 nmap <Space>t :MinitermToggle<CR>
 tmap <Space>t <c-w>:MinitermToggle<CR>
 nmap s gg <CR><Plug>Sneak_s
-nmap f gg <CR><Plug>Sneak_s
+nmap f =<CR>
+nmap F =G<CR>
