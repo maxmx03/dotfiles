@@ -8,7 +8,6 @@ if !has('nvim')
 endif
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
-Plug 'wsdjeg/dein-ui.vim'
 Plug 'Donaldttt/fuzzyy'
 Plug 'junegunn/fzf.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }

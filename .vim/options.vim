@@ -26,6 +26,8 @@ set noshowmode
 set awa
 set so=8
 set siso=8
+set listchars=trail:-,nbsp:+
+set list
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"

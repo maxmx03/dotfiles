@@ -49,11 +49,11 @@ opt.wrap = false
 opt.fillchars:append { eob = ' ' } -- remove endofbuffer characters
 
 if vim.fn.has 'nvim-0.10' == 1 then
-  opt.smoothscroll = true
+	opt.smoothscroll = true
 end
 
 if vim.fn.has 'win32' == 1 then
-  vim.cmd [[
+	vim.cmd [[
     let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
     let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
     let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
@@ -61,5 +61,5 @@ if vim.fn.has 'win32' == 1 then
     set shellquote= shellxquote=
   ]]
 else
-  vim.opt.shell = 'bash'
+	vim.opt.shell = 'bash'
 end

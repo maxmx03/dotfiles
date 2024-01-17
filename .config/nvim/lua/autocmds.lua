@@ -3,19 +3,15 @@ local function augroup(name)
 end
 
 vim.api.nvim_create_autocmd('BufWinEnter', {
-  group = augroup 'markdown_column_80',
-  pattern = '*.md',
-  callback = function()
-    vim.cmd 'set colorcolumn=80'
-  end,
+  group = augroup 'add_markdown_column',
+  pattern = { '*.md', '*.norg' },
+  command = 'set colorcolumn=80'
 })
 
 vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
-  group = augroup 'markdown_column_999999',
-  pattern = '*.md',
-  callback = function()
-    vim.cmd 'set colorcolumn='
-  end,
+  group = augroup 'remove_markdown_column',
+  pattern = { '*.md', '*.norg' },
+  command = 'set colorcolumn='
 })
 
 vim.api.nvim_create_autocmd('TextYankPost', {

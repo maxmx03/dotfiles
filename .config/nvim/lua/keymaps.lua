@@ -69,7 +69,7 @@ local normal = {
     p = { ':Lazy home<Return>', 'Open Lazy' },
     P = { ':Lazy profile<Return>', 'Open Profile' },
     u = { ':Lazy update<Return>', 'Update Plugins' },
-    c = { ':Lazy clean', 'Clean Plugins' },
+    c = { ':Lazy clean<Return>', 'Clean Plugins' },
     s = { ':Lazy sync<Return>', 'Sync Plugins' },
   },
   h = {
