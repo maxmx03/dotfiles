@@ -11,6 +11,8 @@ map('n', 'ss', ':split<Return>', opts)
 map('n', 'sv', ':vsplit<Return>', opts)
 map('n', '<F7>', ':Inspect<Return>', opts)
 map('n', '<F8>', ':InspectTree<Return>', opts)
+map('n', 'f', '=<CR>', opts)
+map('n', 'F', '=G<CR>', opts)
 
 local normal = {
   ['w'] = { ':update<Return>', ' Save' },

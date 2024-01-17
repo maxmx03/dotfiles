@@ -11,8 +11,10 @@ opt.completeopt = 'menu,menuone,noselect'
 opt.conceallevel = 3
 opt.confirm = true
 opt.cursorline = true
+opt.colorcolumn = '120'
 opt.expandtab = true
 opt.formatoptions = 'jcroqlnt'
+opt.fillchars:append { eob = ' ' } -- remove endofbuffer characters
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.laststatus = 3
@@ -38,6 +40,7 @@ opt.splitright = true
 opt.tabstop = 2
 opt.termguicolors = true
 opt.timeoutlen = 300
+opt.textwidth = 120
 opt.undofile = true
 opt.undodir = vim.fn.stdpath 'cache' .. '/undo'
 opt.undolevels = 10000
@@ -46,20 +49,19 @@ opt.virtualedit = 'block' -- move cursor where there is not text in visual block
 opt.wildmode = 'longest:full,full'
 opt.winminwidth = 5
 opt.wrap = false
-opt.fillchars:append { eob = ' ' } -- remove endofbuffer characters
 
 if vim.fn.has 'nvim-0.10' == 1 then
-	opt.smoothscroll = true
+  opt.smoothscroll = true
 end
 
 if vim.fn.has 'win32' == 1 then
-	vim.cmd [[
-    let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
-    let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
-    let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
-    let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
-    set shellquote= shellxquote=
+  vim.cmd [[
+  let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
+  let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
+  let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+  let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+  set shellquote= shellxquote=
   ]]
 else
-	vim.opt.shell = 'bash'
+  vim.opt.shell = 'bash'
 end
