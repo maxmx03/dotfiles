@@ -14,7 +14,7 @@ set expandtab
 set formatoptions=jcroqlnt
 set fillchars:eob:.
 set ignorecase
-set laststatus=3
+set laststatus=2
 set list
 set listchars=trail:-,nbsp:+
 set mouse=a
