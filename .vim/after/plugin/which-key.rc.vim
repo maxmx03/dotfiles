@@ -11,8 +11,8 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 var defx = ":Defx -split=vertical -winwidth=30 "
 
 defx = defx .. "`escape(expand('%:p:h'), ' :')` -search=`expand('%:p')` "
-
 defx = defx .. "-columns=indent:mark:icon:icons:filename:git:size"
+
 g:which_key_map = {
   q: [':quit', ' Quit'],
   Q: ['quitall', '󰩈 Quit neovim'],

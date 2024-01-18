@@ -10,7 +10,7 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 # use <c-space> to trigger completion
-inoremap <silent><expr> <c-t> coc#refresh()
+inoremap <silent><expr> <s-t> coc#refresh()
 
 g:coc_global_extensions = [
   'coc-vimlsp',

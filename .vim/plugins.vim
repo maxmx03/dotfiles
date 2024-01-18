@@ -1,7 +1,10 @@
 vim9script
 plug#begin()
-# editor
+
+# Colorscheme & syntax highlight
 Plug 'maxmx03/hydra.nvim', { 'branch': 'vim' }
+
+# editor
 Plug 'Shougo/defx.nvim'
 if !has('nvim')
   Plug 'roxma/nvim-yarp'

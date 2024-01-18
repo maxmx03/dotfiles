@@ -14,6 +14,7 @@ nmap <silent>+ ^ylp
 nmap <silent>- ^x
 nmap <silent><Space>t :MinitermToggle<CR>
 tmap <silent><Space>t <c-w>:MinitermToggle<CR>
-nmap <silent>s gg <CR><Plug>Sneak_s
+nmap <silent>s <CR><Plug>Sneak_s
 nmap <silent>f =<CR>
 nmap <silent>F =G<CR>
+nmap <silent><F7> :Inspect<CR>
