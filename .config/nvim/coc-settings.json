@@ -11,6 +11,10 @@
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
   "diagnostic.enable": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "suggest.maxCompleteItemCount": 10,
+  "suggest.virtualText": true,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
