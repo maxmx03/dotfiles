@@ -8,7 +8,10 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 # \ -columns=indent:mark:icon:icons:filename:git:size
 # \ -buffer-name=tab`tabpagenr()`
 # \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
-var defx = ":Defx -listed -resume "
+var defx = ":Defx -split=vertical -winwidth=30 "
+
+defx = defx .. "`escape(expand('%:p:h'), ' :')` -search=`expand('%:p')` "
+
 defx = defx .. "-columns=indent:mark:icon:icons:filename:git:size"
 g:which_key_map = {
   q: [':quit', ' Quit'],

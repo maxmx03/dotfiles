@@ -2,7 +2,7 @@ autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open')
+        \ defx#do_action('multi', ['drop', 'quit'])
   nnoremap <silent><buffer><expr> c
         \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> m
