@@ -6,11 +6,16 @@
     "markdown": "html"
   },
   "emmet.excludeLanguages": [],
+  "html.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "󰌶",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
   "diagnostic.enable": true,
+  "suggest.maxCompleteItemCount": 10,
+  "suggest.virtualText": true,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",

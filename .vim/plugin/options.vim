@@ -33,7 +33,6 @@ set smartindent
 set nospell
 set splitright
 set tabstop=2
-set termguicolors
 set timeoutlen=300
 set textwidth=120
 set undofile

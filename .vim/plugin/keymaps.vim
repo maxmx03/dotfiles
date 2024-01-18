@@ -10,8 +10,8 @@ nmap <C-Left> :bprev<CR>
 nmap <C-x> :bd<CR>
 nmap ss :split<CR>
 nmap sv :vsplit<CR>
-nmap + <C-a>
-nmap - <C-x>
+nmap + ^ylp
+nmap - ^x
 nmap <Space>t :MinitermToggle<CR>
 tmap <Space>t <c-w>:MinitermToggle<CR>
 nmap s gg <CR><Plug>Sneak_s

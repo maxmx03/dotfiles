@@ -16,14 +16,14 @@ g:which_key_map = {
   w: [':update', ' Update'],
   o: [':on', 'Only Screen'],
   e: [defx, '󰙅 Open File Tree'],
-  f: [':Files', ' Search File'],
+  f: [':FuzzyFiles', ' Search File'],
   m: [':CocCommand markdown-preview-enhanced.openPreview', 'markdown preview'],
   s: {
     name: ' Search',
     f: [ ':FuzzyFiles', 'Search Files' ],
     w: [ ':FuzzyGrep', 'Search Words'  ],
-    b: [ ':Buffers', 'Search Buffers' ],
     h: [ ':FuzzyHighlights', 'Search Highlights' ],
+    c: [ ':FuzzyColors', 'Search Colorschemes' ],
   },
   p: {
     name: 'plugin manager',
