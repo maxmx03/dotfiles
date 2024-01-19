@@ -96,7 +96,9 @@ local normal = {
   },
   m = {
     name = ' Markdown',
-    m = { ':CocCommand markdown-preview-enhanced.openPreview<Return>', 'Open Markdown Preview' },
+    m = { ':MarkdownPreview<Return>', 'Open Markdown Preview' },
+    s = { ':MarkdownPreviewStop<Return>', 'Stop Markdown Preview' },
+    t = { ':MarkdownPreviewToggle<Return>', 'Toggle Markdown Preview' },
   },
   n = {
     name = ' Neorg',
