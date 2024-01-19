@@ -38,17 +38,23 @@ local normal = {
     p = { ':Telescope projects<Return>', 'Search Projects' },
   },
   l = {
-    name = ' Coc',
-    f = { '<Plug>(coc-format-selected)', 'format code' },
-    n = { '<Plug>(coc-diagnostic-next)', 'diagnostic next' },
-    N = { '<Plug>(coc-diagnostic-prev)', 'diagnostic prev' },
-    d = { '<Plug>(coc-definition)', 'defition' },
-    i = { '<Plug>(coc-implementation)', 'implementation' },
-    r = { '<Plug>(coc-reference)', 'reference' },
-    h = { ':call CocActionAsync("doHover")<Return>', 'show docs' },
-    a = { '<Plug>(coc-codeaction-cursor)', 'code action' },
-    l = { '<Plug>(coc-codelens-action)', 'code lens action' },
-    c = { '<Plug>(coc-fix-current)', 'fix diagnostic' },
+    name = ' LSP',
+    l = { ':LspRestart<Return>', 'Lsp restart' },
+    d = { ':Lspsaga goto_definition<Return>', 'Go to Definition' },
+    p = { ':Lspsaga peek_definition<Return>', 'Peek Definition' },
+    h = { ':Lspsaga hover_doc<Return>', 'Hover' },
+    s = {
+      ':Telescope lsp_document_symbols theme=dropdown<Return>',
+      'Document Symbols',
+    },
+    r = { ':Lspsaga rename<Return>', 'Rename' },
+    c = { ':Lspsaga code_action<Return>', 'Code action' },
+    f = { vim.lsp.buf.format, 'Format file' },
+    e = { ':Lspsaga show_buf_diagnostics<Return>', 'Show diagnostic' },
+    o = { ':Lspsaga outline<Return>', 'Show outline' },
+    n = { ':Lspsaga diagnostic_jump_next<Return>', 'Jump next Diagnostic' },
+    b = { ':Lspsaga diagnostic_jump_prev<Return>', 'Jump previous Diagnostic' },
+    t = { ':TSC<Return>', 'Type-checking for typescript' },
   },
   g = {
     name = ' Git',
@@ -98,7 +104,20 @@ local normal = {
     w = { ':Neorg workspace notes<Return>', 'Open Workspace' },
     u = { ':Neorg upgrade<Return>', 'Upgrade Neorg' },
     r = { ':Neorg return<Return>', 'Return' },
-  }
+  },
+  c = {
+    name = '󰚩 Codota',
+    e = { ':TabnineEnable<Return>', 'Tabnine enable' },
+    d = { ':TabnineDisable<Return>', 'Tabnine disable' },
+    s = { ':TabnineStatus<Return>', 'Tabnine status' },
+    l = { ':TabnineLoginWithAuthToken<Return>', 'Tabnine login' },
+  },
+  T = {
+    name = ' Todo',
+    n = { ':TodoTelescope<Return>', 'Show todos with telescope' },
+    q = { ':TodoQuickFix<Return>', 'Show todos with quickfix' },
+    l = { ':TodoLocList<Return>', 'Show todos with loclist' },
+  },
 }
 
 local visual = {

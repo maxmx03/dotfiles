@@ -1,0 +1,91 @@
+return {
+  {
+    'williamboman/mason.nvim',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+      'neovim/nvim-lspconfig',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+    },
+    config = function()
+      local mason = require 'mason'
+      local masonlspconfig = require 'mason-lspconfig'
+      local formatters = require 'formatters'
+      local linters = require 'linters'
+      local packages = vim.tbl_extend('force', formatters, linters)
+      local masontool = require 'mason-tool-installer'
+      local lsp = require 'lspconfig'
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local icons = require 'core.icons'
+      local servers = require 'servers'
+
+      local signs = {
+        Error = icons.diagnostics.Error,
+        Warn = icons.diagnostics.Warning,
+        Hint = icons.diagnostics.Hint,
+        Info = icons.diagnostics.Information,
+      }
+
+      vim.diagnostic.config {
+        virtual_text = {
+          prefix = '●',
+        },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = signs.Error,
+            [vim.diagnostic.severity.WARN] = signs.Warn,
+            [vim.diagnostic.severity.INFO] = signs.Info,
+            [vim.diagnostic.severity.HINT] = signs.Hint,
+          },
+        },
+      }
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+        callback = function(ev)
+          vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+          local bufnr = ev.buf
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          local navic = require 'core.navic'
+          navic.attach(client, bufnr)
+          require('lsp_signature').on_attach({
+            floating_window = false,
+            hint_prefix = '🤔 ',
+            hint_scheme = 'String',
+          }, bufnr)
+          if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(ev.buf, true)
+          end
+        end,
+      })
+
+      mason.setup()
+      masonlspconfig.setup {
+        automatic_installation = true,
+      }
+      masontool.setup {
+        ensure_installed = packages,
+        auto_update = true,
+        run_on_start = true,
+      }
+
+      for _, server in ipairs(servers) do
+        if server == 'lua_ls' then
+          lsp[server].setup {
+            settings = {
+              lua = {
+                completion = {
+                  callSnippet = 'Replace',
+                },
+              },
+            },
+            capabilities = capabilities,
+          }
+        else
+          lsp[server].setup {
+            capabilities = capabilities,
+          }
+        end
+      end
+    end,
+  },
+}
