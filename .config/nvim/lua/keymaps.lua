@@ -54,7 +54,6 @@ local normal = {
     o = { ':Lspsaga outline<Return>', 'Show outline' },
     n = { ':Lspsaga diagnostic_jump_next<Return>', 'Jump next Diagnostic' },
     b = { ':Lspsaga diagnostic_jump_prev<Return>', 'Jump previous Diagnostic' },
-    t = { ':TSC<Return>', 'Type-checking for typescript' },
   },
   g = {
     name = ' Git',
