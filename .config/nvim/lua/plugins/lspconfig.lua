@@ -11,9 +11,9 @@ return {
       local masonlspconfig = require 'mason-lspconfig'
       local formatters = require 'formatters'
       local linters = require 'linters'
-      local packages = vim.tbl_extend('force', formatters, linters)
+      local packages = vim.list_extend(formatters, linters)
       local masontool = require 'mason-tool-installer'
-      local lsp = require 'lspconfig'
+      local lspconfig = require 'lspconfig'
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local icons = require 'core.icons'
       local servers = require 'servers'
@@ -70,9 +70,12 @@ return {
 
       for _, server in ipairs(servers) do
         if server == 'lua_ls' then
-          lsp[server].setup {
+          lspconfig[server].setup {
             settings = {
-              lua = {
+              Lua = {
+                hint = {
+                  enable = true,
+                },
                 completion = {
                   callSnippet = 'Replace',
                 },
@@ -81,7 +84,7 @@ return {
             capabilities = capabilities,
           }
         else
-          lsp[server].setup {
+          lspconfig[server].setup {
             capabilities = capabilities,
           }
         end

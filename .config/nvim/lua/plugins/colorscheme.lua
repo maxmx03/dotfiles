@@ -15,13 +15,6 @@ return {
             CocInlayHint = { fg = color.shade(colors.yellow, 3) },
           }
         end,
-        modules = {
-          neogit = false,
-          illuminate = false,
-          blankline = false,
-          saga = false,
-          lsp = false,
-        },
       }
 
       vim.cmd.colorscheme 'hydra'
