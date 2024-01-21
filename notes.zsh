@@ -56,9 +56,11 @@ function _nt_create() {
 
       if [ ! -e "$file_path" ]; then
         touch $file_path
-        content="# Title: $content\n\n"
-        content+="Date: $(date +"%Y-%m-%d %H:%M:%S")\\ \n"
-        content+="Author: $USER\n\n"
+        content="---\n"
+        content+="title: $file\n"
+        content+="pubDate: $(date +"%Y-%m-%d %H:%M:%S")\n"
+        content+="author: $USER\n"
+        content+="tags: [...]\n"
         content+="---\n"
         echo "$content" >> "$file_path"
         _nt_register $file
