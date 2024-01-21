@@ -9,7 +9,6 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 # \ -buffer-name=tab`tabpagenr()`
 # \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 var defx = ":Defx -split=vertical -winwidth=30 "
-
 defx = defx .. "`escape(expand('%:p:h'), ' :')` -search=`expand('%:p')` "
 defx = defx .. "-columns=indent:mark:icon:icons:filename:git:size"
 
@@ -19,7 +18,7 @@ g:which_key_map = {
   w: [':update', ' Update'],
   o: [':on', 'Only Screen'],
   e: [defx, '󰙅 Open File Tree'],
-  f: [':FuzzyFiles', ' Search File'],
+  f: [':Files', ' Search File'],
   m: [':CocCommand markdown-preview-enhanced.openPreview', 'markdown preview'],
   s: {
     name: ' Search',

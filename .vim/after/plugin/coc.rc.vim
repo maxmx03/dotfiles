@@ -4,13 +4,14 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-# Make <CR> to accept selected completion item or notify coc.nvim to format
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+def CheckBackspace(): bool
+  var col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+enddef
 
-# use <c-space> to trigger completion
-inoremap <silent><expr> <s-t> coc#refresh()
+inoremap <silent><expr> <c-@> coc#refresh()
 
 g:coc_global_extensions = [
   'coc-vimlsp',
@@ -29,4 +30,5 @@ g:coc_global_extensions = [
   'coc-markdownlint',
   'coc-markdown-preview-enhanced',
   'coc-emoji',
+  '@yaegassy/coc-astro'
 ]
