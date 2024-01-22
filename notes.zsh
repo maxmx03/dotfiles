@@ -38,6 +38,12 @@ function _nt_open() {
   popd -q
 }
 
+function _nt_read() {
+  pushd -q $NOTES_DIR
+  bat "$(fzf -1)"
+  popd -q
+}
+
 function _nt_create() {
   local file="$1"
   local file_path="$NOTES_DIR/$file"
@@ -110,7 +116,7 @@ function _nt_list() {
   if [ ! -e "$NOTES_NOTE_LIST" ]; then
     touch "$NOTES_NOTE_LIST"
   fi
-  cat "$NOTES_NOTE_LIST"
+  bat "$NOTES_NOTE_LIST"
 }
 
 function _nt_help() {
@@ -123,6 +129,7 @@ function _nt_help() {
   help           Show this help message
   list           list notes
   create         create note
+  read           read note
   open           open note
   add            add all your notes to the notes folder
   remove         remove note"
@@ -133,6 +140,7 @@ function nt() {
   help "_nt_help"
   open "_nt_open"
   create "_nt_create"
+  read "_nt_read"
   add "_nt_add"
   remove "_nt_remove"
   list "_nt_list"

@@ -50,7 +50,7 @@ function _dots_list() {
         touch "$DOTS_CONFIG_FILE"
     fi
     echo "⚡ Dots - list"
-    cat "$DOTS_CONFIG_FILE"
+    bat "$DOTS_CONFIG_FILE"
 }
 
 function _dots_installation() {

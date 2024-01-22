@@ -61,7 +61,7 @@ return {
       table.insert(header, 2, emmptyLine)
       header[#header + 1] = emmptyLine
       header[#header + 1] = emmptyLine
-
+      local icons = require 'core.icons'
 
       require('dashboard').setup {
         theme = 'doom',
@@ -69,42 +69,49 @@ return {
           header = header,
           center = {
             {
-              icon = ' ',
+              icon = icons.ui.Project .. ' ',
               desc = 'Projects',
               key = 'p',
               keymap = 'SPC s p',
               action = 'Telescope projects',
             },
             {
-              icon = ' ',
+              icon = icons.ui.FindFile .. ' ',
               desc = 'Files',
               key = 'f',
               keymap = 'SPC s f',
               action = 'Telescope find_files',
             },
             {
-              icon = ' ',
+              icon = icons.ui.Folder .. ' ',
               desc = 'File explorer',
               key = 'n',
               keymap = 'SPC e',
               action = 'NvimTreeOpen',
             },
             {
-              icon = '󰏖 ',
+              icon = icons.ui.Package .. ' ',
               desc = 'Plugins',
               key = 'l',
               keymap = 'SPC p p',
               action = 'Lazy',
             },
             {
-              icon = '󰏖 ',
+              icon = icons.ui.Package .. ' ',
               desc = 'Packages',
               key = 'm',
-              keymap = 'SPC m m',
+              keymap = 'SPC M',
               action = 'Mason',
             },
             {
-              icon = '󰗼 ',
+              icon = icons.ui.Gear .. ' ',
+              desc = 'Configuration',
+              key = 'c',
+              keymap = 'SPC c',
+              action = 'lua vim.cmd(string.format("edit %s/init.lua", vim.fn.stdpath("config")))',
+            },
+            {
+              icon = icons.ui.Close .. ' ',
               desc = 'Quit',
               key = 'q',
               keymap = 'SPC q',

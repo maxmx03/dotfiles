@@ -13,6 +13,7 @@ map('n', '<F7>', ':Inspect<Return>', opts)
 map('n', '<F8>', ':InspectTree<Return>', opts)
 map('n', 'f', '=<CR>', opts)
 map('n', 'F', '=G<CR>', opts)
+map('n', 's', ':HopWord<Return>', opts)
 
 local normal = {
   ['w'] = { ':update<Return>', ' Save' },
@@ -99,6 +100,13 @@ local normal = {
     m = { ':MarkdownPreview<Return>', 'Open Markdown Preview' },
     s = { ':MarkdownPreviewStop<Return>', 'Stop Markdown Preview' },
     t = { ':MarkdownPreviewToggle<Return>', 'Toggle Markdown Preview' },
+  },
+  M = {
+  name = " Package manager",
+  m = { "<cmd>Mason<cr>", "Open Mason" },
+  u = { "<cmd>MasonUpdate<cr>", "Update Mason" },
+  t = { "<cmd>MasonToolsUpdate<cr>", "Update Mason Tools" },
+  a = { "<cmd>MasonUninstallAll<cr>", "Uninstall all packages" },
   },
   n = {
     name = ' Neorg',
