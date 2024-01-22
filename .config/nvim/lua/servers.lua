@@ -13,4 +13,5 @@ return {
   'rust_analyzer',
   'jdtls',
   'angularls',
+  'astro'
 }

@@ -123,7 +123,6 @@ M.get_winbar = function()
   end
 
   if not isempty(value) and get_buf_option 'mod' then
-    -- TODO: replace with circle
     local mod = '%#LspCodeLens#' .. icons.ui.Circle .. '%*'
     if gps_added then
       value = value .. ' ' .. mod
@@ -162,7 +161,6 @@ M.create_winbar = function()
       callback = function()
         local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, 'lsp_floating_window')
         if not status_ok then
-          -- TODO:
           require('core.breadcrumbs').get_winbar()
         end
       end,

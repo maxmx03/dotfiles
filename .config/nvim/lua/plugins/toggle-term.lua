@@ -1,10 +1,12 @@
 return {
   {
     'akinsho/toggleterm.nvim',
+    version = '*',
     config = function()
       require('toggleterm').setup {
         direction = 'float',
         shell = vim.o.shell,
+      persist_size = false,
         highlights = {
           NormalFloat = {
             link = 'NormalFloat',
@@ -15,8 +17,8 @@ return {
         },
         float_opts = {
           border = 'curved',
-          width = 90,
-          height = 15,
+          width = 120,
+          height = 25,
           winblend = 10,
         },
       }

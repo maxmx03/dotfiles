@@ -63,5 +63,5 @@ if vim.fn.has 'win32' == 1 then
   set shellquote= shellxquote=
   ]]
 else
-  vim.opt.shell = 'bash'
+  vim.opt.shell = 'zsh'
 end
