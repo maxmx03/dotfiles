@@ -4,7 +4,7 @@ configuration{
     lines: 5;
     font: "Iosevka 12";
     show-icons: true;
-    icon-theme: "WhiteSur-purple-dark";
+    icon-theme: "WhiteSur-red-dark";
     terminal: "st";
     drun-display-format: "{icon} {name}";
     location: 0;
@@ -13,7 +13,7 @@ configuration{
     display-drun: "   Apps ";
 }
 
-@theme "onedark"
+@theme "theme"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;

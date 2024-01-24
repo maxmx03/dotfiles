@@ -33,7 +33,7 @@ g:which_key_map = {
     c: [':PlugClean', 'plug clean'],
     u: [':PlugUpdate', 'plug update'],
   },
-  c: {
+  l: {
     name: 'Code',
     f: ['<Plug>(coc-format-selected)', 'format code'],
     n: ['<Plug>(coc-diagnostic-next)', 'diagnostic next'],

@@ -1,3 +1,3 @@
 vim9script
 
-colorscheme hydra
+colorscheme rosepine

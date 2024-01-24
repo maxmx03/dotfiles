@@ -1,3 +1,5 @@
+@import "./rose-pine.css";
+
 * {
   border: none;
   border-radius: 0;
@@ -7,8 +9,8 @@
 }
 
 #waybar {
-  background: rgba(24, 26, 31, .75);
-  color: #d4d4d6;
+  background: rgba(25, 23, 36, 0.8);
+  color: @text;
   font-size: 14px;
   font-family: "Hack Nerd Font";
 }
@@ -23,18 +25,18 @@
 
 #workspaces button {
   padding: 0 5px;
-  color: #d4d4d6;
+  color: @text;
   background: none;
 }
 
 #workspaces button:hover {
-  color: #f97583;
+  color: @love;
 }
 
 /* Fix: active workspace doesn't show up */
 /* #workspaces button.focused { */
 #workspaces button.active {
-  color: #f97583;
+  color: @love;
 }
 
 #custom-powermenu,
@@ -56,38 +58,38 @@
 }
 
 #window {
-  color: #d4d4d6;
+  color: @text;
 }
 
 #custom-powermenu {
-  color: #f97583;
+  color: @love;
   padding-right: 11px;
 }
 
 #pulseaudio {
-  color: #85e89d;
+  color: @foam;
   padding-right: 14px;
 }
 
 #cpu {
-  color: #33b1ff;
+  color: @pine;
 }
 
 #temperature {
-  color: #d19a66;
+  color: @love;
 }
 
 #memory {
-  color: #2bbac5;
+  color: @rose;
 }
 
 #network {
-  color: #b392f0;
+  color: @iris;
   min-width: 200px;
 }
 
 #clock {
-  color: #d4d4d6;
+  color: @text;
   /* opacity: 0.7; */
   /* font-size: 18px; */
 }

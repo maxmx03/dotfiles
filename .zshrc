@@ -1,9 +1,6 @@
 source ~/.bash_profile;
-# Load Angular CLI autocompletion.
-source <(ng completion script)
 source ~/dotfiles/dots.zsh
-
-sed -i 's/command hash -r/hash -r/g' $NVM_DIR/nvm.sh
+source ~/dotfiles/notes.zsh
 
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
@@ -18,20 +15,26 @@ plug "zap-zsh/exa"
 
 # Load and initialise completion system
 autoload -Uz compinit
-compinit
+compinit -d
 
 # alias
-alias love='love-git'
-alias g='lazygit'
+alias g="lazygit"
+alias vim="nvim"
 
 # Plugins configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#b392f0"
 ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=#ef596f"
 
-if [ -z "$TMUX" ]; then
-    if [ "$TERM" = 'foot' ]; then
-        neofetch
-    else
+if [ "$TERM" = "xterm-256color" ]; then
+    if [ -z "$TMUX" ]; then
         neofetch --backend kitty
     fi
+else
+    if [ -z "$TMUX" ]; then
+        neofetch
+    fi
+fi
+
+if [ -z "$TMUX" ] && [ "$TERM" = "foot" ]; then
+    export TERM="xterm-256color"
 fi

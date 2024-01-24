@@ -16,6 +16,7 @@ return {
           'html',
           'css',
           'php',
+          'bash',
         },
         auto_install = true,
         sync_install = false,

@@ -2,7 +2,7 @@ vim9script
 plug#begin()
 
 # Colorscheme & syntax highlight
-Plug 'maxmx03/hydra.nvim', { 'branch': 'vim' }
+Plug 'rose-pine/vim'
 
 # editor
 Plug 'Shougo/defx.nvim'

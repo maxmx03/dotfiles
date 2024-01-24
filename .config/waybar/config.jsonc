@@ -6,7 +6,7 @@
     "clock",
     "hyprland/workspaces",
     "custom/changebg",
-    "custom/cmus"
+    "custom/cmus",
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
@@ -17,7 +17,7 @@
     "cpu",
     "pulseaudio",
     "tray",
-    "custom/powermenu"
+    "custom/powermenu",
   ],
   "custom/cmus": {
     "format": "󰎈 {}",
@@ -29,20 +29,26 @@
     "on-click": "cmus-remote -u",
     "on-scroll-up": "cmus-remote --next",
     "on-scroll-down": "cmus-remote --prev",
-    "escape": true
+    "escape": true,
   },
   "custom/changebg": {
     "format": "switch  ",
     "on-click": "~/.config/waybar/scripts/wallpaper",
-    "tooltip": false
+    "tooltip": false,
   },
   "tray": {
     "icon-size": 24,
-    "spacing": 10
+    "spacing": 10,
   },
   "hyprland/window": {
     "format": "{}",
     "rewrite": {
+      "(\\d\\. )?(.*) Brave": "<span color=\"#d19a66\">󰊯 Brave</span>",
+      "Brave (.*)": "<span color=\"#d19a66\">󰊯</span>",
+      "Brave": "<span color=\"#d19a66\">󰊯 Brave</span>",
+      "(\\d\\. )?(.*) OBS": "<span color=\"#2bbac5\">󰕧 OBS</span>",
+      "OBS (.*)": "<span color=\"#2bbac5\">󰕧</span>",
+      "OBS": "<span color=\"#2bbac5\">󰕧 OBS</span>",
       "(\\d\\. )?(.*) foot": "<span color=\"#e5c07b\">󰽒 Foot</span>",
       "foot (.*)": "<span color=\"#e5c07b\">󰽒</span>",
       "foot": "<span color=\"#e5c07b\">󰽒 Foot</span>",
@@ -57,9 +63,9 @@
       "Mozilla Firefox": "<span color=\"#f97583\">󰈹 Firefox</span>",
       "(\\d\\. )?(.*) Google Chrome": "<span color=\"#89ca78\"> Google Chrome</span>",
       "Google Chrome (.*)": "<span color=\"#89ca78\"> Google Chrome</span ",
-      "Google Chrome": "<span color=\"#89ca78\"> Google Chrome</span>"
+      "Google Chrome": "<span color=\"#89ca78\"> Google Chrome</span>",
     },
-    "separate-outputs": false
+    "separate-outputs": false,
   },
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -76,7 +82,7 @@
       // "10": "󰿬",
       // "-99": "",
       "active": "",
-      "default": ""
+      "default": "",
     },
     "persistent_workspaces": {
       "1": ["HDMI-A-1"],
@@ -89,32 +95,32 @@
       // "8": ["DP-1"],
       // "9": ["DP-1"],
       // "10": ["DP-1"]
-    }
+    },
   },
   "network": {
     "interface": "enp5s0",
     "tooltip-format-ethernet": "{ifname} ",
     "interval": 2,
-    "format": " {bandwidthDownBits}  {bandwidthUpBits}"
+    "format": " {bandwidthDownBits}  {bandwidthUpBits}",
   },
   "temperature": {
     "format": "{icon} {temperatureC}°C",
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
     "critical-threshold": 80,
-    "format-icons": ["", "", ""]
+    "format-icons": ["", "", ""],
   },
   "memory": {
     "format": "󰍛 {}%",
-    "tooltip": "false"
+    "tooltip": "false",
   },
   "cpu": {
     "format": " {usage}%",
-    "tooltip": "false"
+    "tooltip": "false",
   },
   "custom/powermenu": {
     "format": "",
     "tooltip": false,
-    "on-click": "exec wlogout -p layer-shell"
+    "on-click": "exec wlogout -p layer-shell",
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
@@ -122,10 +128,10 @@
     "format-muted": "",
     "format-icons": {
       "headphone": "󰋎",
-      "default": ["", ""]
+      "default": ["", ""],
     },
     "scroll-step": 1,
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
   "custom/weather": {
     //shows the current weather and forecast
@@ -133,12 +139,12 @@
     "format": "{}",
     "interval": 30,
     "exec": "~/.config/waybar/scripts/weather",
-    "return-type": "json"
+    "return-type": "json",
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
-    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
-  }
+    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>",
+  },
 }

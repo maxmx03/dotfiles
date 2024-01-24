@@ -43,6 +43,7 @@ set winminwidth=5
 set nowrap
 set smoothscroll
 set shell=bash
+set termguicolors
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"
