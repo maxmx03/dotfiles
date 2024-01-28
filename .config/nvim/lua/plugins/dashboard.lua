@@ -49,7 +49,8 @@ return {
         '⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉',
       }
       local version = vim.version()
-      local neovim_version = string.format('Version: v%s.%s.%s', version.major, version.minor, version.patch)
+      local neovim_version =
+        string.format('Version: v%s.%s.%s', version.major, version.minor, version.patch)
       local lazy = require 'lazy'
       local plugins = string.format('Plugins: %s installed', lazy.stats().count)
       local headers = { doom, hydra }

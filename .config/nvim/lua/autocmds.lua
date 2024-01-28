@@ -34,10 +34,3 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.b[data.buf].miniindentscope_disable = true
   end,
 })
-
-vim.api.nvim_create_autocmd('BufWritePost', {
-  pattern = '*.*',
-  callback = function ()
-    vim.lsp.buf.format()
-  end
-})

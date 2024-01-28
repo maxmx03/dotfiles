@@ -7,6 +7,7 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
+      local neodev = require 'neodev'
       local mason = require 'mason'
       local masonlspconfig = require 'mason-lspconfig'
       local formatters = require 'formatters'
@@ -25,39 +26,28 @@ return {
         Info = icons.diagnostics.Information,
       }
 
+      for type, icon in pairs(signs) do
+        local hl = 'DiagnosticSign' .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
+
       vim.diagnostic.config {
         virtual_text = {
           prefix = '●',
-        },
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = signs.Error,
-            [vim.diagnostic.severity.WARN] = signs.Warn,
-            [vim.diagnostic.severity.INFO] = signs.Info,
-            [vim.diagnostic.severity.HINT] = signs.Hint,
-          },
         },
       }
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local bufnr = ev.buf
-          local client = vim.lsp.get_client_by_id(ev.data.client_id)
-          local navic = require 'core.navic'
-          navic.attach(client, bufnr)
-          require('lsp_signature').on_attach({
-            floating_window = false,
-            hint_prefix = '🤔 ',
-            hint_scheme = 'String',
-          }, bufnr)
-          if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(ev.buf, true)
-          end
+          require('core.auto-save').on_attach(bufnr)
         end,
       })
 
+      neodev.setup {}
       mason.setup()
       masonlspconfig.setup {
         automatic_installation = true,

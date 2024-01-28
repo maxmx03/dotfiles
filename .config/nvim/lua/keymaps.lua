@@ -1,7 +1,10 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 local quit = require 'core.quit'
+local pick_window = require 'core.pick-window'
+local harpoon = require 'core.harpoon'
 
+--- Normal
 map('n', '<C-x>', ':bd<Return>', opts)
 map('n', '<C-Left>', ':BufferLineCyclePrev<Return>', opts)
 map('n', '<C-Right>', ':BufferLineCycleNext<Return>', opts)
@@ -14,12 +17,20 @@ map('n', '<F8>', ':InspectTree<Return>', opts)
 map('n', 'f', '=<CR>', opts)
 map('n', 'F', '=G<CR>', opts)
 map('n', 's', ':HopWord<Return>', opts)
+map('n', '<Tab>', pick_window, opts)
+
+-- Terminal
+map('t', '<ESC>', '<c-c> exit<CR>', opts)
+
+-- Visual
+map('v', '<C-Up>', ":m '<-2<CR>gv=gv")
+map('v', '<C-Down>', ":m '>+1<CR>gv=gv")
 
 local normal = {
   ['w'] = { ':update<Return>', ' Save' },
   q = { quit, ' Close' },
   Q = { ':quitall<Return>', '󰩈 Quit Neovim' },
-  e = { ':NvimTreeToggle<Return>', '󰙅 Open File Tree' },
+  e = { ':Neotree toggle<Return>', '󰙅 Open File Tree' },
   f = { ':Telescope find_files theme=dropdown<Return>', ' Find Files' },
   t = { ':ToggleTerm direction=float<Return>', ' Open Terminal' },
   ['/'] = {
@@ -41,26 +52,22 @@ local normal = {
   l = {
     name = ' LSP',
     l = { ':LspRestart<Return>', 'Lsp restart' },
-    d = { ':Lspsaga goto_definition<Return>', 'Go to Definition' },
-    p = { ':Lspsaga peek_definition<Return>', 'Peek Definition' },
-    h = { ':Lspsaga hover_doc<Return>', 'Hover' },
-    s = {
-      ':Telescope lsp_document_symbols theme=dropdown<Return>',
-      'Document Symbols',
-    },
-    r = { ':Lspsaga rename<Return>', 'Rename' },
-    c = { ':Lspsaga code_action<Return>', 'Code action' },
+    d = { vim.lsp.buf.declaration, 'Go to Declaration' },
+    p = { vim.lsp.buf.definition, 'Go to Definition' },
+    i = { vim.lsp.buf.implementation, 'Go to Implementation' },
+    h = { vim.lsp.buf.hover, 'Hover' },
+    r = { vim.lsp.buf.rename, 'Rename' },
+    c = { vim.lsp.buf.code_action, 'Code action' },
     f = { vim.lsp.buf.format, 'Format file' },
-    e = { ':Lspsaga show_buf_diagnostics<Return>', 'Show diagnostic' },
-    o = { ':Lspsaga outline<Return>', 'Show outline' },
-    n = { ':Lspsaga diagnostic_jump_next<Return>', 'Jump next Diagnostic' },
-    b = { ':Lspsaga diagnostic_jump_prev<Return>', 'Jump previous Diagnostic' },
+    e = { vim.diagnostic.open_float, 'Show diagnostic' },
+    n = { vim.diagnostic.goto_next, 'Jump next Diagnostic' },
+    b = { vim.diagnostic.goto_prev, 'Jump previous Diagnostic' },
   },
   g = {
     name = ' Git',
+    g = { ':LazyGit<Return>', 'Open Lazygit' },
     d = { ':Gitsigns diffthis<Return>', 'Open Diff' },
     p = { ':Gitsigns preview_hunk_inline<Return>', 'Open Inline Diff' },
-    l = { ':LazyGit<Return>', 'Open Lazygit' },
     C = { ':Telescope git_commits<Return>', 'Commits' },
     b = { ':Telescope git_branches<Return>', 'Branchs' },
     s = { ':Telescope git_status<Return>', 'Status' },
@@ -81,19 +88,9 @@ local normal = {
     s = { ':Lazy sync<Return>', 'Sync Plugins' },
   },
   h = {
-    name = '󰤇 Hop',
-    h = { ':HopAnywhere<Return>', 'Hop Anywere' },
-    w = { ':HopWord<Return>', 'Hop Word' },
-    W = { ':HopWordCurrentLine<Return>', 'Hop Word Current Line' },
-    a = { ':HopAnywhere<Return>', 'Hop Anywhere' },
-    A = { ':HopAnywhereCurrentLine<Return>', 'Hop Anywhere Current Line' },
-    c = { ':HopChar2<Return>', 'Hop Char' },
-    C = { ':HopChar2CurrentLine<Return>', 'Hop Char Current Line' },
-    p = { ':HopPattern<Return>', 'Hop Pattern' },
-    P = { ':HopPatternCurrentLine<Return>', 'Hop Pattern Current Line' },
-    l = { ':HopLineStart<Return>', 'Hop Line Start' },
-    L = { ':HopLine<Return>', 'Hop Line' },
-    v = { ':HopVertical<Return>', 'Hop Vertical' },
+    name = '󱡅 Harpoon',
+    h = { harpoon.quick_menu, 'Quick menu' },
+    a = { harpoon.append_list, 'Mark file' },
   },
   m = {
     name = ' Markdown',

@@ -1,9 +1,0 @@
-{
-  "workspace": {
-    "library": [
-      "/usr/share/nvim/runtime",
-      "~/.local/share/nvim/lazy/hydra.nvim"
-    ]
-  },
-  "diagnostics.disable": ["missing-fields", "undefined-field"]
-}

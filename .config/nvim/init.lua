@@ -1,3 +1,4 @@
+vim.opt.statusline = "%!v:lua.require('core.statusline').setup()"
 require 'options'
 require 'autocmds'
 require 'bootstrap'
@@ -5,7 +6,7 @@ require 'bootstrap'
 local opts = {
   install = {
     missing = true,
-    colorscheme = { 'gruvbox' },
+    colorscheme = { 'rose-pine' },
   },
   checker = {
     enabled = true,

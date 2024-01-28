@@ -15,7 +15,7 @@ local function quit()
   local modified = vim.api.nvim_get_option_value('modified', { buf = bufnr })
 
   if modified then
-    open_ui({ 'save', 'quit' }, 'You have unsaved changes', { 'update', 'quit!' })
+    open_ui({ 'save & quit', 'quit' }, 'You have unsaved changes', { 'wq', 'quit!' })
   else
     vim.cmd.quit()
   end

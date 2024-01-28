@@ -6,7 +6,7 @@ return {
       require('toggleterm').setup {
         direction = 'float',
         shell = vim.o.shell,
-      persist_size = false,
+        persist_size = false,
         highlights = {
           NormalFloat = {
             link = 'NormalFloat',

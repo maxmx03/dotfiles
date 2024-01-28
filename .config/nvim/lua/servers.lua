@@ -13,5 +13,6 @@ return {
   'rust_analyzer',
   'jdtls',
   'angularls',
-  'astro'
+  'astro',
+  'intelephense',
 }
