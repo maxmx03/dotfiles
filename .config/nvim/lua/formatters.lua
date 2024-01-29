@@ -1,5 +1,5 @@
 return {
-  'prettier',
+  'prettierd',
   'stylua',
   'beautysh',
   'black',

@@ -1,4 +1,3 @@
-vim.opt.statusline = "%!v:lua.require('core.statusline').setup()"
 require 'options'
 require 'autocmds'
 require 'bootstrap'

@@ -1,5 +1,5 @@
 vim.loader.enable()
-vim.g.mapleader = ' ' -- which-key
+vim.g.mapleader = ' '      -- which-key
 vim.g.maplocalleader = ']' -- neorg
 
 local opt = vim.opt
@@ -18,11 +18,12 @@ opt.fillchars:append { eob = ' ' } -- remove endofbuffer characters
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.laststatus = 3
+opt.statusline = "%!v:lua.require('core.statusline').setup()"
 opt.list = true
 opt.mouse = 'a'
 opt.number = true
-opt.pumblend = 10 -- enables pseudo-transparency
-opt.pumheight = 10 -- maximun number of items to show in the popup menu
+opt.pumblend = 10         -- enables pseudo-transparency
+opt.pumheight = 10        -- maximun number of items to show in the popup menu
 opt.relativenumber = true -- number relative to the cursor
 opt.scrolloff = 4
 opt.shiftround = true

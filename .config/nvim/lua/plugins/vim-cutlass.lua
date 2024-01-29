@@ -1,3 +1,0 @@
-return {
-  'svermeulen/vim-cutlass',
-}

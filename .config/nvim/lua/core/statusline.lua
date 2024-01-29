@@ -17,6 +17,11 @@ local icons = {
     Debug = '',
     Ok = '󰧱',
   },
+  os = {
+    Linux = '',
+    microsoft = '',
+    Darwin = '',
+  },
   default = { left = '', right = '' },
   block = { left = '█', right = '█' },
   round = { left = '', right = '' },
@@ -44,6 +49,10 @@ local function set_highlight()
   hl(0, group .. 'DiagnosticWarn', { fg = colors.gold, reverse = true })
   hl(0, group .. 'DiagnosticHint', { fg = colors.iris, reverse = true })
   hl(0, group .. 'DiagnosticInfo', { fg = colors.foam, reverse = true })
+  hl(0, group .. 'DiagnosticErrorLspClient', { fg = colors.love, bg = colors.base })
+  hl(0, group .. 'DiagnosticWarnLspClient', { fg = colors.gold, bg = colors.base })
+  hl(0, group .. 'DiagnosticHintLspClient', { fg = colors.iris, bg = colors.base })
+  hl(0, group .. 'DiagnosticInfoLspClient', { fg = colors.foam, bg = colors.base })
   hl(0, group .. 'Lsp', { fg = colors.foam, bg = colors.base })
   hl(0, group .. 'LspReverse', { fg = colors.foam, reverse = true })
   hl(0, group .. 'Info', { fg = colors.foam, bg = colors.base })
@@ -176,7 +185,7 @@ local function layout_d()
       color(icons.round.left, 'Diagnostic' .. severity),
       color(msg, 'StDiagnostic' .. severity),
       color(icons.block.right, 'Diagnostic' .. severity),
-      color(client_name, 'Diagnostic' .. severity)
+      color(client_name, 'StDiagnostic' .. severity .. 'LspClient')
     )
   end
 
@@ -203,9 +212,9 @@ local function layout_e()
   return string.format(
     '%s%s%s %s',
     color(icons.round.left, 'StInfo'),
-    color('%l:%L', 'StInfoReverse'),
+    color(icons.os[vim.loop.os_uname().sysname], 'StInfoReverse'),
     color(icons.block.right, 'StInfo'),
-    color('%t', 'StInfo')
+    color('%l:%L', 'StInfo')
   )
 end
 
