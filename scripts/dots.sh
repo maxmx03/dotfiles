@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 export DOTS_DIR="${XDG_DATA_HOME:-$HOME}/dotfiles"
 export DOTS_CONFIG_FILE="$DOTS_DIR/dots_configs.txt"

@@ -1,5 +1,4 @@
-
-#!/usr/bin/env bash
+#!/bin/bash
 
 export NOTES_DIR="$HOME/notes"
 export NOTES_NOTE_LIST="$HOME/notes/list.txt"

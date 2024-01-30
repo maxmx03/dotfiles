@@ -1,3 +1,5 @@
+#!/bin/bash
+
 z() {
     pushd $HOME
     clear
