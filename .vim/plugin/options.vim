@@ -4,6 +4,7 @@ set autowrite
 set autowriteall
 set background=dark
 set backup
+set backupdir=~/.cache/vim/backup
 set clipboard=unnamedplus
 set completeopt=menu,menuone,noselect
 set conceallevel=3
@@ -35,6 +36,7 @@ set nospell
 set tabstop=2
 set timeoutlen=300
 set textwidth=120
+set undodir=~/.cache/vim/undo
 set undofile
 set updatetime=200
 set virtualedit=block

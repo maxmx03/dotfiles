@@ -3,6 +3,7 @@ plug#begin()
 
 # Colorscheme & syntax highlight
 Plug 'rose-pine/vim'
+Plug 'sheerun/vim-polyglot'
 
 # editor
 Plug 'Shougo/defx.nvim'
@@ -13,13 +14,14 @@ endif
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
 Plug 'Donaldttt/fuzzyy'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vim-which-key'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-buftabline'
 Plug 'hahdookin/miniterm.vim'

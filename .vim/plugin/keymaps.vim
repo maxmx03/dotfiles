@@ -1,7 +1,4 @@
 vim9script
-# copy and past for wayland
-nmap <silent><C-f>  <Plug>(coc-format-selected)
-xnoremap <silent><C-c> y:call system("wl-copy", @")<CR>
 nmap <silent><C-c> v$<C-c>
 nmap <Space>/ gcc<CR>
 vmap <Space>/ gc<CR>
