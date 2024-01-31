@@ -50,6 +50,7 @@ opt.virtualedit = 'block' -- move cursor where there is not text in visual block
 opt.wildmode = 'longest:full,full'
 opt.winminwidth = 5
 opt.wrap = false
+opt.shell = 'bash'
 
 if vim.fn.has 'nvim-0.10' == 1 then
   opt.smoothscroll = true
@@ -63,6 +64,19 @@ if vim.fn.has 'win32' == 1 then
   let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
   set shellquote= shellxquote=
   ]]
-else
-  vim.opt.shell = 'zsh'
+end
+
+if vim.fn.has 'wsl' == 1 then
+  vim.g.clipboard = {
+    name = 'WslClipboard',
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
 end

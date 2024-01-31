@@ -36,7 +36,12 @@ end
 
 local function set_highlight()
   local group = 'St'
-  local colors = require 'rose-pine.palette'
+  local ok, colors = pcall(require, 'rose-pine.palette')
+
+  if not ok then
+    return
+  end
+
   local hl = vim.api.nvim_set_hl
 
   hl(0, group .. 'Primary', { fg = colors.foam, bg = colors.base })

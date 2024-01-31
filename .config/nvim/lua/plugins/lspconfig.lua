@@ -43,7 +43,6 @@ return {
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local bufnr = ev.buf
-          require('core.auto-save').on_attach(bufnr)
           require('lsp_signature').on_attach({
             floating_window = false,
             hint_prefix = '🤔 ',

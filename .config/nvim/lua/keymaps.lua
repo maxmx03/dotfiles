@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 local quit = require 'core.quit'
+local format = require 'core.format'
 local pick_window = require 'core.pick-window'
 local harpoon = require 'core.harpoon'
 
@@ -18,6 +19,9 @@ map('n', 'f', '=<CR>', opts)
 map('n', 'F', '=G<CR>', opts)
 map('n', 's', ':HopWord<Return>', opts)
 map('n', '<Tab>', pick_window, opts)
+if vim.fn.has 'wsl' == 1 then
+  map('n', '<C-t>', '<C-]>', opts)
+end
 
 -- Terminal
 map('t', '<ESC>', '<c-c> exit<CR>', opts)
@@ -58,7 +62,7 @@ local normal = {
     h = { vim.lsp.buf.hover, 'Hover' },
     r = { vim.lsp.buf.rename, 'Rename' },
     c = { vim.lsp.buf.code_action, 'Code action' },
-    f = { vim.lsp.buf.format, 'Format file' },
+    f = { format, 'Format file' },
     e = { vim.diagnostic.open_float, 'Show diagnostic' },
     n = { vim.diagnostic.goto_next, 'Jump next Diagnostic' },
     b = { vim.diagnostic.goto_prev, 'Jump previous Diagnostic' },

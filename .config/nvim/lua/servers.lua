@@ -11,8 +11,8 @@ return {
   'marksman',
   'pyright',
   'rust_analyzer',
-  'jdtls',
   'angularls',
   'astro',
   'intelephense',
+  'dockerls'
 }

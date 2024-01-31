@@ -39,6 +39,7 @@ return {
           Directory = { fg = 'foam' },
           StatusLine = { bg = 'base' },
           StatusLineNC = { bg = 'base' },
+          ['@lsp.type.string'] = { link = '@string' },
         },
       }
 
