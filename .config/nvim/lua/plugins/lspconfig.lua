@@ -7,7 +7,6 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     config = function()
-      local neodev = require 'neodev'
       local mason = require 'mason'
       local masonlspconfig = require 'mason-lspconfig'
       local formatters = require 'formatters'
@@ -51,7 +50,6 @@ return {
         end,
       })
 
-      neodev.setup {}
       mason.setup()
       masonlspconfig.setup {
         automatic_installation = true,
@@ -67,6 +65,17 @@ return {
           lspconfig[server].setup {
             settings = {
               Lua = {
+                runtime = {
+                  version = 'LuaJIT',
+                },
+                workspace = {
+                  checkThirdParty = false,
+                  library = {
+                    vim.env.VIMRUNTIME,
+                    '${3rd}/luv/library',
+                    '${3rd}/busted/library',
+                  },
+                },
                 hint = {
                   enable = true,
                 },

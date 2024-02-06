@@ -14,5 +14,7 @@ return {
   'angularls',
   'astro',
   'intelephense',
-  'dockerls'
+  'dockerls',
+  'yamlls',
+  'gopls',
 }

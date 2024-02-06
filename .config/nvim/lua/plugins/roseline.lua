@@ -1,6 +1,6 @@
 return {
   {
-    'folke/neodev.nvim',
+    'maxmx03/roseline',
     opts = {},
   },
 }

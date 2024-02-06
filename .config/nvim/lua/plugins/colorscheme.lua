@@ -40,6 +40,7 @@ return {
           StatusLine = { bg = 'base' },
           StatusLineNC = { bg = 'base' },
           ['@lsp.type.string'] = { link = '@string' },
+          ['@markup.link.label'] = { link = '@markup.link' },
         },
       }
 

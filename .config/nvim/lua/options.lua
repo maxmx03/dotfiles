@@ -18,7 +18,6 @@ opt.fillchars:append { eob = ' ' } -- remove endofbuffer characters
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.laststatus = 3
-opt.statusline = "%!v:lua.require('core.statusline').setup()"
 opt.list = true
 opt.mouse = 'a'
 opt.number = true

@@ -13,8 +13,8 @@ if !has('nvim')
 endif
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
-Plug 'Donaldttt/fuzzyy'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
@@ -28,6 +28,7 @@ Plug 'hahdookin/miniterm.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'wuelnerdotexe/vim-astro'
+Plug 'itchyny/lightline.vim'
 
 # coding
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
