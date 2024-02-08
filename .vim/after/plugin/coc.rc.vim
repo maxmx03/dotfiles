@@ -30,5 +30,6 @@ g:coc_global_extensions = [
   'coc-markdownlint',
   'coc-markdown-preview-enhanced',
   'coc-emoji',
+  'coc-go',
   '@yaegassy/coc-astro'
 ]

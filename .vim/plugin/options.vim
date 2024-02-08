@@ -17,7 +17,7 @@ set fillchars:eob:.
 set ignorecase
 set laststatus=2
 set list
-set listchars=trail:-,nbsp:+
+set listchars=tab:→\ ,trail:-,nbsp:+
 set mouse=a
 set number
 set pumheight=120
