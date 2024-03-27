@@ -30,6 +30,10 @@ return {
           transparency = true,
         },
         highlight_groups = {
+          Title = { fg = 'rose' },
+          ['@markup.heading'] = { fg = 'rose' },
+          ['@type.builtin'] = { link = '@keyword' },
+          ['@function.builtin'] = { fg = 'love' },
           NeoTreeNormal = { bg = 'base' },
           NeoTreeNormalNC = { bg = 'base' },
           NormalFloat = { bg = 'base' },
@@ -41,6 +45,8 @@ return {
           StatusLineNC = { bg = 'base' },
           ['@lsp.type.string'] = { link = '@string' },
           ['@markup.link.label'] = { link = '@markup.link' },
+          ['@character.printf'] = { link = '@keyword' },
+          CursorLine = { bg = 'NONE' },
         },
       }
 

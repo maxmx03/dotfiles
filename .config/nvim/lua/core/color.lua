@@ -83,10 +83,10 @@ local function blend_channel(fg, bg, alpha)
   return floor(min(max(0, ret), 255) + 0.5)
 end
 
----@param fg number
----@param bg number
+---@param fg string
+---@param bg string
 ---@param alpha number
----@return number
+---@return string
 function M.blend(fg, bg, alpha)
   local red_bg, green_bg, blue_bg = M.hex_to_rgb(bg)
   local red_fg, green_fg, blue_fg = M.hex_to_rgb(fg)

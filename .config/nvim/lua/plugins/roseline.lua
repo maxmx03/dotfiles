@@ -1,6 +1,19 @@
 return {
   {
     'maxmx03/roseline',
-    opts = {},
+    config = function()
+      require('roseline').setup {
+        theme = 'rose-pine',
+        icons = {
+          vim = '',
+          diagnostic = {
+            Ok = '󰟪',
+          },
+          os = {
+            Linux = '󱄅',
+          },
+        },
+      }
+    end,
   },
 }

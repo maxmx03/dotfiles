@@ -109,12 +109,6 @@ local normal = {
     t = { '<cmd>MasonToolsUpdate<cr>', 'Update Mason Tools' },
     a = { '<cmd>MasonUninstallAll<cr>', 'Uninstall all packages' },
   },
-  n = {
-    name = ' Neorg',
-    w = { ':Neorg workspace notes<Return>', 'Open Workspace' },
-    u = { ':Neorg upgrade<Return>', 'Upgrade Neorg' },
-    r = { ':Neorg return<Return>', 'Return' },
-  },
   c = {
     name = '󰚩 Codota',
     e = { ':TabnineEnable<Return>', 'Tabnine enable' },

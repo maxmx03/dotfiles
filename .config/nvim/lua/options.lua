@@ -19,6 +19,7 @@ opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.laststatus = 3
 opt.list = true
+opt.listchars:append { tab = '→ ' }
 opt.mouse = 'a'
 opt.number = true
 opt.pumblend = 10         -- enables pseudo-transparency

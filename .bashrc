@@ -2,7 +2,8 @@ source "$HOME/dotfiles/scripts/dots.sh"
 source "$HOME/dotfiles/scripts/notes.sh"
 source "$HOME/dotfiles/scripts/z.sh"
 
-alias ls="exa --long --icons --tree --level=1 -a"
+alias ls="eza --icons"
+alias ll="eza --long --icons -a"
 alias g="lazygit"
 alias d="lazydocker"
 

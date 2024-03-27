@@ -10,7 +10,7 @@ return {
         enabled = false,
       },
       progress = {
-        enabled = false,
+        enabled = true,
         format = 'lsp_progress',
         format_done = 'lsp_progress_done',
       },
