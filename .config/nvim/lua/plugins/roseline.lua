@@ -3,7 +3,7 @@ return {
     'maxmx03/roseline',
     config = function()
       require('roseline').setup {
-        theme = 'rose-pine',
+        theme = 'dracula',
         icons = {
           vim = '',
           diagnostic = {
