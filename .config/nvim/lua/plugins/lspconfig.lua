@@ -42,6 +42,17 @@ return {
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local bufnr = ev.buf
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+          if
+              client
+              and client.server_capabilities
+              and client.server_capabilities.inlayHintProvider
+          then
+            vim.lsp.inlay_hint.enable(true)
+          end
+
           require('lsp_signature').on_attach({
             floating_window = false,
             hint_prefix = '🤔 ',
@@ -74,6 +85,7 @@ return {
                     vim.env.VIMRUNTIME,
                     '${3rd}/luv/library',
                     '${3rd}/busted/library',
+                    '~/.local/share/nvim/lazy/fluoromachine.nvim',
                   },
                 },
                 hint = {

@@ -5,7 +5,7 @@ require 'bootstrap'
 local opts = {
   install = {
     missing = true,
-    colorscheme = { 'rose-pine' },
+    colorscheme = { 'fluoromachine' },
   },
   checker = {
     enabled = true,

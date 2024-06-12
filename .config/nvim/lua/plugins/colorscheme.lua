@@ -1,31 +1,22 @@
 return {
   {
-    'maxmx03/dracula.nvim',
+    'maxmx03/fluoromachine.nvim',
+    branch = 'dev',
     lazy = false,
     priority = 1000,
     config = function()
-      local dracula = require 'dracula'
-      local transparent = true
+      ---@type fluoromachine
+      local fm = require 'fluoromachine'
 
-      dracula.setup {
-        transparent = transparent,
-        on_highlights = function(colors, color)
-          if transparent then
-            local background = color.shade(colors.base02, 2)
-            return {
-              BufferLineFill = { bg = background },
-              BufferLineBufferSelected = { fg = colors.base0 },
-              BufferLineSeparator = { fg = background },
-              BufferLineSeparatorSelected = { fg = background },
-              BufferLineSeparatorVisible = { fg = background },
-            }
-          else
-            return {}
-          end
-        end,
+      fm.setup {
+        glow = true,
+        theme = 'retrowave',
       }
 
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd.colorscheme 'fluoromachine'
     end,
+  },
+  {
+    'maxmx03/dracula.nvim',
   },
 }
