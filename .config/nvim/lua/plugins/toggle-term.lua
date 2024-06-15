@@ -22,6 +22,7 @@ return {
           winblend = 10,
         },
       }
+
     end,
   },
 }

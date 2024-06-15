@@ -1,0 +1,9 @@
+{
+  "workspace.library": [
+    "/usr/share/nvim/runtime",
+    "${3rd}/luv/library",
+    "${3rd}/busted/library",
+    "${3rd}/luassert/library",
+    "~/.local/share/nvim/lazy/fluoromachine.nvim"
+  ]
+}

@@ -53,6 +53,9 @@ return {
             vim.lsp.inlay_hint.enable(true)
           end
 
+          local breadcrumbs = require 'core.breadcrumbs'
+          breadcrumbs.attach(client, bufnr)
+
           require('lsp_signature').on_attach({
             floating_window = false,
             hint_prefix = '🤔 ',
@@ -80,13 +83,7 @@ return {
                   version = 'LuaJIT',
                 },
                 workspace = {
-                  checkThirdParty = false,
-                  library = {
-                    vim.env.VIMRUNTIME,
-                    '${3rd}/luv/library',
-                    '${3rd}/busted/library',
-                    '~/.local/share/nvim/lazy/fluoromachine.nvim',
-                  },
+                  checkThirdParty = true,
                 },
                 hint = {
                   enable = true,

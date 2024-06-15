@@ -1,7 +1,6 @@
 return {
   {
     'maxmx03/fluoromachine.nvim',
-    branch = 'dev',
     lazy = false,
     priority = 1000,
     config = function()
@@ -15,8 +14,5 @@ return {
 
       vim.cmd.colorscheme 'fluoromachine'
     end,
-  },
-  {
-    'maxmx03/dracula.nvim',
   },
 }

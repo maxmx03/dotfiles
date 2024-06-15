@@ -5,14 +5,14 @@ return {
     event = 'VeryLazy',
     version = '2.*',
     config = function()
-      local colors = require 'dracula.palette'
+      local colors = require('fluoromachine.palette').get_colors()
 
       require('window-picker').setup {
         highlights = {
           statusline = {
             unfocused = {
               fg = colors.pink,
-              bg = colors.base03,
+              bg = colors.comment,
               bold = true,
             },
           },
@@ -21,4 +21,3 @@ return {
     end,
   },
 }
-
