@@ -17,4 +17,5 @@ return {
   'dockerls',
   'yamlls',
   'gopls',
+  'tailwindcss',
 }

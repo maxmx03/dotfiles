@@ -39,7 +39,7 @@ return {
     },
     messages = {
       view = 'notify',
-      enabled = false,
+      enabled = true,
       view_error = 'notify',
       view_warn = 'notify',
       view_history = 'messages',

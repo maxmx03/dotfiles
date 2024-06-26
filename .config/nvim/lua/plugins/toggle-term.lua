@@ -9,7 +9,7 @@ return {
         persist_size = false,
         highlights = {
           NormalFloat = {
-            link = 'NormalFloat',
+            link = 'Normal',
           },
           FloatBorder = {
             link = 'WinSeparator',
@@ -19,7 +19,7 @@ return {
           border = 'curved',
           width = 120,
           height = 25,
-          winblend = 10,
+          -- winblend = 10,
         },
       }
 

@@ -8,8 +8,9 @@ return {
       local fm = require 'fluoromachine'
 
       fm.setup {
-        glow = true,
+        glow = flse,
         theme = 'retrowave',
+        transparent = true,
       }
 
       vim.cmd.colorscheme 'fluoromachine'
