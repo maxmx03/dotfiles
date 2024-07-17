@@ -6,12 +6,15 @@ return {
       local wk = require 'which-key'
       local keymaps = require 'keymaps'
 
-      wk.register(keymaps.normal, { prefix = '<space>', mode = 'n' })
-      wk.register(keymaps.visual, { prefix = '<space>', mode = 'v' })
+      wk.add(keymaps.normal)
+      wk.add(keymaps.visual)
       wk.setup {
-        window = {
-          border = 'single', -- none, single, double, shadow
-          position = 'bottom', -- bottom, top
+        preset = 'helix',
+        icons = {
+          mappings = false,
+          keys = {
+            Space = '',
+          },
         },
       }
     end,

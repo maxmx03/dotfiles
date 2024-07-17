@@ -14,6 +14,9 @@ return {
         },
       }
     end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-angular',
+    },
   },
   {
     'luckasRanarison/tree-sitter-hyprlang',

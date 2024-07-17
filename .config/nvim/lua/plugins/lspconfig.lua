@@ -53,9 +53,12 @@ return {
             vim.lsp.inlay_hint.enable(true)
           end
 
+          if client ~= nil and vim.tbl_contains({ 'null-ls' }, client.name) then -- blacklist lsp
+            return
+          end
+
           local breadcrumbs = require 'core.breadcrumbs'
           breadcrumbs.attach(client, bufnr)
-
           require('lsp_signature').on_attach({
             floating_window = false,
             hint_prefix = '🤔 ',

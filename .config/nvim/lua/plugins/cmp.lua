@@ -34,9 +34,6 @@ return {
         }
       end
 
-      local colors = require 'fluoromachine.palette'.get_colors()
-      vim.api.nvim_set_hl(0, 'CmpBorder', { fg = colors.comment, bg = colors.bgdark })
-
       cmp.setup {
         formatting = {
           fields = { 'kind', 'abbr', 'menu' },
@@ -62,10 +59,10 @@ return {
           completion = {
             col_offset = -3,
             side_padding = 0,
-            border = border 'CmpBorder',
+            border = border 'WinSeparator',
           },
           documentation = {
-            border = border 'CmpBorder',
+            border = border 'WinSeparator',
           },
         },
         mapping = cmp.mapping.preset.insert {
