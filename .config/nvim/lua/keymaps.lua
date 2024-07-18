@@ -6,6 +6,7 @@ local pick_window = require 'core.pick-window'
 local harpoon = require 'core.harpoon'
 
 --- Normal
+map('n', '<Space>', '<Nop>', opts)
 map('n', '<C-x>', ':bd<Return>', opts)
 map('n', '<C-Left>', ':BufferLineCyclePrev<Return>', opts)
 map('n', '<C-Right>', ':BufferLineCycleNext<Return>', opts)

@@ -1,6 +1,6 @@
 vim.loader.enable()
 vim.g.mapleader = ' '      -- which-key
-vim.g.maplocalleader = ']' -- neorg
+vim.g.maplocalleader = "\\"
 
 local opt = vim.opt
 
