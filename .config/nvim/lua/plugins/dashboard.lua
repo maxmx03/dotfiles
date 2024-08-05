@@ -88,7 +88,7 @@ return {
               desc = 'File explorer',
               key = 'n',
               keymap = 'SPC e',
-              action = 'NvimTreeOpen',
+              action = ':Neotree toggle left',
             },
             {
               icon = icons.ui.Package .. ' ',

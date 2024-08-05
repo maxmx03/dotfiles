@@ -1,31 +1,32 @@
 return {
   {
-    'maxmx03/dracula.nvim',
+    'maxmx03/solarized.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      local dracula = require 'dracula'
-      local transparent = false
+      local solarized = require 'solarized'
 
-      dracula.setup {
-        transparent = transparent,
-        on_highlights = function(colors, color)
-          if transparent then
-            local background = color.shade(colors.base02, 2)
-            return {
-              BufferLineFill = { bg = background },
-              BufferLineBufferSelected = { fg = colors.base0 },
-              BufferLineSeparator = { fg = background },
-              BufferLineSeparatorSelected = { fg = background },
-              BufferLineSeparatorVisible = { fg = background },
-            }
-          else
-            return {}
-          end
+      solarized.setup {
+        transparent = true,
+        theme = 'neo',
+        highlights = function(colors)
+          return {
+            Constant = { link = 'Number' },
+            Identifier = { fg = colors.blue },
+            ['@variable'] = { fg = colors.blue },
+            ['@variable.builtin'] = { fg = colors.purple },
+            ['@type.builtin'] = { link = 'Keyword' },
+            ['@constructor'] = { link = 'Type' },
+            ['@tag'] = { fg = colors.red },
+            ['@tag.delimiter'] = { fg = colors.red },
+            Directory = { fg = colors.cyan },
+            DashboardHeader = { fg = colors.base0 },
+            ['@constant.html'] = { link = '@tag' },
+          }
         end,
       }
 
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd.colorscheme 'solarized'
     end,
   },
 }
