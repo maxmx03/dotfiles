@@ -31,6 +31,18 @@ map('t', '<ESC>', '<c-c> exit<CR>', opts)
 map('v', '<C-Up>', ":m '<-2<CR>gv=gv")
 map('v', '<C-Down>', ":m '>+1<CR>gv=gv")
 
+local function next_diag()
+  vim.diagnostic.jump {
+    count = 1,
+  }
+end
+
+local function prev_diag()
+  vim.diagnostic.jump {
+    count = -1,
+  }
+end
+
 local normal = {
   {
     '<space>/',
@@ -85,7 +97,7 @@ local normal = {
   { '<space>l',  group = 'LSP' },
   {
     '<space>lb',
-    vim.diagnostic.get_prev,
+    prev_diag,
     desc = 'Jump previous Diagnostic',
   },
   { '<space>lc', vim.lsp.buf.code_action,                   desc = 'Code action' },
@@ -95,7 +107,7 @@ local normal = {
   { '<space>lh', vim.lsp.buf.hover,                         desc = 'Hover' },
   { '<space>li', vim.lsp.buf.implementation,                desc = 'Go to Implementation' },
   { '<space>ll', ':LspRestart<Return>',                     desc = 'Lsp restart' },
-  { '<space>ln', vim.diagnostic.get_next,                   desc = 'Jump next Diagnostic' },
+  { '<space>ln', next_diag,                                 desc = 'Jump next Diagnostic' },
   { '<space>lp', vim.lsp.buf.definition,                    desc = 'Go to Definition' },
   { '<space>lr', vim.lsp.buf.rename,                        desc = 'Rename' },
   { '<space>m',  group = 'Markdown' },
