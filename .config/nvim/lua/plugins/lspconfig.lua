@@ -17,6 +17,7 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local icons = require 'core.icons'
       local servers = require 'servers'
+      local colors = require('solarized.palette').get_colors()
 
       local signs = {
         Error = icons.diagnostics.Error,
@@ -57,6 +58,7 @@ return {
             return
           end
 
+          vim.api.nvim_set_hl(0, 'TabnineCodeLens', { fg = colors.magenta })
           local breadcrumbs = require 'core.breadcrumbs'
           breadcrumbs.attach(client, bufnr)
           require('lsp_signature').on_attach({

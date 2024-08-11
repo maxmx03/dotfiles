@@ -4,14 +4,11 @@ source "$HOME/dotfiles/scripts/z.sh"
 
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
+alias cat="batcat"
 alias g="lazygit"
-alias d="lazydocker"
 
 eval "$(starship init bash)"
-
-if [ -z "$TMUX" ]; then
-    neofetch
-fi
+eval "$(jump shell --bind=z)"
 
 export FZF_DEFAULT_COMMAND='fdfind --type f -H -E .git -E .vscode --strip-cwd-prefix'
 export FZF_DEFAULT_OPTS="
