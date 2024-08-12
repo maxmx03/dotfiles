@@ -1,4 +1,3 @@
-source "$HOME/dotfiles/scripts/dots.sh"
 source "$HOME/dotfiles/scripts/notes.sh"
 export PATH=$PATH:$HOME/go/bin
 
