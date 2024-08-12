@@ -26,6 +26,10 @@ dots install <config>
 
 [wallpapers-clan](https://wallpapers-clan.com/)
 
+## nix dotfiles
+
+[nix-branch](https://github.com/maxmx03/dotfiles/tree/nix)
+
 ## Old commits
 
 - [hyprland-solarized](https://github.com/maxmx03/dotfiles/tree/ee9828b6b8809840ac8408f6db356fddd14f7abf)
