@@ -1,5 +1,5 @@
 *.gif
-dots_configs.txt
+dots.txt
 .config/nvim/lazy-lock.json
 .vim/autoload
 .vim/pack/minpac
