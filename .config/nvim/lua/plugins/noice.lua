@@ -3,7 +3,7 @@ return {
   event = 'VeryLazy',
   opts = {
     notify = {
-      enabled = false,
+      enabled = true,
     },
     lsp = {
       signature = {
@@ -40,7 +40,7 @@ return {
     },
     messages = {
       view = 'notify',
-      enabled = true,
+      enabled = false,
       view_error = 'notify',
       view_warn = 'notify',
       view_history = 'messages',

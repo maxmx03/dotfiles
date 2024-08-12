@@ -1,6 +1,6 @@
 source "$HOME/dotfiles/scripts/dots.sh"
 source "$HOME/dotfiles/scripts/notes.sh"
-source "$HOME/dotfiles/scripts/z.sh"
+export PATH=$PATH:$HOME/go/bin
 
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
