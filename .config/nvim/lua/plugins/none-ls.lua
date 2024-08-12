@@ -4,7 +4,7 @@ return {
     config = function()
       local null_ls = require 'null-ls'
       local formatters = require 'formatters'
-      local linters = require 'linters'
+      local linters = vim.list_extend(require 'linters', { 'shellcheck' })
 
       local function map(builtins, sources, callback)
         if sources then
