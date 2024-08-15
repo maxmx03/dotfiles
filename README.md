@@ -1,24 +1,17 @@
 # Max's dotfiles
 
-![Captura de tela de 2024-08-12 13-46-38](https://github.com/user-attachments/assets/afcf607f-c64e-4bb0-a969-fba780adc334)
+![debian-wallpaper](https://github.com/user-attachments/assets/afcf607f-c64e-4bb0-a969-fba780adc334)
 
 - [kitty](https://github.com/kovidgoyal/kitty) - GPU based Terminal
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
 - [neovim](https://github.com/neovim/neovim) - Vim-based text editor
 
-## Quick start
+## Bash Dependencies
 
-```bash
-git clone git@github.com:maxmx03/dotfiles $HOME/dotfiles
-```
-
-## Install dots script
-
-```bash
-# example1: dots install nvim
-# example2: dots install .tmux.conf
-dots install <config>
-```
+- [eza](https://github.com/eza-community/eza)
+- [jump](https://github.com/gsamokovarov/jump)
+- [starship](https://starship.rs/)
+- [lazygit](https://github.com/jesseduffield/lazygit)
 
 ## Wallpapers
 
