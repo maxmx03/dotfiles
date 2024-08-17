@@ -6,7 +6,7 @@ Plug 'overcache/NeoSolarized'
 Plug 'sheerun/vim-polyglot'
 
 # editor
-Plug 'preservim/nerdtree'
+Plug 'lambdalisue/vim-fern'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
