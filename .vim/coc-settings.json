@@ -1,0 +1,51 @@
+{
+  "coc.preferences.formatOnSave": true,
+  "angular.enable-strict-mode-prompt": false,
+  "emmet.includeLanguages": {
+    "norg": "html",
+    "markdown": "html"
+  },
+  "emmet.excludeLanguages": [],
+  "html.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "󰌶",
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.enable": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "suggest.maxCompleteItemCount": 10,
+  "suggest.virtualText": true,
+  "suggest.completionItemKindLabels": {
+    "keyword": "",
+    "variable": "",
+    "value": "",
+    "operator": "",
+    "function": "",
+    "reference": "",
+    "constant": "",
+    "method": "",
+    "struct": "",
+    "class": "",
+    "interface": "",
+    "text": "",
+    "enum": "",
+    "enumMember": "",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "",
+    "unit": "",
+    "event": "",
+    "file": "",
+    "folder": "",
+    "snippet": "",
+    "typeParameter": "",
+    "default": ""
+  },
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  }
+}

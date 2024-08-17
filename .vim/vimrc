@@ -1,0 +1,3 @@
+vim9script
+import $"{$VIMRUNTIME}/defaults.vim"
+import $"{$HOME}/.vim/plugins.vim"

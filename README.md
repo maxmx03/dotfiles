@@ -4,6 +4,7 @@
 
 - [kitty](https://github.com/kovidgoyal/kitty) - GPU based Terminal
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
+- [vim](https://github.com/vim/vim) Text editor
 - [neovim](https://github.com/neovim/neovim) - Vim-based text editor
 
 ## Bash Dependencies
