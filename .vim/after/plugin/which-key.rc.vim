@@ -9,7 +9,7 @@ g:which_key_map = {
   Q: ['quitall', '󰩈 Quit neovim'],
   w: [':update', ' Update'],
   o: [':on', 'Only Screen'],
-  e: [':Fern . -drawer -toggle', '󰙅 Open File Tree'],
+  e: [':Fern . -stay -drawer -toggle', '󰙅 Open File Tree'],
   f: [':Files', ' Search File'],
   m: [':CocCommand markdown-preview-enhanced.openPreview', 'markdown preview'],
   p: {
