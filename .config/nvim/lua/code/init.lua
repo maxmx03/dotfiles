@@ -4,7 +4,6 @@ M.formatters = function(null_ls)
   return {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.shfmt,
   }
 end
@@ -27,7 +26,7 @@ M.servers = {
   'vimls',
   'bashls',
   'marksman',
-  'pyright',
+  'pylsp',
   'rust_analyzer',
   'angularls',
   'astro',

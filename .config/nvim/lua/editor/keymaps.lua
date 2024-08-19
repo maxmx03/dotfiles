@@ -1,4 +1,5 @@
 local keymap = require 'utils.keymap'
+local quit = require('utils.confirm-quit')
 local nmap = keymap.nmap
 local tmap = keymap.tmap
 local vmap = keymap.vmap
@@ -86,7 +87,7 @@ M.normal = {
   { '<space>pp', ':Lazy home<CR>', desc = 'Open Lazy' },
   { '<space>ps', ':Lazy sync<CR>', desc = 'Sync Plugins' },
   { '<space>pu', ':Lazy update<CR>', desc = 'Update Plugins' },
-  { '<space>q', ':quit<CR>', desc = 'Close' },
+  { '<space>q', quit.confirm_quit, desc = 'Close' },
   { '<space>s', group = 'Search' },
   { '<space>sH', ':Telescope highlights<CR>', desc = 'Search highlights' },
   { '<space>sb', ':Telescope buffers theme=cursor<CR>', desc = 'Search buffers' },

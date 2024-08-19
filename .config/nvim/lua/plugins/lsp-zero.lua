@@ -3,6 +3,8 @@ local config = function()
   local code = require 'code'
   local gopls = require 'code.handlers.gopls'
   local lua_ls = require 'code.handlers.lua_ls'
+  local pylsp = require 'code.handlers.pylsp'
+  local tsserver = require 'code.handlers.tsserver'
 
   local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 
@@ -33,6 +35,8 @@ local config = function()
       end,
       ['lua_ls'] = lua_ls,
       ['gopls'] = gopls,
+      ['pylsp'] = pylsp,
+      ['tsserver'] = tsserver,
     },
   }
 
