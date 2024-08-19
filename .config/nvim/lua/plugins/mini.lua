@@ -1,3 +1,5 @@
 return {
-  { 'echasnovski/mini.cursorword', version = false, opts = {} },
+  'echasnovski/mini.cursorword',
+  version = false,
+  opts = {},
 }

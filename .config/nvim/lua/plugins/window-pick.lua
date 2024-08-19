@@ -5,14 +5,12 @@ return {
     event = 'VeryLazy',
     version = '2.*',
     config = function()
-      local colors = require 'solarized.palette'.get_colors()
-
       require('window-picker').setup {
         highlights = {
           statusline = {
             unfocused = {
-              fg = colors.magenta,
-              bg = colors.base03,
+              fg = 'NvimLightGreen',
+              bg = 'NvimDarkGray1',
               bold = true,
             },
           },
@@ -21,4 +19,3 @@ return {
     end,
   },
 }
-

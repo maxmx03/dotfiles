@@ -62,7 +62,7 @@ return {
       table.insert(header, 2, emmptyLine)
       header[#header + 1] = emmptyLine
       header[#header + 1] = emmptyLine
-      local icons = require 'core.icons'
+      local icons = require 'utils.icons'
 
       require('dashboard').setup {
         theme = 'doom',

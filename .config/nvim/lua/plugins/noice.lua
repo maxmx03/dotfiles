@@ -7,7 +7,7 @@ return {
     },
     lsp = {
       signature = {
-        enabled = false,
+        enabled = true,
       },
       progress = {
         enabled = true,
@@ -32,7 +32,7 @@ return {
             { find = '; before #%d+' },
             { find = '%d fewer lines' },
             { find = '%d more lines' },
-            { find = 'No information available' }
+            { find = 'No information available' },
           },
         },
         opts = { skip = true },

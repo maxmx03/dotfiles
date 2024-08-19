@@ -4,7 +4,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = 'all',
         auto_install = true,
         sync_install = false,
         ignore_install = { 'dashboard' },
@@ -14,8 +13,5 @@ return {
         },
       }
     end,
-  },
-  {
-    'luckasRanarison/tree-sitter-hyprlang',
   },
 }

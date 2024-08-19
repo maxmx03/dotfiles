@@ -1,22 +1,12 @@
-require 'options'
-require 'autocmds'
-require 'bootstrap'
+require 'lazy-bootstrap'
+require 'editor.options'
+require 'editor.keymaps'
+local lazy = require 'lazy'
 
-local opts = {
-  install = {
-    missing = true,
-    colorscheme = { 'solarized' },
+lazy.setup {
+  spec = {
+    { import = 'plugins' },
   },
-  checker = {
-    enabled = true,
-    concurrency = nil,
-    notify = false,
-    frequency = 3600,
-  },
-  change_detection = {
-    enabled = true,
-    notify = false,
-  },
+  install = { colorscheme = { 'onedark' } },
+  checker = { enabled = true },
 }
-
-require('lazy').setup('plugins', opts)
