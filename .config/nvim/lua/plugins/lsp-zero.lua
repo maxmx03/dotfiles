@@ -1,6 +1,8 @@
 local config = function()
   local lsp_zero = require 'lsp-zero'
   local code = require 'code'
+  local gopls = require 'code.handlers.gopls'
+  local lua_ls = require 'code.handlers.lua_ls'
 
   local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 
@@ -9,26 +11,28 @@ local config = function()
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
   end
 
+  local lsp_attach = function(client)
+    if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint.enable(true)
+    end
+  end
+
   lsp_zero.extend_lspconfig {
     sign_text = true,
+    lsp_attach = lsp_attach,
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
   }
 
-  require('lspconfig').lua_ls.setup {
-    on_init = function(client)
-      lsp_zero.nvim_lua_settings(client, {})
-    end,
-  }
   require('mason').setup {}
   require('mason-lspconfig').setup {
     automatic_installation = true,
     ensure_installed = code.servers,
     handlers = {
       function(server_name)
-        if server_name ~= 'lua_ls' then
-          require('lspconfig')[server_name].setup {}
-        end
+        require('lspconfig')[server_name].setup {}
       end,
+      ['lua_ls'] = lua_ls,
+      ['gopls'] = gopls,
     },
   }
 
@@ -61,7 +65,7 @@ local config = function()
         kind.kind = ' ' .. (strings[1] or '') .. ' '
         kind.menu = '    (' .. (strings[2] or '') .. ')'
 
-        return require("nvim-highlight-colors").format(entry, vim_item)
+        return kind
       end,
     },
     sources = {
@@ -72,10 +76,10 @@ local config = function()
       completion = {
         col_offset = -3,
         side_padding = 0,
-        border = border 'WinSeparator',
+        border = border 'FloatTitle',
       },
       documentation = {
-        border = border 'WinSeparator',
+        border = border 'FloatTitle',
       },
     },
     mapping = cmp.mapping.preset.insert {

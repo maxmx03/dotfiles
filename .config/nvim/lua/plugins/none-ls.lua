@@ -7,7 +7,6 @@ return {
       local sources = {}
       sources = vim.list_extend(sources, code.formatters(null_ls))
       sources = vim.list_extend(sources, code.diagnostics(null_ls))
-
       null_ls.setup {
         sources = sources,
       }

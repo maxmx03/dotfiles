@@ -12,6 +12,7 @@ end
 M.diagnostics = function(null_ls)
   return {
     null_ls.builtins.diagnostics.markdownlint,
+    null_ls.builtins.diagnostics.shellcheck,
   }
 end
 
