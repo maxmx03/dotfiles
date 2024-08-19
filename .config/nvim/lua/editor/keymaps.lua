@@ -96,7 +96,7 @@ M.normal = {
   { '<space>sk', ':Telescope keymaps<CR>', desc = 'Search keymaps' },
   { '<space>sp', ':Telescope projects<CR>', desc = 'Search Projects' },
   { '<space>sw', ':Telescope live_grep<CR>', desc = 'Search words' },
-  { '<space>t', ':ToggleTerm direction=float<CR>', desc = 'Open Terminal' },
+  { '<space>t', ':ToggleTerm<CR>', desc = 'Open Terminal' },
   { '<space>w', ':update<CR>', desc = 'Save' },
 }
 

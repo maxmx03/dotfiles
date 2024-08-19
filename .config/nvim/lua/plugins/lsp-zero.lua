@@ -56,12 +56,12 @@ local config = function()
           mode = 'symbol_text',
           maxwidth = 30,
           preset = 'codicons',
-        }(entry, vim_item)
+        } (entry, vim_item)
         local strings = vim.split(kind.kind, '%s', { trimempty = true })
         kind.kind = ' ' .. (strings[1] or '') .. ' '
         kind.menu = '    (' .. (strings[2] or '') .. ')'
 
-        return kind
+        return require("nvim-highlight-colors").format(entry, vim_item)
       end,
     },
     sources = {

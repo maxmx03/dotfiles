@@ -7,6 +7,6 @@ lazy.setup {
   spec = {
     { import = 'plugins' },
   },
-  install = { colorscheme = { 'onedark' } },
+  install = { colorscheme = { 'tokyonight-night' } },
   checker = { enabled = true },
 }

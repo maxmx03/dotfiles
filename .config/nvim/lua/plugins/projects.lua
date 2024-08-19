@@ -8,6 +8,7 @@ return {
           'LICENSE',
           'package.json',
           '.luarc.json',
+          'lazy-lock.json',
         },
       }
     end,
