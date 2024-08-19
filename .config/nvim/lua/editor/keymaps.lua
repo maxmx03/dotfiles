@@ -1,5 +1,5 @@
 local keymap = require 'utils.keymap'
-local quit = require('utils.confirm-quit')
+local quit = require 'utils.confirm-quit'
 local nmap = keymap.nmap
 local tmap = keymap.tmap
 local vmap = keymap.vmap
@@ -25,8 +25,10 @@ nmap('<Tab>', function()
   vim.api.nvim_set_current_win(id)
 end)
 tmap('<ESC>', '<c-c> exit<CR>')
-vmap('<C-Up>', ":m '<-2<CR>gv=gv")
-vmap('<C-Down>', ":m '>+1<CR>gv=gv")
+
+-- credits: https://github.com/ThePrimeagen/init.lua
+vmap('J', ":m '>+1<CR>gv=gv")
+vmap('K', ":m '<-2<CR>gv=gv")
 
 local M = {}
 

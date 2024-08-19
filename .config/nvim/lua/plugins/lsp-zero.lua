@@ -39,83 +39,6 @@ local config = function()
       ['tsserver'] = tsserver,
     },
   }
-
-  local cmp = require 'cmp'
-  local cmp_action = lsp_zero.cmp_action()
-
-  local function border(hl_name)
-    return {
-      { '╭', hl_name },
-      { '─', hl_name },
-      { '╮', hl_name },
-      { '│', hl_name },
-      { '╯', hl_name },
-      { '─', hl_name },
-      { '╰', hl_name },
-      { '│', hl_name },
-    }
-  end
-
-  cmp.setup {
-    formatting = {
-      fields = { 'kind', 'abbr', 'menu' },
-      format = function(entry, vim_item)
-        local kind = require('lspkind').cmp_format {
-          mode = 'symbol_text',
-          maxwidth = 30,
-          preset = 'codicons',
-        } (entry, vim_item)
-        local strings = vim.split(kind.kind, '%s', { trimempty = true })
-        kind.kind = ' ' .. (strings[1] or '') .. ' '
-        kind.menu = '    (' .. (strings[2] or '') .. ')'
-
-        return kind
-      end,
-    },
-    sources = {
-      { name = 'nvim_lsp' },
-      { name = 'path' },
-    },
-    window = {
-      completion = {
-        col_offset = -3,
-        side_padding = 0,
-        border = border 'FloatTitle',
-      },
-      documentation = {
-        border = border 'FloatTitle',
-      },
-    },
-    mapping = cmp.mapping.preset.insert {
-      -- `Enter` key to confirm completion
-      ['<CR>'] = cmp.mapping.confirm { select = false },
-
-      -- Ctrl+Space to trigger completion menu
-      ['<C-Space>'] = cmp.mapping.complete(),
-
-      -- Navigate between snippet placeholder
-      ['<C-f>'] = cmp_action.vim_snippet_jump_forward(),
-      ['<C-b>'] = cmp_action.vim_snippet_jump_backward(),
-
-      -- Scroll up and down in the completion documentation
-      ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    },
-    snippet = {
-      expand = function(args)
-        vim.snippet.expand(args.body)
-      end,
-    },
-  }
-
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' },
-    }, {
-      { name = 'cmdline' },
-    }),
-  })
 end
 
 return {
@@ -125,11 +48,6 @@ return {
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-path',
-    'onsails/lspkind.nvim',
   },
   config = config,
 }
