@@ -1,4 +1,4 @@
 return {
-  dir = '~/.config/lua/custom-plugins/confirm-quit',
+  dir = '~/.config/nvim/lua/custom-plugins/confirm-quit',
   opts = {},
 }
