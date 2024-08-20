@@ -1,5 +1,6 @@
 local keymap = require 'utils.keymap'
 local quit = require 'utils.confirm-quit'
+local pick_window = require 'utils.pick-window'
 local nmap = keymap.nmap
 local tmap = keymap.tmap
 local vmap = keymap.vmap
@@ -17,13 +18,7 @@ nmap('F', '=G<CR>')
 nmap('s', ':HopWord<CR>')
 nmap('<C-Left>', ':BufferLineCyclePrev<CR>')
 nmap('<C-Right>', ':BufferLineCycleNext<CR>')
-nmap('<Tab>', function()
-  local id = require('window-picker').pick_window()
-  if not id then
-    return vim.notify('Invalid window', vim.log.levels.WARN)
-  end
-  vim.api.nvim_set_current_win(id)
-end)
+nmap('<Tab>', pick_window.pick)
 tmap('<ESC>', '<c-c> exit<CR>')
 
 -- credits: https://github.com/ThePrimeagen/init.lua

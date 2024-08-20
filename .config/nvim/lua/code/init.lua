@@ -37,12 +37,4 @@ M.servers = {
   'tailwindcss',
 }
 
-M.langs = {
-  'markdown',
-  'markdown_inline',
-  'vim',
-  'vimdoc',
-  'lua',
-}
-
 return M

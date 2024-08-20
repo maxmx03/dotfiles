@@ -47,10 +47,10 @@ local config = function()
       completion = {
         col_offset = -3,
         side_padding = 0,
-        border = border 'FloatTitle',
+        border = border 'WinSeparator',
       },
       documentation = {
-        border = border 'FloatTitle',
+        border = border 'WinSeparator',
       },
     },
     mapping = cmp.mapping.preset.insert {

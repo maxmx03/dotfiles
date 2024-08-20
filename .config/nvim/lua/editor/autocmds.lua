@@ -1,9 +1,9 @@
 local function augroup(name)
-  return vim.api.nvim_create_augroup('milianor_' .. name, { clear = true })
+  return vim.api.nvim_create_augroup('user_autogroup_' .. name, { clear = true })
 end
 
 vim.api.nvim_create_autocmd('BufWinEnter', {
-  group = augroup 'add_markdown_column',
+  group = augroup 'colorcolumn_80',
   pattern = { '*.md' },
   callback = function()
     vim.opt.colorcolumn = '80'
@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 })
 
 vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
-  group = augroup 'remove_markdown_column',
+  group = augroup 'colorcolumn_120',
   pattern = { '*.md' },
   callback = function()
     vim.opt.colorcolumn = '120'
@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
 })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-  group = augroup 'highlight_yank',
+  group = augroup 'on_yank',
   callback = function()
     vim.highlight.on_yank()
   end,

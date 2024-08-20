@@ -2,8 +2,6 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     config = function()
-      local colors = require('solarized.palette').get_colors()
-
       local hide_in_width = function()
         return vim.fn.winwidth(0) > 80
       end
@@ -39,8 +37,7 @@ return {
           fmt = function(filename)
             local icon = '󰈚'
 
-            local devicons_present, devicons =
-              pcall(require, 'nvim-web-devicons')
+            local devicons_present, devicons = pcall(require, 'nvim-web-devicons')
 
             if devicons_present then
               local ft_icon = devicons.get_icon(filename)
@@ -55,18 +52,13 @@ return {
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git, color = { fg = colors.magenta } },
+          icon = { icons.git },
           cond = hide_in_width,
         },
         {
           'diff',
           symbols = icons.diff,
           colored = true,
-          diff_color = {
-            added = { fg = colors.add },
-            modified = { fg = colors.change },
-            removed = { fg = colors.delete },
-          },
           cond = hide_in_width,
         },
       })
@@ -77,8 +69,7 @@ return {
         {
           'progress',
           fmt = function(progress)
-            local spinners =
-              { '󰚀', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰚀' }
+            local spinners = { '󰄰', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰪥' }
 
             if string.match(progress, '%a+') then
               return progress
@@ -104,8 +95,7 @@ return {
         {
           function()
             local msg = 'No Active Lsp'
-            local buf_ft =
-              vim.api.nvim_get_option_value('filetype', { buf = 0 })
+            local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
             local clients = vim.lsp.get_clients()
             if next(clients) == nil then
               return msg
@@ -126,7 +116,7 @@ return {
 
       require('lualine').setup {
         options = {
-          theme = 'solarized',
+          theme = vim.g.colors_name,
           component_separators = '',
           section_separators = {
             left = icons.default.right,

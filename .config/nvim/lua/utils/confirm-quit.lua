@@ -2,11 +2,11 @@ local M = {
   config = {
     title = 'You have unsaved changes',
     options = { 'save and quit', 'quit' },
-    actions = { 'w', 'quit!' },
+    actions = { 'wq', 'quit!' },
   },
 }
 
-function M.confirm_quit()
+M.confirm_quit = vim.schedule_wrap(function()
   local config = M.config
   local options = config.options
   local actions = config.actions
@@ -28,6 +28,6 @@ function M.confirm_quit()
   else
     vim.cmd.quit()
   end
-end
+end)
 
 return M

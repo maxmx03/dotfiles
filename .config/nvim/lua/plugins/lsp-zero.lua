@@ -5,13 +5,25 @@ local config = function()
   local lua_ls = require 'code.handlers.lua_ls'
   local pylsp = require 'code.handlers.pylsp'
   local tsserver = require 'code.handlers.tsserver'
+  local icons = require 'utils.icons'
 
-  local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+  local signs = {
+    Error = icons.diagnostics.Error,
+    Warn = icons.diagnostics.Warning,
+    Hint = icons.diagnostics.Hint,
+    Info = icons.diagnostics.Information,
+  }
 
   for type, icon in pairs(signs) do
     local hl = 'DiagnosticSign' .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
   end
+
+  vim.diagnostic.config {
+    virtual_text = {
+      prefix = '󱋊',
+    },
+  }
 
   local lsp_attach = function(client)
     if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then

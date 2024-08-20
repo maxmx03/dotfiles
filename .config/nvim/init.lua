@@ -1,12 +1,11 @@
 require 'lazy-bootstrap'
-require 'editor.options'
-require 'editor.keymaps'
+require 'editor'
 local lazy = require 'lazy'
 
-lazy.setup({
+lazy.setup {
   spec = {
     { import = 'plugins' },
   },
   install = { colorscheme = { 'solarized' } },
   checker = { enabled = true },
-})
+}
