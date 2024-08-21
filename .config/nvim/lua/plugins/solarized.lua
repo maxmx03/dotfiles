@@ -8,7 +8,8 @@ return {
     solarized.setup {
       transparent = true,
       theme = 'neo',
-      highlights = function(colors)
+      highlights = function(colors, color)
+        local darken = color.darken
         return {
           Constant = { link = 'Number' },
           Identifier = { fg = colors.blue },
@@ -28,6 +29,12 @@ return {
           DashboardHeader = { fg = colors.base0 },
           ['@constant.html'] = { link = '@tag' },
           Title = { fg = colors.red },
+          ['@markup.raw'] = { link = 'Comment' },
+          ['@markup.heading.1.markdown'] = { fg = colors.red, bg = darken(colors.red, 50) },
+          ['@markup.heading.2.markdown'] = { fg = colors.blue, bg = darken(colors.blue, 50) },
+          ['@markup.heading.3.markdown'] = { fg = colors.yellow, bg = darken(colors.yellow, 50) },
+          ['@markup.heading.4.markdown'] = { fg = colors.magenta, bg = darken(colors.magenta, 50) },
+          ['@markup.heading.5.markdown'] = { fg = colors.violet, bg = darken(colors.violet, 50) },
         }
       end,
     }

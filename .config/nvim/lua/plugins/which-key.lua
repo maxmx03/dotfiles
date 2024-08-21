@@ -7,7 +7,7 @@ return {
     wk.add(keymaps.normal)
     wk.add(keymaps.visual)
     wk.setup {
-      preset = 'helix',
+      preset = 'modern',
       icons = {
         mappings = false,
         keys = {
