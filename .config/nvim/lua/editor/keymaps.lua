@@ -4,6 +4,7 @@ local pick_window = require 'utils.pick-window'
 local nmap = keymap.nmap
 local tmap = keymap.tmap
 local vmap = keymap.vmap
+local harpoon = require 'harpoon'
 
 nmap('<Space>', '<Nop>')
 nmap('<C-x>', ':bd<CR>')
@@ -108,6 +109,21 @@ M.normal = {
   { '<space>sk', ':Telescope keymaps<CR>',              desc = 'Search keymaps' },
   { '<space>sp', ':Telescope projects<CR>',             desc = 'Search Projects' },
   { '<space>sw', ':Telescope live_grep<CR>',            desc = 'Search words' },
+  { '<space>h',  group = 'Harpoon' },
+  {
+    '<space>ha',
+    function()
+      harpoon:list():append()
+    end,
+    desc = 'Mark file',
+  },
+  {
+    '<space>hh',
+    function()
+      harpoon.ui:toggle_quick_menu(harpoon:list())
+    end,
+    desc = 'Quick menu',
+  },
 }
 
 M.visual = {
