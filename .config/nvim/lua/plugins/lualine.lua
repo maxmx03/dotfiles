@@ -116,7 +116,7 @@ return {
 
       require('lualine').setup {
         options = {
-          theme = vim.g.colors_name,
+          theme = 'solarized_dark',
           component_separators = '',
           section_separators = {
             left = icons.default.right,

@@ -6,6 +6,6 @@ lazy.setup {
   spec = {
     { import = 'plugins' },
   },
-  install = { colorscheme = { 'solarized' } },
+  install = { colorscheme = { 'solarized-light' } },
   checker = { enabled = true },
 }
