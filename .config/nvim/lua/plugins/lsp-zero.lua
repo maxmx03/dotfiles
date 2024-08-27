@@ -5,6 +5,7 @@ local config = function()
   local lua_ls = require 'code.handlers.lua_ls'
   local pylsp = require 'code.handlers.pylsp'
   local tsserver = require 'code.handlers.tsserver'
+  local rust_analyzer = require 'code.handlers.rust_analyzer'
   local icons = require 'utils.icons'
 
   local signs = {
@@ -25,10 +26,18 @@ local config = function()
     },
   }
 
-  local lsp_attach = function(client)
+  local lsp_attach = function(client, bufnr)
     if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true)
     end
+    if client ~= nil and vim.tbl_contains({ 'null-ls' }, client.name) then
+      return
+    end
+    require('lsp_signature').on_attach({
+      floating_window = false,
+      hint_prefix = icons.ui.Comment .. ' ',
+      hint_scheme = 'String',
+    }, bufnr)
   end
 
   lsp_zero.extend_lspconfig {
@@ -49,6 +58,7 @@ local config = function()
       ['gopls'] = gopls,
       ['pylsp'] = pylsp,
       ['tsserver'] = tsserver,
+      ['rust_analyzer'] = rust_analyzer,
     },
   }
 end

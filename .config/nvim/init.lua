@@ -7,5 +7,9 @@ lazy.setup {
     { import = 'plugins' },
   },
   install = { colorscheme = { 'solarized-light' } },
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false },
+  change_detection = {
+    enable = true,
+    notify = false,
+  },
 }

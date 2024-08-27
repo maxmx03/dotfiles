@@ -49,10 +49,12 @@ return {
         },
       })
 
+      local colors = require('solarized.utils').get_colors()
+
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git },
+          icon = { icons.git, color = { fg = colors.magenta } },
           cond = hide_in_width,
         },
         {
@@ -69,7 +71,8 @@ return {
         {
           'progress',
           fmt = function(progress)
-            local spinners = { '󰄰', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰪥' }
+            -- local spinners = { '󰄰', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰪥' }
+            local spinners = { '󰚀', '󰪞', '󰪠', '󰪡', '󰪢', '󰪣', '󰪤', '󰚀' }
 
             if string.match(progress, '%a+') then
               return progress
@@ -116,7 +119,7 @@ return {
 
       require('lualine').setup {
         options = {
-          theme = 'solarized_dark',
+          theme = 'solarized',
           component_separators = '',
           section_separators = {
             left = icons.default.right,
