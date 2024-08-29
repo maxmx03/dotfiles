@@ -83,6 +83,11 @@ M.normal = {
     ':RenderMarkdown toggle<CR>',
     desc = 'Enable & disable markdown rendering',
   },
+  {
+    '<space>rm',
+    ':MarkdownPreviewToggle<CR>',
+    desc = 'Preview Markdown',
+  },
   { '<space>p', group = 'Plugins' },
   { '<space>pP', ':Lazy profile<CR>', desc = 'Open Profile' },
   { '<space>pc', ':Lazy clean<CR>', desc = 'Clean Plugins' },

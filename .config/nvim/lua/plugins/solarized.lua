@@ -7,6 +7,7 @@ return {
     transparent = {
       enabled = true,
       lazy = false,
+      mason = false,
     },
     plugins = {
       ale = false,
@@ -26,14 +27,12 @@ return {
     },
     on_highlights = function(colors, color)
       ---@type solarized.highlights
-      local groups = {
-        ['@tag'] = { fg = colors.green },
-        ['@tag.attribute'] = { fg = colors.blue },
-        Delimiter = { fg = colors.red },
-        Keyword = { link = 'Statement' },
-        Type = { fg = colors.red },
+      return {
+        ['@function.call.bash'] = { link = 'Type' },
+        ['@punctuation.bracket'] = { fg = colors.yellow },
+        LspInlayHint = { fg = color.shade(colors.cyan, 3) },
+        TelescopePromptBorder = { fg = colors.blue },
       }
-      return groups
     end,
   },
   config = function(_, opts)

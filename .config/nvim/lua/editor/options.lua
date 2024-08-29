@@ -49,6 +49,6 @@ opt.updatetime = 200
 opt.virtualedit = 'block'
 opt.wildmode = 'longest:full,full'
 opt.winminwidth = 5
-opt.wrap = false
+opt.wrap = true
 opt.shell = 'bash'
 opt.smoothscroll = true

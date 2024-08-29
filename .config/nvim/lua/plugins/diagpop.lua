@@ -1,7 +1,6 @@
 return {
-  -- 'maxmx03/diagpop.nvim',
-  dir = '/home/milianor/GitHub/diagpop.nvim',
+  'maxmx03/diagpop.nvim',
   opts = {
-    -- hl_group = 'Normal',
+    relative = 'cursor',
   },
 }
