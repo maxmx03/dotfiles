@@ -1,0 +1,27 @@
+# Hydra
+# Palette based on the same theme from https://github.com/maxmx03/hydra.nvim
+
+[cursor]
+color=000000 f97583
+
+[colors]
+foreground=d4d4d6
+background=1c1e24
+regular0=1c1e24   # black
+regular1=f97583   # red
+regular2=85e89d   # green
+regular3=e5c07b   # yellow
+regular4=33b1ff   # blue
+regular5=ff7eb6   # magenta
+regular6=2bbac5   # cyan
+regular7=ffffff   # white
+bright0=282c34    # bright black
+bright1=ef596f    # bright red
+bright2=89ca78    # bright green
+bright3=d19a66    # bright yellow
+bright4=61afef    # bright blue
+bright5=b392f0    # bright magenta
+bright6=2bbac5    # bright cyan
+bright7=ffffff    # bright white
+selection-foreground=d4d4d6
+selection-background=282c34

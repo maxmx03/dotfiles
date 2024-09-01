@@ -1,0 +1,20 @@
+#!/bin/bash
+
+wallpaper_dir="$HOME/.wallpapers"
+current_wallpaper=$(basename "$(swww query)" | head -n 1)
+
+change_wallpaper() {
+    wallpaper=$(ls $wallpaper_dir | shuf --random-source=/dev/urandom -n 1)
+
+    if [ ! $current_wallpaper = $wallpaper ]; then
+        swww img --transition-fps 60 --transition-type wipe --transition-duration 3 "$wallpaper_dir/$wallpaper"
+    else
+        total_wallpapers=$(find $wallpaper_dir -maxdepth 1 -type f | wc -l)
+
+        if [ "$total_wallpapers" -gt 1 ]; then
+            change_wallpaper
+        fi
+    fi
+}
+
+change_wallpaper
