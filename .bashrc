@@ -18,4 +18,4 @@ alias lua="luajit"
 [[ -n $(command -v gum) ]] && gum style \
   --foreground 37 --border-foreground 37 --border double \
   --align center --margin "1 2" --padding "1 4" \
-  "Welcome ${USER}" "Your environment is set up and ready to go. Happy coding!"
+  "Welcome ${USER}" "Don't forget to use pomodoro and kanban"

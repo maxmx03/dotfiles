@@ -1,1 +1,1 @@
-.config/nvim .config/kitty .tmux.conf
+.config/kitty .tmux.conf
