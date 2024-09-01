@@ -1,10 +1,10 @@
 export PATH=$PATH:$HOME/go/bin
 
-if [[ -z $(command -v exa) ]]; then
+if [[ -n $(command -v exa) ]]; then
   alias ls="exa --icons"
   alias ll="exa --long --icons -a"
 fi
-if [[ -z $(command -v eza) ]]; then
+if [[ -n $(command -v eza) ]]; then
   alias ls="eza --icons"
   alias ll="eza --long --icons -a"
 fi
