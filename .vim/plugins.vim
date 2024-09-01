@@ -2,7 +2,7 @@ vim9script
 plug#begin()
 
 # Colorscheme & syntax highlight
-Plug 'overcache/NeoSolarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'sheerun/vim-polyglot'
 
 # editor
@@ -23,6 +23,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'wuelnerdotexe/vim-astro'
 Plug 'itchyny/lightline.vim'
+Plug 'psliwka/vim-smoothie'
 
 # coding
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }

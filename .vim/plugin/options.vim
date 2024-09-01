@@ -2,7 +2,7 @@ vim9script
 # :h option-list, to see all the options
 set autowrite
 set autowriteall
-set background=dark
+set background=light
 set backup
 set backupdir=~/.cache/vim/backup
 set clipboard=unnamedplus

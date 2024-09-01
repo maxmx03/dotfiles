@@ -3,7 +3,7 @@
         "/home/milianor/neovim/share/nvim/runtime",
         "${3rd}/luv/library",
         "${3rd}/busted/library",
-        "/home/milianor/.local/share/nvim/lazy/solarized.nvim",
+        "/home/milianor/GitHub/solarized.nvim",
         "${3rd}/luassert/library",
     ]
 }

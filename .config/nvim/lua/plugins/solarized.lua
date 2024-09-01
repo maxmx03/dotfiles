@@ -4,6 +4,7 @@ return {
   priority = 1000,
   ---@type solarized.config
   opts = {
+    variant = 'winter',
     transparent = {
       enabled = true,
       lazy = false,
@@ -26,12 +27,9 @@ return {
       rainbowdelimiters = false,
     },
     on_highlights = function(colors, color)
-      ---@type solarized.highlights
       return {
         ['@function.call.bash'] = { link = 'Type' },
-        ['@punctuation.bracket'] = { fg = colors.yellow },
         LspInlayHint = { fg = color.shade(colors.cyan, 3) },
-        TelescopePromptBorder = { fg = colors.blue },
       }
     end,
   },
