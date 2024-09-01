@@ -1,5 +1,7 @@
 # Max's dotfiles
 
+![debian-wallpaper](https://github.com/user-attachments/assets/afcf607f-c64e-4bb0-a969-fba780adc334)
+
 - [kitty](https://github.com/kovidgoyal/kitty) - GPU based Terminal
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
 - [vim](https://github.com/vim/vim) Text editor
