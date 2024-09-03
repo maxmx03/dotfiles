@@ -26,18 +26,15 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-## install stow
-paru -S stow
-
-## stow
-cd "$HOME/dotfiles"
-
-stow hypr
-stow waybar
-stow kitty
-rm -rf "$HOME/.bashrc" && stow bashrc
-stow rofi
-[[ -d "$HOME/Wallpapers" ]] && rm -rf "$HOME/Wallpapers" && stow Wallpapers
+mv "${HOME}/dotfiles/.config/hypr" ~/.config
+mv "${HOME}/dotfiles/.config/waybar" ~/.config
+mv "${HOME}/dotfiles/.config/kitty" ~/.config
+mv "${HOME}/dotfiles/.config/nvim" ~/.config
+mv "${HOME}/dotfiles/.config/rofi" ~/.config
+mv "${HOME}/dotfiles/.config/wlogout" ~/.config
+mv "${HOME}/dotfiles/.bashrc" "${HOME}/"
+mv "${HOME}/dotfiles/wallpapers" "${HOME}/"
+mv "${HOME}/dotfiles/.tmux.conf" "${HOME}/"
 
 ## Install hyprland and dependencies
 hypr_packages=(
@@ -119,8 +116,6 @@ neovim_packages=(
 )
 
 paru -S "${neovim_packages[@]}" --noconfirm
-
-rm -rf "$HOME/.config/nvim" && stow nvim
 
 cd "$HOME"
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
