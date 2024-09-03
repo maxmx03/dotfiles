@@ -1,6 +1,7 @@
 return {
   {
     'karb94/neoscroll.nvim',
+    commit = '532dcc8cea4287c4cad6bb77532989a8217cfc7b',
     config = function()
       require('neoscroll').setup {}
 

@@ -10,6 +10,10 @@ return {
       lazy = false,
       mason = false,
     },
+    error_lens = {
+      text = false,
+      symbol = false,
+    },
     plugins = {
       ale = false,
       coc = false,
@@ -26,10 +30,11 @@ return {
       todocomments = false,
       rainbowdelimiters = false,
     },
-    on_highlights = function(colors, color)
+    on_highlights = function(colors)
+      ---@type solarized.highlights
       return {
         ['@function.call.bash'] = { link = 'Type' },
-        LspInlayHint = { fg = color.shade(colors.cyan, 3) },
+        TelescopePromptBorder = { fg = colors.blue },
       }
     end,
   },
