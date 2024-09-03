@@ -1,2 +1,5 @@
-.config/kitty .tmux.conf
+.tmux.conf
 .config/nvim
+.vim
+.bashrc
+.tmux.conf
