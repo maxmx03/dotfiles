@@ -103,7 +103,7 @@ thunar_packages=(
   mpv
 )
 
-paru -S "${thunar_packages[@]}"
+paru -S "${thunar_packages[@]}" --noconfirm
 
 ## Install neovim and dependencies
 neovim_packages=(
