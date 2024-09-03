@@ -2,7 +2,7 @@
 
 declare wallpapers wallpaper total_wallpapers random_index
 
-wallpapers=($HOME/Wallpapers/*)
+wallpapers=($HOME/wallpapers/*)
 total_wallpapers=${#wallpapers[@]}
 random_index=$((RANDOM % "$total_wallpapers"))
 wallpaper=${wallpapers["$random_index"]}
