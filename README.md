@@ -22,9 +22,8 @@
 
 [wallpapers-clan](https://wallpapers-clan.com/)
 
-## Archives
+## Other Branches
 
-> [!NOTE]
-> I experimented with Hyprland and NixOS out of curiosity, but I don’t use them regularly.
-
+- [main-branch](https://github.com/maxmx03/dotfiles/tree/main)
 - [nix-branch](https://github.com/maxmx03/dotfiles/tree/nix)
+- [hypr-branch](https://github.com/maxmx03/dotfiles/tree/hyprland)
