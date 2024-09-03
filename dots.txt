@@ -2,4 +2,8 @@
 .config/nvim
 .vim
 .bashrc
-.tmux.conf
+.config/hypr 
+.config/foot 
+.config/wlogout 
+.config/rofi
+.config/waybar

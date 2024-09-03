@@ -6,7 +6,7 @@ lazy.setup {
   spec = {
     { import = 'plugins' },
   },
-  install = { colorscheme = { 'solarized-light' } },
+  install = { colorscheme = { 'tokyonight' } },
   checker = { enabled = true, notify = false },
   change_detection = {
     enable = true,
