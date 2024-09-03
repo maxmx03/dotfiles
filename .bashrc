@@ -15,7 +15,13 @@ alias lua="luajit"
 [[ -n $(command -v nvim) ]] && alias vim="nvim"
 [[ -n $(command -v starship) ]] && eval "$(starship init bash)"
 [[ -n $(command -v jump) ]] && eval "$(jump shell --bind=z)"
-[[ -n $(command -v gum) ]] && gum style \
-  --foreground 37 --border-foreground 37 --border double \
-  --align center --margin "1 2" --padding "1 4" \
-  "Welcome ${USER}" "Don't forget to use pomodoro and kanban"
+
+if [[ -n $(command -v gum) ]]; then
+  source "$HOME/dotfiles/scripts/dots.sh"
+  source "$HOME/dotfiles/scripts/kanban.sh"
+  source "$HOME/dotfiles/scripts/notes.sh"
+  gum style \
+    --foreground 37 --border-foreground 37 --border double \
+    --align center --margin "1 2" --padding "1 4" \
+    "Welcome ${USER}" "Don't forget to use pomodoro and kanban"
+fi
