@@ -7,4 +7,3 @@
 .config/wlogout
 .config/rofi
 .config/waybar
-wallpapers
