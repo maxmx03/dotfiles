@@ -28,7 +28,7 @@ makepkg -si
 
 mv "${HOME}/dotfiles/.config/hypr" ~/.config
 mv "${HOME}/dotfiles/.config/waybar" ~/.config
-mv "${HOME}/dotfiles/.config/kitty" ~/.config
+mv "${HOME}/dotfiles/.config/foot" ~/.config
 mv "${HOME}/dotfiles/.config/nvim" ~/.config
 mv "${HOME}/dotfiles/.config/rofi" ~/.config
 mv "${HOME}/dotfiles/.config/wlogout" ~/.config
@@ -53,9 +53,8 @@ hypr_packages=(
   wlogout
   pavucontrol
   pamixer
-  kitty
+  foot
   fish
-  exa
   htop
   jq
   waybar-git
