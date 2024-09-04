@@ -158,6 +158,8 @@ if [[ $confirm == "y" ]]; then
 		fd
 		ripgrep
 		lazygit
+    nodejs
+    npm
 	)
 
 	paru -S "${neovim_packages[@]}" --noconfirm

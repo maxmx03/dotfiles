@@ -1,4 +1,6 @@
 return {
   'maxmx03/diagpop.nvim',
-  opts = {},
+  opts = {
+    limit = 5
+  },
 }

@@ -2,9 +2,9 @@
 .config/nvim
 .vim
 .bashrc
-.config/hypr 
-.config/foot 
-.config/wlogout 
+.config/hypr
+.config/foot
+.config/wlogout
 .config/rofi
 .config/waybar
 wallpapers

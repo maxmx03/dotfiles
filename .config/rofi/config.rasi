@@ -1,10 +1,9 @@
-
 configuration{
     modi: "run,drun,window";
     lines: 5;
     font: "Iosevka 12";
     show-icons: true;
-    icon-theme: "WhiteSur-purple-dark";
+    icon-theme: "Luv";
     terminal: "st";
     drun-display-format: "{icon} {name}";
     location: 0;
@@ -13,7 +12,7 @@ configuration{
     display-drun: "   Apps ";
 }
 
-@theme "tokyo"
+@theme "solarized"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
@@ -39,7 +38,7 @@ inputbar {
 }
 
 prompt {
-    background-color: @purple;
+    background-color: @primary;
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;

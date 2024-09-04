@@ -48,11 +48,13 @@ return {
           end,
         },
       })
-      local colors = require('tokyonight.colors').setup()
+
+      local colors = require('solarized.utils').get_colors()
+
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git, color = { fg = colors.red } },
+          icon = { icons.git, color = { fg = colors.magenta } },
           cond = hide_in_width,
         },
         {
@@ -117,7 +119,7 @@ return {
 
       require('lualine').setup {
         options = {
-          theme = 'tokyonight',
+          theme = 'solarized',
           component_separators = '',
           section_separators = {
             left = icons.default.right,

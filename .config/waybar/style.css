@@ -1,3 +1,5 @@
+@import "./solarized.css";
+
 * {
   border: none;
   border-radius: 0;
@@ -7,8 +9,8 @@
 }
 
 #waybar {
-  background: rgba(26, 27, 38, 0.95);
-  color: #eeeeef;
+  background: @base03;
+  color: @base0;
   font-size: 14px;
   font-family: "Hack Nerd Font";
 }
@@ -23,14 +25,20 @@
 
 #workspaces button {
   padding: 0 5px;
-  color: #eeeeef;
+  font-size: 20px;
+  color: @base0;
   background: none;
+  transition: color 1s;
+}
+
+#workspaces button:hover {
+  color: @cyan;
 }
 
 /* Fix: active workspace doesn't show up */
 /* #workspaces button.focused { */
 #workspaces button.active {
-  color: #bb9af7;
+  color: @orange;
 }
 
 #custom-powermenu,
@@ -47,44 +55,43 @@
 #tray,
 #network {
   padding: 4px 8px;
-  background-color: #292e42;
   border-radius: 30px;
   margin: 6px 4px;
 }
 
 #window {
-  color: #929db1;
+  color: @base0;
 }
 
 #custom-powermenu {
-  color: #e06c75;
+  color: @cyan;
   padding-right: 11px;
 }
 
 #pulseaudio {
-  color: #1abc9c;
+  color: @green;
   padding-right: 14px;
 }
 
 #cpu {
-  color: #7aa2f7;
+  color: @magenta;
 }
 
 #temperature {
-  color: #9ece6a;
+  color: @cyan;
 }
 
 #memory {
-  color: #ff9e64;
+  color: @orange;
 }
 
 #network {
-  color: #9d7cd8;
+  color: @violet;
   min-width: 200px;
 }
 
 #clock {
-  color: #fff;
+  color: @base0;
   /* opacity: 0.7; */
   /* font-size: 18px; */
 }

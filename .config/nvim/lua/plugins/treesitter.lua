@@ -9,8 +9,16 @@ return {
         ignore_install = { 'dashboard' },
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = false,
+          additional_vim_regex_highlighting = true,
         },
+      }
+    end,
+  },
+  {
+    'luckasRanarison/tree-sitter-hyprlang',
+    config = function()
+      vim.filetype.add {
+        pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
       }
     end,
   },

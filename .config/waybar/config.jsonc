@@ -2,11 +2,12 @@
   "layer": "top",
   "position": "top",
   "margin-bottom": 0,
+  "output": ["HDMI-A-1"],
   "modules-left": [
     "clock",
     "hyprland/workspaces",
     "custom/changebg",
-    "custom/cmus"
+    "custom/cmus",
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
@@ -17,7 +18,7 @@
     "cpu",
     "pulseaudio",
     "tray",
-    "custom/powermenu"
+    "custom/powermenu",
   ],
   "custom/cmus": {
     "format": "󰎈 {}",
@@ -29,16 +30,16 @@
     "on-click": "cmus-remote -u",
     "on-scroll-up": "cmus-remote --next",
     "on-scroll-down": "cmus-remote --prev",
-    "escape": true
+    "escape": true,
   },
   "custom/changebg": {
     "format": "change  ",
     "on-click": "~/.config/waybar/scripts/changebg",
-    "tooltip": false
+    "tooltip": false,
   },
   "tray": {
     "icon-size": 24,
-    "spacing": 10
+    "spacing": 10,
   },
   "hyprland/window": {
     "format": "{}",
@@ -51,63 +52,55 @@
       "Mozilla Firefox": "<span color=\"#ff9e64\">󰈹 Firefox</span>",
       "(\\d\\. )?(.*) Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span>",
       "Google Chrome (.*)": "<span color=\"#f7768e\"> Google Chrome</span ",
-      "Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span>"
+      "Google Chrome": "<span color=\"#f7768e\"> Google Chrome</span>",
     },
-    "separate-outputs": false
+    "separate-outputs": false,
   },
   "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": false,
+    "show-special": true,
+    "move-to-monitor": true,
     "format": "{icon}",
     "format-icons": {
-      "1": "󰲠",
-      "2": "󰲢",
-      "3": "󰲤",
-      "4": "󰲦",
-      "5": "󰲨",
-      "6": "󰲪",
-      "7": "󰲬",
-      "8": "󰲮",
-      "9": "󰲰",
-      "10": "󰿬",
-      "-99": "",
-      "active": "",
-      "default": ""
+      "default": "󰆢",
+      "active": "󱓻",
+      "empty": "󱋯",
+      "urgent": "󱨇",
     },
-    "persistent_workspaces": {
-      "1": ["HDMI-A-1"],
-      "2": ["HDMI-A-1"],
-      "3": ["HDMI-A-1"],
-      "4": ["HDMI-A-1"],
-      "5": ["HDMI-A-1"],
-      "7": ["HDMI-A-1"],
-      "8": ["HDMI-A-1"],
-      "9": ["HDMI-A-1"],
-      "10": ["HDMI-A-1"]
-    }
+    "persistent-workspaces": {
+      "1": "HDMI-A-1",
+      "2": "HDMI-A-1",
+      "3": "HDMI-A-1",
+    },
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "sort-by": "number",
   },
   "network": {
     "interface": "enp5s0",
     "tooltip-format-ethernet": "{ifname} ",
     "interval": 2,
-    "format": " {bandwidthDownBits}  {bandwidthUpBits}"
+    "format": " {bandwidthDownBits}  {bandwidthUpBits}",
   },
   "temperature": {
     "format": "{icon} {temperatureC}°C",
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
     "critical-threshold": 80,
-    "format-icons": ["", "", ""]
+    "format-icons": ["", "", ""],
   },
   "memory": {
     "format": "󰍛 {}%",
-    "tooltip": "false"
+    "tooltip": "false",
   },
   "cpu": {
     "format": " {usage}%",
-    "tooltip": "false"
+    "tooltip": "false",
   },
   "custom/powermenu": {
     "format": "",
     "tooltip": false,
-    "on-click": "exec wlogout -p layer-shell"
+    "on-click": "exec wlogout -p layer-shell",
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
@@ -115,10 +108,10 @@
     "format-muted": "",
     "format-icons": {
       "headphone": "󰋎",
-      "default": ["", ""]
+      "default": ["", ""],
     },
     "scroll-step": 1,
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
   "custom/weather": {
     //shows the current weather and forecast
@@ -126,12 +119,12 @@
     "format": "{}",
     "interval": 30,
     "exec": "~/.config/waybar/scripts/weather", // <- your city
-    "return-type": "json"
+    "return-type": "json",
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
-    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>"
-  }
+    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>",
+  },
 }
