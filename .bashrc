@@ -31,7 +31,7 @@ fi
 if [[ -n $(command -v nvim) ]]; then
   alias vim="nvim"
 else
-  [[ -n $(command -v paru) ]] && paru -S neovim --noconfirm
+  paru -S neovim --noconfirm
 fi
 
 if [[ -n $(command -v starship) ]]; then
@@ -45,13 +45,18 @@ if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/scripts/kanban.sh"
   source "$HOME/dotfiles/scripts/notes.sh"
   gum style \
-    --foreground 37 --border-foreground 37 \
+    --foreground 37 \
     --align center --margin "1 2" --padding "1 4" \
     "Welcome ${USER}" "Don't forget to use pomodoro and kanban"
 else
   [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
 fi
 
-[[ -z $(command -v fnm) ]] && curl -fsSL https://fnm.vercel.app/install | bash
-[[ -z $(command -v node) ]] && fnm use --install-if-missing 20
-sed -i '/source \/home\/milianor\/dotfiles\/.bashrc/d' ~/.bashrc && echo 'source /home/milianor/dotfiles/.bashrc' >>~/.bashrc
+[[ -z $(command -v node) ]] && paru -S nodejs --noconfirm
+[[ -z $(command -v npm) ]] && paru -S npm --noconfirm
+
+function open() {
+  # to open directory
+  # run: xdg-mime default thunar.desktop inode/directory
+  xdg-open $1
+}

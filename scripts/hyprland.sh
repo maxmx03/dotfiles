@@ -11,14 +11,6 @@ else
   # Perform cancellation steps or exit the script
 fi
 
-sudo pacman -Rns gnome gdm --noconfirm
-
-sleep 5
-
-sudo pacman -Rns $(pacman -Qdtq) --noconfirm
-
-sleep 5
-
 # install paru
 sudo pacman -S --needed base-devel
 cd "$HOME"
@@ -26,15 +18,19 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-mv "${HOME}/dotfiles/.config/hypr" ~/.config
-mv "${HOME}/dotfiles/.config/waybar" ~/.config
-mv "${HOME}/dotfiles/.config/foot" ~/.config
-mv "${HOME}/dotfiles/.config/nvim" ~/.config
-mv "${HOME}/dotfiles/.config/rofi" ~/.config
-mv "${HOME}/dotfiles/.config/wlogout" ~/.config
-mv "${HOME}/dotfiles/.bashrc" "${HOME}/"
-mv "${HOME}/dotfiles/wallpapers" "${HOME}/"
-mv "${HOME}/dotfiles/.tmux.conf" "${HOME}/"
+for config in "${HOME}/dotfiles/.config/*"; do
+  mv "${config}" "$HOME/.config/"
+done
+
+config_files=(
+  "$HOME/dotfiles/.bashrc"
+  "$HOME/dotfiles/wallpapers"
+  "$HOME/dotfiles/.tmux.conf"
+)
+
+for config in "${config_files[@]}"; do
+  mv "$config" "${HOME}/"
+done
 
 ## Install hyprland and dependencies
 hypr_packages=(
