@@ -5,11 +5,11 @@ fi
 export PATH=$PATH:$HOME/go/bin
 
 if [[ -n $(command -v eza) ]]; then
-  alias ls="eza --icons"
-  alias ll="eza --long --icons -a"
+	alias ls="eza --icons"
+	alias ll="eza --long --icons -a"
 else
-  [[ -z $(command -v cargo) ]] && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  [[ -n $(command -v cargo) ]] && cargo install eza
+	[[ -z $(command -v cargo) ]] && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	[[ -n $(command -v cargo) ]] && cargo install eza
 fi
 
 alias python="python3"
@@ -17,46 +17,46 @@ alias py="python3 ."
 alias lua="luajit"
 
 if [[ -n $(command -v lazygit) ]]; then
-  alias g="lazygit"
+	alias g="lazygit"
 else
-  [[ -n $(command -v go) ]] && go install github.com/jesseduffield/lazygit@latest
+	[[ -n $(command -v go) ]] && go install github.com/jesseduffield/lazygit@latest
 fi
 
 if [[ -n $(command -v jump) ]]; then
-  eval "$(jump shell --bind=z)"
+	eval "$(jump shell --bind=z)"
 else
-  [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
+	[[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
 fi
 
 if [[ -n $(command -v nvim) ]]; then
-  alias vim="nvim"
+	alias vim="nvim"
 else
-  paru -S neovim --noconfirm
+	paru -S neovim --noconfirm
 fi
 
 if [[ -n $(command -v starship) ]]; then
-  eval "$(starship init bash)"
+	eval "$(starship init bash)"
 else
-  [[ -z $(command -v starship) ]] && paru -S starship --noconfirm
+	[[ -z $(command -v starship) ]] && paru -S starship --noconfirm
 fi
 
 if [[ -n $(command -v gum) ]]; then
-  source "$HOME/dotfiles/scripts/dots.sh"
-  source "$HOME/dotfiles/scripts/kanban.sh"
-  source "$HOME/dotfiles/scripts/notes.sh"
-  gum style \
-    --foreground 37 \
-    --align center --margin "1 2" --padding "1 4" \
-    "Welcome ${USER}" "Don't forget to use pomodoro and kanban"
+	source "$HOME/dotfiles/scripts/dots.sh"
+	source "$HOME/dotfiles/scripts/kanban.sh"
+	source "$HOME/dotfiles/scripts/notes.sh"
+	gum style \
+		--foreground 37 \
+		--align center --margin "1 2" --padding "1 4" \
+		"Welcome ${USER}" "Don't forget to use pomodoro and kanban"
 else
-  [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
+	[[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
 fi
 
 [[ -z $(command -v node) ]] && paru -S nodejs --noconfirm
 [[ -z $(command -v npm) ]] && paru -S npm --noconfirm
 
 function open() {
-  # to open directory
-  # run: xdg-mime default thunar.desktop inode/directory
-  xdg-open $1
+	# to open directory
+	# run: xdg-mime default thunar.desktop inode/directory
+	xdg-open "$1"
 }

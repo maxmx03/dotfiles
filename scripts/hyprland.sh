@@ -1,124 +1,177 @@
 #!/bin/bash
 
-read -n1 -p "[ACTION] - Would you like to continue with the install (y/n): " INST
+declare -l confirm="y"
+read -ei "y" -p "You're going to install hyprland, proceed with installation?" confirm
 
-if [[ $INST == "y" ]]; then
-  echo "Installation will proceed."
-  # Perform installation steps
+if [[ $confirm == "y" ]]; then
+	echo "Installation will proceed."
 else
-  echo "Installation canceled."
-  exit 1
-  # Perform cancellation steps or exit the script
+	echo "Installation canceled."
+	exit 1
 fi
 
 # install paru
-sudo pacman -S --needed base-devel
-cd "$HOME"
+sudo pacman -S --needed base-devel --noconfirm
+sudo pacman -S make --noconfirm
+cd "$HOME" || exit
 git clone https://aur.archlinux.org/paru.git
-cd paru
+cd paru || exit
 makepkg -si
 
-for config in "${HOME}/dotfiles/.config/*"; do
-  mv "${config}" "$HOME/.config/"
-done
+read -ei "y" -p "install dotfiles?" confirm
 
-config_files=(
-  "$HOME/dotfiles/.bashrc"
-  "$HOME/dotfiles/wallpapers"
-  "$HOME/dotfiles/.tmux.conf"
-)
+if [[ $confirm == "y" ]]; then
+	for config in ${HOME}/dotfiles/.config/*; do
+		mv "${config}" "$HOME/.config/"
+	done
 
-for config in "${config_files[@]}"; do
-  mv "$config" "${HOME}/"
-done
+	config_files=(
+		"$HOME/dotfiles/.bashrc"
+		"$HOME/dotfiles/wallpapers"
+		"$HOME/dotfiles/.tmux.conf"
+	)
 
-## Install hyprland and dependencies
-hypr_packages=(
-  hyprland-git
-  xdg-desktop-portal-hyprland
-  qt5-wayland
-  qt6-wayland
-  dunst
-  mako
-  pipewire
-  wireplumber
-  polkit-kde-agent
-  rofi-lbonn-wayland-git
-  network-manager-applet
-  swww
-  wlogout
-  pavucontrol
-  pamixer
-  foot
-  fish
-  htop
-  jq
-  waybar-git
-  cmus
-  firefox
-  ttf-dejavu
-  ttf-liberation
-  ttf-hanazono
-  noto-fonts
-  noto-fonts-cjk
-  noto-fonts-emoji
-  adobe-source-code-pro-fonts
-  adobe-source-sans-fonts
-  adobe-source-serif-fonts
-  adobe-source-han-sans-otc-fonts
-  adobe-source-han-serif-otc-fonts
-  ttf-jetbrains-mono-nerd
-  ttf-hack-nerd
-  vscode-codicons-git
-  mesa
-  xf86-video-amdgpu
-  xf86-video-ati
-  libva-mesa-driver
-  vulkan-radeon
-  evince
-)
+	for config in "${config_files[@]}"; do
+		mv "$config" "${HOME}/"
+	done
+fi
 
-paru -S "${hypr_packages[@]}" --noconfirm
+read -ei "y" -p "install amd drivers?" confirm
 
-## Install File Manager and extras
-thunar_packages=(
-  thunar
-  thunar-archive-plugin
-  file-roller
-  thunar-media-tags-plugin
-  thunar-volman
-  gvfs
-  grim
-  slurp
-  cliphist
-  dracula-gtk-theme
-  dracula-cursors
-  gnome-disk-utility
-  ristretto
-  mpv
-)
+if [[ $confirm == "y" ]]; then
+	amd_packages=(
+		mesa
+		xf86-video-amdgpu
+		xf86-video-ati
+		libva-mesa-driver
+		vulkan-radeon
+	)
+	paru -S "${amd_packages[@]}"
+else
+	read -ei "y" -p "install nvidia drivers?" confirm
+	nvidia_packages=(
+		mesa
+		xf86-video-nouveau
+		libva-mesa-driver
+	)
+	[[ $confirm == "y" ]] && paru -S "${nvidia_packages[@]}"
+fi
 
-paru -S "${thunar_packages[@]}" --noconfirm
+read -ei "y" -p "install hyprland packages?" confirm
 
-## Install neovim and dependencies
-neovim_packages=(
-  python-pynvim
-  gcc
-  fzf
-  fd
-  ripgrep
-  lazygit
-)
+if [[ $confirm == "y" ]]; then
+	## Install hyprland and dependencies
+	hypr_packages=(
+		# hyprland
+		hyprland-git
+		xdg-desktop-portal-hyprland # must have
 
-paru -S "${neovim_packages[@]}" --noconfirm
+		# Qt Wayland Support
+		qt5-wayland
+		qt6-wayland
+		mako # notification daemon
+		# screensharing
+		pipewire
+		wireplumber
 
-cd "$HOME"
-git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-cd "$HOME/WhiteSur-icon-theme"
-./install.sh -t purple
+		polkit-kde-agent # authentication agent
+		rofi-lbonn-wayland-git
+		network-manager-applet
+		swww # wallpaper
 
-# set themes
-gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
-gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
-gsettings set org.gnome.desktop.interface cursor-theme "Dracula-cursors"
-gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-purple-dark"
+		wlogout # logout and shutdown menu
+
+		# sound control
+		pavucontrol
+		pamixer
+
+		foot       # terminal
+		htop       # terminal system monitor
+		waybar-git # wayland bar
+		cmus       # music
+		firefox
+
+		# fonts
+		ttf-dejavu
+		ttf-liberation
+		ttf-hanazono
+		noto-fonts
+		noto-fonts-cjk
+		noto-fonts-emoji
+		adobe-source-code-pro-fonts
+		adobe-source-sans-fonts
+		adobe-source-serif-fonts
+		adobe-source-han-sans-otc-fonts
+		adobe-source-han-serif-otc-fonts
+		ttf-jetbrains-mono-nerd
+		ttf-hack-nerd
+		vscode-codicons-git
+
+		evince # pdf reader
+
+		# extra packages bash
+		jq
+		less
+		tree
+		slurp # print
+		cliphist # clipboard manager
+	)
+
+	paru -S "${hypr_packages[@]}" --noconfirm
+fi
+
+read -ei "y" -p "install thunar (file manager) packages?" confirm
+
+if [[ $confirm ]]; then
+	## Install File Manager and extras
+	thunar_packages=(
+		thunar
+		thunar-archive-plugin
+		file-roller
+		thunar-media-tags-plugin
+		thunar-volman
+		gvfs
+		grim
+		luv-icon-theme-git
+
+		# theme
+		adapta-gtk-theme
+		qogir-cursor-theme-git
+
+		gnome-disk-utility # disk
+		ristretto          # picture viewer
+		mpv                # video
+		nwg-look
+	)
+	paru -S "${thunar_packages[@]}" --noconfirm
+fi
+
+read -ei "y" -p "install neovim packages?" confirm
+
+if [[ $confirm == "y" ]]; then
+	## Install neovim and dependencies
+	neovim_packages=(
+		neovim
+		python-pynvim
+		gcc
+		fzf
+		fd
+		ripgrep
+		lazygit
+	)
+
+	paru -S "${neovim_packages[@]}" --noconfirm
+fi
+
+read -ei "y" -p "set gtk,mouse,icon theme?" confirm
+
+if [[ $confirm == 'y' ]]; then
+	# set themes
+	gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto-Eta"
+	gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto-Eta"
+	gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
+	gsettings set org.gnome.desktop.interface icon-theme "Luv"
+	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+else
+	echo "Run: ngw-look, to set your theme"
+fi
