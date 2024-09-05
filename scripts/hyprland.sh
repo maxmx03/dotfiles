@@ -67,7 +67,7 @@ if [[ $confirm == "y" ]]; then
     pipewire
     wireplumber
 
-    polkit-kde-agent # authentication agent
+    polkit-gnome # authentication agent
     rofi-lbonn-wayland-git
     network-manager-applet
     swww # wallpaper
@@ -133,6 +133,8 @@ if [[ $confirm ]]; then
     xdg-user-dirs
 
     gnome-disk-utility # disk
+    gnome-software
+    flatpak
     ristretto          # picture viewer
     mpv                # video
     nwg-look
