@@ -121,15 +121,15 @@ function _nt_help() {
 
 function nt() {
   declare -A subcmds=(
-    [open]="_nt_open"
-    [create]="_nt_create"
-    [read]="_nt_read"
-    [remove]="_nt_remove"
-    [list]="_nt_list"
-  )
+  [open]="_nt_open"
+  [create]="_nt_create"
+  [read]="_nt_read"
+  [remove]="_nt_remove"
+  [list]="_nt_list"
+)
 
-  [[ -z "${subcmds[$1]}" ]] && {
-    _nt_help
-    return 1
-  } || ${subcmds[$1]} $2
+[[ -z "${subcmds[$1]}" ]] && {
+  _nt_help
+  return 1
+} || ${subcmds[$1]} $2
 }
