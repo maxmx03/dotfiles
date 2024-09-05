@@ -79,6 +79,7 @@ if [[ $confirm == "y" ]]; then
     pamixer
 
     foot       # terminal
+    tmux       # terminal multiplexer
     htop       # terminal system monitor
     waybar-git # wayland bar
     cmus       # music
