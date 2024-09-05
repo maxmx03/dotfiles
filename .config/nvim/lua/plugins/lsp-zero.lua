@@ -4,7 +4,7 @@ local config = function()
   local gopls = require 'code.handlers.gopls'
   local lua_ls = require 'code.handlers.lua_ls'
   local pylsp = require 'code.handlers.pylsp'
-  local tsserver = require 'code.handlers.tsserver'
+  local ts_ls = require 'code.handlers.ts_ls'
   local rust_analyzer = require 'code.handlers.rust_analyzer'
   local icons = require 'utils.icons'
 
@@ -46,6 +46,8 @@ local config = function()
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
   }
 
+  ts_ls()
+
   require('mason').setup {}
   require('mason-lspconfig').setup {
     automatic_installation = true,
@@ -57,7 +59,6 @@ local config = function()
       ['lua_ls'] = lua_ls,
       ['gopls'] = gopls,
       ['pylsp'] = pylsp,
-      ['tsserver'] = tsserver,
       ['rust_analyzer'] = rust_analyzer,
     },
   }

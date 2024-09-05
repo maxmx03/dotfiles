@@ -4,20 +4,17 @@ M.formatters = function(null_ls)
   return {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.formatting.shfmt,
   }
 end
 
 M.diagnostics = function(null_ls)
   return {
     null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.diagnostics.shellcheck,
   }
 end
 
 M.servers = {
   'lua_ls',
-  'tsserver',
   'eslint',
   'html',
   'cssls',

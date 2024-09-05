@@ -1,6 +1,6 @@
 local function handler()
   local lsp_config = require 'lspconfig'
-  lsp_config.tsserver.setup {
+  lsp_config.ts_ls.setup {
     init_options = {
       preferences = {
         includeInlayParameterNameHints = 'all',
