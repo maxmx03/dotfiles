@@ -24,21 +24,16 @@
 }
 
 #workspaces button {
-  padding: 0 5px;
-  font-size: 20px;
+  padding: 0 3px;
   color: @base0;
   background: none;
-  transition: color 1s;
-}
-
-#workspaces button:hover {
-  color: @cyan;
+  font-size: 16px;
 }
 
 /* Fix: active workspace doesn't show up */
 /* #workspaces button.focused { */
 #workspaces button.active {
-  color: @orange;
+  color: @cyan;
 }
 
 #custom-powermenu,
@@ -47,7 +42,6 @@
 #temperature,
 #memory,
 #workspaces,
-#custom-changebg,
 #custom-cmus,
 #clock,
 #window,
@@ -55,8 +49,20 @@
 #tray,
 #network {
   padding: 4px 8px;
+  background-color: @base02;
   border-radius: 30px;
   margin: 6px 4px;
+}
+
+#custom-changebg:hover {
+  color: @cyan;
+}
+
+#custom-changebg {
+  margin: 6px 4px;
+  padding: 4px 8px;
+  color: @base0;
+  font-size: 18px;
 }
 
 #window {
@@ -64,21 +70,21 @@
 }
 
 #custom-powermenu {
-  color: @cyan;
+  color: @red;
   padding-right: 11px;
 }
 
 #pulseaudio {
-  color: @green;
+  color: @cyan;
   padding-right: 14px;
 }
 
 #cpu {
-  color: @magenta;
+  color: @blue;
 }
 
 #temperature {
-  color: @cyan;
+  color: @green;
 }
 
 #memory {
@@ -91,7 +97,7 @@
 }
 
 #clock {
-  color: @base0;
+  color: #fff;
   /* opacity: 0.7; */
   /* font-size: 18px; */
 }

@@ -3,7 +3,8 @@
 * Maintainer: DankChoir
 */
 
-@define-color base03       rgba(0, 43, 54, 0.8);
+@define-color base03       rgba(0, 43, 54, .8);
+@define-color base02       #073642;
 @define-color base0        #839496;
 
 @define-color yellow       #b58900;
