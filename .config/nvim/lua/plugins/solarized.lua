@@ -1,5 +1,6 @@
 return {
   'maxmx03/solarized.nvim',
+  -- dir = "~/github/solarized.nvim",
   lazy = false,
   priority = 1000,
   ---@type solarized.config

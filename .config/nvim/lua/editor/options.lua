@@ -52,4 +52,5 @@ opt.winminwidth = 5
 opt.wrap = true
 opt.shell = 'bash'
 opt.smoothscroll = true
+opt.title = true
 vim.g.editorconfig = true

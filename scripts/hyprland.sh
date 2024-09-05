@@ -84,6 +84,7 @@ if [[ $confirm == "y" ]]; then
     waybar-git # wayland bar
     cmus       # music
     firefox
+    vivaldi
 
     # fonts
     ttf-dejavu

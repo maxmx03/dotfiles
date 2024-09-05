@@ -140,13 +140,15 @@ function _dots_updateall() {
 
   for config in ${configs[@]}; do
     if [ ! "$config" == ".bashrc" ]; then
-      gum spin --spinner dot --title "preparing to remove '$DOTS_DIR/$config'..." -- sleep 3
-      rm -rf "$DOTS_DIR/$config"
-      cp -r "$HOME/$config" "$DOTS_DIR/$config"
-      gum spin --spinner dot --title "copying '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 2
-      gum log --structured --level info "the $DOTS_DIR/$config  has been updated"
+      if [[ -e "$HOME/$config" ]]; then
+        gum spin --spinner dot --title "preparing to remove '$DOTS_DIR/$config'..." -- sleep 1
+        rm -rf "$DOTS_DIR/$config"
+        cp -r "$HOME/$config" "$DOTS_DIR/$config"
+        gum spin --spinner dot --title "copying '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 1
+        gum log --structured --level info "the $DOTS_DIR/$config  has been updated"
+      fi
     else
-      gum spin --spinner dot --title "skipping .bashrc update..." -- sleep 5
+      gum spin --spinner dot --title "skipping .bashrc update..." -- sleep 3
     fi
 
   done

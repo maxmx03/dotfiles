@@ -44,6 +44,9 @@
   "hyprland/window": {
     "format": "{}",
     "rewrite": {
+      "(\\d\\. )?(.*) foot": "<span color=\"#B58900\">󰽒 Foot</span>",
+      "foot (.*)": "<span color=\"#B58900\">󰽒</span>",
+      "foot": "<span color=\"#B58900\">󰽒 Foot</span>",
       "(\\d\\. )?(.*) nvim": "<span color=\"#859900\"> Neovim</span>",
       "nvim (.*)": "<span color=\"#859900\"> </span>",
       "nvim": "<span color=\"#859900\"> Neovim</span>",
@@ -53,6 +56,9 @@
       "(\\d\\. )?(.*) Google Chrome": "<span color=\"#DC322F\"> Google Chrome</span>",
       "Google Chrome (.*)": "<span color=\"#DC322F\"> Google Chrome</span ",
       "Google Chrome": "<span color=\"#DC322F\"> Google Chrome</span>",
+      "(\\d\\. )?(.*) Vivaldi": "<span color=\"#DC322F\"> Vivaldi</span>",
+      "Vivaldi (.*)": "<span color=\"#DC322F\"> Vivaldi</span ",
+      "Vivaldi": "<span color=\"#DC322F\"> Vivaldi</span>",
     },
     "separate-outputs": false,
   },
