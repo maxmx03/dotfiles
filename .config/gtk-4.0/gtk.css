@@ -22,7 +22,7 @@
 @define-color window_bg_color #002B36;
 @define-color window_fg_color #839496;
 
-@define-color view_bg_color #26233a;
+@define-color view_bg_color #002B36;
 @define-color view_fg_color #839496;
 
 @define-color headerbar_bg_color #002B36;
@@ -35,5 +35,5 @@
 @define-color card_fg_color #839496;
 @define-color card_shade_color #002731;
 
-@define-color popover_bg_color #26233a;
+@define-color popover_bg_color #002731;
 @define-color popover_fg_color #839496;

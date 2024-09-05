@@ -48,10 +48,10 @@ if [[ -n $(command -v gum) ]]; then
   gum style \
     --foreground 37 \
     --align center --margin "1 2" --padding "1 4" \
-    "Welcome ${USER}" "Don't forget to use pomodoro and kanban"
-    else
-      [[ -z $(command -v go) ]] && paru -S go
-      [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
+    "Welcome ${USER^}" "Don't forget to use pomodoro and kanban"
+else
+  [[ -z $(command -v go) ]] && paru -S go
+  [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
 fi
 
 [[ -z $(command -v node) ]] && paru -S nodejs --noconfirm
@@ -61,4 +61,12 @@ function open() {
   # to open directory
   # run: xdg-mime default thunar.desktop inode/directory
   xdg-open "$1"
+}
+
+function night() {
+  [[ -n $(command -v hyprshade) ]] && [[ -z $(hyprshade current) ]] && hyprshade on blue-light-filter
+}
+
+function night_off() {
+  [[ -n $(hyprshade current) ]] && hyprshade off
 }

@@ -85,6 +85,7 @@ if [[ $confirm == "y" ]]; then
     cmus       # music
     firefox
     vivaldi
+    evince # pdf reader
 
     # fonts
     ttf-dejavu
@@ -102,7 +103,6 @@ if [[ $confirm == "y" ]]; then
     ttf-hack-nerd
     vscode-codicons-git
 
-    evince # pdf reader
 
     # extra packages bash
     jq
@@ -110,6 +110,7 @@ if [[ $confirm == "y" ]]; then
     tree
     slurp    # print
     cliphist # clipboard manager
+    hyprshade # shade
   )
 
   paru -S "${hypr_packages[@]}"
