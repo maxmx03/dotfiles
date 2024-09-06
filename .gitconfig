@@ -3,3 +3,5 @@
 	email = ""
 [credential]
 	helper = store
+[pull]
+	rebase = true
