@@ -45,10 +45,6 @@ if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/scripts/dots.sh"
   source "$HOME/dotfiles/scripts/kanban.sh"
   source "$HOME/dotfiles/scripts/notes.sh"
-  gum style \
-    --foreground 37 \
-    --align center --margin "1 2" --padding "1 4" \
-    "Welcome ${USER^}" "Don't forget to use pomodoro and kanban"
 else
   [[ -z $(command -v go) ]] && paru -S go
   [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
