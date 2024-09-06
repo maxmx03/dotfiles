@@ -1,10 +1,11 @@
 #!/bin/bash
 
 CMUS_CURRENT_MUSIC=$(basename "$(cmus-remote -C "format_print '%f'")")
-CMUS_MUSIC_VOLUM=$(cmus-remote -C "format_print '%{lvolume}'")
+echo "{\"text\":\" ${CMUS_CURRENT_MUSIC:0:25}\"}"
 
-if [ ! -z $CMUS_MUSIC_VOLUM ]; then
-    echo "{\"text\":\"${CMUS_CURRENT_MUSIC:0:25} - $CMUS_MUSIC_VOLUM% 󰕾\"}"
-else
-    echo "{\"text\":\"${CMUS_CURRENT_MUSIC:0:25}\"}"
-fi
+# CMUS_MUSIC_VOLUM=$(cmus-remote -C "format_print '%{lvolume}'")
+# if [ ! -z $CMUS_MUSIC_VOLUM ]; then
+#   echo "{\"text\":\"${CMUS_CURRENT_MUSIC:0:25} - $CMUS_MUSIC_VOLUM% 󰕾\"}"
+# else
+#   echo "{\"text\":\"${CMUS_CURRENT_MUSIC:0:25}\"}"
+# fi
