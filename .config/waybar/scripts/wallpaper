@@ -9,7 +9,7 @@ function change_bg() {
 	bg_info=$(swww query)
 	current_wallpaper="${bg_info##*:}"
 
-	if [[ "$current_wallpaper" = "$wallpaper" ]]; then
+  if [[ "$(basename $current_wallpaper)" = "$(basename $wallpaper)" ]]; then
 		change_bg
 	else
 		swww img "$wallpaper" --transition-fps 60 --transition-type wipe --transition-duration 3

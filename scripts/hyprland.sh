@@ -103,46 +103,40 @@ if [[ $confirm == "y" ]]; then
     ttf-hack-nerd
     vscode-codicons-git
 
-
     # extra packages bash
     jq
     less
     tree
-    slurp    # print
-    cliphist # clipboard manager
+    slurp     #screenshot
+    grim      #screenshot
+    cliphist  # clipboard manager
     hyprshade # shade
   )
 
   paru -S "${hypr_packages[@]}"
 fi
 
-read -ei "y" -p "install thunar (file manager) packages?" confirm
+read -ei "y" -p "install nautilus (file manager) packages?" confirm
 
 if [[ $confirm ]]; then
   ## Install File Manager and extras
-  thunar_packages=(
-    thunar
-    thunar-archive-plugin
-    file-roller
-    thunar-media-tags-plugin
-    thunar-volman
-    gvfs
-    grim
+  nautilus_packages=(
+    nautilus # file manager
+    gvfs     # for mobile
 
     # theme
-    adapta-gtk-theme
-    luv-icon-theme-git
+    whitesur-icon-theme # icon theme
     qogir-cursor-theme-git
     xdg-user-dirs
 
     gnome-disk-utility # disk
-    gnome-software
-    flatpak
-    ristretto          # picture viewer
-    mpv                # video
+    gnome-software # applications
+    flatpak # packages
+    eog       # picture viewer
+    mpv       # video
     nwg-look
   )
-  paru -S "${thunar_packages[@]}"
+  paru -S "${nautilus_packages[@]}"
 fi
 
 read -ei "y" -p "install neovim packages?" confirm
@@ -167,14 +161,14 @@ fi
 read -ei "y" -p "set gtk,mouse,icon theme?" confirm
 
 if [[ $confirm == 'y' ]]; then
+   cd "$HOME"
+   git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+   cd "WhiteSur-gtk-theme"
+   ./install.sh -l
+
   # set themes
-  gsettings set org.gnome.desktop.interface gtk-theme "Adapta-Nokto-Eta"
-  gsettings set org.gnome.desktop.wm.preferences theme "Adapta-Nokto-Eta"
-  gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
-  gsettings set org.gnome.desktop.interface icon-theme "Luv"
+  xdg-user-dirs-update
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-else
+  gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
   echo "Run: ngw-look, to set your theme"
 fi
-
-xdg-user-dirs-update

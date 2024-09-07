@@ -3,28 +3,6 @@ return {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
-      local doom = {
-        '                                                                              ',
-        '=================     ===============     ===============   ========  ========',
-        '\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //',
-        '||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||',
-        '|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||',
-        '||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||',
-        '|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||',
-        "||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||",
-        '|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||',
-        "||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||",
-        "||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||",
-        "||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||",
-        "||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||",
-        "||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||",
-        "||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||",
-        "||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||",
-        "||.=='    _-'                                                     `' |  /==.||",
-        "=='    _-'                        N E O V I M                         \\/   `==",
-        "\\   _-'                                                                `-_   /",
-        " `''                                                                      ``'  ",
-      }
 
       local launch = {
         [[                                               ]],
@@ -46,7 +24,7 @@ return {
           string.format('Version: v%s.%s.%s', version.major, version.minor, version.patch)
       local lazy = require 'lazy'
       local plugins = string.format('Plugins: %s installed', lazy.stats().count)
-      local headers = { doom, launch }
+      local headers = { launch }
       math.randomseed(os.time())
       local header = headers[math.random(#headers)]
 
@@ -82,20 +60,6 @@ return {
               key = 'n',
               keymap = 'SPC e',
               action = ':Neotree toggle left',
-            },
-            {
-              icon = icons.ui.Package .. ' ',
-              desc = 'Plugins',
-              key = 'l',
-              keymap = 'SPC p p',
-              action = 'Lazy',
-            },
-            {
-              icon = icons.ui.Package .. ' ',
-              desc = 'Packages',
-              key = 'm',
-              keymap = 'SPC M',
-              action = 'Mason',
             },
             {
               icon = icons.ui.Gear .. ' ',
