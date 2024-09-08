@@ -130,11 +130,12 @@ if [[ $confirm ]]; then
     xdg-user-dirs
 
     gnome-disk-utility # disk
-    gnome-software # applications
-    flatpak # packages
-    eog       # picture viewer
-    mpv       # video
+    gnome-software     # applications
+    flatpak            # packages
+    eog                # picture viewer
+    mpv                # video
     nwg-look
+    alarm-clock-applet # alarm
   )
   paru -S "${nautilus_packages[@]}"
 fi
@@ -161,10 +162,10 @@ fi
 read -ei "y" -p "set gtk,mouse,icon theme?" confirm
 
 if [[ $confirm == 'y' ]]; then
-   cd "$HOME"
-   git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-   cd "WhiteSur-gtk-theme"
-   ./install.sh -l
+  cd "$HOME"
+  git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+  cd "WhiteSur-gtk-theme"
+  ./install.sh -l
 
   # set themes
   xdg-user-dirs-update
