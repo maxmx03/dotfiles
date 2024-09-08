@@ -46,8 +46,6 @@ local config = function()
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
   }
 
-  ts_ls()
-
   require('mason').setup {}
   require('mason-lspconfig').setup {
     automatic_installation = true,
@@ -59,6 +57,7 @@ local config = function()
       ['lua_ls'] = lua_ls,
       ['gopls'] = gopls,
       ['pylsp'] = pylsp,
+      ['ts_ls'] = ts_ls,
       ['rust_analyzer'] = rust_analyzer,
     },
   }

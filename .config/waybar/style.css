@@ -38,7 +38,7 @@
 }
 .modules-right #pulseaudio,
 .modules-right #tray,
-.modules-right #clock,
+.modules-right #custom-datetime,
 .modules-right #custom-weather,
 .modules-right #custom-powermenu {
   margin: 0px 5px;

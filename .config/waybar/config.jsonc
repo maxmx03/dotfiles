@@ -8,7 +8,7 @@
   "modules-center": ["custom/cmus"],
   "modules-right": [
     "pulseaudio",
-    "clock",
+    "custom/datetime",
     "custom/weather",
     "tray",
     "custom/powermenu",
@@ -97,14 +97,14 @@
   "custom/weather": {
     "tooltip": true,
     "format": "{}",
-    "interval": 30,
+    "interval": 60,
     "exec": "~/.config/waybar/scripts/weather",
     "return-type": "string",
   },
-  "clock": {
-    "timezone": "America/Sao_Paulo",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
-    "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>",
+  "custom/datetime": {
+    "format": {},
+    "interval": 60,
+    "exec": "~/.config/waybar/scripts/clock",
+    "return-type": "string",
   },
 }

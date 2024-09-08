@@ -7,10 +7,10 @@ local colors = {
   red2   = '#be5046',
   yellow = '#e5c07b',
   fg     = '#f0f6fc',
-  bg     = '#282c34',
-  gray1  = '#51545a',
-  gray2  = '#3e4148',
-  gray3  = '#282c34',
+  bg     = '#1c2128',
+  gray1  = '#4d5359',
+  gray2  = '#262c36',
+  gray3  = '#212830',
 }
 
 return {

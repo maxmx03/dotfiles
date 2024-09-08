@@ -2,8 +2,6 @@ require 'lazy-bootstrap'
 require 'editor'
 local lazy = require 'lazy'
 
-vim.cmd.colorscheme 'github'
-
 lazy.setup {
   spec = {
     { import = 'plugins' },

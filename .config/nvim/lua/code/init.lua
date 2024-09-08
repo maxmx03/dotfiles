@@ -16,6 +16,7 @@ end
 M.servers = {
   'lua_ls',
   'eslint',
+  'ts_ls',
   'html',
   'cssls',
   'cssmodules_ls',
@@ -32,6 +33,7 @@ M.servers = {
   'yamlls',
   'gopls',
   'tailwindcss',
+  'mdx_analyzer',
 }
 
 return M
