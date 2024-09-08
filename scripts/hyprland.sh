@@ -56,7 +56,7 @@ if [[ $confirm == "y" ]]; then
   ## Install hyprland and dependencies
   hypr_packages=(
     # hyprland
-    hyprland-git
+    hyprland
     xdg-desktop-portal-hyprland # must have
 
     # Qt Wayland Support

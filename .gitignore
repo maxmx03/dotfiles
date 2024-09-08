@@ -1,5 +1,5 @@
 *.gif
-.config/nvim/lazy-lock.json
 .vim/pack/minpac
 .vim/.netrwhist
 .vim/plugged
+.env

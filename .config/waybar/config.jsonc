@@ -95,12 +95,11 @@
     "on-click": "pavucontrol",
   },
   "custom/weather": {
-    //shows the current weather and forecast
     "tooltip": true,
     "format": "{}",
     "interval": 30,
-    "exec": "~/.config/waybar/scripts/weather", // <- your city
-    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/weather",
+    "return-type": "string",
   },
   "clock": {
     "timezone": "America/Sao_Paulo",
