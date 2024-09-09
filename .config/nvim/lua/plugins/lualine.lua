@@ -52,7 +52,7 @@ return {
       ins_config('c', {
         {
           'branch',
-          icon = { icons.git, color = { fg = 'NvimLightRed' } },
+          icon = { icons.git, color = { fg = '#e06c75' } },
           cond = hide_in_width,
         },
         {
@@ -105,7 +105,8 @@ return {
               ---@diagnostic disable-next-line: undefined-field
               local filetypes = client.config.filetypes
               if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                if client.name ~= 'null-ls' then
+                local banned = { 'null-ls', 'tailwindcss' }
+                if not vim.tbl_contains(banned, client.name) then
                   return client.name
                 end
               end

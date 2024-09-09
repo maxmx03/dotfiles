@@ -137,7 +137,7 @@ M.load = function(config)
   hi('TabLineFill', { fg = c.base0, bg = c.base03 })
   hi('TabLineSel', { fg = c.base0, bg = c.base03 })
   hi('Title', { fg = c.blue })
-  hi('Visual', { fg = c.blue }, { mix = 'bg' })
+  hi('Visual', { fg = c.purple }, { mix = 'bg' })
   hi('VisualNOS', { link = 'Visual' })
   hi('warningMsg', { fg = c.diag_warning })
   hi('Whitespace', { fg = c.base01 })
@@ -315,10 +315,10 @@ M.load = function(config)
   hi('DiagnosticUnderlineInfo', { fg = c.diag_info, underline = true, sp = c.diag_info })
   hi('DiagnosticUnderlineHint', { fg = c.diag_hint, underline = true, sp = c.diag_hint })
   hi('DiagnosticUnderlineOk', { fg = c.diag_ok, underline = true, sp = c.diag_ok })
-  hi('DiagnosticSignError', { fg = c.diag_error }, { error_lens = config.error_lens.symbol })  -- Used for "Error" signs in sign column.
+  hi('DiagnosticSignError', { fg = c.diag_error }, { error_lens = config.error_lens.symbol }) -- Used for "Error" signs in sign column.
   hi('DiagnosticSignWarn', { fg = c.diag_warning }, { error_lens = config.error_lens.symbol }) -- Used for "Warn" signs in sign column.
-  hi('DiagnosticSignInfo', { fg = c.diag_info }, { error_lens = config.error_lens.symbol })    -- Used for "Info" signs in sign column.
-  hi('DiagnosticSignHint', { fg = c.diag_hint }, { error_lens = config.error_lens.symbol })    -- Used for "Hint" signs in sign column.
+  hi('DiagnosticSignInfo', { fg = c.diag_info }, { error_lens = config.error_lens.symbol }) -- Used for "Info" signs in sign column.
+  hi('DiagnosticSignHint', { fg = c.diag_hint }, { error_lens = config.error_lens.symbol }) -- Used for "Hint" signs in sign column.
   hi('DiagnosticSignOk', { fg = c.diag_ok })
   hi('LspReferenceText', { fg = c.cyan }, { mix = 'bg' })
   hi('LspReferenceRead', { fg = c.green }, { mix = 'bg' })
@@ -328,12 +328,12 @@ M.load = function(config)
   hi('CmpItemKindText', { link = 'String' })
   hi('CmpItemKindMethod', { link = 'Function' })
   hi('CmpItemKindFunction', { link = 'Function' })
-  hi('CmpItemKindField', { link = 'Identifier' })
+  hi('CmpItemKindField', { link = 'Property' })
   hi('CmpItemKindVariable', { link = 'Identifier' })
   hi('CmpItemKindClass', { link = 'Type' })
   hi('CmpItemKindInterface', { link = 'Type' })
   hi('CmpItemKindModule', { link = 'Type' })
-  hi('CmpItemKindProperty', { link = 'Identifier' })
+  hi('CmpItemKindProperty', { link = 'Property' })
   hi('CmpItemKindUnit', { link = 'Number' })
   hi('CmpItemKindEnum', { link = 'Type' })
   hi('CmpItemKindKeyword', { link = 'Keyword' })

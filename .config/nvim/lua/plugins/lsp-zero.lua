@@ -7,6 +7,8 @@ local config = function()
   local ts_ls = require 'code.handlers.ts_ls'
   local rust_analyzer = require 'code.handlers.rust_analyzer'
   local icons = require 'utils.icons'
+  local emmet_ls = require 'code.handlers.emmet_ls'
+  local mdx_analyzer = require 'code.handlers.mdx_analyzer'
 
   local signs = {
     Error = icons.diagnostics.Error,
@@ -59,6 +61,8 @@ local config = function()
       ['pylsp'] = pylsp,
       ['ts_ls'] = ts_ls,
       ['rust_analyzer'] = rust_analyzer,
+      ['emmet_ls'] = emmet_ls(),
+      ['mdx_analyzer'] = mdx_analyzer(),
     },
   }
 end

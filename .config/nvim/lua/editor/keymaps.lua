@@ -38,7 +38,6 @@ M.normal = {
   { '<space>q',  quit.confirm_quit,                           desc = 'Close' },
   { '<space>Q',  ':quitall<CR>',                              desc = 'Quit Neovim' },
   { '<space>;',  ':Dashboard<CR>',                            desc = 'Open Dashboard' },
-  { '<space>t',  ':Lspsaga term_toggle<CR>',                  desc = 'Open Terminal' },
   { '<space>w',  ':update<CR>',                               desc = 'Save' },
   { '<space>m',  group = 'Package manager' },
   { '<space>ma', '<cmd>MasonUninstallAll<cr>',                desc = 'Uninstall all packages' },

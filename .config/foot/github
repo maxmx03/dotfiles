@@ -5,8 +5,10 @@
 color=111111 61afef
 
 [colors]
+alpha=0.8
 foreground=d1d7e0
-background=212830
+# background=212830
+background=000000
 regular0=1c2128   # black
 regular1=e06c75   # red
 regular2=98c379   # green
