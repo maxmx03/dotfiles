@@ -65,7 +65,7 @@ function _nt_create() {
         touch "$file_path"
         echo "---" >>"$file_path"
         echo "title: $file" >>"$file_path"
-        echo "pubDate: $(date +"%Y-%m-%d %H:%M:%S")" >>"$file_path"
+        echo "lastUpdated: $(date +"%Y-%m-%d")" >>"$file_path"
         echo "author: $USER" >>"$file_path"
         echo "tags: [...]" >>"$file_path"
         echo "---" >>"$file_path"
