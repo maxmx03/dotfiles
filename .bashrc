@@ -42,6 +42,7 @@ else
 fi
 
 if [[ -n $(command -v gum) ]]; then
+  source "$HOME/dotfiles/scripts/tmx.sh"
   source "$HOME/dotfiles/scripts/dots.sh"
   source "$HOME/dotfiles/scripts/kanban.sh"
   source "$HOME/dotfiles/scripts/notes.sh"

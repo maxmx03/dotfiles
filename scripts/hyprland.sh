@@ -78,13 +78,14 @@ if [[ $confirm == "y" ]]; then
     pavucontrol
     pamixer
 
-    foot       # terminal
-    tmux       # terminal multiplexer
+    foot      # terminal
+    tmux      # terminal multiplexer
+    powerline # powerline for bash,tmux,zsh,fish
+    powerline-fonts
     htop       # terminal system monitor
     waybar-git # wayland bar
     cmus       # music
     firefox
-    vivaldi
     evince # pdf reader
 
     # fonts
@@ -172,4 +173,7 @@ if [[ $confirm == 'y' ]]; then
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
   echo "Run: ngw-look, to set your theme"
+  echo "Run the following commands to give all flatpak packages permission to your themes"
+  echo "Run: sudo flatpak override --filesystem=$HOME/.themes"
+  echo "Run: sudo flatpak override --filesystem=$HOME/.icons"
 fi
