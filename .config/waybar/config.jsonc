@@ -100,13 +100,13 @@
   "custom/weather": {
     "tooltip": true,
     "format": "{}",
-    "interval": 60,
+    "interval": 3600,
     "exec": "~/.config/waybar/scripts/weather",
     "return-type": "string",
   },
   "custom/datetime": {
     "format": {},
-    "interval": 60,
+    "interval": 30,
     "exec": "~/.config/waybar/scripts/clock",
     "return-type": "string",
   },

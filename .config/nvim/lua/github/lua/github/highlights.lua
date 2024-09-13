@@ -324,7 +324,7 @@ M.load = function(config)
   hi('LspReferenceRead', { fg = c.green }, { mix = 'bg' })
   hi('LspReferenceWrite', { fg = c.green }, { mix = 'bg' })
   hi('LspInlayHint', { fg = color.shade(c.cyan, 3) })
-  hi('CmpBorder', { fg = c.blue, bg = c.base03 }, { transparent = config.transparent.enabled })
+  hi('CmpBorder', { fg = c.base01, bg = c.base03 }, { transparent = config.transparent.enabled })
   hi('CmpItemKindText', { link = 'String' })
   hi('CmpItemKindMethod', { link = 'Function' })
   hi('CmpItemKindFunction', { link = 'Function' })
@@ -452,6 +452,10 @@ M.load = function(config)
     { fg = c.base0, bg = c.base04 },
     { transparent = config.transparent.enabled and config.transparent.mason }
   )
+  hi('MasonHeader', { fg = c.red, reverse = true })
+  hi('MasonHighlight', { fg = c.red })
+  hi('MasonHighlightBlock', { bg = c.red }, { mix = 'fg' })
+  hi('MasonHighlightBlockBold', { bg = c.red, bold = true }, { mix = 'fg' })
 
   if config.on_highlights then
     local highlights = config.on_highlights(c, color)

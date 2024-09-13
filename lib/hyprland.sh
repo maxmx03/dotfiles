@@ -78,10 +78,8 @@ if [[ $confirm == "y" ]]; then
     pavucontrol
     pamixer
 
-    foot      # terminal
-    tmux      # terminal multiplexer
-    powerline # powerline for bash,tmux,zsh,fish
-    powerline-fonts
+    foot       # terminal
+    tmux       # terminal multiplexer
     htop       # terminal system monitor
     waybar-git # wayland bar
     cmus       # music
@@ -104,10 +102,6 @@ if [[ $confirm == "y" ]]; then
     ttf-hack-nerd
     vscode-codicons-git
 
-    # extra packages bash
-    jq
-    less
-    tree
     slurp     #screenshot
     grim      #screenshot
     cliphist  # clipboard manager
@@ -129,6 +123,7 @@ if [[ $confirm ]]; then
     whitesur-icon-theme # icon theme
     qogir-cursor-theme-git
     xdg-user-dirs
+    xdg-open
 
     gnome-disk-utility # disk
     gnome-software     # applications
@@ -176,4 +171,23 @@ if [[ $confirm == 'y' ]]; then
   echo "Run the following commands to give all flatpak packages permission to your themes"
   echo "Run: sudo flatpak override --filesystem=$HOME/.themes"
   echo "Run: sudo flatpak override --filesystem=$HOME/.icons"
+fi
+
+read -ei "y" -p "install bash extra packages?" confirm
+
+if [[ $confirm == "y" ]]; then
+  bash_packages=(
+    jq
+    less
+    tree
+    go
+    eza
+    lazygit
+    starship
+  )
+
+  paru -S "${bash_packages[@]}"
+
+  [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
+  [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
 fi

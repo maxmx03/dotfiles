@@ -1,16 +1,16 @@
 local colors = {
-  blue   = '#61afef',
-  green  = '#98c379',
+  blue = '#61afef',
+  green = '#98c379',
   purple = '#d2a8ff',
-  cyan   = '#a5d6ff',
-  red1   = '#e06c75',
-  red2   = '#be5046',
+  cyan = '#a5d6ff',
+  red1 = '#e06c75',
+  red2 = '#be5046',
   yellow = '#e5c07b',
-  fg     = '#f0f6fc',
-  bg     = '#1c2128',
-  gray1  = '#4d5359',
-  gray2  = '#262c36',
-  gray3  = '#212830',
+  fg = '#f0f6fc',
+  bg = '#1c2128',
+  gray1 = '#4d5359',
+  gray2 = '#262c36',
+  gray3 = '#212830',
 }
 
 return {

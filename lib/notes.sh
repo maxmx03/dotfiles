@@ -2,7 +2,6 @@
 
 export NOTES_DIR="$HOME/notes"
 export NOTES_NOTE_LIST="$NOTES_DIR/list.txt"
-export EDITOR="nvim"
 
 if [ ! -e "$NOTES_DIR" ]; then
   mkdir "$NOTES_DIR"

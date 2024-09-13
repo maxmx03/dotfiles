@@ -29,6 +29,13 @@ local colors = {
   diag_warning = '#ffddb0',
   diag_error = '#e06c75',
   diag_ok = '#b4f1b4',
+  --   mix_red = '#5f3f47',
+  --   mix_green = '#53895d',
+  --   mix_yellow = '#605849',
+  --   mix_blue = '#39536c',
+  --   mix_purple = '#5b5170',
+  --   mix_cyan = '#4d5f70',
+  --   mix_orange = '#5a4d43',
 }
 
 return colors

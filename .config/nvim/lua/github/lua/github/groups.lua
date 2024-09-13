@@ -378,6 +378,10 @@
 ---@field RenderMarkdownCode? vim.api.keyset.highlight
 ---@field LazyNormal? vim.api.keyset.highlight
 ---@field MasonNormal? vim.api.keyset.highlight
+---@field MasonHeader? vim.api.keyset.highlight
+---@field MasonHighlight? vim.api.keyset.highlight
+---@field MasonHighlightBlock? vim.api.keyset.highlight
+---@field MasonHighlightBlockBold? vim.api.keyset.highlight
 ---@field GitSignsChangedelete? vim.api.keyset.highlight
 ---@field GitSignsTopdelete? vim.api.keyset.highlight
 ---@field GitSignsUntracked? vim.api.keyset.highlight

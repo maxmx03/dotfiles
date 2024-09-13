@@ -3,31 +3,14 @@ return {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
-
-      local launch = {
-        [[                                               ]],
-        [[                                               ]],
-        [[                                               ]],
-        [[                                               ]],
-        [[ ★　✯   🛸                    🪐   .°•    |    ]],
-        [[    __     ° ★　•       🛰       __      / \   ]],
-        [[   / /   ____ ___  ______  _____/ /_    | O |  ]],
-        [[  / /   / __ `/ / / / __ \/ ___/ __ \   | O |  ]],
-        [[ / /___/ /_/ / /_/ / / / / /__/ / / /  /| | |\ ]],
-        [[/_____/\__,_/\__,_/_/ /_/\___/_/ /_/  /_(.|.)_\]],
-        [[                                               ]],
-        [[                                               ]],
-      }
-
+      local headers = require('utils.ascii')
       local version = vim.version()
       local neovim_version =
-          string.format('Version: v%s.%s.%s', version.major, version.minor, version.patch)
+        string.format('Version: v%s.%s.%s', version.major, version.minor, version.patch)
       local lazy = require 'lazy'
       local plugins = string.format('Plugins: %s installed', lazy.stats().count)
-      local headers = { launch }
       math.randomseed(os.time())
       local header = headers[math.random(#headers)]
-
       local emmptyLine = string.rep(' ', vim.fn.strwidth(header[1]))
       table.insert(header, 1, emmptyLine)
       table.insert(header, 2, emmptyLine)

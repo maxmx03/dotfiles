@@ -9,6 +9,7 @@ local config = function()
   local icons = require 'utils.icons'
   local emmet_ls = require 'code.handlers.emmet_ls'
   local mdx_analyzer = require 'code.handlers.mdx_analyzer'
+  local marksman = require 'code.handlers.marksman'
 
   local signs = {
     Error = icons.diagnostics.Error,
@@ -63,6 +64,7 @@ local config = function()
       ['rust_analyzer'] = rust_analyzer,
       ['emmet_ls'] = emmet_ls(),
       ['mdx_analyzer'] = mdx_analyzer(),
+      ['marksman'] = marksman(),
     },
   }
 end

@@ -34,6 +34,7 @@ M.servers = {
   'gopls',
   'tailwindcss',
   'mdx_analyzer',
+  'jsonls',
 }
 
 return M

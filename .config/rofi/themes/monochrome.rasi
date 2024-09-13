@@ -6,7 +6,7 @@
     blue: #a5d6ff;
     fg-col: #CED4DA;
     fg-col2: #CED4DA;
-    primary: #a5d6ff;
+    primary: #CED4DA;
     grey: #CED4DA;
     width: 600;
 }

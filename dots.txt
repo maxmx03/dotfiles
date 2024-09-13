@@ -8,3 +8,4 @@
 .config/rofi
 .config/waybar
 .gitconfig
+.bash_profile
