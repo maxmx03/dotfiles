@@ -30,3 +30,8 @@ function editorconfig {
   echo "indent_size = 2" >>$config
   echo "quote_type = single" >>$config
 }
+
+function manpage {
+  local browser=/opt/google/chrome/chrome
+  man -H$browser $1
+}
