@@ -184,6 +184,7 @@ if [[ $confirm == "y" ]]; then
     eza
     lazygit
     starship
+    man
   )
 
   paru -S "${bash_packages[@]}"
