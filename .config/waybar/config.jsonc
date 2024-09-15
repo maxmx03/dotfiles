@@ -3,20 +3,28 @@
   "position": "top",
   "margin-top": 10,
   "margin-bottom": 0,
-  "output": ["HDMI-A-1"],
-  "modules-left": ["custom/logo", "hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["custom/cmus"],
+  "output": [
+    "HDMI-A-1"
+  ],
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "custom/cmus"
+  ],
   "modules-right": [
     "pulseaudio",
     "custom/datetime",
     "custom/weather",
     "tray",
-    "custom/powermenu",
+    "custom/powermenu"
   ],
   "custom/logo": {
     "format": "󰣇",
     "on-click": "~/.config/waybar/scripts/wallpaper",
-    "tooltip": false,
+    "tooltip": false
   },
   "custom/cmus": {
     "format": "󰝚{}",
@@ -28,11 +36,11 @@
     "on-click": "cmus-remote -u",
     "on-scroll-up": "cmus-remote --next",
     "on-scroll-down": "cmus-remote --prev",
-    "escape": true,
+    "escape": true
   },
   "tray": {
     "icon-size": 24,
-    "spacing": 10,
+    "spacing": 10
   },
   "hyprland/window": {
     "format": "{}",
@@ -57,9 +65,9 @@
       "Solanum": "<span color=\"#f8f9fa\"> Solanum</span>",
       "Zen Browser (.*)": "<span color=\"#f8f9fa\"> Zen</span ",
       "Zen Browser": "<span color=\"#f8f9fa\"> Zen</span>",
-      "(\\d\\. )?(.*) Zen Browser": "<span color=\"#f8f9fa\"> Zen</span>",
+      "(\\d\\. )?(.*) Zen Browser": "<span color=\"#f8f9fa\"> Zen</span>"
     },
-    "separate-outputs": false,
+    "separate-outputs": false
   },
   "hyprland/workspaces": {
     "active-only": false,
@@ -70,21 +78,21 @@
     "format-icons": {
       "active": "",
       "default": "",
-      "empty": "",
+      "empty": ""
     },
     "persistent-workspaces": {
       "1": "HDMI-A-1",
       "2": "HDMI-A-1",
-      "3": "HDMI-A-1",
+      "3": "HDMI-A-1"
     },
     "on-scroll-down": "hyprctl dispatch workspace e-1",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "sort-by": "number",
+    "sort-by": "number"
   },
   "custom/powermenu": {
     "format": "",
     "tooltip": false,
-    "on-click": "exec wlogout -p layer-shell",
+    "on-click": "exec wlogout -p layer-shell"
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
@@ -92,22 +100,25 @@
     "format-muted": "",
     "format-icons": {
       "headphone": "󰋎",
-      "default": ["", ""],
+      "default": [
+        "",
+        ""
+      ]
     },
     "scroll-step": 1,
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol"
   },
   "custom/weather": {
     "tooltip": true,
     "format": "{}",
-    "interval": 3600,
+    "interval": 120,
     "exec": "~/.config/waybar/scripts/weather",
-    "return-type": "string",
+    "return-type": "string"
   },
   "custom/datetime": {
     "format": {},
     "interval": 30,
     "exec": "~/.config/waybar/scripts/clock",
-    "return-type": "string",
-  },
+    "return-type": "string"
+  }
 }

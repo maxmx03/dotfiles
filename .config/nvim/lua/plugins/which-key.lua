@@ -6,7 +6,7 @@ return {
     local keymaps = require 'editor.keymaps'
     wk.add(keymaps)
     wk.setup {
-      preset = 'modern',
+      preset = 'helix',
       icons = {
         mappings = false,
         keys = {

@@ -70,7 +70,6 @@ return {
   { '<space>le', '<cmd>Lspsaga show_buf_diagnostics<CR>', desc = 'Show diagnostic' },
   { '<space>lf', '<cmd>LspZeroFormat<CR>',                desc = 'Format file' },
   { '<space>lh', '<cmd>Lspsaga hover_doc<CR>',            desc = 'Hover' },
-  { '<space>lo', '<cmd>Lspsaga outline<CR>',              desc = 'Outline' },
   { '<space>ll', '<cmd>LspRestart<CR>',                   desc = 'Lsp restart' },
   {
     '<space>ln',
