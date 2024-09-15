@@ -10,13 +10,15 @@ else
   exit 1
 fi
 
-# install paru
+# install yay
 sudo pacman -S --needed base-devel --noconfirm
 sudo pacman -S make --noconfirm
 cd "$HOME" || exit
-git clone https://aur.archlinux.org/paru.git
-cd paru || exit
+git clone https://aur.archlinux.org/yay.git
+cd yay || exit
 makepkg -si
+
+yay
 
 read -ei "y" -p "install dotfiles?" confirm
 
@@ -27,6 +29,7 @@ if [[ $confirm == "y" ]]; then
 
   echo "$HOME/dotfiles/.bashrc" >>"$HOME/.bashrc"
   mv "$HOME/dotfiles/.tmux.conf" "$HOME/"
+  mv -f "$HOME/dotfiles/.bash_profile" "$HOME/"
 fi
 
 read -ei "y" -p "install amd drivers?" confirm
@@ -39,7 +42,7 @@ if [[ $confirm == "y" ]]; then
     libva-mesa-driver
     vulkan-radeon
   )
-  paru -S "${amd_packages[@]}"
+  yay -S "${amd_packages[@]}"
 else
   read -ei "y" -p "install nvidia drivers?" confirm
   nvidia_packages=(
@@ -47,7 +50,7 @@ else
     xf86-video-nouveau
     libva-mesa-driver
   )
-  [[ $confirm == "y" ]] && paru -S "${nvidia_packages[@]}"
+  [[ $confirm == "y" ]] && yay -S "${nvidia_packages[@]}"
 fi
 
 read -ei "y" -p "install hyprland packages?" confirm
@@ -66,6 +69,11 @@ if [[ $confirm == "y" ]]; then
     # screensharing
     pipewire
     wireplumber
+    pipewire-pulse
+    pipewire-alsa
+    pipewire-jack
+    alsa-utils
+    alsa-plugins
 
     polkit-gnome # authentication agent
     rofi-lbonn-wayland-git
@@ -108,7 +116,7 @@ if [[ $confirm == "y" ]]; then
     hyprshade # shade
   )
 
-  paru -S "${hypr_packages[@]}"
+  yay -S "${hypr_packages[@]}"
 fi
 
 read -ei "y" -p "install nautilus (file manager) packages?" confirm
@@ -133,7 +141,7 @@ if [[ $confirm ]]; then
     nwg-look
     alarm-clock-applet # alarm
   )
-  paru -S "${nautilus_packages[@]}"
+  yay -S "${nautilus_packages[@]}"
 fi
 
 read -ei "y" -p "install neovim packages?" confirm
@@ -152,7 +160,7 @@ if [[ $confirm == "y" ]]; then
     npm
   )
 
-  paru -S "${neovim_packages[@]}"
+  yay -S "${neovim_packages[@]}"
 fi
 
 read -ei "y" -p "set gtk,mouse,icon theme?" confirm
@@ -187,8 +195,17 @@ if [[ $confirm == "y" ]]; then
     man
   )
 
-  paru -S "${bash_packages[@]}"
-
+  yay -S "${bash_packages[@]}"
   [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
   [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
 fi
+
+read -ei "y" -p "install tmux?" confirm
+
+if [[ $config == "y" ]]; then
+  yay -S tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+sudo systemctl enable --user pipewire
+sudo systemctl enable --user wireplumber
