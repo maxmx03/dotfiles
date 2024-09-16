@@ -105,7 +105,7 @@ return {
               ---@diagnostic disable-next-line: undefined-field
               local filetypes = client.config.filetypes
               if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                local banned = { 'null-ls', 'tailwindcss' }
+                local banned = { 'null-ls', 'tailwindcss', 'emmet_ls' }
                 if not vim.tbl_contains(banned, client.name) then
                   return client.name
                 end

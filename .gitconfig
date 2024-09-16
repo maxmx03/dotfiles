@@ -2,6 +2,8 @@
 	name = "Max Miliano"
 	email = "milianordelcanto@gmail.com"
 [credential]
-	helper = store
+	helper = cache
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main

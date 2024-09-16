@@ -119,6 +119,7 @@ return {
   { '<space>sk', '<cmd>Telescope keymaps<CR>',              desc = 'Search keymaps' },
   { '<space>sp', '<cmd>Telescope projects<CR>',             desc = 'Search Projects' },
   { '<space>sw', '<cmd>Telescope live_grep<CR>',            desc = 'Search words' },
+  { '<space>ss', '<cmd>Telescope spell_suggest theme=cursor<CR>',            desc = 'Search words' },
   { '<space>h',  group = 'Harpoon' },
   {
     '<space>ha',
