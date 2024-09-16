@@ -127,21 +127,15 @@ if [[ $confirm ]]; then
     nautilus # file manager
     gvfs     # for mobile
 
-    # theme
-    whitesur-icon-theme # icon theme
-    qogir-cursor-theme-git
-    xdg-user-dirs
-    xdg-open
-
     gnome-disk-utility # disk
     gnome-software     # applications
     flatpak            # packages
     eog                # picture viewer
     mpv                # video
-    nwg-look
     alarm-clock-applet # alarm
   )
   yay -S "${nautilus_packages[@]}"
+  [[ -n $(command -v flatpak) ]] && sudo flatpak override --filesystem=$HOME
 fi
 
 read -ei "y" -p "install neovim packages?" confirm
@@ -163,22 +157,42 @@ if [[ $confirm == "y" ]]; then
   yay -S "${neovim_packages[@]}"
 fi
 
-read -ei "y" -p "set gtk,mouse,icon theme?" confirm
+read -ei "y" -p "install mouse,gtk,icon?" confirm
 
 if [[ $confirm == 'y' ]]; then
+  themes_package=(
+    sassc # whitesur dependencies
+    whitesur-icon-theme
+    qogir-cursor-theme-git
+    xdg-user-dirs
+    xdg-open
+    nwg-look
+  )
+
+  yay -S "${themes_package[@]}"
+
   cd "$HOME"
-  git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-  cd "WhiteSur-gtk-theme"
-  ./install.sh -l
+  [[ ! -d "$HOME/WhiteSur-icon-theme" ]] && git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
+  cd $HOME/WhiteSur-icon-theme
+  ./install.sh -t grey
+
+  sleep 3
+
+  cd "$HOME"
+  https://github.com/vinceliuice/WhiteSur-icon-theme.git
+  cd $HOME/WhiteSur-icon-theme
+  ./install.sh -t grey
+
+  sleep 3
+
+  rm -rf $HOME/WhiteSur-gtk-theme
+  rm -rf $HOME/WhiteSur-icon-theme
 
   # set themes
   xdg-user-dirs-update
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
   echo "Run: ngw-look, to set your theme"
-  echo "Run the following commands to give all flatpak packages permission to your themes"
-  echo "Run: sudo flatpak override --filesystem=$HOME/.themes"
-  echo "Run: sudo flatpak override --filesystem=$HOME/.icons"
 fi
 
 read -ei "y" -p "install bash extra packages?" confirm
