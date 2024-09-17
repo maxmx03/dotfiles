@@ -23,9 +23,3 @@
 ## Wallpapers
 
 [wallpapers-clan](https://wallpapers-clan.com/)
-
-## Other Branches
-
-- [main-branch](https://github.com/maxmx03/dotfiles/tree/main)
-- [nix-branch](https://github.com/maxmx03/dotfiles/tree/nix)
-- [hypr-branch](https://github.com/maxmx03/dotfiles/tree/hyprland)
