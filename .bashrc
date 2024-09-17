@@ -1,13 +1,23 @@
 export EDITOR="nvim"
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
-
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+bind -x '"\C-l":ls'
+bind -x '"\C-f":fzf'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
 alias g="lazygit"
+
+shopt -s histappend
+
+HISTFILESIZE=5000
+HISTSIZE=5000
+HISTFILE=~/.bash_history
+HISTCONTROL=ignoredups
 
 if [[ -n $(command -v jump) ]]; then
   eval "$(jump shell --bind=z)"
@@ -24,3 +34,15 @@ if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/notes.sh"
   source "$HOME/dotfiles/lib/utils.sh"
 fi
+
+export FZF_DEFAULT_OPTS="
+  --tmux center 
+  --border rounded 
+  --bind 'enter:become(nvim {})'
+  --preview 'eza --icons -a'
+  --walker-skip .git,node_modules,target,.cache,.jump,.cargo,.local
+  --color=fg+:#d1d7e0,bg+:#1c2128,hl+:#e5c07b
+  --color=fg:#9198a1,bg:#1c2128,hl:#e5c07b
+  --color=border:#4d5359,header:#d2a8ff,gutter:#1c2128
+  --color=spinner:#8ddb8c,info:#6cb6ff
+  --color=pointer:#e06c75,marker:#8ddb8c,prompt:#1c2128"

@@ -70,14 +70,6 @@ function _dots_install() {
     config=$(gum choose $data)
   fi
 
-  if [ "$config" == ".bashrc" ]; then
-    gum spin --spinner dot --title "preparing to install $config..." -- sleep 3
-    echo "source $DOTS_DIR/$config" >>"$HOME/.bashrc"
-    gum spin --spinner dot --title "installing $config..." -- sleep 2
-    gum style --foreground 64 "completd"
-    return
-  fi
-
   if [ -n "$config" ]; then
     if [ -e "$HOME/$config" ]; then
       gum style --foreground 37 "'$HOME/$config' already exists."
@@ -139,16 +131,12 @@ function _dots_updateall() {
   configs=$(grep "" "$DOTS_DATA_FILE")
 
   for config in ${configs[@]}; do
-    if [ ! "$config" == ".bashrc" ]; then
-      if [[ -e "$HOME/$config" ]]; then
-        gum spin --spinner dot --title "preparing to remove '$DOTS_DIR/$config'..." -- sleep 1
-        rm -rf "$DOTS_DIR/$config"
-        cp -r "$HOME/$config" "$DOTS_DIR/$config"
-        gum spin --spinner dot --title "copying '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 1
-        gum log --structured --level info "the $DOTS_DIR/$config  has been updated"
-      fi
-    else
-      gum spin --spinner dot --title "skipping .bashrc update..." -- sleep 3
+    if [[ -e "$HOME/$config" ]]; then
+      gum spin --spinner dot --title "preparing to remove '$DOTS_DIR/$config'..." -- sleep 1
+      rm -rf "$DOTS_DIR/$config"
+      cp -r "$HOME/$config" "$DOTS_DIR/$config"
+      gum spin --spinner dot --title "copying '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 1
+      gum log --structured --level info "the $DOTS_DIR/$config  has been updated"
     fi
 
   done
@@ -159,16 +147,16 @@ function dots() {
   DOTS_CMD=$(gum choose --limit 1 "add" "install" "update" "updateall" "list" "remove" "exit")
 
   declare -A subcmds=(
-  [update]="_dots_update"
-  [updateall]="_dots_updateall"
-  [add]="_dots_add"
-  [install]="_dots_install"
-  [list]="_dots_list"
-  [remove]="_dots_remove"
-  [exit]="_dots_exit"
-)
+    [update]="_dots_update"
+    [updateall]="_dots_updateall"
+    [add]="_dots_add"
+    [install]="_dots_install"
+    [list]="_dots_list"
+    [remove]="_dots_remove"
+    [exit]="_dots_exit"
+  )
 
-if [[ -n "${subcmds[$DOTS_CMD]}" ]]; then
-  ${subcmds[$DOTS_CMD]}
-fi
+  if [[ -n "${subcmds[$DOTS_CMD]}" ]]; then
+    ${subcmds[$DOTS_CMD]}
+  fi
 }
