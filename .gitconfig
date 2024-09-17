@@ -2,7 +2,7 @@
 	name = "Max Miliano"
 	email = "milianordelcanto@gmail.com"
 [credential]
-	helper = cache
+	helper = store
 [pull]
 	rebase = true
 [init]
