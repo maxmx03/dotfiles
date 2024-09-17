@@ -4,9 +4,12 @@ local config = function()
   local gopls = require 'code.handlers.gopls'
   local lua_ls = require 'code.handlers.lua_ls'
   local pylsp = require 'code.handlers.pylsp'
-  local tsserver = require 'code.handlers.tsserver'
+  local ts_ls = require 'code.handlers.ts_ls'
   local rust_analyzer = require 'code.handlers.rust_analyzer'
   local icons = require 'utils.icons'
+  local emmet_ls = require 'code.handlers.emmet_ls'
+  local mdx_analyzer = require 'code.handlers.mdx_analyzer'
+  local marksman = require 'code.handlers.marksman'
 
   local signs = {
     Error = icons.diagnostics.Error,
@@ -27,17 +30,38 @@ local config = function()
   }
 
   local lsp_attach = function(client, bufnr)
+    local lsp_signature = require 'lsp_signature'
+    local wk = require 'which-key'
+
     if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true)
     end
+
     if client ~= nil and vim.tbl_contains({ 'null-ls' }, client.name) then
       return
     end
-    require('lsp_signature').on_attach({
+
+    lsp_signature.on_attach({
       floating_window = false,
       hint_prefix = '🤔' .. ' ',
       hint_scheme = 'String',
     }, bufnr)
+
+    local outline = {
+      {
+        '<Leader>lo',
+        '<cmd>Lspsaga outline<CR>',
+        desc = 'Saga Outline',
+      },
+    }
+
+    if vim.bo.filetype == 'html' then
+      outline[1][2] = '<cmd>AerialToggle<CR>'
+      outline[1].desc = 'Aerial Outline'
+      wk.add(outline)
+    else
+      wk.add(outline)
+    end
   end
 
   lsp_zero.extend_lspconfig {
@@ -57,8 +81,11 @@ local config = function()
       ['lua_ls'] = lua_ls,
       ['gopls'] = gopls,
       ['pylsp'] = pylsp,
-      ['tsserver'] = tsserver,
+      ['ts_ls'] = ts_ls,
       ['rust_analyzer'] = rust_analyzer,
+      ['emmet_ls'] = emmet_ls(),
+      ['mdx_analyzer'] = mdx_analyzer(),
+      ['marksman'] = marksman(),
     },
   }
 end

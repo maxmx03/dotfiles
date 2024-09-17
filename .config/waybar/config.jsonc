@@ -1,0 +1,124 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 10,
+  "margin-bottom": 0,
+  "output": [
+    "HDMI-A-1"
+  ],
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "custom/cmus"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "custom/datetime",
+    "custom/weather",
+    "tray",
+    "custom/powermenu"
+  ],
+  "custom/logo": {
+    "format": "󰣇",
+    "on-click": "~/.config/waybar/scripts/wallpaper",
+    "tooltip": false
+  },
+  "custom/cmus": {
+    "format": "󰝚{}",
+    //"max-length": 15,
+    "interval": 10,
+    "exec": "~/.config/waybar/scripts/cmus",
+    "return-type": "json",
+    "exec-if": "pgrep cmus",
+    "on-click": "cmus-remote -u",
+    "on-scroll-up": "cmus-remote --next",
+    "on-scroll-down": "cmus-remote --prev",
+    "escape": true
+  },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 10
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(\\d\\. )?(.*) terminal": "<span color=\"#f8f9fa\"> Terminal</span>",
+      "terminal (.*)": "<span color=\"#f8f9fa\"></span>",
+      "terminal": "<span color=\"#f8f9fa\"> Terminal</span>",
+      "(\\d\\. )?(.*) nvim": "<span color=\"#f8f9fa\"> Neovim</span>",
+      "nvim (.*)": "<span color=\"#f8f9fa\"> </span>",
+      "nvim": "<span color=\"#f8f9fa\"> Neovim</span>",
+      "(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
+      "Mozilla Firefox (.*)": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
+      "Mozilla Firefox": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
+      "(\\d\\. )?(.*) Google Chrome": "<span color=\"#f8f9fa\"> Google Chrome</span>",
+      "Google Chrome (.*)": "<span color=\"#f8f9fa\"> Google Chrome</span ",
+      "Google Chrome": "<span color=\"#f8f9fa\"> Google Chrome</span>",
+      "(\\d\\. )?(.*) Vivaldi": "<span color=\"#f8f9fa\"> Vivaldi</span>",
+      "Vivaldi (.*)": "<span color=\"#f8f9fa\"> </span ",
+      "Vivaldi": "<span color=\"#f8f9fa\"> Vivaldi</span>",
+      "(\\d\\. )?(.*) Solanum": "<span color=\"#f8f9fa\"> Solanum</span>",
+      "Solanum (.*)": "<span color=\"#f8f9fa\"></span ",
+      "Solanum": "<span color=\"#f8f9fa\"> Solanum</span>",
+      "Zen Browser (.*)": "<span color=\"#f8f9fa\"> Zen</span ",
+      "Zen Browser": "<span color=\"#f8f9fa\"> Zen</span>",
+      "(\\d\\. )?(.*) Zen Browser": "<span color=\"#f8f9fa\"> Zen</span>"
+    },
+    "separate-outputs": false
+  },
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": false,
+    "show-special": true,
+    "move-to-monitor": true,
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "empty": ""
+    },
+    "persistent-workspaces": {
+      "1": "HDMI-A-1",
+      "2": "HDMI-A-1",
+      "3": "HDMI-A-1"
+    },
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "sort-by": "number"
+  },
+  "custom/powermenu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "exec wlogout -p layer-shell"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "󰋎",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
+  "custom/weather": {
+    "tooltip": true,
+    "format": "{}",
+    "interval": 120,
+    "exec": "~/.config/waybar/scripts/weather",
+    "return-type": "string"
+  },
+  "custom/datetime": {
+    "format": {},
+    "interval": 30,
+    "exec": "~/.config/waybar/scripts/clock",
+    "return-type": "string"
+  }
+}

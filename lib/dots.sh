@@ -17,6 +17,7 @@ function _dots_remove() {
   if [ -n "$config" ] && [ -e "$HOME/$config" ]; then
     gum style --foreground 37 "the followings commands are going to be executed:"
     gum style --foreground 160 "rm -rf $HOME/$config"
+
     gum confirm "proceed with these commands?" && answer="y"
 
     if [ "$answer" = "y" ]; then
@@ -67,14 +68,6 @@ function _dots_install() {
 
   if [ -n "$data" ]; then
     config=$(gum choose $data)
-  fi
-
-  if [ "$config" == ".bashrc" ]; then
-    gum spin --spinner dot --title "preparing to install $config..." -- sleep 3
-    echo "source $DOTS_DIR/$config" >>"$HOME/.bashrc"
-    gum spin --spinner dot --title "installing $config..." -- sleep 2
-    gum style --foreground 64 "completd"
-    return
   fi
 
   if [ -n "$config" ]; then
@@ -134,12 +127,28 @@ function _dots_exit() {
   return
 }
 
+function _dots_updateall() {
+  configs=$(grep "" "$DOTS_DATA_FILE")
+
+  for config in ${configs[@]}; do
+    if [[ -e "$HOME/$config" ]]; then
+      gum spin --spinner dot --title "preparing to remove '$DOTS_DIR/$config'..." -- sleep 1
+      rm -rf "$DOTS_DIR/$config"
+      cp -r "$HOME/$config" "$DOTS_DIR/$config"
+      gum spin --spinner dot --title "copying '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 1
+      gum log --structured --level info "the $DOTS_DIR/$config  has been updated"
+    fi
+
+  done
+}
+
 function dots() {
   declare DOTS_CMD
-  DOTS_CMD=$(gum choose --limit 1 "add" "install" "update" "list" "remove" "exit")
+  DOTS_CMD=$(gum choose --limit 1 "add" "install" "update" "updateall" "list" "remove" "exit")
 
   declare -A subcmds=(
     [update]="_dots_update"
+    [updateall]="_dots_updateall"
     [add]="_dots_add"
     [install]="_dots_install"
     [list]="_dots_list"

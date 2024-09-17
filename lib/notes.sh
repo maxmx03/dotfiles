@@ -2,7 +2,6 @@
 
 export NOTES_DIR="$HOME/notes"
 export NOTES_NOTE_LIST="$NOTES_DIR/list.txt"
-export EDITOR="nvim"
 
 if [ ! -e "$NOTES_DIR" ]; then
   mkdir "$NOTES_DIR"
@@ -65,7 +64,7 @@ function _nt_create() {
         touch "$file_path"
         echo "---" >>"$file_path"
         echo "title: $file" >>"$file_path"
-        echo "pubDate: $(date +"%Y-%m-%d %H:%M:%S")" >>"$file_path"
+        echo "lastUpdated: $(date +"%Y-%m-%d")" >>"$file_path"
         echo "author: $USER" >>"$file_path"
         echo "tags: [...]" >>"$file_path"
         echo "---" >>"$file_path"
@@ -121,15 +120,15 @@ function _nt_help() {
 
 function nt() {
   declare -A subcmds=(
-    [open]="_nt_open"
-    [create]="_nt_create"
-    [read]="_nt_read"
-    [remove]="_nt_remove"
-    [list]="_nt_list"
-  )
+  [open]="_nt_open"
+  [create]="_nt_create"
+  [read]="_nt_read"
+  [remove]="_nt_remove"
+  [list]="_nt_list"
+)
 
-  [[ -z "${subcmds[$1]}" ]] && {
-    _nt_help
-    return 1
-  } || ${subcmds[$1]} $2
+[[ -z "${subcmds[$1]}" ]] && {
+  _nt_help
+  return 1
+} || ${subcmds[$1]} $2
 }

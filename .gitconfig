@@ -1,0 +1,9 @@
+[user]
+	name = "Max Miliano"
+	email = "milianordelcanto@gmail.com"
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main

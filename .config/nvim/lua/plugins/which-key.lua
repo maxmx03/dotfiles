@@ -4,8 +4,7 @@ return {
   config = function()
     local wk = require 'which-key'
     local keymaps = require 'editor.keymaps'
-    wk.add(keymaps.normal)
-    wk.add(keymaps.visual)
+    wk.add(keymaps)
     wk.setup {
       preset = 'modern',
       icons = {

@@ -1,27 +1,48 @@
+export EDITOR="nvim"
 export PATH=$PATH:$HOME/go/bin
-
-if [[ -n $(command -v exa) ]]; then
-  alias ls="exa --icons"
-  alias ll="exa --long --icons -a"
-fi
-if [[ -n $(command -v eza) ]]; then
-  alias ls="eza --icons"
-  alias ll="eza --long --icons -a"
-fi
-alias g="lazygit"
+export PATH=$PATH:$HOME/.cargo/bin
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+bind -x '"\C-l":ls'
+bind -x '"\C-f":fzf'
+alias ls="eza --icons"
+alias ll="eza --long --icons -a"
 alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
-[[ -n $(command -v nvim) ]] && alias vim="nvim"
-[[ -n $(command -v starship) ]] && eval "$(starship init bash)"
-[[ -n $(command -v jump) ]] && eval "$(jump shell --bind=z)"
+alias g="lazygit"
+
+shopt -s histappend
+
+HISTFILESIZE=5000
+HISTSIZE=5000
+HISTFILE=~/.bash_history
+HISTCONTROL=ignoredups
+
+if [[ -n $(command -v jump) ]]; then
+  eval "$(jump shell --bind=z)"
+fi
+
+if [[ -n $(command -v starship) ]]; then
+  eval "$(starship init bash)"
+fi
 
 if [[ -n $(command -v gum) ]]; then
-  source "$HOME/dotfiles/scripts/dots.sh"
-  source "$HOME/dotfiles/scripts/kanban.sh"
-  source "$HOME/dotfiles/scripts/notes.sh"
-  gum style \
-    --foreground 37 --border-foreground 37 --border double \
-    --align center --margin "1 2" --padding "1 4" \
-    "Welcome ${USER}" "Don't forget to use pomodoro and kanban"
+  source "$HOME/dotfiles/lib/tmx.sh"
+  source "$HOME/dotfiles/lib/dots.sh"
+  source "$HOME/dotfiles/lib/kanban.sh"
+  source "$HOME/dotfiles/lib/notes.sh"
+  source "$HOME/dotfiles/lib/utils.sh"
 fi
+
+export FZF_DEFAULT_OPTS="
+  --tmux center 
+  --border rounded 
+  --bind 'enter:become(nvim {})'
+  --preview 'eza --icons -a'
+  --walker-skip .git,node_modules,target,.cache,.jump,.cargo,.local
+  --color=fg+:#d1d7e0,bg+:#1c2128,hl+:#e5c07b
+  --color=fg:#9198a1,bg:#1c2128,hl:#e5c07b
+  --color=border:#4d5359,header:#d2a8ff,gutter:#1c2128
+  --color=spinner:#8ddb8c,info:#6cb6ff
+  --color=pointer:#e06c75,marker:#8ddb8c,prompt:#1c2128"

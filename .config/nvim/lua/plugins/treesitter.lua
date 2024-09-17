@@ -14,4 +14,17 @@ return {
       }
     end,
   },
+  {
+    'luckasRanarison/tree-sitter-hyprlang',
+    config = function()
+      vim.filetype.add {
+        pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
+      }
+    end,
+  },
+  {
+    'davidmh/mdx.nvim',
+    config = true,
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
 }

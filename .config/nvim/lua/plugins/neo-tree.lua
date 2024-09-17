@@ -5,7 +5,6 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
-    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   opts = {
     filesystem = {
@@ -14,6 +13,15 @@ return {
         visible = true,
         hide_dotfiles = true,
         hide_gitignored = true,
+      },
+    },
+    default_component_configs = {
+      icon = {
+        folder_closed = '',
+        folder_open = '',
+        folder_empty = '󱧹',
+        default = '*',
+        highlight = 'NeoTreeFileIcon',
       },
     },
   },
