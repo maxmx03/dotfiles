@@ -146,8 +146,6 @@ if [[ $confirm == "y" ]]; then
     neovim
     python-pynvim
     gcc
-    fzf
-    fd
     ripgrep
     lazygit
     nodejs
@@ -207,6 +205,8 @@ if [[ $confirm == "y" ]]; then
     lazygit
     starship
     man
+    fzf
+    fd
   )
 
   yay -S "${bash_packages[@]}"

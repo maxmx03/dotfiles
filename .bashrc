@@ -35,12 +35,15 @@ if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/utils.sh"
 fi
 
+
+export FZF_DEFAULT_COMMAND='fd -t f -s --ignore --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
-  --tmux center 
-  --border rounded 
+  --tmux=center 
+  --border=rounded
+  --border-label=${USER^}
+  --header='Find Files'
   --bind 'enter:become(nvim {})'
   --preview 'eza --icons -a'
-  --walker-skip .git,node_modules,target,.cache,.jump,.cargo,.local
   --color=fg+:#d1d7e0,bg+:#1c2128,hl+:#e5c07b
   --color=fg:#9198a1,bg:#1c2128,hl:#e5c07b
   --color=border:#4d5359,header:#d2a8ff,gutter:#1c2128
