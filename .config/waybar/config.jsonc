@@ -16,7 +16,7 @@
   ],
   "modules-right": [
     "pulseaudio",
-    "custom/datetime",
+    "clock",
     "custom/weather",
     "tray",
     "custom/powermenu"
@@ -115,10 +115,25 @@
     "exec": "~/.config/waybar/scripts/weather",
     "return-type": "string"
   },
-  "custom/datetime": {
-    "format": {},
-    "interval": 30,
-    "exec": "~/.config/waybar/scripts/clock",
-    "return-type": "string"
+  "clock": {
+    "interval": 60,
+    "format": "{:%a - %H:%M}",
+    "max-length": 25,
+    "timezone": "America/Sao_Paulo",
+    "locale": "pt_BR.UTF-8",
+    "tooltip-format": "<span background='#212529'><tt><small>{calendar}</small></tt></span>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "format": {
+        "months":     "<span color='#f8f9fa'><b>{}</b></span>",
+        "days":       "<span color='#f8f9fa'><b>{}</b></span>",
+        "weeks":      "<span color='#a5d6ff'><b>W{}</b></span>",
+        "weekdays":   "<span color='#CED4DA'><b>{}</b></span>",
+        "today":      "<span background='#e06c75' color='#000000'><b>{}</b></span>"
+      }
+    }
   }
 }

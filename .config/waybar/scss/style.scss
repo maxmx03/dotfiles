@@ -9,7 +9,6 @@
   min-height: 0;
   margin: 0;
   padding: 0;
-  background: none;
 }
 
 #waybar {
@@ -19,3 +18,10 @@
   font-family: "Hack Nerd Font";
 }
 
+tooltip * {
+  background: transparent;
+}
+
+tooltip.background {
+  background: $base03;
+}
