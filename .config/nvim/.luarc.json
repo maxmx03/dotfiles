@@ -1,3 +1,4 @@
 {
-    "workspace.checkThirdParty": "Disable"
+    "workspace.checkThirdParty": "Disable",
+    "completion.autoRequire": false
 }

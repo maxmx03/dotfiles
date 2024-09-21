@@ -27,6 +27,12 @@ vmap('K', "<cmd>m '<-2<CR>gv=gv")
 
 return {
   {
+    '<F4>',
+    '<cmd>Lspsaga term_toggle<CR>',
+    desc = 'toggle term',
+    mode = { 'n', 't' },
+  },
+  {
     '<space>/',
     '<Plug>(comment_toggle_linewise_visual)',
     desc = 'Comment toggle current line',
@@ -68,7 +74,7 @@ return {
   { '<space>lc', '<cmd>Lspsaga code_action<CR>',          desc = 'Code action' },
   { '<space>ld', '<cmd>Lspsaga goto_definition<CR>',      desc = 'Go to Definition' },
   { '<space>le', '<cmd>Lspsaga show_buf_diagnostics<CR>', desc = 'Show diagnostic' },
-  { '<space>lf', '<cmd>LspZeroFormat<CR>',                desc = 'Format file' },
+  { '<space>lf', vim.lsp.buf.format,                desc = 'Format file' },
   { '<space>lh', '<cmd>Lspsaga hover_doc<CR>',            desc = 'Hover' },
   { '<space>ll', '<cmd>LspRestart<CR>',                   desc = 'Lsp restart' },
   {
@@ -119,8 +125,12 @@ return {
   { '<space>sk', '<cmd>Telescope keymaps<CR>',              desc = 'Search keymaps' },
   { '<space>sp', '<cmd>Telescope projects<CR>',             desc = 'Search Projects' },
   { '<space>sw', '<cmd>Telescope live_grep<CR>',            desc = 'Search words' },
-  { '<space>ss', '<cmd>Telescope spell_suggest theme=cursor<CR>',            desc = 'Search words' },
-  { '<space>h',  group = 'Harpoon' },
+  {
+    '<space>ss',
+    '<cmd>Telescope spell_suggest theme=cursor<CR>',
+    desc = 'Search words',
+  },
+  { '<space>h', group = 'Harpoon' },
   {
     '<space>ha',
     function()

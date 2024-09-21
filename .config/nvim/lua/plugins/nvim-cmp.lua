@@ -85,6 +85,7 @@ local config = function()
   })
 end
 
+
 return {
   'hrsh7th/nvim-cmp',
   dependencies = {

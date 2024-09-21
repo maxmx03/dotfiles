@@ -7,6 +7,6 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   opts = {
-    theme = 'github'
+    theme = vim.g.colors_name,
   },
 }
