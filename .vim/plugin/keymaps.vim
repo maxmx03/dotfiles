@@ -16,4 +16,5 @@ nmap <silent>f =<CR>
 nmap <silent>F =G<CR>
 nmap <silent><F7> :Inspect<CR>
 nmap <silent><c-e> <c-u>
-nmap <silent>q :Fern . -drawer -toggle<CR>
+
+nmap <silent>n <Plug>(fern-action-new-dir)

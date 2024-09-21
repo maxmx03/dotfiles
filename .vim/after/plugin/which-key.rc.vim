@@ -10,7 +10,6 @@ g:which_key_map = {
   w: [':update', ' Update'],
   o: [':on', 'Only Screen'],
   e: [':Fern . -stay -drawer -toggle', '󰙅 Open File Tree'],
-  f: [':Files', ' Search File'],
   m: [':CocCommand markdown-preview-enhanced.openPreview', 'markdown preview'],
   p: {
     name: 'plugin manager',

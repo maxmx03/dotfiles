@@ -33,5 +33,6 @@ g:coc_global_extensions = [
   'coc-go',
   '@yaegassy/coc-astro',
   'coc-sh',
-  'coc-diagnostic'
+  'coc-diagnostic',
+  'coc-webview'
 ]

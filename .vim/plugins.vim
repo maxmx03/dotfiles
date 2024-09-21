@@ -7,8 +7,6 @@ Plug 'sheerun/vim-polyglot'
 
 # editor
 Plug 'lambdalisue/vim-fern'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
