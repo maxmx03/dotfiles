@@ -9,3 +9,5 @@
 .config/waybar
 .gitconfig
 .bash_profile
+.config/fish
+.config/starship.toml

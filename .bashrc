@@ -11,6 +11,7 @@ alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
 alias g="lazygit"
+alias aquarium="asciiquarium"
 
 shopt -s histappend
 
@@ -35,6 +36,9 @@ if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/utils.sh"
 fi
 
+if [[ -n $(command -v timer) ]]; then
+  source "$HOME/dotfiles/lib/pomodoro.sh"
+fi
 
 export FZF_DEFAULT_COMMAND='fd -t f -s --ignore --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
