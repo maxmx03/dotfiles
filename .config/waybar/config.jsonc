@@ -22,7 +22,8 @@
     "custom/powermenu"
   ],
   "custom/logo": {
-    "format": "󰣇",
+    // "format": "󰣇",
+    "format": "󰥓",
     "on-click": "~/.config/waybar/scripts/wallpaper",
     "tooltip": false
   },

@@ -13,7 +13,7 @@
   #custom-logo {
     color: $base1;
     font-size: 24px;
-    padding: 2px 16px 2px 10px;
+    padding: 2px 10px;
 
     &:hover {
       color: $blue;
@@ -27,6 +27,7 @@
 
       &:hover, &.active {
         color: $base0;
+        background: none;
       }
     }
   }
