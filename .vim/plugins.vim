@@ -2,11 +2,15 @@ vim9script
 plug#begin()
 
 # Colorscheme & syntax highlight
-Plug 'lifepillar/vim-solarized8'
 Plug 'sheerun/vim-polyglot'
+Plug 'lifepillar/vim-solarized8'
 
 # editor
 Plug 'lambdalisue/vim-fern'
+Plug 'lambdalisue/vim-fern-renderer-nerdfont'
+Plug 'mhinz/vim-startify'
+Plug 'lambdalisue/vim-nerdfont'
+
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
@@ -14,7 +18,6 @@ Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/vim-which-key'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-buftabline'
 Plug 'hahdookin/miniterm.vim'
 Plug 'justinmk/vim-sneak'
