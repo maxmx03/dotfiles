@@ -23,21 +23,22 @@ return {
       vim.cmd.colorscheme 'github'
     end,
   },
-  {
-    'maxmx03/solarized.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {
-      transparent = {
-        enabled = true,
-        lazy = false,
-        mason = false,
-        neotree = false,
-      },
-    },
-    config = function(_, opts)
-      require('solarized').setup(opts)
-      -- vim.cmd.colorscheme 'solarized'
-    end,
-  },
+  -- {
+  --   'maxmx03/solarized.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     transparent = {
+  --       enabled = true,
+  --       lazy = false,
+  --       mason = false,
+  --       neotree = false,
+  --       normal = true,
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     require('solarized').setup(opts)
+  --     vim.cmd.colorscheme 'solarized'
+  --   end,
+  -- },
 }

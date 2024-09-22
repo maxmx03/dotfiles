@@ -8,3 +8,4 @@
 .config/fish/conf.d
 .config/fish/functions/fish_prompt.fish
 .config/fish/fish_variables
+.config/nvim/spell

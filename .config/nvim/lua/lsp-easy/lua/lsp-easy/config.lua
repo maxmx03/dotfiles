@@ -1,10 +1,17 @@
 local icons = require 'lsp-easy.icons'
 
+local source = function(_)
+  return {}
+end
+
 ---@class lsp-easy.config
 local config = {
-  formatters = {},
-  diagnostics = {},
-  on_attach = nil,
+  lspconfig = {},
+  formatters = source,
+  diagnostics = source,
+  completions = source,
+  hovers = source,
+  code_actions = source,
   servers = {},
   handlers = {},
   virtual_text = {

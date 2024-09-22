@@ -4,10 +4,7 @@ local lsp_config = require 'lspconfig'
 
 local M = {}
 
-M.config = {
-  on_attach = nil,
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
-}
+M.config = {}
 
 M.virtual_text = function(signs, virtual_text)
   for type, icon in pairs(signs) do
@@ -35,7 +32,7 @@ end
 
 ---@param config lsp-easy.config
 M.load = function(config)
-  M.config.on_attach = config.on_attach
+  M.config = config.lspconfig
   mason.setup {}
   mason_config.setup {
     automatic_installation = true,
