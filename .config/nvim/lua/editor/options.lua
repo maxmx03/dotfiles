@@ -1,6 +1,7 @@
 vim.loader.enable()
 vim.g.mapleader = ' ' -- which-key
 vim.g.maplocalleader = '\\'
+vim.g.editorconfig = true
 
 local opt = vim.opt
 
@@ -23,7 +24,7 @@ opt.listchars:append { tab = '→ ' }
 opt.mouse = 'a'
 opt.number = true
 -- opt.pumblend = 10 -- enables pseudo-transparency
-opt.pumheight = 10        -- maximum number of items to show in the popup menu
+opt.pumheight = 10 -- maximum number of items to show in the popup menu
 opt.relativenumber = true -- number relative to the cursor
 opt.scrolloff = 4
 opt.shiftround = true
@@ -53,4 +54,3 @@ opt.wrap = true
 opt.shell = 'bash'
 opt.smoothscroll = true
 opt.title = true
-vim.g.editorconfig =true

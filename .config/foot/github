@@ -5,6 +5,7 @@
 color=111111 61afef
 
 [colors]
+alpha=0.8
 foreground=d1d7e0
 # background=212830
 background=000000

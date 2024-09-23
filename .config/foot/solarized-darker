@@ -5,6 +5,7 @@
 color= 002b36 93a1a1
 
 [colors]
+alpha=0.9
 background= 001a20
 foreground= 839496
 regular0=   073642
