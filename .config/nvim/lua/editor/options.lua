@@ -2,6 +2,7 @@ vim.loader.enable()
 vim.g.mapleader = ' ' -- which-key
 vim.g.maplocalleader = '\\'
 vim.g.editorconfig = true
+vim.g.colorscheme = 'horizon'
 
 local opt = vim.opt
 

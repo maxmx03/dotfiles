@@ -64,7 +64,6 @@
 ---@field on_colors? fun(colors: horizon.colors, color: horizon.color): horizon.colors
 ---@field styles? horizon.styles
 ---@field error_lens? horizon.error_lens
-
 local config = {
   on_highlights = nil,
   on_colors = nil,

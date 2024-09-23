@@ -5,10 +5,11 @@
 color=111111 FAB795
 
 [colors]
-alpha=0.8
-foreground=8B8D8F
+# alpha=0.8
+alpha=0.9
+foreground=D5D8DA
 background=16161C
-background=000000
+# background=000000
 regular0=1c2128   # black
 regular1=FAB795   # red
 regular2=27D796   # green
