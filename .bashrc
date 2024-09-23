@@ -15,7 +15,6 @@ export FZF_DEFAULT_OPTS="
   --color=spinner:#8ddb8c,info:#6cb6ff
   --color=pointer:#e06c75,marker:#8ddb8c,prompt:#1c2128"
 
-
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind -x '"\C-l":ls'
@@ -55,8 +54,17 @@ if [[ -n $(command -v timer) ]]; then
   source "$HOME/dotfiles/lib/pomodoro.sh"
 fi
 
-if [[ -f "$HOME/git-completion.bash" ]]; then
-  source "$HOME/git-completion.bash"
-else
-  wget "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
-fi
+readonly -A completions=(
+  [git-completion.bash]="https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
+  [go.completion.sh]="https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
+  [tmux.completion.sh]="https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
+  [docker]="https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
+)
+
+for completion in "${!completions[@]}"; do
+  if [[ -f "$HOME/.completions/${completion}" ]]; then
+    source "$HOME/.completions/${completion}"
+  else
+    [[ -n $(command -v wget) ]] && wget --directory="$HOME/.completions" "${completions[$completion]}"
+  fi
+done
