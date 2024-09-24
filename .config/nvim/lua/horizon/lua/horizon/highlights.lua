@@ -390,8 +390,8 @@ M.load = function(config)
   hi('WhichKeySeparator', { link = 'Keyword' })
   hi('WhichKeyGroup', { link = 'Constant' })
 
-  hi('DashboardHeader', { fg = c.base01 })
-  hi('DashboardFooter', { fg = c.purple })
+  hi('DashboardHeader', { fg = c.yellow_orange })
+  hi('DashboardFooter', { fg = c.orange })
   hi('DashboardDesc', { link = 'Directory' })
   hi('DashboardKey', { link = 'Keyword' })
   hi('DashboardIcon', { link = 'Directory' })
@@ -425,9 +425,9 @@ M.load = function(config)
   hi('TelescopePromptCounter', { link = 'NonText' })
   hi('TelescopePromptPrefix', { fg = c.cyan })
 
-  hi('HopNextKey', { fg = c.purple })
-  hi('HopNextKey1', { fg = c.yellow_orange })
-  hi('HopNextKey2', { fg = c.cyan })
+  hi('HopNextKey', { fg = c.yellow })
+  hi('HopNextKey1', { fg = c.red })
+  hi('HopNextKey2', { fg = c.orange })
   hi('HopUnmatched', { fg = c.base01 })
 
   if config.transparent.enabled then

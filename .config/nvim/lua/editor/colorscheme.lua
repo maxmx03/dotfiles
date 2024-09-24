@@ -30,21 +30,31 @@ return {
     ---@type horizon.config
     opts = {
       transparent = {
-        enabled = true,
+        enabled = false,
         lazy = false,
         mason = false,
         neotree = false,
       },
-      on_highlights = function(colors)
+      on_highlights = function(colors, color)
         ---@type horizon.groups
         return {
-          ColorColumn = { bg = colors.base03 },
+          LspInlayHint = { fg = color.shade(colors.purple, 3) },
+          -- ColorColumn = { bg = colors.base04 },
+          CursorLine = { bg = 'NONE' },
         }
       end,
     },
     config = function(_, opts)
       require('horizon').setup(opts)
       vim.cmd.colorscheme 'horizon'
+    end,
+  },
+  solarized = {
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'solarized'
     end,
   },
 }

@@ -11,3 +11,4 @@
 .bash_profile
 .config/fish
 .config/starship.toml
+.config/mako

@@ -28,7 +28,7 @@ local config = function()
           mode = 'symbol_text',
           maxwidth = 30,
           preset = 'codicons',
-        } (entry, vim_item)
+        }(entry, vim_item)
         local strings = vim.split(kind.kind, '%s', { trimempty = true })
         kind.kind = ' ' .. (strings[1] or '') .. ' '
         kind.menu = '    (' .. (strings[2] or '') .. ')'
@@ -40,6 +40,16 @@ local config = function()
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
       { name = 'path' },
+      {
+        name = 'spell',
+        option = {
+          keep_all_entries = false,
+          enable_in_context = function()
+            return require('cmp.config.context').in_treesitter_capture 'spell'
+          end,
+          preselect_correct_word = true,
+        },
+      },
     }, {
       { name = 'buffer' },
     }),
@@ -85,7 +95,6 @@ local config = function()
   })
 end
 
-
 return {
   'hrsh7th/nvim-cmp',
   dependencies = {
@@ -98,6 +107,7 @@ return {
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
     'rafamadriz/friendly-snippets',
+    'f3fora/cmp-spell',
   },
   config = config,
 }
