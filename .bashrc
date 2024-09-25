@@ -55,17 +55,19 @@ if [[ -n $(command -v timer) ]]; then
   source "$HOME/dotfiles/lib/pomodoro.sh"
 fi
 
-readonly -A completions=(
-  [git-completion.bash]="https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
-  [go.completion.sh]="https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
-  [tmux.completion.sh]="https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
-  [docker]="https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
+readonly -a completions=(
+  "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
+  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
+  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
+  "https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
 )
 
-for completion in "${!completions[@]}"; do
-  if [[ -f "$HOME/.completions/${completion}" ]]; then
-    source "$HOME/.completions/${completion}"
-  else
-    [[ -n $(command -v wget) ]] && wget --directory="$HOME/.completions" "${completions[$completion]}"
-  fi
+function wgetcomp {
+  [ ! -f "$HOME"/.completions/"$1" ] && wget --directory-prefix="$HOME/.completions" "$2"
+}
+export -f wgetcomp
+parallel wgetcomp {/} {} ::: "${completions[@]}"
+
+for comp in "$HOME"/.completions/*; do
+  source "$comp"
 done

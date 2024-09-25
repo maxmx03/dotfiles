@@ -207,6 +207,7 @@ if [[ $confirm == "y" ]]; then
     man
     fzf
     fd
+    parallel
   )
 
   yay -S "${bash_packages[@]}"

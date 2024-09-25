@@ -9,3 +9,4 @@
 .config/fish/functions/fish_prompt.fish
 .config/fish/fish_variables
 .config/nvim/spell
+lib/bell.wav
