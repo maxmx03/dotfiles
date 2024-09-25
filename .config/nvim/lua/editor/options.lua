@@ -3,6 +3,7 @@ vim.g.mapleader = ' ' -- which-key
 vim.g.maplocalleader = '\\'
 vim.g.editorconfig = true
 vim.g.colorscheme = 'horizon'
+vim.g.transparent = true
 
 local opt = vim.opt
 

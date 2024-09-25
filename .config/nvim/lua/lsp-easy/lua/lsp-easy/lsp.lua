@@ -1,5 +1,6 @@
 local mason = require 'mason'
-local mason_config = require 'mason-lspconfig'
+local mason_lspconfig = require 'mason-lspconfig'
+local mason_installer = require 'mason-tool-installer'
 local lsp_config = require 'lspconfig'
 
 local M = {}
@@ -34,9 +35,8 @@ end
 M.load = function(config)
   M.config = config.lspconfig
   mason.setup {}
-  mason_config.setup {
-    automatic_installation = true,
-  }
+  mason_lspconfig.setup(config.mason_lspconfig)
+  mason_installer.setup(config.mason_installer)
   M.virtual_text(config.signs, config.virtual_text)
   M.servers(config.servers)
   M.handlers(config.handlers)

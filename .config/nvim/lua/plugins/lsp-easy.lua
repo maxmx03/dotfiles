@@ -8,6 +8,7 @@ return {
     'nvimtools/none-ls.nvim',
     'nvim-lua/plenary.nvim',
     'jay-babu/mason-null-ls.nvim',
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
   },
   config = function()
     ---@type lsp-easy
@@ -17,6 +18,12 @@ return {
       lspconfig = {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = require 'code.on_attach',
+      },
+      mason_lspconfig = {
+        automatic_installation = { exclude = { 'rust_analyzer' } },
+      },
+      mason_installer = {
+        ensure_installed = { 'shellcheck', 'shfmt' },
       },
       formatters = function(formatting)
         return {
@@ -54,8 +61,8 @@ return {
         marksman = require 'code.handlers.marksman',
         mdx_analyzer = require 'code.handlers.mdx_analyzer',
         pylsp = require 'code.handlers.pylsp',
-        rust_analyzer = require 'code.handlers.rust_analyzer',
         ts_ls = require 'code.handlers.ts_ls',
+        rust_analyzer = require 'code.handlers.rust_analyzer',
       },
     }
   end,

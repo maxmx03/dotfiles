@@ -14,6 +14,12 @@ local config = {
   code_actions = source,
   servers = {},
   handlers = {},
+  mason_lspconfig = {
+    automatic_installation = true,
+  },
+  mason_installer = {
+    auto_update = true,
+  },
   virtual_text = {
     prefix = '󱋊',
   },

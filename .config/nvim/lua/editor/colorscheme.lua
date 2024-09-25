@@ -6,7 +6,7 @@ return {
     ---@type github.config
     opts = {
       transparent = {
-        enabled = true,
+        enabled = vim.g.transparent,
         lazy = false,
         mason = false,
         neotree = false,
@@ -30,7 +30,7 @@ return {
     ---@type horizon.config
     opts = {
       transparent = {
-        enabled = false,
+        enabled = vim.g.transparent,
         lazy = false,
         mason = false,
         neotree = false,
