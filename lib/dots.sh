@@ -29,6 +29,7 @@ function _dots_help {
   update              update config
   update all          update all config
   remove              remove config
+  show                display config inside dots.txt
   help                display help
   '
 }
@@ -36,6 +37,10 @@ function _dots_help {
 function __install {
   declare config
   config=$(grep "$1" "$DOTS_DATA_FILE" | head -1)
+  if [[ -z "$config" ]]; then
+    echo "config not found: $1"
+    return
+  fi
   echo "installing $config to $HOME/$config"
   if [[ -e "$HOME/$config" ]]; then
     read -re -p "$config already installed, do you want to processed? [y/n] " confirm
@@ -90,7 +95,11 @@ function __update {
   declare config
   config=$(grep "$1" "$DOTS_DATA_FILE" | head -1)
   echo "updating $HOME/$config to $DOTS_DIR/$config"
-  if [[ -e "$DOTS_DIR/$config" ]]; then
+  if [[ -z "$config" ]]; then
+    echo "config not found: $1"
+    return
+  fi
+  if [[ -e "$DOTS_DIR/$config" ]] && [[ -e "$HOME/$config" ]]; then
     read -re -p "Do you want to processed? [y/n] " confirm
 
     if [[ $confirm == [yY] ]]; then
@@ -100,11 +109,7 @@ function __update {
       cp -rf "$HOME/$config" "$DOTS_DIR/$config"
     fi
   else
-    read -re -p "Do you want to processed? [y/n] " confirm
-    if [[ $confirm == [yY] ]]; then
-      loading 0.1 "installing"
-      cp -rf "$HOME/$config" "$DOTS_DIR/$config"
-    fi
+    echo "nothing to update"
   fi
 }
 
@@ -155,6 +160,10 @@ function _dots_remove {
   fi
 }
 
+function _dots_show {
+  less "$DOTS_DATA_FILE"
+}
+
 function dots {
   declare arg1 arg2
   arg1=$1
@@ -163,12 +172,23 @@ function dots {
     [install]="_dots_install"
     [update]="_dots_update"
     [remove]="_dots_remove"
+    [show]="_dots_show"
     [help]="_dots_help"
   )
 
-  if [[ -z "$arg1" ]] || [[ -z "$arg2" ]]; then
-    _dots_help
-  else
-    ${subcmds[$arg1]} "$arg2"
-  fi
+  case $arg1 in
+  show)
+    _dots_show
+    ;;
+  help)
+    dots_help
+    ;;
+  *)
+    if [[ -z "$arg1" ]] || [[ -z "$arg2" ]]; then
+      _dots_help
+    else
+      ${subcmds[$arg1]} "$arg2"
+    fi
+    ;;
+  esac
 }
