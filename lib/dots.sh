@@ -181,7 +181,7 @@ function dots {
     _dots_show
     ;;
   help)
-    dots_help
+    _dots_help
     ;;
   *)
     if [[ -z "$arg1" ]] || [[ -z "$arg2" ]]; then
