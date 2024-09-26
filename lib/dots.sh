@@ -2,161 +2,173 @@
 export DOTS_DIR="${XDG_DATA_HOME:-$HOME}/dotfiles"
 export DOTS_DATA_FILE="$DOTS_DIR/dots.txt"
 
-if [ ! -e "$DOTS_DATA_FILE" ]; then
-  touch "$DOTS_DATA_FILE"
-fi
+[[ ! -f "$DOTS_DATA_FILE" ]] && touch "$DOTS_DATA_FILE"
 
-function _dots_remove() {
-  declare config answer data
-  data=$(grep "" "$DOTS_DATA_FILE")
+function loading {
+  declare t msg
+  t=$1
+  msg=$2
 
-  if [ -n "$data" ]; then
-    config=$(gum choose $data)
-  fi
+  for i in {0..11}; do
+    printf "\r${msg:-Loading}: [%-10s]" "$(seq -s "#" "$i" | tr -d '[:digit:]')"
+    sleep "${t:-0.1}"
+  done
+  echo " Done!"
+}
 
-  if [ -n "$config" ] && [ -e "$HOME/$config" ]; then
-    gum style --foreground 37 "the followings commands are going to be executed:"
-    gum style --foreground 160 "rm -rf $HOME/$config"
+export -f loading
 
-    gum confirm "proceed with these commands?" && answer="y"
+function _dots_help {
+  echo 'Dots - Help
 
-    if [ "$answer" = "y" ]; then
-      gum spin --spinner dot --title "preparing to remove $HOME/$config" -- sleep 3
-      rm -rf "$HOME/$config"
-      gum spin --spinner dot --title "removing $HOME/$config" -- sleep 2
-      gum log --structured --level info "the $HOME/$config has been removed"
-    else
-      gum log --structured --level info "operation canceled"
+  Usage: dots <command> [options]
+
+  COMMANDS:
+  install             install config
+  install all         install all config
+  update              update config
+  update all          update all config
+  remove              remove config
+  help                display help
+  '
+}
+
+function __install {
+  declare config
+  config=$(grep "$1" "$DOTS_DATA_FILE" | head -1)
+  echo "installing $config to $HOME/$config"
+  if [[ -e "$HOME/$config" ]]; then
+    read -re -p "$config already installed, do you want to processed? [y/n] " confirm
+
+    if [[ $confirm == [yY] ]]; then
+      loading 0.1 "cleaning"
+      rm -rf "$HOME/${config:?}"
+      loading 0.1 "installing"
+      cp -rf "$DOTS_DIR/$config" "$HOME/$config"
     fi
   else
-    gum log --structured --level error "config not found"
-  fi
-}
-
-function _dots_list() {
-  if [ ! -e "$DOTS_DATA_FILE" ]; then
-    touch "$DOTS_DATA_FILE"
-  fi
-  less "$DOTS_DATA_FILE"
-}
-
-function _dots_installation() {
-  declare config answer
-  config=$1
-
-  gum style --foreground 37 "the followings commands are going to be executed:"
-  gum style --foreground 160 "cp -r $DOTS_DIR/$config $HOME/$config"
-  gum confirm "proceed with these commands?" && answer="y"
-
-  if [ "$answer" = y ]; then
-    gum spin --spinner dot --title "preparing to install $DOTS_DIR/$config to $HOME/$config" -- sleep 3
-    cp -r "$DOTS_DIR/$config" "$HOME/$config"
-    gum spin --spinner dot --title "installing $DOTS_DIR/$config to $HOME/$config" -- sleep 2
-    gum log --structured --level info "the $config has been installed"
-  else
-    gum log --structured --level info "operation canceled"
-  fi
-}
-
-function _dots_add() {
-  gum write --placeholder "You can add multiple config ex: .config/nvim .config/kitty" >>"$DOTS_DATA_FILE"
-}
-
-function _dots_install() {
-  declare config answer data
-  data=$(grep "" "$DOTS_DATA_FILE")
-
-  if [ -n "$data" ]; then
-    config=$(gum choose $data)
-  fi
-
-  if [ -n "$config" ]; then
-    if [ -e "$HOME/$config" ]; then
-      gum style --foreground 37 "'$HOME/$config' already exists."
-      gum confirm "Do you want to overwrite it?" && answer="y"
-
-      if [ "$answer" = "y" ]; then
-        gum spin --spinner dot --title "preparing to remove '$HOME/$config..." -- sleep 3
-        rm -rf "$HOME/$config"
-        gum spin --spinner dot --title "removing '$HOME/$config..." -- sleep 2
-        _dots_installation "$config"
-      else
-        gum log --structured --level info "operation canceled: $answer"
-      fi
-    else
-      _dots_installation "$config"
+    read -re -p "Do you want to processed? [y/n] " confirm
+    if [[ $confirm == [yY] ]]; then
+      loading 0.1 "installing"
+      cp -rf "$DOTS_DIR/$config" "$HOME/$config"
     fi
-  else
-    gum log --structured --level error "config not found"
   fi
 }
 
-function _dots_update() {
-  declare config answer data
-
-  data=$(grep "" "$DOTS_DATA_FILE")
-
-  if [ -n "$data" ]; then
-    config=$(gum choose $data)
-  fi
-
-  if [ -n "$config" ] && [ -e "$HOME/$config" ]; then
-    gum style --foreground 37 "the followings commands are going to be executed:"
-    gum style --foreground 160 "rm -rf '$DOTS_DIR/$config'"
-    gum style --foreground 160 "cp -r '$HOME/$config' '$DOTS_DIR/$config'"
-    gum confirm "proceed with these commands?" && answer="y"
-
-    if [ "$answer" = "y" ]; then
-      gum spin --spinner dot --title "preparing to remove '$DOTS_DIR/$config'..." -- sleep 3
-      rm -rf "$DOTS_DIR/$config"
-      gum spin --spinner dot --title "removing '$DOTS_DIR/$config'..." -- sleep 2
-      gum spin --spinner dot --title "preparing to copy '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 3
-      cp -r "$HOME/$config" "$DOTS_DIR/$config"
-      gum spin --spinner dot --title "copying '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 2
-      gum log --structured --level info "the $DOTS_DIR/$config  has been updated"
-    else
-      gum log --structured --level info "operation canceled"
-    fi
-  else
-    gum log --structured --level error "$config not found"
+function __install_all {
+  read -re -p "install all is going to override all existing installed, do you want to processed? [y/n] " confirm
+  if [[ $confirm == [yY] ]]; then
+    declare -a configs=$1
+    loading 0.1 "cleaning"
+    parallel rm -rf "$HOME/"{} ';' echo "" {} ::: "${configs[@]}"
+    loading 0.1 "installing"
+    parallel cp -rf "$DOTS_DIR/"{} "$HOME/"{} ';' echo "" {} ::: "${configs[@]}"
   fi
 }
 
-function _dots_exit() {
-  gum spin --spinner dot --title "exiting..." -- sleep 1
-  return
-}
-
-function _dots_updateall() {
+function _dots_install {
+  declare configs args
+  args=$1
   configs=$(grep "" "$DOTS_DATA_FILE")
 
-  for config in ${configs[@]}; do
-    if [[ -e "$HOME/$config" ]]; then
-      gum spin --spinner dot --title "preparing to remove '$DOTS_DIR/$config'..." -- sleep 1
-      rm -rf "$DOTS_DIR/$config"
-      cp -r "$HOME/$config" "$DOTS_DIR/$config"
-      gum spin --spinner dot --title "copying '$HOME/$config' to '$DOTS_DIR/$config'..." -- sleep 1
-      gum log --structured --level info "the $DOTS_DIR/$config  has been updated"
-    fi
+  if [[ -z $configs ]]; then
+    echo "$DOTS_DATA_FILE is empty, please fill $DOTS_DATA_FILE manually."
+    return
+  fi
 
-  done
+  case "$args" in
+  all)
+    __install_all "$configs"
+    ;;
+  *)
+    __install "$args"
+    ;;
+  esac
 }
 
-function dots() {
-  declare DOTS_CMD
-  DOTS_CMD=$(gum choose --limit 1 "add" "install" "update" "updateall" "list" "remove" "exit")
+function __update {
+  declare config
+  config=$(grep "$1" "$DOTS_DATA_FILE" | head -1)
+  echo "updating $HOME/$config to $DOTS_DIR/$config"
+  if [[ -e "$DOTS_DIR/$config" ]]; then
+    read -re -p "Do you want to processed? [y/n] " confirm
 
+    if [[ $confirm == [yY] ]]; then
+      loading 0.1 "cleaning"
+      rm -rf "$DOTS_DIR/${config:?}"
+      loading 0.1 "installing"
+      cp -rf "$HOME/$config" "$DOTS_DIR/$config"
+    fi
+  else
+    read -re -p "Do you want to processed? [y/n] " confirm
+    if [[ $confirm == [yY] ]]; then
+      loading 0.1 "installing"
+      cp -rf "$HOME/$config" "$DOTS_DIR/$config"
+    fi
+  fi
+}
+
+function __update_all {
+  read -re -p "update all is going to override all existing dotfiles, do you want to processed? [y/n] " confirm
+  if [[ $confirm == [yY] ]]; then
+    declare -a configs=$1
+    loading 0.1 "cleaning"
+    parallel rm -rf "$DOTS_DIR/"{} ';' echo "" {} ::: "${configs[@]}"
+    loading 0.1 "updating"
+    parallel cp -rf "$HOME/"{} "$DOTS_DIR/"{} ';' echo "" {} ::: "${configs[@]}"
+  fi
+}
+
+function _dots_update {
+  declare configs args
+  args=$1
+  configs=$(grep "" "$DOTS_DATA_FILE")
+
+  if [[ -z $configs ]]; then
+    echo "$DOTS_DATA_FILE is empty, please fill $DOTS_DATA_FILE manually."
+    return
+  fi
+
+  case "$args" in
+  all)
+    __update_all "$configs"
+    ;;
+  *)
+    __update "$args"
+    ;;
+  esac
+}
+
+function _dots_remove {
+  declare config
+  config=$(grep "$1" "$DOTS_DATA_FILE" | head -1)
+  echo "removing $HOME/$config"
+  if [[ -e "$HOME/$config" ]]; then
+    read -re -p "Do you want to processed? [y/n] " confirm
+
+    if [[ $confirm == [yY] ]]; then
+      loading 0.3 "removing"
+      rm -rf "$HOME/${config:?}"
+    fi
+  else
+    echo "nothing to remove"
+  fi
+}
+
+function dots {
+  declare arg1 arg2
+  arg1=$1
+  arg2=$2
   declare -A subcmds=(
-    [update]="_dots_update"
-    [updateall]="_dots_updateall"
-    [add]="_dots_add"
     [install]="_dots_install"
-    [list]="_dots_list"
+    [update]="_dots_update"
     [remove]="_dots_remove"
-    [exit]="_dots_exit"
+    [help]="_dots_help"
   )
 
-  if [[ -n "${subcmds[$DOTS_CMD]}" ]]; then
-    ${subcmds[$DOTS_CMD]}
+  if [[ -z "$arg1" ]] || [[ -z "$arg2" ]]; then
+    _dots_help
+  else
+    ${subcmds[$arg1]} "$arg2"
   fi
 }
