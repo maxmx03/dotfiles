@@ -12,3 +12,4 @@
 .config/rofi
 .config/waybar
 .config/nvim
+.config/mpv
