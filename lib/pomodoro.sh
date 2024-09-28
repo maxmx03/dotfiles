@@ -57,6 +57,9 @@ function pomodoro {
       break)
         state="work"
         ;;
+      *)
+        state="work"
+        ;;
       esac
       ;;
     esac
