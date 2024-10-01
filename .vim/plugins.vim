@@ -3,13 +3,11 @@ plug#begin()
 
 # Colorscheme & syntax highlight
 Plug 'n1ghtmare/noirblaze-vim'
-Plug 'sheerun/vim-polyglot'
 
 # editor
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'lambdalisue/vim-fern'
 Plug 'lambdalisue/vim-fern-renderer-nerdfont'
-Plug 'mhinz/vim-startify'
 Plug 'lambdalisue/vim-nerdfont'
 Plug 't9md/vim-choosewin'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }

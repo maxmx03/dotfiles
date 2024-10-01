@@ -5,7 +5,7 @@ g:lightline = { colorscheme: 'noirblaze' }
 
 colorscheme quiet
 
-# hi Normal guifg=#ffffff guibg=NONE
+hi Normal guifg=#dadada guibg=NONE
 # hi LineNr guifg=#839496 guibg=NONE
 # hi CursorLineNr guifg=#839496 guibg=NONE gui=bold
 hi EndOfBuffer guifg=#000000 guibg=NONE
