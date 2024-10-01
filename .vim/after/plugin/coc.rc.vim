@@ -34,5 +34,6 @@ g:coc_global_extensions = [
   '@yaegassy/coc-astro',
   'coc-sh',
   'coc-diagnostic',
-  'coc-webview'
+  'coc-webview',
+  'coc-clangd',
 ]

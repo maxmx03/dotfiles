@@ -19,9 +19,6 @@ return {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = require 'code.on_attach',
       },
-      mason_lspconfig = {
-        automatic_installation = { exclude = { 'rust_analyzer' } },
-      },
       mason_installer = {
         ensure_installed = { 'shellcheck', 'shfmt' },
       },
@@ -52,6 +49,8 @@ return {
         'yamlls',
         'tailwindcss',
         'taplo',
+        'clangd',
+        -- 'ccls',
       },
       handlers = {
         emmet_ls = require 'code.handlers.emmet_ls',
@@ -62,7 +61,6 @@ return {
         mdx_analyzer = require 'code.handlers.mdx_analyzer',
         pylsp = require 'code.handlers.pylsp',
         ts_ls = require 'code.handlers.ts_ls',
-        rust_analyzer = require 'code.handlers.rust_analyzer',
       },
     }
   end,

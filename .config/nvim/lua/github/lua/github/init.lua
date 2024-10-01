@@ -1,5 +1,5 @@
 local config = require 'github.config'
-local dimmed = require 'github.highlights'
+local highlights = require 'github.highlights'
 
 ---@class github
 local M = {}
@@ -21,7 +21,7 @@ M.load = function()
   end
 
   vim.g.colors_name = 'github'
-  dimmed.load(M.config)
+  highlights.load(M.config)
 end
 
 return M

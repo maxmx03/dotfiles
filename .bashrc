@@ -2,9 +2,11 @@ export QT_QPA_PLATFORM=wayland
 export EDITOR="nvim"
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.c/bin
+export NVIM_APPNAME=nvim
 export FZF_DEFAULT_COMMAND='fd -t f -s --ignore --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
-  --tmux=center 
+  --tmux=center
   --border=rounded
   --border-label=${USER^}
   --header='Find Files'
@@ -25,7 +27,6 @@ alias ll="eza --long --icons -a"
 alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
-alias g="lazygit"
 alias aquarium="asciiquarium"
 
 shopt -s histappend
@@ -43,16 +44,14 @@ if [[ -n $(command -v starship) ]]; then
   eval "$(starship init bash)"
 fi
 
+source "$HOME/.cargo/env"
+source "$HOME/dotfiles/lib/dots.sh"
+source "$HOME/dotfiles/lib/pomodoro.sh"
 if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/tmx.sh"
-  source "$HOME/dotfiles/lib/dots.sh"
   source "$HOME/dotfiles/lib/kanban.sh"
   source "$HOME/dotfiles/lib/notes.sh"
   source "$HOME/dotfiles/lib/utils.sh"
-fi
-
-if [[ -n $(command -v timer) ]]; then
-  source "$HOME/dotfiles/lib/pomodoro.sh"
 fi
 
 readonly -a completions=(
@@ -65,6 +64,7 @@ readonly -a completions=(
 function wgetcomp {
   [ ! -f "$HOME"/.completions/"$1" ] && wget --directory-prefix="$HOME/.completions" "$2"
 }
+
 export -f wgetcomp
 parallel wgetcomp {/} {} ::: "${completions[@]}"
 

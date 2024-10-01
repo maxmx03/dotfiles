@@ -1,5 +1,5 @@
 local config = require 'horizon.config'
-local dimmed = require 'horizon.highlights'
+local highlights = require 'horizon.highlights'
 
 ---@class horizon
 local M = {}
@@ -21,7 +21,7 @@ M.load = function()
   end
 
   vim.g.colors_name = 'horizon'
-  dimmed.load(M.config)
+  highlights.load(M.config)
 end
 
 return M

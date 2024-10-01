@@ -53,7 +53,21 @@ return {
     'maxmx03/solarized.nvim',
     lazy = false,
     priority = 1000,
-    config = function()
+    opts = {
+      transparent = {
+        enabled = vim.g.transparent,
+        lazy = false,
+        mason = false,
+        neotree = false,
+      },
+      on_highlights = function(colors, color)
+        return {
+          LspInlayHint = { fg = color.shade(colors.green, 3) },
+        }
+      end,
+    },
+    config = function(_, opts)
+      require('solarized').setup(opts)
       vim.cmd.colorscheme 'solarized'
     end,
   },

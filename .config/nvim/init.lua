@@ -6,8 +6,10 @@ lazy.setup {
   spec = {
     { import = 'plugins' },
   },
-  install = { colorscheme = { vim.g.colorscheme },
-  checker = { enabled = true, notify = false } },
+  install = {
+    colorscheme = { vim.g.colorscheme },
+    checker = { enabled = true, notify = false },
+  },
   change_detection = {
     enable = true,
     notify = false,

@@ -1,2 +1,2 @@
-local colorschemes = require('editor.colorscheme')
+local colorschemes = require 'editor.colorscheme'
 return colorschemes[vim.g.colorscheme]

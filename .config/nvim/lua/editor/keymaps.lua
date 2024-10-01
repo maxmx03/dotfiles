@@ -18,14 +18,14 @@ nmap('F', '=G<CR>')
 nmap('s', '<cmd>HopWord<CR>')
 nmap('<C-Left>', '<cmd>BufferLineCyclePrev<CR>')
 nmap('<C-Right>', '<cmd>BufferLineCycleNext<CR>')
+nmap('<C-Up>', '<cmd>BufferLinePick<CR>')
 nmap('<Tab>', function()
   require('nvim-window').pick()
 end)
 nmap('[s', '[s<cmd>Telescope spell_suggest theme=cursor<CR>')
 nmap(']s', ']s<cmd>Telescope spell_suggest theme=cursor<CR>')
+nmap(';', '<S-A>;<ESC><cmd>update<CR>')
 tmap('<ESC>', '<c-c> exit<CR>')
-vmap('J', "<cmd>m '>+1<CR>gv=gv")
-vmap('K', "<cmd>m '<-2<CR>gv=gv")
 
 return {
   {
@@ -64,7 +64,13 @@ return {
   { '<space>gS', '<cmd>Telescope git_stash<CR>', desc = 'Stash' },
   { '<space>gb', '<cmd>Telescope git_branches<CR>', desc = 'Branchs' },
   { '<space>gd', '<cmd>Gitsigns diffthis<CR>', desc = 'Open Diff' },
-  { '<space>gg', '<cmd>LazyGit<CR>', desc = 'Open Lazygit' },
+  {
+    '<space>gg',
+    function()
+      vim.notify('lazygit not available', vim.log.levels.WARN)
+    end,
+    desc = 'Open Lazygit',
+  },
   { '<space>gp', '<cmd>Gitsigns preview_hunk_inline<CR>', desc = 'Open Inline Diff' },
   { '<space>gs', '<cmd>Telescope git_status<CR>', desc = 'Status' },
   { '<space>l', group = 'LSP' },
