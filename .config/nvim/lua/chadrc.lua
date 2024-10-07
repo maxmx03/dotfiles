@@ -37,26 +37,41 @@ local options = {
           if not vim.b.gitsigns_status_dict then
             return ''
           end
-
+          local git = vim.b.gitsigns_status_dict
           local function set_hl(item, group_name)
             return '%#' .. group_name .. '#' .. item .. '%*'
           end
-
+          local namespace = 'St_git'
           local function section(item, icon, group_name)
             local value = ''
             if not item or item == 0 then
               return value
             end
             value = string.format('%s %s', icon, item)
-            value = set_hl(value, group_name)
+            value = set_hl(value, namespace .. group_name)
             return value
           end
+          local function color(group_name, key)
+            local group = vim.api.nvim_get_hl(0, { name = group_name, link = false })
+            if vim.tbl_isempty(group) then
+              return dofile(vim.g.base46_cache .. "colors").black
+            end
+            return group[key]
+          end
+          local st_head = color('Title', 'fg')
+          local st_added = color('GitSignsAdd', 'fg')
+          local st_removed = color('GitSignsDelete', 'fg')
+          local st_changed = color('GitSignsChange', 'fg')
+          local st_bg = color('StatusLine', 'bg')
+          vim.api.nvim_set_hl(0,namespace .. 'Head', { fg = st_head, bg = st_bg })
+          vim.api.nvim_set_hl(0, namespace .. 'Added', { fg = st_added, bg = st_bg })
+          vim.api.nvim_set_hl(0, namespace .. 'Removed', { fg = st_removed, bg = st_bg })
+          vim.api.nvim_set_hl(0, namespace .. 'Changed', { fg = st_changed, bg = st_bg })
           local icons = require 'utils.icons'
-          local git = vim.b.gitsigns_status_dict
-          local head = section(git.head, icons.git.Branch, 'Title')
-          local added = section(git.added, icons.git.LineAdded, 'GitSignsAdd')
-          local changed = section(git.changed, icons.git.LineModified, 'GitSignsChange')
-          local removed = section(git.removed, icons.git.LineRemoved, 'GitSignsDelete')
+          local head = section(git.head, icons.git.Branch, 'Head')
+          local added = section(git.added, icons.git.LineAdded, 'Added')
+          local changed = section(git.changed, icons.git.LineModified, 'Changed')
+          local removed = section(git.removed, icons.git.LineRemoved, 'Removed')
           return string.format(' %s %s %s %s', head, added, changed, removed)
         end,
       },
