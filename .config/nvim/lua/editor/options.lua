@@ -1,9 +1,7 @@
 vim.loader.enable()
-vim.g.mapleader = ' ' -- which-key
+vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 vim.g.editorconfig = true
-vim.g.colorscheme = 'horizon'
-vim.g.transparent = true
 
 local opt = vim.opt
 
@@ -17,7 +15,7 @@ opt.cursorline = true
 opt.colorcolumn = '120'
 opt.expandtab = true
 opt.formatoptions = 'jcroqlnt'
-opt.fillchars:append { eob = ' ' } -- remove end of buffer characters
+opt.fillchars:append { eob = ' ' }
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.laststatus = 3
@@ -25,17 +23,17 @@ opt.list = true
 opt.listchars:append { tab = '→ ' }
 opt.mouse = 'a'
 opt.number = true
--- opt.pumblend = 10 -- enables pseudo-transparency
-opt.pumheight = 10 -- maximum number of items to show in the popup menu
-opt.relativenumber = true -- number relative to the cursor
+-- opt.pumblend = 10
+opt.pumheight = 10
+opt.relativenumber = true
 opt.scrolloff = 4
 opt.shiftround = true
 opt.shiftwidth = 2
-opt.shortmess:append { W = true, I = true, c = true, C = true } -- noice.nvim
+opt.shortmess:append { W = true, I = true, c = true, C = true }
 opt.showmode = false
 opt.sidescrolloff = 8
 opt.signcolumn = 'yes'
-opt.showtabline = 2 -- specify when the tab will be displayed
+opt.showtabline = 2
 opt.smartcase = true
 opt.smartindent = true
 opt.spell = true
@@ -56,3 +54,8 @@ opt.wrap = true
 opt.shell = 'bash'
 opt.smoothscroll = true
 opt.title = true
+
+vim.g.base46_cache = vim.fn.stdpath 'data' .. '/base46_cache/'
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+  dofile(vim.g.base46_cache .. v)
+end

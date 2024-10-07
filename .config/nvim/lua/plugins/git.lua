@@ -5,8 +5,4 @@ return {
       current_line_blame = true,
     },
   },
-  -- {
-  --   'kdheepak/lazygit.nvim',
-  --   dependencies = 'nvim-lua/plenary.nvim',
-  -- },
 }

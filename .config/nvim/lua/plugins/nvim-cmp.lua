@@ -7,35 +7,24 @@ local config = function()
 
   local cmp = require 'cmp'
 
-  local function border(hl_name)
-    return {
-      { '╭', hl_name },
-      { '─', hl_name },
-      { '╮', hl_name },
-      { '│', hl_name },
-      { '╯', hl_name },
-      { '─', hl_name },
-      { '╰', hl_name },
-      { '│', hl_name },
-    }
-  end
-
-  cmp.setup {
-    formatting = {
-      fields = { 'kind', 'abbr', 'menu' },
-      format = function(entry, vim_item)
-        local kind = require('lspkind').cmp_format {
-          mode = 'symbol_text',
-          maxwidth = 30,
-          preset = 'codicons',
-        }(entry, vim_item)
-        local strings = vim.split(kind.kind, '%s', { trimempty = true })
-        kind.kind = ' ' .. (strings[1] or '') .. ' '
-        kind.menu = '    (' .. (strings[2] or '') .. ')'
-
-        return kind
-      end,
+  cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' },
     },
+  })
+
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' },
+    }, {
+      { name = 'cmdline' },
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false },
+  })
+
+  local options = {
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
@@ -57,10 +46,6 @@ local config = function()
       completion = {
         col_offset = -3,
         side_padding = 0,
-        border = border 'CmpBorder',
-      },
-      documentation = {
-        border = border 'CmpBorder',
       },
     },
     mapping = cmp.mapping.preset.insert {
@@ -76,23 +61,8 @@ local config = function()
       end,
     },
   }
-
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' },
-    },
-  })
-
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' },
-    }, {
-      { name = 'cmdline' },
-    }),
-    matching = { disallow_symbol_nonprefix_matching = false },
-  })
+  options = vim.tbl_deep_extend('force', options, require 'nvchad.cmp')
+  require('cmp').setup(options)
 end
 
 return {

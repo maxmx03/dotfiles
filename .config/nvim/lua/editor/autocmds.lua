@@ -26,3 +26,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = augroup 'show_keys',
+  once = true,
+  callback = function()
+    vim.defer_fn(function()
+      require('showkeys').toggle()
+    end, 3000)
+  end,
+})

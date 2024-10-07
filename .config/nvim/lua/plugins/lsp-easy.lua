@@ -50,7 +50,6 @@ return {
         'tailwindcss',
         'taplo',
         'clangd',
-        -- 'ccls',
       },
       handlers = {
         emmet_ls = require 'code.handlers.emmet_ls',
