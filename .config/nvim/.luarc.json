@@ -1,4 +1,9 @@
 {
     "workspace.checkThirdParty": "Disable",
-    "completion.autoRequire": false
+    "completion.autoRequire": false,
+    "workspace.library": [
+        "/usr/share/nvim/runtime",
+        "${3rd}/luv/library",
+        "${3rd}/busted/library"
+    ]
 }

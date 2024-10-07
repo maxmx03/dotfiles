@@ -32,7 +32,34 @@ local options = {
       -- round and block will work for minimal theme only
       separator_style = 'default',
       order = nil,
-      modules = nil,
+      modules = {
+        git = function()
+          if not vim.b.gitsigns_status_dict then
+            return ''
+          end
+
+          local function set_hl(item, group_name)
+            return '%#' .. group_name .. '#' .. item .. '%*'
+          end
+
+          local function section(item, icon, group_name)
+            local value = ''
+            if not item or item == 0 then
+              return value
+            end
+            value = string.format('%s %s', icon, item)
+            value = set_hl(value, group_name)
+            return value
+          end
+          local icons = require 'utils.icons'
+          local git = vim.b.gitsigns_status_dict
+          local head = section(git.head, icons.git.Branch, 'Title')
+          local added = section(git.added, icons.git.LineAdded, 'GitSignsAdd')
+          local changed = section(git.changed, icons.git.LineModified, 'GitSignsChange')
+          local removed = section(git.removed, icons.git.LineRemoved, 'GitSignsDelete')
+          return string.format(' %s %s %s %s', head, added, changed, removed)
+        end,
+      },
     },
 
     -- lazyload it when there are 1+ buffers
@@ -68,7 +95,11 @@ local options = {
       { txt = '󱥚  Themes', keys = 'Spc t h', cmd = ":lua require('nvchad.themes').open()" },
       { txt = '  Mappings', keys = 'Spc c h', cmd = 'NvCheatsheet' },
       { txt = ' Projects', keys = 'Spc s p', cmd = 'Telescope projects' },
-      { txt = ' Config', keys = 'Spc s p', cmd = 'lua vim.cmd(string.format("edit %s/init.lua", vim.fn.stdpath("config")))' },
+      {
+        txt = ' Config',
+        keys = 'Spc s p',
+        cmd = 'lua vim.cmd(string.format("edit %s/init.lua", vim.fn.stdpath("config")))',
+      },
       { txt = '─', hl = 'NvDashLazy', no_gap = true, rep = true },
 
       {
