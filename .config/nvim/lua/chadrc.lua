@@ -8,7 +8,7 @@ local options = {
     },
     integrations = {},
     changed_themes = {},
-    transparency = false,
+    transparency = true,
     theme_toggle = { 'horizon', 'oxocarbon' },
   },
 
@@ -54,7 +54,7 @@ local options = {
           local function color(group_name, key)
             local group = vim.api.nvim_get_hl(0, { name = group_name, link = false })
             if vim.tbl_isempty(group) then
-              return dofile(vim.g.base46_cache .. "colors").black
+              return 'NONE'
             end
             return group[key]
           end
@@ -63,7 +63,7 @@ local options = {
           local st_removed = color('GitSignsDelete', 'fg')
           local st_changed = color('GitSignsChange', 'fg')
           local st_bg = color('StatusLine', 'bg')
-          vim.api.nvim_set_hl(0,namespace .. 'Head', { fg = st_head, bg = st_bg })
+          vim.api.nvim_set_hl(0, namespace .. 'Head', { fg = st_head, bg = st_bg })
           vim.api.nvim_set_hl(0, namespace .. 'Added', { fg = st_added, bg = st_bg })
           vim.api.nvim_set_hl(0, namespace .. 'Removed', { fg = st_removed, bg = st_bg })
           vim.api.nvim_set_hl(0, namespace .. 'Changed', { fg = st_changed, bg = st_bg })
@@ -72,7 +72,10 @@ local options = {
           local added = section(git.added, icons.git.LineAdded, 'Added')
           local changed = section(git.changed, icons.git.LineModified, 'Changed')
           local removed = section(git.removed, icons.git.LineRemoved, 'Removed')
-          return string.format(' %s %s %s %s', head, added, changed, removed)
+          local st_icons = vim.tbl_filter(function(value)
+            return value ~= ''
+          end, { head, added, changed, removed })
+          return ' ' .. table.concat(st_icons, ' ')
         end,
       },
     },
