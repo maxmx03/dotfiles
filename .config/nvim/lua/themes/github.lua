@@ -1,0 +1,106 @@
+local M = {}
+
+M.base_30 = {
+  white = '#d1d7e0',
+  black = '#212830',
+  darker_black = '#1f252d',
+  black2 = '#2b343f',
+  one_bg = '#323d49',
+  one_bg2 = '#3b4856',
+  one_bg3 = '#445464',
+  grey = '#4c5156',
+  grey_fg = '#9ba2aa',
+  grey_fg2 = '#969da5',
+  light_grey = '#545b62',
+  red = '#e06c75',
+  baby_pink = '#e06c75',
+  pink = '#dcbdfb',
+  line = '#3b4756',
+  green = '#8ddb8c',
+  vibrant_green = '#8ddb8c',
+  nord_blue = '#56b6c2',
+  blue = '#61afef',
+  seablue = '#6cb6ff',
+  yellow = '#e5c07b',
+  sun = '#eac55f',
+  purple = '#d2a8ff',
+  dark_purple = '#d2a8ff',
+  teal = '#56b6c2',
+  orange = '#d19a66',
+  cyan = '#a5d6ff',
+  statusline_bg = '#262c36',
+  lightbg = '#4d5359',
+  pmenu_bg = '#61afef',
+  folder_bg = '#61afef',
+}
+
+M.base_16 = {
+  base00 = '#212830',
+  base01 = '#262c36',
+  base02 = '#5b5170',
+  base03 = '#4d5359',
+  base04 = '#9198a1',
+  base05 = '#d1d7e0',
+  base06 = '#f0f6fc',
+  base07 = '#262c36',
+  base08 = '#d1d7e0',
+  base09 = '#61afef',
+  base0A = '#e5c07b',
+  base0B = '#a5d6ff',
+  base0C = '#e06c75',
+  base0D = '#61afef',
+  base0E = '#e06c75',
+  base0F = '#d2a8ff',
+}
+
+M.polish_hl = {
+  treesitter = {
+    ['@type.builtin'] = { link = 'Keyword' },
+    ['@tag'] = { fg = M.base_30.green },
+    ['@tag.attribute'] = { fg = M.base_30.blue },
+    ['@tag.delimiter'] = { fg = M.base_30.white },
+    ['@operator.html'] = { fg = M.base_30.red },
+    ['@keyword.directive.css'] = { link = 'Keyword' },
+    ['@keyword.directive.scss'] = { link = '@keyword.directive.css' },
+    ['@markup.strong'] = { fg = M.base_30.purple, bold = true },
+    ['@markup.italic'] = { fg = M.base_30.purple, italic = true },
+    ['@markup.quote'] = { fg = M.base_30.green },
+    ['@markup.heading'] = { fg = M.base_30.blue },
+    ['@markup.heading.1'] = { fg = M.base_30.blue },
+    ['@markup.heading.2'] = { fg = M.base_30.green },
+    ['@markup.heading.3'] = { fg = M.base_30.yellow },
+    ['@markup.heading.4'] = { fg = M.base_30.orange },
+    ['@markup.heading.5'] = { fg = M.base_30.red },
+    ['@markup.heading.6'] = { fg = M.base_30.purple },
+    ['@variable'] = { link = 'Variable' },
+    ['@variable.member'] = { fg = M.base_30.purple },
+    ['@property'] = { fg = M.base_30.purple },
+    ['@constant'] = { link = 'Constant' },
+    ['@keyword.repeat'] = { link = 'Keyword' },
+    ['@keyword.directive'] = { link = 'Keyword' },
+    ['@keyword.directive.define'] = { link = 'Keyword' },
+  },
+  syntax = {
+    Constant = { fg = M.base_30.blue },
+    Variable = { fg = M.base_30.white },
+    Comment = { fg = M.base_30.grey },
+  },
+  semantic_tokens = {
+    ['@lsp.type.variable'] = { link = 'Variable' },
+    ['@lsp.mod.readonly'] = { link = 'Constant' },
+    ['@lsp.mod.global'] = { link = 'Constant' },
+    ['@lsp.typemod.variable.globalScope'] = { link = 'Constant' },
+    ['@lsp.typemod.variable.global'] = { link = 'Constant' },
+    ['@lsp.typemod.variable.defaultLibrary'] = { link = 'Constant' },
+  },
+  cmp = {
+    CmpItemKindField = { link = '@property' },
+    CmpItemKindKeyword = { link = '@keyword' },
+  },
+}
+
+M.type = 'dark'
+
+M = require('base46').override_theme(M, 'github')
+
+return M

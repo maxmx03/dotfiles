@@ -8,8 +8,8 @@ local options = {
     },
     integrations = {},
     changed_themes = {},
-    transparency = true,
-    theme_toggle = { 'horizon', 'oxocarbon' },
+    transparency = false,
+    theme_toggle = { 'horizon', 'darkplus' },
   },
 
   ui = {
@@ -134,27 +134,12 @@ local options = {
     },
   },
 
-  term = {
-    winopts = { number = false, relativenumber = false },
-    sizes = { sp = 0.3, vsp = 0.2, ['bo sp'] = 0.3, ['bo vsp'] = 0.2 },
-    float = {
-      relative = 'editor',
-      row = 0.3,
-      col = 0.25,
-      width = 0.5,
-      height = 0.4,
-      border = 'single',
-    },
-  },
-
-  lsp = { signature = true },
+  lsp = { signature = false },
 
   cheatsheet = {
     theme = 'grid', -- simple/grid
     excluded_groups = { 'terminal (t)', 'autopairs', 'Nvim', 'Opens' }, -- can add group name or with mode
   },
-
-  mason = { pkgs = {} },
 
   colorify = {
     enabled = true,

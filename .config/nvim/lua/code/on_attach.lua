@@ -1,6 +1,7 @@
 local function on_attach(client, bufnr)
   local lsp_signature = require 'lsp_signature'
   local wk = require 'which-key'
+  local icons = require 'utils.icons'
 
   if client and client.server_capabilities and client.server_capabilities.inlayHintProvider then
     vim.lsp.inlay_hint.enable(true)
@@ -12,7 +13,7 @@ local function on_attach(client, bufnr)
 
   lsp_signature.on_attach({
     floating_window = false,
-    hint_prefix = '🤔' .. ' ',
+    hint_prefix = icons.ui.Comment .. ' ',
     hint_scheme = 'String',
   }, bufnr)
 
