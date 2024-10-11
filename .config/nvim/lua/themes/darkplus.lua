@@ -12,7 +12,7 @@ M.base_30 = {
   grey_fg2 = '#585858',
   light_grey = '#626262',
   red = '#D16969',
-  baby_pink = '#7c3aed',
+  baby_pink = '#D16969',
   pink = '#bb7cb6',
   line = '#2e2e2e',
   green = '#6A9955',
@@ -40,7 +40,7 @@ M.base_16 = {
   base04 = '#c8c8c8',
   base05 = '#c8c8c8',
   base06 = '#c8c8c8',
-  base07 = '#181818',
+  base07 = '#444444',
   base08 = '#9CDCFE',
   base09 = '#4FC1FF',
   base0A = '#4EC9B0',
@@ -100,6 +100,14 @@ M.polish_hl = {
     ['@lsp.typemod.variable.globalScope'] = { link = 'Constant' },
     ['@lsp.typemod.variable.global'] = { link = 'Constant' },
     ['@lsp.typemod.variable.defaultLibrary'] = { link = 'Constant' },
+  },
+  cmp = {
+    CmpItemKindField = { link = '@property' },
+    CmpItemKindFile = { link = 'Normal' },
+    CmpItemKindFolder = { link = 'Directory' },
+    CmpItemKindKeyword = { link = '@keyword' },
+    CmpItemKindFunction = { fg = M.base_30.purple },
+    CmpItemKindMethod = { fg = M.base_30.purple },
   },
 }
 

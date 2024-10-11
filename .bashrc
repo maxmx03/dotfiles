@@ -3,7 +3,6 @@ export EDITOR="nvim"
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.c/bin
-export NVIM_APPNAME=nvim
 export FZF_DEFAULT_COMMAND='fd -t f -s --ignore --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
   --tmux=center
@@ -24,6 +23,7 @@ bind -x '"\C-l":ls'
 bind -x '"\C-f":fzf'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
+alias g="lazygit"
 alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
@@ -71,3 +71,15 @@ parallel wgetcomp {/} {} ::: "${completions[@]}"
 for comp in "$HOME"/.completions/*; do
   source "$comp"
 done
+
+function llamasay {
+  if [[ ! -f "$NOTES_DIR/llama.txt" ]]; then
+    return
+  fi
+  declare -i lines random
+  lines=$(wc -l "$NOTES_DIR"/llama.txt | awk '{print $1}' )
+  random=$(( RANDOM % lines ))
+  cowsay -f llama "$(sed -n "$((random + 1))p" "$NOTES_DIR"/llama.txt)"
+}
+
+llamasay

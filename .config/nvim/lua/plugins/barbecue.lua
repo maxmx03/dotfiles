@@ -6,5 +6,7 @@ return {
     'SmiteshP/nvim-navic',
     'nvim-tree/nvim-web-devicons',
   },
-  opts = {},
+  opts = {
+    theme = 'auto',
+  },
 }

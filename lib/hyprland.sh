@@ -58,7 +58,6 @@ read -ei "y" -p "install hyprland packages?" confirm
 if [[ $confirm == "y" ]]; then
   ## Install hyprland and dependencies
   hypr_packages=(
-    # hyprland
     hyprland
     xdg-desktop-portal-hyprland # must have
 

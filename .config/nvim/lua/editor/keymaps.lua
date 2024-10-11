@@ -34,11 +34,17 @@ end)
 
 return {
   {
-    '<F3>',
+    '<F4>',
     function()
       require('nvchad.term').toggle { pos = 'float', id = 'floatTerm' }
     end,
-    desc = 'toggle term',
+    desc = 'toggle nvchad.term',
+    mode = { 'n', 't' },
+  },
+  {
+    '<F5>',
+    require 'utils.runner',
+    desc = 'toggle nvchad.runner',
     mode = { 'n', 't' },
   },
   {
@@ -47,11 +53,13 @@ return {
     desc = 'Comment toggle current line',
     mode = 'v',
   },
+  {},
   {
     '<space>/',
     '<Plug>(comment_toggle_linewise_current)',
     desc = 'Comment toggle current line',
   },
+  { '<space>t', "<cmd>lua require('nvchad.themes').open()<CR>", desc = 'Theme Picker' },
   { '<space>e', '<cmd>NvimTreeToggle<CR>', desc = 'Open File Tree' },
   { '<space>f', '<cmd>Telescope find_files theme=dropdown<CR>', desc = 'Find Files' },
   { '<space>q', quit.confirm_quit, desc = 'Close' },
@@ -62,10 +70,6 @@ return {
   { '<space>ma', '<cmd>MasonUninstallAll<CR>', desc = 'Uninstall all packages' },
   { '<space>mm', '<cmd>Mason<CR>', desc = 'Open Mason' },
   { '<space>mu', '<cmd>MasonUpdate<CR>', desc = 'Update Mason' },
-  { '<space>b', group = 'Buffer' },
-  { '<space>bX', '<cmd>BufferLineCloseOther <CR>', desc = 'Exit Others' },
-  { '<space>bp', '<cmd>BufferLinePick <CR>', desc = 'Pick Buffer' },
-  { '<space>bs', '<cmd>BufferLineSortByTabs <CR>', desc = 'Sortby Tabs' },
   { '<space>g', group = 'Git' },
   { '<space>gC', '<cmd>Telescope git_commits<CR>', desc = 'Commits' },
   { '<space>gS', '<cmd>Telescope git_stash<CR>', desc = 'Stash' },
@@ -133,7 +137,6 @@ return {
   { '<space>sk', '<cmd>Telescope keymaps<CR>', desc = 'Search keymaps' },
   { '<space>sp', '<cmd>Telescope projects<CR>', desc = 'Search Projects' },
   { '<space>sw', '<cmd>Telescope live_grep<CR>', desc = 'Search words' },
-  { '<space>sc', "<cmd>lua require('nvchad.themes').open()<CR>", desc = 'Theme Picker' },
   {
     '<space>ss',
     '<cmd>Telescope spell_suggest theme=cursor<CR>',

@@ -1,5 +1,4 @@
 .tmux.conf
-.vim
 .bashrc
 .gitconfig
 .bash_profile

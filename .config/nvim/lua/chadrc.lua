@@ -110,7 +110,7 @@ local options = {
       { txt = '  Find File', keys = 'Spc f', cmd = 'Telescope find_files' },
       { txt = '  Recent Files', keys = 'Spc f o', cmd = 'Telescope oldfiles' },
       { txt = '󰈭  Find Word', keys = 'Spc f w', cmd = 'Telescope live_grep' },
-      { txt = '󱥚  Themes', keys = 'Spc t h', cmd = ":lua require('nvchad.themes').open()" },
+      { txt = '󱥚  Themes', keys = 'Spc t', cmd = ":lua require('nvchad.themes').open()" },
       { txt = '  Mappings', keys = 'Spc c h', cmd = 'NvCheatsheet' },
       { txt = ' Projects', keys = 'Spc s p', cmd = 'Telescope projects' },
       {
@@ -146,6 +146,16 @@ local options = {
     mode = 'virtual', -- fg, bg, virtual
     virt_text = '󱓻 ',
     highlight = { hex = true, lspvars = true },
+  },
+
+  term = {
+    float = {
+      row = 0.1,
+      col = 0.1,
+      width = 0.8,
+      height = 0.7,
+      border = 'single',
+    },
   },
 }
 
