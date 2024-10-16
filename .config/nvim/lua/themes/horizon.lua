@@ -75,6 +75,7 @@ M.polish_hl = {
     ['@markup.heading.6'] = { fg = M.base_30.purple },
     ['@variable'] = { link = 'Variable' },
     ['@constant'] = { link = 'Constant' },
+    ['@constant.macro'] = { link = 'Constant' },
     ['@keyword.repeat'] = { link = 'Keyword' },
     ['@keyword.directive'] = { link = 'Keyword' },
     ['@keyword.directive.define'] = { link = 'Keyword' },

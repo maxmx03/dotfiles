@@ -87,6 +87,7 @@ M.polish_hl = {
   syntax = {
     Variable = { fg = M.base_16.base08 },
     Comment = { fg = M.base_30.grey },
+    Constant = { fg = M.base_30.blue },
   },
   semantic_tokens = {
     ['@lsp.type.variable'] = { link = 'Variable' },
