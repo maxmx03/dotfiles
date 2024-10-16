@@ -5,12 +5,11 @@ local options = {
     hl_override = {
       SpellBad = { link = '@text.strike' },
       LspInlayHint = { link = 'Comment' },
-      ColorColumn = { bg = '#000000' },
       HelpviewCode = { link = 'MarkviewCode' }
     },
     integrations = {},
     changed_themes = {},
-    transparency = true,
+    transparency = false,
     theme_toggle = { 'github', 'horizon' },
   },
 

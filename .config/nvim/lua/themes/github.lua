@@ -1,16 +1,16 @@
 local M = {}
 
 M.base_30 = {
-  white = '#f0f6fc',
-  black = '#0d1117',
-  darker_black = '#0c0f15', -- 6% darker than black
-  black2 = '#171e29', -- 6% lighter than black
-  one_bg = '#1e2735', -- 10% lighter than black
-  one_bg2 = '#273345', -- 6% lighter than one_bg2
-  one_bg3 = '#303f55', -- 6% lighter than one_bg3
-  grey = '#4c5156', -- 40% lighter than black
-  grey_fg = '#4c5156', -- 10% lighter than grey
-  grey_fg2 = '#969da5', -- 5% lighter than grey
+  white = '#d1d7e0',
+  black = '#212830',
+  darker_black = '#1f252d',
+  black2 = '#2b343f',
+  one_bg = '#323d49',
+  one_bg2 = '#3b4856',
+  one_bg3 = '#445464',
+  grey = '#4c5156',
+  grey_fg = '#4c5156',
+  grey_fg2 = '#969da5',
   light_grey = '#545b62',
   red = '#e06c75',
   baby_pink = '#e06c75',
@@ -35,7 +35,7 @@ M.base_30 = {
 }
 
 M.base_16 = {
-  base00 = '#0d1117',
+  base00 = '#212830',
   base01 = '#262c36',
   base02 = '#5b5170',
   base03 = '#4d5359',
