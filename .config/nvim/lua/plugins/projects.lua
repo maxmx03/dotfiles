@@ -9,6 +9,8 @@ return {
           'package.json',
           '.luarc.json',
           'lazy-lock.json',
+          'MakeFile',
+          'makefile',
         },
       }
     end,

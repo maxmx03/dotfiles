@@ -1,4 +1,9 @@
 vim.loader.enable()
+vim.g.base46_cache = vim.fn.stdpath 'data' .. '/base46_cache/'
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+  dofile(vim.g.base46_cache .. v)
+end
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 vim.g.editorconfig = true
@@ -51,11 +56,5 @@ opt.virtualedit = 'block'
 opt.wildmode = 'longest:full,full'
 opt.winminwidth = 5
 opt.wrap = true
-opt.shell = 'bash'
 opt.smoothscroll = true
 opt.title = true
-
-vim.g.base46_cache = vim.fn.stdpath 'data' .. '/base46_cache/'
-for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-  dofile(vim.g.base46_cache .. v)
-end

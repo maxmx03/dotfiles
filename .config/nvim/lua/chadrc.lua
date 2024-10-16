@@ -1,15 +1,17 @@
 local options = {
   base46 = {
-    theme = 'horizon',
+    theme = 'github',
     hl_add = {},
     hl_override = {
       SpellBad = { link = '@text.strike' },
       LspInlayHint = { link = 'Comment' },
+      ColorColumn = { bg = '#000000' },
+      HelpviewCode = { link = 'MarkviewCode' }
     },
     integrations = {},
     changed_themes = {},
-    transparency = false,
-    theme_toggle = { 'horizon', 'darkplus' },
+    transparency = true,
+    theme_toggle = { 'github', 'horizon' },
   },
 
   ui = {

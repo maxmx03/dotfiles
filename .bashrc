@@ -27,6 +27,7 @@ alias g="lazygit"
 alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
+alias vim="nvim"
 alias aquarium="asciiquarium"
 
 shopt -s histappend
@@ -77,9 +78,16 @@ function llamasay {
     return
   fi
   declare -i lines random
+  declare text
   lines=$(wc -l "$NOTES_DIR"/llama.txt | awk '{print $1}' )
   random=$(( RANDOM % lines ))
-  cowsay -f llama "$(sed -n "$((random + 1))p" "$NOTES_DIR"/llama.txt)"
+  text="$(sed -n "$((random + 1))p" "$NOTES_DIR"/llama.txt)"
+  [[ -n $text ]] && cowsay -f llama "$text"
+  return 0
+}
+
+function llama {
+  cat "$NOTES_DIR"/llama.txt
 }
 
 llamasay

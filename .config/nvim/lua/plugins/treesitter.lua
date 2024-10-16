@@ -5,7 +5,16 @@ return {
       require('nvim-treesitter.configs').setup {
         auto_install = true,
         sync_install = false,
-        ensure_installed = 'all',
+        ensure_installed = {
+          'c',
+          'cpp',
+          'lua',
+          'vim',
+          'vimdoc',
+          'query',
+          'markdown',
+          'markdown_inline',
+        },
         ignore_install = { 'dashboard' },
         highlight = {
           enable = true,

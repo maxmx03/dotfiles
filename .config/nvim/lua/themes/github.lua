@@ -1,16 +1,16 @@
 local M = {}
 
 M.base_30 = {
-  white = '#d1d7e0',
-  black = '#212830',
-  darker_black = '#1f252d',
-  black2 = '#2b343f',
-  one_bg = '#323d49',
-  one_bg2 = '#3b4856',
-  one_bg3 = '#445464',
-  grey = '#4c5156',
-  grey_fg = '#4c5156',
-  grey_fg2 = '#969da5',
+  white = '#f0f6fc',
+  black = '#0d1117',
+  darker_black = '#0c0f15', -- 6% darker than black
+  black2 = '#171e29', -- 6% lighter than black
+  one_bg = '#1e2735', -- 10% lighter than black
+  one_bg2 = '#273345', -- 6% lighter than one_bg2
+  one_bg3 = '#303f55', -- 6% lighter than one_bg3
+  grey = '#4c5156', -- 40% lighter than black
+  grey_fg = '#4c5156', -- 10% lighter than grey
+  grey_fg2 = '#969da5', -- 5% lighter than grey
   light_grey = '#545b62',
   red = '#e06c75',
   baby_pink = '#e06c75',
@@ -29,13 +29,13 @@ M.base_30 = {
   orange = '#d19a66',
   cyan = '#a5d6ff',
   statusline_bg = '#262c36',
-  lightbg = '#4d5359',
+  lightbg = '#323d49',
   pmenu_bg = '#61afef',
-  folder_bg = '#61afef',
+  folder_bg = '#79c0ff',
 }
 
 M.base_16 = {
-  base00 = '#212830',
+  base00 = '#0d1117',
   base01 = '#262c36',
   base02 = '#5b5170',
   base03 = '#4d5359',
@@ -43,13 +43,13 @@ M.base_16 = {
   base05 = '#d1d7e0',
   base06 = '#f0f6fc',
   base07 = '#4c5156',
-  base08 = '#d1d7e0',
-  base09 = '#61afef',
+  base08 = '#f0f6fc',
+  base09 = '#79c0ff',
   base0A = '#e5c07b',
   base0B = '#a5d6ff',
-  base0C = '#e06c75',
+  base0C = '#ff7b72',
   base0D = '#61afef',
-  base0E = '#e06c75',
+  base0E = '#ff7b72',
   base0F = '#d2a8ff',
 }
 
@@ -75,14 +75,17 @@ M.polish_hl = {
     ['@variable'] = { link = 'Variable' },
     ['@variable.member'] = { fg = M.base_30.purple },
     ['@property'] = { fg = M.base_30.purple },
+    ['@property.json'] = { fg = M.base_30.green },
+    ['@property.yaml'] = { fg = M.base_30.green },
     ['@constant'] = { link = 'Constant' },
+    ['@constant.html'] = { link = '@tag' },
+    ['@constant.macro'] = { link = 'Constant' },
     ['@keyword.repeat'] = { link = 'Keyword' },
     ['@keyword.directive'] = { link = 'Keyword' },
     ['@keyword.directive.define'] = { link = 'Keyword' },
   },
   syntax = {
-    Constant = { fg = M.base_30.blue },
-    Variable = { fg = M.base_30.white },
+    Variable = { fg = M.base_16.base08 },
     Comment = { fg = M.base_30.grey },
   },
   semantic_tokens = {

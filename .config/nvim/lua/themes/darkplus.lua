@@ -1,4 +1,5 @@
 local M = {}
+
 M.base_30 = {
   white = '#dee1e6',
   darker_black = '#1a1a1a',
@@ -84,6 +85,7 @@ M.polish_hl = {
     ['@markup.heading.6'] = { fg = M.base_30.sun },
     ['@variable'] = { link = 'Variable' },
     ['@constant'] = { link = 'Constant' },
+    ['@constant.macro'] = { link = 'Constant' },
     ['@comment'] = { fg = M.base_30.green },
     ['@number'] = { link = 'Number' },
   },

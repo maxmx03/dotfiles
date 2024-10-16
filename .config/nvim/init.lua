@@ -1,5 +1,7 @@
-require 'lazy-bootstrap'
-require 'editor'
+require 'lazy.config'
+require 'options'
+require 'autocmds'
+require 'maps'
 local lazy = require 'lazy'
 
 lazy.setup {
