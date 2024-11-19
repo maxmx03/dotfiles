@@ -5,8 +5,6 @@
 ## Config files
 
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
-- [vim](https://github.com/vim/vim) Text editor
-- [neovim](https://github.com/neovim/neovim) - Vim-based text editor
 - [hypr](https://github.com/hyprwm/Hypr) tiling window manager
   - [waybar](https://github.com/Alexays/Waybar) Wayland bar
   - [wlogout](https://github.com/ArtsyMacaw/wlogout) wayland based logout
