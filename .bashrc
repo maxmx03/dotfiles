@@ -27,7 +27,6 @@ alias g="lazygit"
 alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
-alias vim="nvim"
 alias aquarium="asciiquarium"
 
 shopt -s histappend
@@ -50,7 +49,6 @@ source "$HOME/dotfiles/lib/dots.sh"
 source "$HOME/dotfiles/lib/pomodoro.sh"
 if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/tmx.sh"
-  source "$HOME/dotfiles/lib/kanban.sh"
   source "$HOME/dotfiles/lib/notes.sh"
   source "$HOME/dotfiles/lib/utils.sh"
 fi
@@ -73,21 +71,21 @@ for comp in "$HOME"/.completions/*; do
   source "$comp"
 done
 
+function llama {
+  cat "$NOTES_DIR"/llama.txt
+}
+
 function llamasay {
   if [[ ! -f "$NOTES_DIR/llama.txt" ]]; then
     return
   fi
   declare -i lines random
   declare text
-  lines=$(wc -l "$NOTES_DIR"/llama.txt | awk '{print $1}' )
-  random=$(( RANDOM % lines ))
+  lines=$(wc -l "$NOTES_DIR"/llama.txt | awk '{print $1}')
+  random=$((RANDOM % lines))
   text="$(sed -n "$((random + 1))p" "$NOTES_DIR"/llama.txt)"
   [[ -n $text ]] && cowsay -f llama "$text"
   return 0
 }
 
-function llama {
-  cat "$NOTES_DIR"/llama.txt
-}
-
-llamasay
+[ -n "${WAYLAND_DISPLAY}" ] && llamasay
