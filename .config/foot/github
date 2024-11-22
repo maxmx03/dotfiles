@@ -2,7 +2,7 @@
 # Palette based on the same theme from https://github.com/dexpota/kitty-themes
 
 [cursor]
-color=111111 61afef
+# color=111111 61afef
 
 [colors]
 alpha=0.8
