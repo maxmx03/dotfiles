@@ -1,0 +1,12 @@
+*.gif
+.vim/pack/minpac
+.vim/.netrwhist
+.vim/plugged
+.env
+.config/fish/functions/fundle.fish
+.config/fish/fundle
+.config/fish/conf.d
+.config/fish/functions/fish_prompt.fish
+.config/fish/fish_variables
+.config/nvim/spell
+lib/bell.wav
