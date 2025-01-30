@@ -1,7 +1,5 @@
 # Milianor's dotfiles
 
-![20240908_17h18m45s_grim](https://github.com/user-attachments/assets/f372205a-7b24-4fc3-8e81-12f518be583a)
-
 ## Config files
 
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
