@@ -159,7 +159,6 @@ read -ei "y" -p "install mouse,gtk,icon?" confirm
 if [[ $confirm == 'y' ]]; then
   themes_package=(
     sassc # whitesur dependencies
-    whitesur-icon-theme
     qogir-cursor-theme-git
     xdg-user-dirs
     xdg-open
@@ -169,14 +168,14 @@ if [[ $confirm == 'y' ]]; then
   yay -S "${themes_package[@]}"
 
   cd "$HOME"
-  [[ ! -d "$HOME/WhiteSur-icon-theme" ]] && git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-  cd $HOME/WhiteSur-icon-theme
+  [[ ! -d "$HOME/WhiteSur-gtk-theme" ]] && git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+  cd $HOME/WhiteSur-gtk-theme
   ./install.sh -t grey
 
   sleep 3
 
   cd "$HOME"
-  https://github.com/vinceliuice/WhiteSur-icon-theme.git
+  [[ ! -d "$HOME/WhiteSur-icon-theme" ]] && https://github.com/vinceliuice/WhiteSur-icon-theme.git
   cd $HOME/WhiteSur-icon-theme
   ./install.sh -t grey
 
