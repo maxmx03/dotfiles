@@ -11,3 +11,4 @@
 .config/rofi
 .config/waybar
 .config/mpv
+.config/kitty
