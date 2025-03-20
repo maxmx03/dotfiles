@@ -40,7 +40,6 @@ fi
 
 source "$HOME/dotfiles/lib/utils.sh"
 source "$HOME/dotfiles/lib/dots.sh"
-source "$HOME/dotfiles/lib/pomodoro.sh"
 if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/tmx.sh"
 fi

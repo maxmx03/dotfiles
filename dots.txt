@@ -1,5 +1,5 @@
 .tmux.conf
-.bashrc
+.bash_milianor
 .gitconfig
 .bash_profile
 .config/fish
