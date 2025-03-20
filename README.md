@@ -3,6 +3,8 @@
 ## Config files
 
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
+- [ghostty](https://github.com/ghostty-org/ghostty) - terminal emulator
+- [kitty](https://github.com/kovidgoyal/kitty) - gpu based terminal
 - [hypr](https://github.com/hyprwm/Hypr) tiling window manager
   - [waybar](https://github.com/Alexays/Waybar) Wayland bar
   - [wlogout](https://github.com/ArtsyMacaw/wlogout) wayland based logout
