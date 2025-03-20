@@ -34,18 +34,6 @@ if [[ $confirm == "y" ]]; then
     ripgrep
   )
   sudo apt install "${neovim_packages[@]}"
-
-  ## Node.js
-  loading 0.3 "preparing to install node.js"
-  curl -o- https://fnm.vercel.app/install | bash
-
-  loading 0.3 "preparing to update .bashrc"
-  source ~/.bashrc
-
-  loading 0.3 "preparing to install node.js lts"
-  fnm install 22
-
-  loading 0.3 "prearing for the next installation"
 fi
 
 
@@ -75,6 +63,7 @@ read -ei "y" -p "Do you want to install jump, gum? (go is required)" confirm
 if [[ $confirm == "y" ]]; then
  [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
  [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
+ [[ -n $(command -v go) ]] && go install github.com/jesseduffield/lazygit@latest
 fi
 
 read -ei "y" -p "Do you want to install: tmux and dependencies?" confirm
@@ -84,7 +73,3 @@ if [[ $confirm == "y" ]]; then
   loading 0.3 "preparing to clone tpm"
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-
-
-
-
