@@ -1,5 +1,10 @@
 theme = Dark+
 
+font-size = 16
+
+window-width = 120
+window-height = 30
+
 # This is the configuration file for Ghostty.
 #
 # This template file has been automatically created at the following

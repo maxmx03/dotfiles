@@ -12,3 +12,4 @@
 .config/waybar
 .config/mpv
 .config/kitty
+.config/ghostty
