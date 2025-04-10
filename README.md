@@ -12,6 +12,7 @@
 - [jump](https://github.com/gsamokovarov/jump)
 - [starship](https://starship.rs/)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- [gum](https://github.com/charmbracelet/gum)
 
 ## Wallpapers
 
