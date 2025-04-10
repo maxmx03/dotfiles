@@ -1,15 +1,6 @@
 .tmux.conf
 .bash_milianor
 .gitconfig
-.bash_profile
 .config/fish
 .config/starship.toml
-.config/mako
-.config/hypr
-.config/foot
-.config/wlogout
-.config/rofi
-.config/waybar
-.config/mpv
-.config/kitty
 .config/ghostty

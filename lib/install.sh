@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$HOME/dotfiles/lib/utils.sh"
+
 declare -l confirm="y"
 read -ei "y" -p "You're going to install dotfiles dependencies. (Only for Debian based distros)" confirm
 
@@ -36,7 +38,6 @@ if [[ $confirm == "y" ]]; then
   sudo apt install "${neovim_packages[@]}"
 fi
 
-
 read -ei "y" -p "Do you want to Install: parallel, eza, parallel etc..?" confirm
 
 if [[ $confirm == "y" ]]; then
@@ -61,9 +62,9 @@ fi
 read -ei "y" -p "Do you want to install jump, gum? (go is required)" confirm
 
 if [[ $confirm == "y" ]]; then
- [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
- [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
- [[ -n $(command -v go) ]] && go install github.com/jesseduffield/lazygit@latest
+  [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
+  [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
+  [[ -n $(command -v go) ]] && go install github.com/jesseduffield/lazygit@latest
 fi
 
 read -ei "y" -p "Do you want to install: tmux and dependencies?" confirm

@@ -4,14 +4,9 @@
 
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
 - [ghostty](https://github.com/ghostty-org/ghostty) - terminal emulator
-- [kitty](https://github.com/kovidgoyal/kitty) - gpu based terminal
-- [hypr](https://github.com/hyprwm/Hypr) tiling window manager
-  - [waybar](https://github.com/Alexays/Waybar) Wayland bar
-  - [wlogout](https://github.com/ArtsyMacaw/wlogout) wayland based logout
-  - [foot terminal](https://codeberg.org/dnkl/foot) wayland terminal emulator
-  - [rofi](https://github.com/davatorium/rofi) window switcher
+- [bash](https://www.gnu.org/software/bash/)
 
-## Bash tools
+## Bash complements
 
 - [eza](https://github.com/eza-community/eza)
 - [jump](https://github.com/gsamokovarov/jump)

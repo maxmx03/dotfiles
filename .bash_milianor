@@ -1,3 +1,4 @@
+#!/bin/bash
 export EDITOR="nvim"
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
@@ -56,6 +57,16 @@ function wgetcomp {
 }
 
 export -f wgetcomp
+#      author       = {Tange, Ole},
+#      title        = {GNU Parallel 20241222 ('Bashar')},
+#      month        = Dec,
+#      year         = 2024,
+#      note         = {{GNU Parallel is a general parallelizer to run
+#                       multiple serial command line programs in parallel
+#                       without changing them.}},
+#      publisher    = {Zenodo},
+#      doi          = {10.5281/zenodo.14550073},
+#      url          = {https://doi.org/10.5281/zenodo.14550073}
 parallel wgetcomp {/} {} ::: "${completions[@]}"
 
 for comp in "$HOME"/.completions/*; do
