@@ -1,17 +1,24 @@
 #!/bin/bash
 
+
+function loading {
+  declare t msg
+  t=$1
+  msg=$2
+
+  for i in {0..11}; do
+    printf "\r${msg:-Loading}: [%-10s]" "$(seq -s "#" "$i" | tr -d '[:digit:]')"
+    sleep "${t:-0.1}"
+  done
+  echo " Done!"
+}
+
+export -f loading
+
 function open() {
   # to open directory
   # run: xdg-mime default thunar.desktop inode/directory
   xdg-open "$1"
-}
-
-function night() {
-  [[ -n $(command -v hyprshade) ]] && [[ -z $(hyprshade current) ]] && hyprshade on blue-light-filter
-}
-
-function night_off() {
-  [[ -n $(hyprshade current) ]] && hyprshade off
 }
 
 function editorconfig {
