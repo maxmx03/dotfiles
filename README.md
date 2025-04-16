@@ -1,15 +1,13 @@
 # Milianor's dotfiles
 
-![Captura de tela de 2025-04-16 08-44-50](https://github.com/user-attachments/assets/b31b2141-5db0-4b18-a291-d40faa439116)
-
+![screenshot](https://github.com/user-attachments/assets/b31b2141-5db0-4b18-a291-d40faa439116)
 
 ## Config files
 
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
-- [hypr](https://github.com/hyprwm/Hypr) tiling window manager
-  - [waybar](https://github.com/Alexays/Waybar) Wayland bar
-  - [wlogout](https://github.com/ArtsyMacaw/wlogout) wayland based logout
-  - [foot terminal](https://codeberg.org/dnkl/foot) wayland terminal emulator
+- [i3](https://i3wm.org/) tiling window manager
+  - [i3blocks](https://github.com/vivien/i3blocks) Status Bar
+  - [ghostty](https://ghostty.org/) cross-platform terminal emulator
   - [rofi](https://github.com/davatorium/rofi) window switcher
 
 ## Bash tools
