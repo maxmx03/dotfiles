@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+current_file=$(mpc -f '%file%' current)
+
+if [[ "$(mpc status | grep '\[paused\]')" ]]; then
+	echo " [Paused]"
+else
+	if [[ -n "$current_file" ]]; then
+		current_music=$(basename "$current_file")
+		echo " ${current_music:0:25}"
+	else
+		echo " MPD: Stopped"
+	fi
+fi

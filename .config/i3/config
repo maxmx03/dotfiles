@@ -302,7 +302,7 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:"
+set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
@@ -371,6 +371,12 @@ for_window [class=TelegramDesktop] focus
 
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+#redshift
+exec --no-startup-id redshift -l $LATITUDE:$LONGITUDE
+
+# mpd
+exec_always --no-startup-id cmus
 
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
@@ -483,18 +489,18 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 
 # Define colors variables:
-set $darkbluetrans	#021727
-set $base00		#021727
-set $base01		#010d18
-set $base03		#1c1c1c
-set $lightblue		#82aaff
-set $urgentred		#ff5874
-set $white		#d6deeb
-set $black		#010d18
-set $purple		#c792ea
-set $darkgrey		#262a39
-set $darkgreen		#a599e9
-set $yellowbrown	#e2b93d
+set $darkbluetrans	#1a1b26
+set $base00		#1a1b26
+set $base01		#16161e
+set $base03		#292e42
+set $lightblue		#7aa2f7
+set $urgentred		#f7768e
+set $white		#c0caf5
+set $black		#1a1b26
+set $purple		#bb9af7
+set $darkgrey		#292e42
+set $darkgreen		#9ece6a
+set $yellowbrown	#e0af68
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
@@ -593,3 +599,12 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
+
+#####################################
+# Music Player by MDP
+#####################################
+bindsym $mod+F7 exec --no-startup-id mpc toggle
+bindsym $mod+F8 exec --no-startup-id mpc next
+bindsym $mod+F6 exec --no-startup-id mpc prev
+bindsym $mod+F11 exec --no-startup-id mpc volume +5
+bindsym $mod+F10 exec --no-startup-id mpc volume -5
