@@ -12,3 +12,4 @@
 lib/bell.wav
 .config/mpd/database
 .config/mpd/log
+.config/mpd/state
