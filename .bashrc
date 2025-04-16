@@ -14,6 +14,13 @@ export FZF_DEFAULT_OPTS="
   --color=spinner:#8ddb8c,info:#6cb6ff
   --color=pointer:#e06c75,marker:#8ddb8c,prompt:#1c2128"
 
+# Abra o Google Maps | Open Google Maps
+# Clique com o botão direito do mouse no lugar ou na área | Click with the right mouse button in area
+# Clique na latitude e longitude para copiá-las | Click in the latitude and longitude to copy
+# LATITUDE AND LONGITUDE is used by redshift
+export LATITUDE=0
+export LONGITUDE=0
+
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind -x '"\C-l":ls'

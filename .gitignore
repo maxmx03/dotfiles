@@ -10,3 +10,5 @@
 .config/fish/fish_variables
 .config/nvim/spell
 lib/bell.wav
+.config/mpd/database
+.config/mpd/log

@@ -26,10 +26,10 @@ if [[ $confirm == "y" ]]; then
   yay -S "${neovim_packages[@]}"
 fi
 
-read -ei "y" -p "install bash extra packages?" confirm
+read -ei "y" -p "install i3 packages?" confirm
 
 if [[ $confirm == "y" ]]; then
-  bash_packages=(
+  i3_packages=(
     jq
     less
     tree
@@ -41,9 +41,12 @@ if [[ $confirm == "y" ]]; then
     fzf
     fd
     parallel
+    redshift
+    mpd
+    mpc
   )
 
-  yay -S "${bash_packages[@]}"
+  yay -S "${i3_packages[@]}"
   [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
   [[ -n $(command -v go) ]] && go install github.com/charmbracelet/gum@latest
 fi

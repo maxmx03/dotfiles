@@ -8,3 +8,4 @@
 .config/i3
 .config/dunst
 .config/ghostty
+.config/mpd
