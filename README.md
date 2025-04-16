@@ -2,6 +2,10 @@
 
 ![screenshot](https://github.com/user-attachments/assets/b31b2141-5db0-4b18-a291-d40faa439116)
 
+## Distro
+
+- [EndeavourOS](https://endeavouros.com/)
+
 ## Config files
 
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
