@@ -44,6 +44,7 @@ if [[ $confirm == "y" ]]; then
     redshift
     mpd
     mpc
+    eog
   )
 
   yay -S "${i3_packages[@]}"
