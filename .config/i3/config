@@ -305,8 +305,8 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
+set $ws4 "4:"
+set $ws5 "5:"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -326,15 +326,15 @@ set $ws10 "10"
 assign [class="ghostty"] $ws1
 assign [class="(?i)Google-chrome"] $ws2
 assign [class="Thunar"] $ws3
-assign [class="thunderbird"] $ws4
-assign [class="TelegramDesktop"] $ws5
+assign [class="steam"] $ws4
+assign [class="Gnome-pomodoro"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=ghostty] focus
 for_window [class=(?i)Google-chrome] focus
 for_window [class=Thunar] focus
-for_window [class=Thunderbird] focus
-for_window [class=TelegramDesktop] focus
+for_window [class=steam] focus
+for_window [class=Gnome-pomodoro] focus
 
 ##############
 # compositor #
@@ -371,9 +371,6 @@ for_window [class=TelegramDesktop] focus
 
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-#redshift
-exec --no-startup-id redshift -l $LATITUDE:$LONGITUDE
 
 # mpd
 exec_always --no-startup-id cmus
@@ -499,14 +496,13 @@ set $white		#c0caf5
 set $black		#1a1b26
 set $purple		#bb9af7
 set $darkgrey		#292e42
-set $darkgreen		#9ece6a
 set $yellowbrown	#e0af68
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$base00		$white		$darkgreen	$base03
-client.unfocused	    	$base00		$base00		$darkgreen  	$darkgrey	$darkgrey
-client.focused_inactive		$base00		$base00		$darkgreen  	$black		$black
+client.focused		    	$lightblue	$base00		$white		$darkgrey	$base03
+client.unfocused	    	$base00		$base00		$purple	 	$darkgrey	$darkgrey
+client.focused_inactive		$base00		$base00		$purple		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
 ############################################
@@ -536,9 +532,9 @@ strip_workspace_numbers yes
 		    background         $base01
 		    statusline         $white
 #                          		border 		        bg		txt		indicator
-		focused_workspace	$darkgreen	   	$darkgreen  	$base03		$purple
-		active_workspace	$base03	          	$darkgreen	$base03		$purple
-		inactive_workspace	$base03			$base03		$darkgreen  	$purple
+		focused_workspace	$purple			$purple	  	$base03		$purple
+		active_workspace	$base03	          	$purple		$base03		$purple
+		inactive_workspace	$base03			$base03		$purple	  	$purple
 		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
 	}
 }
