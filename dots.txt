@@ -1,7 +1,6 @@
 .tmux.conf
 .gitconfig
 .config/starship.toml
-.config/mako
 .config/rofi
 .config/mpv
 .config/gtk-4.0
