@@ -1,0 +1,71 @@
+vim9script
+
+import $"{$VIMRUNTIME}/defaults.vim"
+
+set number
+set mouse=a
+set clipboard=unnamedplus
+set autowrite
+set autowriteall
+set background=dark
+set backup
+set backupdir=~/.cache/vim/backup
+set clipboard=unnamedplus
+set completeopt=menu,menuone,noselect
+set conceallevel=3
+set confirm
+set expandtab
+set formatoptions=jcroqlnt
+set fillchars:eob:.
+set ignorecase
+set laststatus=0
+set list
+set listchars=tab:→\ ,trail:-,nbsp:+
+set mouse=a
+set number
+set pumheight=120
+set relativenumber
+set scrolloff=4
+set shiftround
+set shiftwidth=2
+set shortmess=wicC
+set showmode
+set smartcase
+set smartindent
+set nospell
+set tabstop=2
+set timeoutlen=300
+set textwidth=120
+set undodir=~/.cache/vim/undo
+set undofile
+set updatetime=200
+set virtualedit=block
+set wildmode=longest,full
+set winminwidth=5
+set nowrap
+set smoothscroll
+set shell=bash
+set termguicolors
+
+colorscheme retrobox
+
+&t_SI = "\e[6 q"
+&t_EI = "\e[2 q"
+
+nmap <space>w <cmd>update<cr>
+nmap <space>q <cmd>quit<cr>
+nmap <space>e <cmd>Explore<cr>
+nmap <silent>f =<CR>
+nmap <silent>F =G<CR>
+nmap <silent><C-Up> <cmd>bfirst<CR>
+nmap <silent><C-Right> <cmd>bnext<CR>
+nmap <silent><C-Left> <cmd>bprev<CR>
+nmap <silent><C-Down> <cmd>blast<CR>
+nmap <silent><C-x> <cmd>bd<CR>
+nmap <silent>ss <cmd>split<CR>
+nmap <silent>sv <cmd>vsplit<CR>
+nmap <silent>+ ^ylp
+nmap <silent>- ^x
+nmap <silent><c-e> <c-u>
+
+hi EndOfBuffer guifg=#1c1c1c guibg=NONE

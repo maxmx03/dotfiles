@@ -9,3 +9,4 @@
 .config/ghostty
 .config/mpd
 .config/redshift
+.vim
