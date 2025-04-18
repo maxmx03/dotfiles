@@ -2,4 +2,4 @@
 .config/mpd/database
 .config/mpd/log
 .config/mpd/state
-.config/redshift
+.config/redshift/redshift.conf

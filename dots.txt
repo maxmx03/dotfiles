@@ -8,3 +8,4 @@
 .config/dunst
 .config/ghostty
 .config/mpd
+.config/redshift
