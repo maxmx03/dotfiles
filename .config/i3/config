@@ -327,6 +327,8 @@ assign [class="ghostty"] $ws1
 assign [class="(?i)Google-chrome"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="steam"] $ws4
+assign [class="heroic"] $ws4
+assign [class="Lutris"] $ws4
 assign [class="Gnome-pomodoro"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
@@ -334,6 +336,8 @@ for_window [class=ghostty] focus
 for_window [class=(?i)Google-chrome] focus
 for_window [class=Thunar] focus
 for_window [class=steam] focus
+for_window [class=heroic] focus
+for_window [class=Lutris] focus
 for_window [class=Gnome-pomodoro] focus
 
 ##############
@@ -400,8 +404,9 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-exec --no-startup-id sleep 2 && nitrogen --restore
-# exec --no-startup-id sleep 1 && feh --bg-fill /home/milianor/Imagens/wallpaper/anime-girl-astronaut-sci-fi-aesthetic-desktop-wallpaper.jpg
+# i'm using redshit hooks to change wallpaper
+# exec --no-startup-id sleep 2 && nitrogen --restore
+# exec --no-startup-id sleep 1 && feh --bg-fill --random /home/milianor/Imagens/wallpaper
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
