@@ -4,3 +4,5 @@
 .config/mpd/state
 .config/redshift/redshift.conf
 .vim/.netrwhist
+.vim/autoload
+.vim/plugged
