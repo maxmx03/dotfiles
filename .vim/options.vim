@@ -1,5 +1,6 @@
 vim9script
 set number
+set cursorline
 set mouse=a
 set clipboard=unnamedplus
 set autowrite
@@ -10,8 +11,6 @@ set backupdir=~/.cache/vim/backup
 set clipboard=unnamedplus
 set completeopt=menu,menuone,noselect
 set conceallevel=3
-set confirm
-set expandtab
 set formatoptions=jcroqlnt
 set fillchars:eob:.
 set ignorecase
@@ -22,15 +21,10 @@ set mouse=a
 set number
 set pumheight=120
 set relativenumber
-set scrolloff=4
-set shiftround
-set shiftwidth=2
-set shortmess=wicC
+set shortmess=wicCF
 set showmode
 set smartcase
-set smartindent
 set nospell
-set tabstop=2
 set timeoutlen=300
 set textwidth=120
 set undodir=~/.cache/vim/undo
@@ -44,6 +38,14 @@ set smoothscroll
 set shell=bash
 set termguicolors
 set termwinsize=10x0
+set scrolloff=4
+set sidescrolloff=8
+set smarttab
+set smartindent
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
+set tabstop=8
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"
