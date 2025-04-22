@@ -47,7 +47,7 @@ if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/tmx.sh"
 fi
 
-readonly -a completions=(
+declare -a cmps=(
   "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
   "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
   "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
@@ -55,12 +55,14 @@ readonly -a completions=(
 )
 
 function wgetcomp {
-  [ ! -f "$HOME"/.completions/"$1" ] && wget --directory-prefix="$HOME/.completions" "$2"
+  if [[ ! -f "$HOME"/.cmps/"$1" ]]; then
+    wget --directory-prefix="$HOME/.cmps" "$2"
+  fi
 }
 
 export -f wgetcomp
-parallel wgetcomp {/} {} ::: "${completions[@]}"
+parallel wgetcomp {/} {} ::: "${cmps[@]}"
 
-for comp in "$HOME"/.completions/*; do
+for comp in "$HOME"/.cmps/*; do
   source "$comp"
 done
