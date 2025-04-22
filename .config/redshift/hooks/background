@@ -2,12 +2,10 @@
 
 function set_light_wallpaper {
 	feh --bg-fill --random /home/milianor/Imagens/wallpaper/light
-	notify-send --expire-time=5000 "RedShift" "It's daytime"
 }
 
 function set_dark_wallpaper {
 	feh --bg-fill --random /home/milianor/Imagens/wallpaper/dark
-	notify-send --expire-time=5000 "RedShift" "It's night time"
 }
 
 if [[ "$1" = period-changed ]]; then
