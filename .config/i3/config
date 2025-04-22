@@ -58,7 +58,7 @@ gaps inner 6
 gaps outer 3
 
 # show window title bars (not officially supported with i3gaps)
-#default_border normal
+# default_border normal
 
 # window title alignment
 #title_align center
@@ -165,14 +165,16 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 #        bindsym Escape mode "default"
 #}
 
-#bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 
 ######################################
 # keybindings for different actions: #
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id ghostty
+# bindsym $mod+Return exec --no-startup-id xfce4-terminal
+# bindsym $mod+Return exec --no-startup-id ghostty
+bindsym $mod+Return exec --no-startup-id kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -195,7 +197,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # keybinding in fancy rofi (automated):
-bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
+# bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
 # bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
@@ -324,20 +326,24 @@ set $ws10 "10"
 
 # bind program to workspace and focus to them on startup:
 assign [class="ghostty"] $ws1
+assign [class="kitty"] $ws1
 assign [class="(?i)Google-chrome"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="steam"] $ws4
 assign [class="heroic"] $ws4
 assign [class="Lutris"] $ws4
+assign [class="Minigalaxy"] $ws4
 assign [class="Gnome-pomodoro"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=ghostty] focus
+for_window [class=kitty] focus
 for_window [class=(?i)Google-chrome] focus
 for_window [class=Thunar] focus
 for_window [class=steam] focus
 for_window [class=heroic] focus
 for_window [class=Lutris] focus
+for_window [class=Minigalaxy] focus
 for_window [class=Gnome-pomodoro] focus
 
 ##############
@@ -404,7 +410,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-# i'm using redshit hooks to change wallpaper
+# i use redshit hooks to change wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
 # exec --no-startup-id sleep 1 && feh --bg-fill --random /home/milianor/Imagens/wallpaper
 
@@ -481,7 +487,9 @@ for_window [class="urxvt"] border pixel 1
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
-#for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
+# for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
+# for_window [floating class="ghostty"] resize set 1536 864
+for_window [floating class="kitty"] resize set 1536 864
 
 # set position of floating window
 #for_window [class=".*"] move position center
@@ -505,7 +513,7 @@ set $yellowbrown	#e0af68
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$base00		$white		$darkgrey	$base03
+client.focused		    	$lightblue	$base00		$white		$darkgrey	$lightblue
 client.unfocused	    	$base00		$base00		$purple	 	$darkgrey	$darkgrey
 client.focused_inactive		$base00		$base00		$purple		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
