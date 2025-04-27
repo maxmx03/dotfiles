@@ -9,7 +9,7 @@ set background=dark
 set backup
 set backupdir=~/.cache/vim/backup
 set clipboard=unnamedplus
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone,noselect,noinsert
 set conceallevel=3
 set formatoptions=jcroqlnt
 set fillchars:eob:.
@@ -19,7 +19,8 @@ set list
 set listchars=tab:→\ ,trail:-,nbsp:+
 set mouse=a
 set number
-set pumheight=120
+set pumheight=10
+# set omnifunc=syntaxcomplete#Complete
 set relativenumber
 set shortmess=wicCF
 set showmode
@@ -29,7 +30,7 @@ set timeoutlen=300
 set textwidth=120
 set undodir=~/.cache/vim/undo
 set undofile
-set updatetime=200
+set updatetime=4000
 set virtualedit=block
 set wildmode=longest,full
 set winminwidth=5
@@ -49,3 +50,7 @@ set tabstop=8
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"
+
+if &term == 'xterm-kitty'
+    &t_ut = ''
+endif

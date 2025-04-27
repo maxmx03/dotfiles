@@ -1,3 +1,4 @@
+.vim
 .tmux.conf
 .gitconfig
 .config/starship.toml
@@ -11,4 +12,3 @@
 .config/redshift
 .config/kitty
 .config/nvim
-.vim

@@ -6,4 +6,6 @@ import $"{$HOME}/.vim/plugins.vim"
 import $"{$HOME}/.vim/options.vim"
 import $"{$HOME}/.vim/maps.vim"
 
-colorscheme retrolegends
+g:Hexokinase_highlighters = [ 'foreground' ]
+
+colorscheme tokyonight
