@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 function loading {
   declare t msg
   t=$1
@@ -39,6 +38,6 @@ function editorconfig {
 }
 
 function manpage {
-  local browser=/opt/google/chrome/chrome
+  local browser=google-chrome-stable
   man -H$browser $1
 }

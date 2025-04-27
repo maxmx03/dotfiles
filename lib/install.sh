@@ -45,6 +45,7 @@ if [[ $confirm == "y" ]]; then
     mpd
     mpc
     eog
+    at
   )
 
   yay -S "${i3_packages[@]}"

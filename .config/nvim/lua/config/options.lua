@@ -1,0 +1,40 @@
+local o = vim.opt
+local fn = vim.fn
+
+o.autowrite = true
+o.autowriteall = true
+o.cursorline = true
+o.number = true
+o.smoothscroll = true
+o.conceallevel = 3
+o.autoindent = true
+o.smartindent = true
+o.smarttab = true
+o.shiftwidth = 4
+o.softtabstop = 4
+o.expandtab = false
+o.tabstop = 8
+o.clipboard = 'unnamedplus'
+-- o.completeopt = 'menu,menuone,noinsert,popup'
+o.completeopt = 'menu,menuone,noselect'
+o.fillchars:append { eob = ' ' }
+o.list = true
+o.listchars:append { tab = '→ ' }
+o.wrap = true
+o.formatoptions = 'jcroqlnt'
+o.textwidth = 120
+o.colorcolumn = '120'
+o.undofile = true
+o.undodir = fn.stdpath 'cache' .. '/undo'
+o.shortmess:append { W = true, c = true, C = true, F = true }
+o.pumheight = 10
+o.scrolloff = 4
+o.pumblend = 10
+o.sidescrolloff = 8
+o.laststatus = 0
+o.updatetime = 4000
+o.signcolumn = 'yes'
+o.showmode = false
+o.guicursor =
+  'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
+o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'

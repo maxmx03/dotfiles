@@ -10,4 +10,5 @@
 .config/mpd
 .config/redshift
 .config/kitty
+.config/nvim
 .vim

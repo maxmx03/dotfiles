@@ -1,0 +1,6 @@
+{
+    "diagnostics.disable": [
+        "different-requires"
+    ],
+    "workspace.checkThirdParty": "Disable"
+}
