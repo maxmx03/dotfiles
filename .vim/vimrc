@@ -5,7 +5,7 @@ import $"{$VIMRUNTIME}/ftplugin/man.vim"
 import $"{$HOME}/.vim/plugins.vim"
 import $"{$HOME}/.vim/options.vim"
 import $"{$HOME}/.vim/maps.vim"
-
-g:Hexokinase_highlighters = [ 'foreground' ]
+import $"{$HOME}/.vim/functions.vim"
+import $"{$HOME}/.vim/autocmds.vim"
 
 colorscheme tokyonight

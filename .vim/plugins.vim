@@ -12,5 +12,6 @@ Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'girishji/vimcomplete'
 Plug 'girishji/vimsuggest'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 plug#end()

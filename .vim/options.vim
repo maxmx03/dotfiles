@@ -10,7 +10,7 @@ set backup
 set backupdir=~/.cache/vim/backup
 set clipboard=unnamedplus
 set completeopt=menu,menuone,noselect,noinsert
-set conceallevel=3
+set conceallevel=2
 set formatoptions=jcroqlnt
 set fillchars:eob:.
 set ignorecase
