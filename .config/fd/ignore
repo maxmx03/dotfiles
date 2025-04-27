@@ -1,0 +1,15 @@
+autoload/
+plugged/
+.git/
+node_modules/
+build/
+dist/
+venv/
+__pycache__/
+*.so
+bin/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*

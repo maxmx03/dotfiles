@@ -12,3 +12,4 @@
 .config/redshift
 .config/kitty
 .config/nvim
+.config/fd
