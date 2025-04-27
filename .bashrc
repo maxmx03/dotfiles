@@ -1,6 +1,6 @@
-export EDITOR="nvim"
+export EDITOR="vim"
 export PATH=$PATH:$HOME/go/bin
-export FZF_DEFAULT_COMMAND='fd -t f -s --ignore --strip-cwd-prefix=always'
+export FZF_DEFAULT_COMMAND='fd -t f -s -H --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
   --tmux=center
   --border=rounded
@@ -8,16 +8,17 @@ export FZF_DEFAULT_OPTS="
   --header='Find Files'
   --bind 'enter:become($EDITOR {})'
   --preview 'eza --icons -a'
-  --color=fg+:#d1d7e0,hl+:#e5c07b
-  --color=fg:#9198a1,hl:#e5c07b
-  --color=border:#4d5359,header:#d2a8ff,gutter:#1c2128
-  --color=spinner:#8ddb8c,info:#6cb6ff
-  --color=pointer:#e06c75,marker:#8ddb8c,prompt:#1c2128"
+  --color=fg+:#c0caf5,hl+:#ff9e64
+  --color=fg:#565f89,hl:#ff9e64
+  --color=border:#292e42,header:#7aa2f7,gutter:#16161e
+  --color=spinner:#9ece6a,info:#7dcfff
+  --color=pointer:#c099ff,marker:#9ece6a,prompt:#1a1b26"
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind -x '"\C-l":ls'
 bind -x '"\C-f":fzf'
+bind -x '"\C-e":lf'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias g="lazygit"
