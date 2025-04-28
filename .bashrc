@@ -18,7 +18,7 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind -x '"\C-l":ls'
 bind -x '"\C-f":fzf'
-bind -x '"\C-e":lf'
+bind -x '"\C-e":yazi'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias g="lazygit"
