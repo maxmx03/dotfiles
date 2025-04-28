@@ -13,3 +13,4 @@
 .config/kitty
 .config/nvim
 .config/fd
+.config/lf
