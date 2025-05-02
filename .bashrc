@@ -36,7 +36,7 @@ HISTCONTROL=ignoredups
 
 # decorator
 function vim {
-    [ -f "$1" ] && command vim $1 || yazi
+    [ -z "$*" ] && yazi || command vim "$@"
 }
 
 if [[ -n $(command -v jump) ]]; then
