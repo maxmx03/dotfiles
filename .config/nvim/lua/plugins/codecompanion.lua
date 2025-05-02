@@ -4,17 +4,7 @@ return {
     local function getenv(v)
       return vim.fn.getenv(v) or vim.fn.environ()[v]
     end
-    local getsecret = function()
-      local ok, secrets = pcall(require, 'secret')
-      if not ok then
-        return {
-          GEMINI_API = getenv 'GEMINI_API',
-        }
-      end
-      return secrets
-    end
-    local secret = getsecret()
-
+    local GEMINI_API = getenv 'GEMINI_API'
     require('codecompanion').setup {
       prompt_library = {
         ['explain'] = {
@@ -81,7 +71,7 @@ return {
           return require('codecompanion.adapters').extend('gemini', {
             name = 'gemini',
             env = {
-              api_key = secret.GEMINI_API,
+              api_key = GEMINI_API,
             },
             schema = {
               model = {
