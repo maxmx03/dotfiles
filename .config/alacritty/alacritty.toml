@@ -1,0 +1,10 @@
+[general]
+import = [
+    "~/.config/alacritty/tokyonight.toml"
+]
+
+[font]
+normal = { family = "JetBrainsMonoNLNerdFont", style = "Regular" }
+bold = { family = "JetBrainsMonoNLNerdFont" }
+bold_italic = { family = "JetBrainsMonoNLNerdFont" }
+size = 16
