@@ -8,3 +8,6 @@ au BufWinLeave *.md set colorcolumn=
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
+
+# autosave
+au InsertLeave,TextChanged <buffer> silent update

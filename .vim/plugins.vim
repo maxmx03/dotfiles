@@ -3,7 +3,6 @@ vim9script
 plug#begin()
 
 Plug 'sheerun/vim-polyglot'
-Plug 'psliwka/vim-smoothie'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-highlightedyank'

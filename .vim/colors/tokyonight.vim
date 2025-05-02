@@ -195,80 +195,18 @@ hi Todo guifg=#7aa2f7 guibg=NONE gui=NONE cterm=NONE
 hi Added guifg=#449dab guibg=NONE gui=NONE cterm=NONE
 hi Changed guifg=#6183bb guibg=NONE gui=NONE cterm=NONE
 hi Removed guifg=#914c54 guibg=NONE gui=NONE cterm=NONE
-if g:tokyonight_treesitter
-endif
 
-if g:tokyonight_lspconfig
-  hi DiagnosticError guifg=#db4b4b guibg=NONE gui=NONE cterm=NONE
-  hi DiagnosticWarn guifg=#e0af68 guibg=NONE gui=NONE cterm=NONE
-  hi DiagnosticInfo guifg=#0db9d7 guibg=NONE gui=NONE cterm=NONE
-  hi DiagnosticHint guifg=#0db9d7 guibg=NONE gui=NONE cterm=NONE
-  hi LspInlayHint guifg=#4c4167 guibg=NONE gui=NONE cterm=NONE
-endif
+hi! link typescriptVariable Keyword
+hi! link typescriptTypeReference Type
 
-if g:tokyonight_telescope
-  hi TelescopeTitle guifg=#7aa2f7 guibg=#374465 gui=NONE cterm=NONE
-  hi! link TelescopeBorder FloatBorder
-  hi! link TelescopeSelection CursorLine
-  hi TelescopeSelectionCaret guifg=#7aa2f7 guibg=#283457 gui=NONE cterm=NONE
-endif
+hi! link shVariable Constant
+hi! link shDerefSimple Constant
+hi! link shQuote String
+hi! link shFunctionOne Function
 
-if g:tokyonight_dashboard
-  hi DashboardFooter guifg=#9ece6a guibg=NONE gui=NONE cterm=NONE
-  hi DashboardIcon guifg=#82aaff guibg=NONE gui=NONE cterm=NONE
-  hi DashboardDesc guifg=#82aaff guibg=NONE gui=NONE cterm=NONE
-  hi DashboardKey guifg=#ff9e64 guibg=NONE gui=NONE cterm=NONE
-endif
+hi! link vimVarScope Keyword
+hi! link vimIsCommand Keyword
 
-if g:tokyonight_gitsigns
-  hi GitSignsAdd guifg=#449dab guibg=NONE gui=NONE cterm=NONE
-  hi GitSignsChange guifg=#6183bb guibg=NONE gui=NONE cterm=NONE
-  hi GitSignsDelete guifg=#914c54 guibg=NONE gui=NONE cterm=NONE
-endif
-
-if g:tokyonight_nvimtree
-  hi NvimTreeFolderName guifg=#82aaff guibg=NONE gui=NONE cterm=NONE
-  hi NvimTreeFolderIcon guifg=#82aaff guibg=NONE gui=NONE cterm=NONE
-  hi NvimTreeNormal guifg=NONE guibg=#16161e gui=NONE cterm=NONE
-  hi NvimTreeGitDeletedIcon guifg=#914c54 guibg=NONE gui=NONE cterm=NONE
-  hi NvimTreeGitDirtyIcon guifg=#6183bb guibg=NONE gui=NONE cterm=NONE
-  hi NvimTreeGitMergeIcon guifg=#449dab guibg=NONE gui=NONE cterm=NONE
-  hi NvimTreeGitNewIcon guifg=#449dab guibg=NONE gui=NONE cterm=NONE
-  hi NvimTreeGitRenamedIcon guifg=#6183bb guibg=NONE gui=NONE cterm=NONE
-  hi NvimTreeGitStagedIcon guifg=#449dab guibg=NONE gui=NONE cterm=NONE
-endif
-
-if g:tokyonight_cmp
-  hi CmpItemKindText guifg=#9ece6a guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindTextDefault guifg=#9ece6a guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindMethod guifg=#7aa2f7 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindFunction guifg=#7aa2f7 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindField guifg=#73daca guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindVariable guifg=#c0caf5 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindClass guifg=#2ac3de guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindInterface guifg=#2ac3de guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindModule guifg=#2ac3de guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindProperty guifg=#73daca guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindUnit guifg=#ff9e64 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindEnum guifg=#2ac3de guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindKeyword guifg=#c099ff guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindSnippet guifg=#b4f9f8 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindColor guifg=7aa2f7 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindFile guifg=#c0caf5 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindReference guifg=#ff9e64 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindFolder guifg=#82aaff guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindEnumMember guifg=#ff9e64 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindConstant guifg=#ff9e64 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindStruct guifg=#c099ff guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindEvent guifg=7aa2f7 guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindOperator guifg=#c099ff guibg=NONE gui=NONE cterm=NONE
-  hi CmpItemKindTypeParameter guifg=#2ac3de guibg=NONE gui=NONE cterm=NONE
-endif
-
-if g:tokyonight_markview
-  hi MarkviewCode guifg=NONE guibg=#16161e gui=NONE cterm=NONE
-  hi MarkviewInlineCode guifg=NONE guibg=#16161e gui=NONE cterm=NONE
-endif
 unlet g:tokyonight_transparency
 unlet g:tokyonight_treesitter
 unlet g:tokyonight_lspconfig
