@@ -22,7 +22,7 @@ function open() {
 
 function editorconfig {
   declare config
-  config="$(pwd)/.editorconfig"
+  config=".editorconfig"
   echo "# EditorConfig is awesome: https://editorconfig.org" >>$config
   echo "# top-most EditorConfig file" >>$config
   echo "root = true" >>$config

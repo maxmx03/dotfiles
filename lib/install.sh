@@ -46,6 +46,7 @@ if [[ $confirm == "y" ]]; then
     mpc
     eog
     at
+    yazi
   )
 
   yay -S "${i3_packages[@]}"
