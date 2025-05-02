@@ -34,6 +34,11 @@ HISTSIZE=5000
 HISTFILE=~/.bash_history
 HISTCONTROL=ignoredups
 
+# decorator
+function vim {
+    [ -f "$1" ] && command vim $1 || yazi
+}
+
 if [[ -n $(command -v jump) ]]; then
   eval "$(jump shell --bind=z)"
 fi
