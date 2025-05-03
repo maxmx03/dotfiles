@@ -208,11 +208,3 @@ hi! link vimVarScope Keyword
 hi! link vimIsCommand Keyword
 
 unlet g:tokyonight_transparency
-unlet g:tokyonight_treesitter
-unlet g:tokyonight_lspconfig
-unlet g:tokyonight_telescope
-unlet g:tokyonight_dashboard
-unlet g:tokyonight_gitsigns
-unlet g:tokyonight_nvimtree
-unlet g:tokyonight_cmp
-unlet g:tokyonight_markview
