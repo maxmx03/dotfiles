@@ -14,3 +14,4 @@
 .config/nvim
 .config/fd
 .config/alacritty
+.config/yazi
