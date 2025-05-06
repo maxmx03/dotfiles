@@ -2,13 +2,13 @@
 
 ![Captura de tela de 2025-05-05 22-18-45](https://github.com/user-attachments/assets/4e46494d-5ef5-4b15-b7df-3584ff18732c)
 
-## Distro
+## Linux Distro
 
 - [EndeavourOS](https://endeavouros.com/)
 
 ## Configs
 
-- [bash](https://www.gnu.org/software/bash/) GNU Bash
+- [shell](https://www.gnu.org/software/bash/) GNU Bash
   - [eza](https://github.com/eza-community/eza) A modern alternative to ls
   - [jump](https://github.com/gsamokovarov/jump) Jump helps you navigate faster
   - [starship](https://starship.rs/) The minimal, blazing-fast, and infinitely customizable prompt for any
