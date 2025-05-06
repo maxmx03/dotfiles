@@ -25,7 +25,8 @@ alias g="lazygit"
 alias python="python3"
 alias py="python3 ."
 alias lua="luajit"
-alias aquarium="asciiquarium"
+alias fish="asciiquarium"
+alias vi="vim"
 
 shopt -s histappend
 

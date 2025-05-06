@@ -1,6 +1,8 @@
 [general]
 import = [
-    "~/.config/alacritty/tokyonight.toml"
+	# "~/.config/alacritty/tokyonight.toml"
+	# "~/.config/alacritty/darkplus.toml",
+	"~/.config/alacritty/rosepine.toml",
 ]
 
 [font]
@@ -8,3 +10,6 @@ normal = { family = "JetBrainsMonoNLNerdFont", style = "Regular" }
 bold = { family = "JetBrainsMonoNLNerdFont" }
 bold_italic = { family = "JetBrainsMonoNLNerdFont" }
 size = 16
+
+[env]
+TERM = "xterm-256color"

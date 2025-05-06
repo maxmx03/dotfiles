@@ -48,7 +48,7 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 1
+new_window pixel 3
 
 # thin borders
 # hide_edge_borders both
@@ -375,7 +375,7 @@ for_window [class=Gnome-pomodoro] focus
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 # install picom package (yay -S picom)
 # start using default config 
-#exec_always --no-startup-id picom -b
+exec_always --no-startup-id picom -b
 #
 # for custom config:
 #exec_always --no-startup-id picom --config  ~/.config/picom.conf
@@ -491,7 +491,7 @@ for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
 
 # set border of floating window
-for_window [class="urxvt"] border pixel 1
+# for_window [floating class="Alacritty"] border pixel 0
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
@@ -507,25 +507,32 @@ for_window [floating class="Alacritty"] resize set 1536 864
 # color settings for bar and windows #
 ######################################
 
-# Define colors variables:
-set $darkbluetrans	#1a1b26
-set $base00		#1a1b26
-set $base01		#16161e
-set $base03		#292e42
-set $lightblue		#7aa2f7
-set $urgentred		#f7768e
-set $white		#c0caf5
-set $black		#1a1b26
-set $purple		#bb9af7
-set $darkgrey		#292e42
-set $yellowbrown	#e0af68
+# set primary Rosé Pine colorscheme colors
+set $base           #191724
+set $surface        #1f1d2e
+set $overlay        #26233a
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ebbcba
+set $pine           #31748f
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #21202e
+set $highlightmed   #403d52
+set $highlighthigh  #524f67
 
-# define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    	$purple		$base00		$white		$lightblue	$lightblue
-client.unfocused	    	$base00		$base00		$purple	 	$darkgrey	$darkgrey
-client.focused_inactive		$base00		$base00		$purple		$black		$black
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+# Teming border and Windows --------------
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $text  $foam      $foam
+client.focused_inactive  $text     $base $text  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
+
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -534,30 +541,30 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-		font pango: Noto Sans Regular 11
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position top
+    font pango: Noto Sans Regular 11
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
 #	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    #tray_output primary
-		    tray_padding 0
+#tray_output primary
+	tray_padding 0
 
 # When strip_workspace_numbers is set to yes,
 # any workspace that has a name of the form
 # “[n][:][NAME]” will display only the name.
-strip_workspace_numbers yes
+	strip_workspace_numbers yes
 ##strip_workspace_name no
 
-		    colors {
-		    separator          $lightblue
-		    background         $base01
-		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$lightblue		$lightblue	$base03		$lightblue
-		active_workspace	$base03	          	$lightblue	$base03		$lightblue
-		inactive_workspace	$base03			$base03		$lightblue    	$lightblue
-		urgent_workspace	$urgentred	    	$urgentred	$white		$lightblue
+	colors {
+		separator          $rose
+		background         $surface
+		statusline         $text
+#                  		        border 		        bg		txt		indicator
+		focused_workspace	$foam			$foam	        $surface	$rose
+		active_workspace	$surface		$rose	        $text		$love
+		inactive_workspace	$surface		$base		$text    	$overlay
+		urgent_workspace	$love	        	$love		$text		$love
 	}
 }
 
@@ -599,7 +606,7 @@ strip_workspace_numbers yes
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+	    -config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi

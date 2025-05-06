@@ -8,4 +8,9 @@ import $"{$HOME}/.vim/maps.vim"
 import $"{$HOME}/.vim/functions.vim"
 import $"{$HOME}/.vim/autocmds.vim"
 
-colorscheme tokyonight
+if $REDSHIFT_THEME == 'dark'
+    colorscheme rosepine
+else
+    colorscheme rosepine_dawn
+    hi EndOfBuffer guifg=#faf4ed  guibg=NONE gui=NONE cterm=NONE
+endif

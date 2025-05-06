@@ -5,7 +5,6 @@ set mouse=a
 set clipboard=unnamedplus
 set autowrite
 set autowriteall
-set background=dark
 set backup
 set backupdir=~/.cache/vim/backup
 set clipboard=unnamedplus
@@ -22,7 +21,7 @@ set number
 set pumheight=10
 # set omnifunc=syntaxcomplete#Complete
 set relativenumber
-set shortmess=wicCF
+set shortmess=aCF
 set showmode
 set smartcase
 set nospell

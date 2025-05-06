@@ -2,7 +2,7 @@ vim9script
 
 # tokyonight Colorscheme for vim
 # made with maxmx03/schemecraft
-# Url: maxmx03/dotfiles
+# Url: maxmx03/dotfiles/.vim/colors/tokyonight.vim
 # Maintainer: Max Del Canto <github.com/maxmx03>
 # License: MIT License
 

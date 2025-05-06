@@ -1,5 +1,4 @@
 vim9script
-
 def g:SynStack()
   if !exists("*synstack")
     return

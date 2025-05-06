@@ -10,4 +10,4 @@ augroup pandoc_syntax
 augroup END
 
 # autosave
-au InsertLeave,TextChanged <buffer> silent update
+au InsertLeave <buffer> silent update

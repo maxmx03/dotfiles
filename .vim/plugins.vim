@@ -2,6 +2,7 @@ vim9script
 
 plug#begin()
 
+Plug 'rose-pine/vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'

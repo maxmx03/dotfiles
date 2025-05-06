@@ -15,3 +15,4 @@
 .config/fd
 .config/alacritty
 .config/yazi
+.config/picom
