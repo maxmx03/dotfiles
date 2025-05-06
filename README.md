@@ -27,3 +27,11 @@
   - [neovim](https://github.com/neovim/neovim) Vim-fork focused on extensibility and usability
 - [ghostty](https://ghostty.org/) Cross-platform terminal emulator
 - [kitty](https://github.com/kovidgoyal/kitty) Cross-platform, fast, feature-rich, GPU based terminal
+
+## Wallpapers
+
+[click here](https://www.canva.com/design/DAGmbIWt6QI/jpMOMzY_aI2BMsWc9yMg0Q/edit?utm_content=DAGmbIWt6QI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+![wallpapers](https://github.com/user-attachments/assets/d066693e-f078-4998-8c57-033181b3b493)
+
+
