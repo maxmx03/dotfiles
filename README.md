@@ -1,5 +1,7 @@
 # Milianor's dotfiles
 
+![Captura de tela de 2025-05-05 22-18-45](https://github.com/user-attachments/assets/4e46494d-5ef5-4b15-b7df-3584ff18732c)
+
 ## Distro
 
 - [EndeavourOS](https://endeavouros.com/)
