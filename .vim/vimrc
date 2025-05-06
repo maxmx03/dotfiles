@@ -12,5 +12,7 @@ if $REDSHIFT_THEME == 'dark'
     colorscheme rosepine
 else
     colorscheme rosepine_dawn
-    hi EndOfBuffer guifg=#faf4ed  guibg=NONE gui=NONE cterm=NONE
+    hi EndOfBuffer guifg=#f2e9e1  guibg=NONE gui=NONE cterm=NONE
+    hi Normal guifg=#575279 guibg=#f2e9e1 gui=NONE cterm=NONE
+    hi CursorLine guifg=NONE guibg=#dfdad9 gui=NONE cterm=NONE
 endif

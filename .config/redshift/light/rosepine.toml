@@ -3,13 +3,13 @@
 
 [colors.primary]
 foreground = "#575279"
-background = "#faf4ed"
+background = "#f2e9e1"
 dim_foreground = "#797593"
 bright_foreground = "#575279"
 
 [colors.cursor]
 text = "#575279"
-cursor = "#cecacd"
+cursor = "#56949f"
 
 [colors.vi_mode_cursor]
 text = "#575279"
