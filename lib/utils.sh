@@ -73,7 +73,7 @@ if [[ -n $(command -v gum) ]]; then
     Não utilizar ```txt content ```, mas apenas content
     '
     instruction+="minha mensagem: ${@}"
-    gemini "$instruction" | gum paper
+    gemini "$instruction" | gum pager
   }
 
 function table {
