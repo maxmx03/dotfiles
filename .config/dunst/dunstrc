@@ -10,7 +10,7 @@
 
     ### Geometry ###
     width = 300
-    
+
     # dynamic height from 0 to 300
     # The maximum height of a single notification, excluding the frame.
     height = (0, 300)
@@ -42,7 +42,8 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 1
-    frame_color = "#7f3fbf"
+    frame_color = "#9ccfd8"
+    highlight="#9ccfd8"
     gap_size = 0
     separator_color = auto
     sort = yes
@@ -95,22 +96,22 @@
 
 
 [urgency_low]
-    background = "#28143c"
-    foreground = "#ffffff"
+    background = "##1f1d2e"
+    foreground = "#e0def4"
     timeout = 5
     icon = /usr/share/icons/Qogir/16/status/package-installed-outdated.svg
 
 [urgency_normal]
-    background = "#28143c"
-    foreground = "#ffffff"
+    background = "##1f1d2e"
+    foreground = "#e0def4"
     timeout = 5
     override_pause_level = 30
     icon = /usr/share/icons/Qogir/16/emblems/emblem-question.svg
 
 [urgency_critical]
-    background = "#28143c"
-    foreground = "#ffffff"
-    frame_color = "#ff7f7f"
+    background = "##1f1d2e"
+    foreground = "#e0def4"
+    frame_color = "#eb6f92"
     timeout = 120
     icon = /usr/share/icons/Qogir/16/actions/dialog-warning.svg
 
