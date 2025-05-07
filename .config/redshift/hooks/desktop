@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 function set_light_theme {
-	feh --bg-fill --random /home/milianor/Imagens/wallpaper/light
+	ln -sf "$HOME/.config/redshift/light/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
 }
 
 function set_dark_theme {
-	feh --bg-fill --random /home/milianor/Imagens/wallpaper/dark
+	ln -sf "$HOME/.config/redshift/dark/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
 }
 
 if [[ "$1" = period-changed ]]; then
