@@ -41,3 +41,34 @@ function manpage {
   local browser=google-chrome-stable
   man -H$browser $1
 }
+
+function ohman {
+  local instruction='
+    Descrição do projeto
+    Gerar saída similar a man pages do Linux, em formato conciso.
+
+    Estrutura da instrução
+
+    - Nome do Comando: (comando) - Título principal, nome do seu gem.
+    - Sinopse: (comando [OPÇÕES] [ARGUMENTOS]) - Uso básico do comando, indicando opções e argumentos.
+    - Descrição: Breve explicação do que o comando faz.
+    - Opções: -opção, --opção-longa - Descrição concisa da opção.
+    Exemplos:
+    comando -a arquivo - Demonstração de uso com opções e/ou argumentos.
+
+    Formatação
+    Deverá ser em formato de texto puro.
+    Não utilizar ```txt content ```, mas apenas content
+
+    Minha mensagem:
+      '
+
+  curl -sS "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API}" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "contents": [{
+      "parts":[{"text": "'"$instruction $@"'"}]
+      }]
+     }' | jq -r '.candidates[0].content.parts[0].text' | less
+}
