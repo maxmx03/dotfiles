@@ -42,8 +42,20 @@ function manpage {
   man -H$browser $1
 }
 
-function ohman {
-  local instruction='
+function gemini {
+  gum spin --spinner.foreground 4 --spinner dot --title "Gemini is cooking" -- curl -sS "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API}" \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{
+      "contents": [{
+        "parts":[{"text": "'"$1"'"}]
+      }]
+  }' | jq -r '.candidates[0].content.parts[0].text'
+}
+
+if [[ -n $(command -v gum) ]]; then
+  function ohman {
+    local instruction='
     Descrição do projeto
     Gerar saída similar a man pages do Linux, em formato conciso.
 
@@ -59,16 +71,47 @@ function ohman {
     Formatação
     Deverá ser em formato de texto puro.
     Não utilizar ```txt content ```, mas apenas content
+    '
+    instruction+="minha mensagem: ${@}"
+    gemini "$instruction" | gum paper
+  }
 
-    Minha mensagem:
-      '
+function table {
+  local instruction='
+  Descrição do projeto
+  Gerar uma tabela com base no texto
 
-  curl -sS "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API}" \
-  -H 'Content-Type: application/json' \
-  -X POST \
-  -d '{
-    "contents": [{
-      "parts":[{"text": "'"$instruction $@"'"}]
-      }]
-     }' | jq -r '.candidates[0].content.parts[0].text' | less
+  Formatação
+  Deverá ser em formato markdown.
+  Não utilizar ```markdown content ```, mas apenas content
+
+  Minha mensagem:
+  '
+  local row=''
+  while read -r data; do
+    row+=$data
+  done
+  gemini "${instruction} ${row}" | gum format
 }
+
+function copilot {
+  local instruction='
+  Descrição do projeto
+  A sua missão é tirar dúvidas sobre programação
+
+  Objetivo
+  - Instruções detalhadas: Me ensinar sobre programação, e me dar instruções
+  sobre como implementar o código através de um todolist.
+  - Pular: preparação e instalação do ambiente de desenvolvimento.
+  - Código: Pode mostrar código, mas tente não mostrar tudo.
+
+  Formatação
+  Deverá ser em formato markdown.
+  Não utilizar ```markdown content ```, mas apenas content.
+
+  Minha mensagem:
+  '
+  instruction+=$(gum write)
+  gemini "${instruction} ${@}" | gum format
+}
+fi

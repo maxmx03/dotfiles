@@ -50,9 +50,7 @@ fi
 
 source "$HOME/dotfiles/lib/utils.sh"
 source "$HOME/dotfiles/lib/dots.sh"
-if [[ -n $(command -v gum) ]]; then
-  source "$HOME/dotfiles/lib/tmx.sh"
-fi
+source "$HOME/dotfiles/lib/tmx.sh"
 
 declare -a cmps=(
   "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
