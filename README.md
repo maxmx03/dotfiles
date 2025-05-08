@@ -37,6 +37,11 @@
 - [ghostty](https://ghostty.org/) Cross-platform terminal emulator
 - [kitty](https://github.com/kovidgoyal/kitty) Cross-platform, fast, feature-rich, GPU based terminal
 
+## DOCS
+
+- [Neovim](https://github.com/maxmx03/dotfiles/blob/main/.config/nvim/README.md)
+- [Vim](https://github.com/maxmx03/dotfiles/blob/main/.vim/README.md)
+
 ## Wallpapers
 
 [click here](https://www.canva.com/design/DAGmbIWt6QI/jpMOMzY_aI2BMsWc9yMg0Q/edit?utm_content=DAGmbIWt6QI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
