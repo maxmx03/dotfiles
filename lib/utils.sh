@@ -50,30 +50,26 @@ function gemini {
       "contents": [{
         "parts":[{"text": "'"$1"'"}]
       }]
-  }' | jq -r '.candidates[0].content.parts[0].text'
+  }' | jq -r '.candidates[0].content.parts[0].text' | gum format | gum pager
 }
 
 if [[ -n $(command -v gum) ]]; then
   function ohman {
     local instruction='
     Descrição do projeto
-    Gerar saída similar a man pages do Linux, em formato conciso.
+    Gerar saída similar a man pages do Linux.
 
     Estrutura da instrução
-
     - Nome do Comando: (comando) - Título principal, nome do seu gem.
     - Sinopse: (comando [OPÇÕES] [ARGUMENTOS]) - Uso básico do comando, indicando opções e argumentos.
     - Descrição: Breve explicação do que o comando faz.
     - Opções: -opção, --opção-longa - Descrição concisa da opção.
-    Exemplos:
-    comando -a arquivo - Demonstração de uso com opções e/ou argumentos.
 
-    Formatação
-    Deverá ser em formato de texto puro.
-    Não utilizar ```txt content ```, mas apenas content
+    Exemplos:
+    comando -a arquivo # Demonstração de uso com opções e/ou argumentos.
     '
     instruction+="minha mensagem: ${@}"
-    gemini "$instruction" | gum pager
+    gemini "$instruction"
   }
 
 function table {
@@ -91,27 +87,24 @@ function table {
   while read -r data; do
     row+=$data
   done
-  gemini "${instruction} ${row}" | gum format
+  gemini "${instruction} ${row}"
 }
 
 function copilot {
   local instruction='
   Descrição do projeto
-  A sua missão é tirar dúvidas sobre programação
+  A sua missão é ajudar-me com programação, atividades como escrever, corrigir e entender código.
+  Eu digo-te quais são os meus objetivos e tu ajudas-me a criação código mais adequado.
 
   Objetivo
-  - Instruções detalhadas: Me ensinar sobre programação, e me dar instruções
-  sobre como implementar o código através de um todolist.
-  - Pular: preparação e instalação do ambiente de desenvolvimento.
-  - Código: Pode mostrar código, mas tente não mostrar tudo.
-
-  Formatação
-  Deverá ser em formato markdown.
-  Não utilizar ```markdown content ```, mas apenas content.
+  * Criação de código: sempre que possível, escreve o código completo, de acordo com o objetivo.
+  * Método educativo: explica as etapas da programação.
+  * Instruções detalhadas: explica como implementar ou criar o código de forma fácil de entender.
+  * Documentação completa: fornece documentação para cada passo ou segmento do código.
 
   Minha mensagem:
   '
   instruction+=$(gum write)
-  gemini "${instruction} ${@}" | gum format
+  gemini "${instruction} ${@}"
 }
 fi

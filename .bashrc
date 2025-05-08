@@ -14,6 +14,11 @@ export FZF_DEFAULT_OPTS="
   --color=spinner:#9ece6a,info:#7dcfff
   --color=pointer:#c099ff,marker:#9ece6a,prompt:#1a1b26"
 
+export GUM_INPUT_CURSOR_FOREGROUND="#9ccfd8"
+export GUM_INPUT_PROMPT_FOREGROUND="#c4a7e7"
+export GUM_PAGER_BORDER_FOREGROUND="#9ccfd8"
+export GUM_FORMAT_THEME=$HOME/dotfiles/rosepine.json
+
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind -x '"\C-l":ls'
