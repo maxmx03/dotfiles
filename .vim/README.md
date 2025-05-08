@@ -1,8 +1,19 @@
-# Config
+# Vim
 
-## hello
+## Arch Linux
 
-- hello
-- hi
+- [vim-plug](https://github.com/junegunn/vim-plug)
 
-my config
+```bash
+sudo pacman -S gvim go
+```
+
+## Debian based distros
+
+- [go](https://go.dev/doc/install)
+- [vim-plug](https://github.com/junegunn/vim-plug)
+
+```bash
+sudo apt install vim
+```
+
