@@ -1,10 +1,13 @@
 .tmux.conf
+.bashrc
 .gitconfig
+.bash_profile
+.config/fish
 .config/starship.toml
 .config/mako
+.config/hypr
+.config/foot
+.config/wlogout
 .config/rofi
+.config/waybar
 .config/mpv
-.config/gtk-4.0
-.config/i3
-.config/dunst
-.config/ghostty

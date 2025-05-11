@@ -1,5 +1,8 @@
+export QT_QPA_PLATFORM=wayland
 export EDITOR="nvim"
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.c/bin
 export FZF_DEFAULT_COMMAND='fd -t f -s --ignore --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
   --tmux=center
@@ -41,10 +44,13 @@ if [[ -n $(command -v starship) ]]; then
   eval "$(starship init bash)"
 fi
 
-source "$HOME/dotfiles/lib/utils.sh"
+source "$HOME/.cargo/env"
 source "$HOME/dotfiles/lib/dots.sh"
+source "$HOME/dotfiles/lib/pomodoro.sh"
 if [[ -n $(command -v gum) ]]; then
   source "$HOME/dotfiles/lib/tmx.sh"
+  source "$HOME/dotfiles/lib/notes.sh"
+  source "$HOME/dotfiles/lib/utils.sh"
 fi
 
 readonly -a completions=(
@@ -64,3 +70,22 @@ parallel wgetcomp {/} {} ::: "${completions[@]}"
 for comp in "$HOME"/.completions/*; do
   source "$comp"
 done
+
+function llama {
+  cat "$NOTES_DIR"/llama.txt
+}
+
+function llamasay {
+  if [[ ! -f "$NOTES_DIR/llama.txt" ]]; then
+    return
+  fi
+  declare -i lines random
+  declare text
+  lines=$(wc -l "$NOTES_DIR"/llama.txt | awk '{print $1}')
+  random=$((RANDOM % lines))
+  text="$(sed -n "$((random + 1))p" "$NOTES_DIR"/llama.txt)"
+  [[ -n $text ]] && cowsay -f llama "$text"
+  return 0
+}
+
+[ -n "${WAYLAND_DISPLAY}" ] && llamasay

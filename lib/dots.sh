@@ -4,6 +4,20 @@ export DOTS_DATA_FILE="$DOTS_DIR/dots.txt"
 
 [[ ! -f "$DOTS_DATA_FILE" ]] && touch "$DOTS_DATA_FILE"
 
+function loading {
+  declare t msg
+  t=$1
+  msg=$2
+
+  for i in {0..11}; do
+    printf "\r${msg:-Loading}: [%-10s]" "$(seq -s "#" "$i" | tr -d '[:digit:]')"
+    sleep "${t:-0.1}"
+  done
+  echo " Done!"
+}
+
+export -f loading
+
 function _dots_help {
   echo 'Dots - Help
 
