@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-function gemini {
-    source ~/.env
-    gum spin --spinner.foreground 4 --spinner globe --title "Gemini is cooking" -- curl -sS "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API}" \
-	-H 'Content-Type: application/json' \
-	-X POST \
-	-d '{
-	    "contents": [{
-		"parts":[{"text": "'"$1"'"}]
-	    }]
-    }' | jq -r '.candidates[0].content.parts[0].text' | gum format | gum pager
-}
 
+source ~/.env
+gum spin --spinner.foreground 4 --spinner globe --title "Gemini is cooking" -- curl -sS "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API}" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "contents": [{
+      "parts":[{"text": "'"$1"'"}]
+    }]
+}' | jq -r '.candidates[0].content.parts[0].text' | gum format | gum pager
