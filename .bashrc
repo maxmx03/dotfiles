@@ -26,11 +26,11 @@ export FZF_DEFAULT_OPTS="
 --header='Find Files'
 --bind 'enter:become($EDITOR {})'
 --preview 'eza --icons -a'
---color=fg+:#c0caf5,hl+:#ff9e64
---color=fg:#565f89,hl:#ff9e64
---color=border:#292e42,header:#7aa2f7,gutter:#16161e
---color=spinner:#9ece6a,info:#7dcfff
---color=pointer:#c099ff,marker:#9ece6a,prompt:#1a1b26"
+--color=fg+:#e0def4,hl+:#f6c177
+--color=fg:#6e6a86,hl:#f6c177
+--color=border:#c4a7e7,header:#7aa2f7,gutter:#16161e
+--color=spinner:#31748f,info:#9ccfd8
+--color=pointer:#9ccfd8,marker:#31748f,prompt:#1a1b26"
 export GUM_INPUT_CURSOR_FOREGROUND="#9ccfd8"
 export GUM_INPUT_PROMPT_FOREGROUND="#c4a7e7"
 export GUM_PAGER_BORDER_FOREGROUND="#9ccfd8"
