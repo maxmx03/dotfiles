@@ -149,7 +149,7 @@ hi! link VisualNOS Visual
 hi WildMenu guifg=#908caa guibg=NONE gui=NONE cterm=NONE
 hi! link WinBar Normal
 hi! link WinBarNC WinBar
-hi Comment guifg=#908caa guibg=NONE gui=NONE cterm=NONE
+hi Comment guifg=#908caa guibg=NONE gui=italic cterm=italic
 hi String guifg=#f6c177 guibg=NONE gui=NONE cterm=NONE
 hi! link Character String
 hi Constant guifg=#f6c177 guibg=NONE gui=NONE cterm=NONE
@@ -159,7 +159,7 @@ hi Float guifg=#f6c177 guibg=NONE gui=NONE cterm=NONE
 hi Identifier guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
 hi Property guifg=#9ccfd8 guibg=NONE gui=NONE cterm=NONE
 hi Parameter guifg=#c4a7e7 guibg=NONE gui=NONE cterm=NONE
-hi Function guifg=#ebbcba guibg=NONE gui=NONE cterm=NONE
+hi Function guifg=#ebbcba guibg=NONE gui=italic cterm=italic
 hi Statement guifg=#3B8BAB guibg=NONE gui=NONE cterm=NONE
 hi Conditional guifg=#3B8BAB guibg=NONE gui=NONE cterm=NONE
 hi Repeat guifg=#3B8BAB guibg=NONE gui=NONE cterm=NONE

@@ -1,13 +1,11 @@
 vim9script
 set number
 set cursorline
-set mouse=a
 set clipboard=unnamedplus
 set autowrite
 set autowriteall
 set backup
 set backupdir=~/.cache/vim/backup
-set clipboard=unnamedplus
 set completeopt=menu,menuone,noselect,noinsert
 set conceallevel=2
 set formatoptions=jcroqlnt
@@ -16,8 +14,6 @@ set ignorecase
 set laststatus=0
 set list
 set listchars=tab:→\ ,trail:-,nbsp:+
-set mouse=a
-set number
 set pumheight=10
 # set omnifunc=syntaxcomplete#Complete
 set relativenumber

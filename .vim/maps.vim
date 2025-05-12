@@ -12,5 +12,9 @@ nmap <silent>+ <c-a>
 nmap <silent>- <c-x>
 nmap <silent><c-e> <c-u>
 nmap <leader>m <leader>K
+nmap Y y$
 nmap <leader>/ gcc<CR>
 vmap <leader>/ gc<CR>
+
+map f <Plug>Sneak_s
+map f <Plug>Sneak_S
