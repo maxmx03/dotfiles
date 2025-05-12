@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+instruction='
+Descrição do projeto
+Gerar uma tabela com base no texto
+
+Formatação
+Deverá ser em formato markdown.
+Não utilizar ```markdown content ```, mas apenas content
+
+Minha mensagem:
+'
+row=''
+while read -r data; do
+    row+=$data
+done
+gemini "${instruction} ${row}"

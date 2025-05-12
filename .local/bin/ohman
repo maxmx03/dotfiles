@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+instruction='
+Descrição do projeto
+Gerar saída similar a man pages do Linux.
+
+Estrutura da instrução
+- Nome do Comando: (comando) - Título principal, nome do seu gem.
+- Sinopse: (comando [OPÇÕES] [ARGUMENTOS]) - Uso básico do comando, indicando opções e argumentos.
+- Descrição: Breve explicação do que o comando faz.
+- Opções: -opção, --opção-longa - Descrição concisa da opção.
+
+Exemplos:
+comando -a arquivo # Demonstração de uso com opções e/ou argumentos.
+'
+instruction+="minha mensagem: ${@}"
+gemini "$instruction"
