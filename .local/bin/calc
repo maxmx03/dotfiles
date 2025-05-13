@@ -2,16 +2,17 @@
 
 echo "write a math expression: 2 + 2"
 echo "press q to quit"
+echo
 while read operation; do
-    if [[ $operation = 'q' ]]; then
-	if [[ -n $(command -v gum) ]]; then
-	    gum spin --spinner.foreground 4 --spinner minidot --title "Exiting..." -- sleep 1
-	fi
-	exit 0
-    fi
+  if [[ $operation = 'q' ]]; then
     if [[ -n $(command -v gum) ]]; then
-	gum spin --spinner.foreground 4 --spinner minidot --title "Calculating..." -- sleep 0.3
+      gum spin --spinner.foreground 4 --spinner minidot --title "Exiting..." -- sleep 1
     fi
-    res=`echo "scale=2; $operation" | bc`
-    echo "Result: $res"
+    exit 0
+  fi
+  if [[ -n $(command -v gum) ]]; then
+    gum spin --spinner.foreground 4 --spinner minidot --title "Calculating..." -- sleep 0.3
+  fi
+  res=`echo "scale=2; $operation" | bc`
+  echo "Result: $res"
 done
