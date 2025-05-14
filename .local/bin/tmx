@@ -115,7 +115,10 @@ declare -A subcmds=(
   [rm]="remove"
   [help]="help"
 )
-[[ -z "${subcmds[$1]}" ]] && {
+
+[[ -z "$1" ]] && {
   help
-  return 1
-} || ${subcmds[$1]} "$2"
+  exit 1
+} || {
+  [[ -z "$2" ]] && ${subcmds[$1]} || ${subcmds[$1]} "$2"
+}
