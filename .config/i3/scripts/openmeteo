@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Edited by Max Del Canto <github.com/maxmx03>
 
-source ~/dotfiles/.env
+source ~/.env
 
 declare wc=(
   "☀️"

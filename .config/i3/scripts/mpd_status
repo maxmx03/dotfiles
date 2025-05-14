@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-source ~/dotfiles/.env
-
 current_file=$(mpc -f '%file%' current)
 
 if [[ "$(mpc status | grep '\[paused\]')" ]]; then
