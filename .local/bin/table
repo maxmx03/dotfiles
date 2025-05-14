@@ -14,4 +14,4 @@ row=''
 while read -r data; do
     row+=$data
 done
-gemini "${instruction} ${row}"
+gemini "${instruction} ${row}" | gum format | gum pager

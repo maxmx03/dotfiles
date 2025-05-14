@@ -14,4 +14,4 @@ Objetivo
 Minha mensagem:
 '
 instruction+=$(gum write)
-gemini "${instruction} ${@}"
+gemini "${instruction} ${@}" | gum format | gum pager

@@ -14,4 +14,4 @@ Exemplos:
 comando -a arquivo # Demonstração de uso com opções e/ou argumentos.
 '
 instruction+="minha mensagem: ${@}"
-gemini "$instruction"
+gemini "$instruction" | gum format | gum pager
