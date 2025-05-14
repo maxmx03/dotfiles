@@ -1,32 +1,36 @@
 [user]
-	name = "Max Miliano"
-	email = "milianordelcanto@gmail.com"
+  name = "Max Miliano"
+  email = "milianordelcanto@gmail.com"
 [credential]
-	helper = store
-; [pull]
-; 	rebase = true
+  helper = store
+[pull]
+  rebase = true
 [init]
-	defaultBranch = main
-; [diff]
-;   tool = nvimdiff
-; [core]
-;     pager = delta
-; [interactive]
-;     diffFilter = delta --color-only
-; [delta]
-;     navigate = true    # use n and N to move between diff sections
-;     dark = true
-;     side-by-side = true
-; [merge]
-;     conflictstyle = diff3
-; [diff]
-;   colorMoved = default
+  defaultBranch = main
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  dark = true
+  side-by-side = true
+[merge]
+  conflictstyle = zdiff3
 [alias]
-    dot = !git --git-dir=$HOME/.dot --work-tree=$HOME
-    df = !git_diff
-    dm = diff
-    ds = diff --staged
-    dd = diff --diff-filter=D
-    st = status
-    unstage = restore --staged --
-    undo = restore
+  dot = !git --git-dir=$HOME/.dot.git --work-tree=$HOME
+  cm = !commit
+  df = !git_diff
+  dm = diff
+  ds = diff --staged
+  dd = diff --diff-filter=D
+  st = status
+  history = log --oneline --decorate --graph --all
+  unstage = restore --staged --
+  undo = restore
+
