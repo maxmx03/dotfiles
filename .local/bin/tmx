@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-function _tmx_help {
+function help {
   echo "📝 Notes - Help
 
   Usage: tmx <command>
@@ -14,7 +14,7 @@ function _tmx_help {
   help                help"
 }
 
-function _tmx_newx {
+function newx {
   declare directory file
   directory=$(pwd)
   file="${directory}/$1"
@@ -22,7 +22,7 @@ function _tmx_newx {
   num_sessions=$(jq '.sessions | length' "${file}")
 
   for ((i = 0; i < num_sessions; i++)); do
-    declare project root 
+    declare project root
     declare -i index=1
 
     session=$(jq ".sessions[$i]" "${file}")
@@ -54,7 +54,7 @@ function _tmx_newx {
   done
 }
 
-function _tmx_rm {
+function remove {
   sessions=$(tmux ls | awk -F':' '{print $1}')
 
   echo "Select a session to delete:"
@@ -75,7 +75,7 @@ function _tmx_rm {
   fi
 }
 
-function _tmx_new {
+function new {
   declare session confirm
   session=$1
 
@@ -89,31 +89,33 @@ function _tmx_new {
   fi
 }
 
-function _tmx_attach {
+function attach {
   declare session sessions
   sessions=$(tmux ls | awk -F':' '{print $1}')
   echo "select a session"
-  select session in $sessions; do
-    if [ -n "$session" ]; then
-      break
-    else
-      echo "Invalid selection."
-    fi
-  done
-
+  if [[ -n $(command -v gum) ]]; then
+    session="$(gum choose $sessions)"
+  else
+    select session in $sessions; do
+      if [ -n "$session" ]; then
+        break
+      else
+        echo "Invalid selection."
+      fi
+    done
+  fi
   tmux attach-session -t "${session}"
 }
 
-function tmx() {
-  declare -A subcmds=(
-    [attach]="_tmx_attach"
-    [new]="_tmx_new"
-    [newx]="_tmx_newx"
-    [rm]="_tmx_rm"
-    [help]="_tmx_help"
-  )
-  [[ -z "${subcmds[$1]}" ]] && {
-    _tmx_help
-    return 1
-  } || ${subcmds[$1]} "$2"
-}
+
+declare -A subcmds=(
+  [attach]="attach"
+  [new]="new"
+  [newx]="newx"
+  [rm]="remove"
+  [help]="help"
+)
+[[ -z "${subcmds[$1]}" ]] && {
+  help
+  return 1
+} || ${subcmds[$1]} "$2"

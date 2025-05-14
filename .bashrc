@@ -46,6 +46,7 @@ alias ll="eza --long --icons -a"
 alias fish="asciiquarium"
 alias vi="vim"
 alias dot="git dot"
+alias attach="tmx attach"
 
 shopt -s histappend
 

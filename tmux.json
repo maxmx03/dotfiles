@@ -1,0 +1,24 @@
+{
+  "sessions": [
+    {
+      "name": "Home",
+      "root": "~/",
+      "windows": []
+    },
+    {
+      "name": "Code",
+      "root": "~/Github/zed-shaw",
+      "windows": []
+    },
+    {
+      "name": "VimConfig",
+      "root": "~/.vim",
+      "windows": []
+    },
+    {
+      "name": "NvimConfig",
+      "root": "~/.config/nvim",
+      "windows": ["nvim"]
+    }
+  ]
+}
