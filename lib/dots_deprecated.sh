@@ -2,6 +2,18 @@
 export DOTS_DIR="${XDG_DATA_HOME:-$HOME}/dotfiles"
 export DOTS_DATA_FILE="$DOTS_DIR/dots.txt"
 
+function loading {
+  declare t msg
+  t=$1
+  msg=$2
+
+  for i in {0..11}; do
+    printf "\r${msg:-Loading}: [%-10s]" "$(seq -s "#" "$i" | tr -d '[:digit:]')"
+    sleep "${t:-0.1}"
+  done
+  echo " Done!"
+}
+
 [[ ! -f "$DOTS_DATA_FILE" ]] && touch "$DOTS_DATA_FILE"
 
 function _dots_help {
