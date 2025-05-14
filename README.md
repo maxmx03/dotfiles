@@ -39,6 +39,7 @@
 
 ## DOCS
 
+- [Dotfiles: Best way to store in a bare git repository](https://www.atlassian.com/git/tutorials/dotfiles)
 - [Neovim](https://github.com/maxmx03/dotfiles/blob/main/.config/nvim/README.md)
 - [Vim](https://github.com/maxmx03/dotfiles/blob/main/.vim/README.md)
 
