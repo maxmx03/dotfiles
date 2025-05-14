@@ -1,1 +1,1 @@
-source ~/.vim/autoload/vim-plug/plug.vim
+source ~/.vim/bundle/vim-plug/plug.vim

@@ -21,14 +21,17 @@
 .viminf[a-z].tmp
 */
 
+!.gitmodules
+!.gitconfig
+!.gitignore
 !.bashrc
 !.zshrc
-!.gitconfig
 !.tmux.conf
 !.vimrc
 !.vim/
+!.vim/bundle
+!.vim/bundle/*
 !.vim/autoload/
-!.vim/autoload/vim-plug
 !.config/
 !.local/
 
