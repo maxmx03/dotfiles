@@ -25,22 +25,28 @@ function timer {
 state=$1
 sound=/usr/share/sounds/freedesktop/stereo/complete.oga
 
-for ((session = 1; ; session++)); do
+function notify {
+  at now <<END
+  notify-send -t "$1" "session done"
+  pw-play $HOME/Music/clock-alarm.mp3
+END
+}
+
+declare -i session
+session=1
+while true; do
   case $state in
     work)
-      timer "25" "work"
-      echo "pw-cat -p $sound" | at now
-      notify-send -t 8000 "work" "session done"
+      timer "25" "$state"
+      notify "$state" 2> /dev/null
       ;;
     break)
-      timer "5" "break"
-      notify-send -t 8000 "break" "session done"
-      echo "pw-cat -p $sound" | at now
+      timer "5" "$state"
+      notify "$state" 2> /dev/null
       ;;
     extrabreak)
-      timer "10" "extra break"
-      notify-send -t 8000 "long break" "session done"
-      echo "pw-cat -p $sound" | at now
+      timer "10" "$state"
+      notify "$state" 2> /dev/null
       ;;
     *)
       echo "
@@ -58,6 +64,7 @@ for ((session = 1; ; session++)); do
     *)
       case $state in
         work)
+          ((session++))
           state="break"
           ;;
         break)

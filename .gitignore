@@ -34,7 +34,7 @@
 !.vim/autoload/
 !.config/
 !.local/
-
+!.local/bin/
 !.config/alacritty/
 !.config/dunst/
 !.config/fish/
@@ -51,10 +51,8 @@
 !.config/wlogout/
 !.config/gtk-4.0/
 
-!.local/bin/
-
 !LICENSE
 !rosepine.json
 
 !lib/
-!microsoft/
+!Music/
