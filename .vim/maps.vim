@@ -18,5 +18,5 @@ vmap <leader>/ gc<cr>
 nmap <leader>pp <cmd>PlugInstall<cr>
 nmap <leader>pc <cmd>PlugClean<cr>
 
-map f <Plug>Sneak_s
-map f <Plug>Sneak_S
+map s <Plug>Sneak_s
+map S <Plug>Sneak_S
