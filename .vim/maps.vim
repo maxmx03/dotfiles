@@ -13,8 +13,10 @@ nmap <silent>- <c-x>
 nmap <silent><c-e> <c-u>
 nmap <leader>m <leader>K
 nmap Y y$
-nmap <leader>/ gcc<CR>
-vmap <leader>/ gc<CR>
+nmap <leader>/ gcc<cr>
+vmap <leader>/ gc<cr>
+nmap <leader>pp <cmd>PlugInstall<cr>
+nmap <leader>pc <cmd>PlugClean<cr>
 
 map f <Plug>Sneak_s
 map f <Plug>Sneak_S

@@ -42,6 +42,7 @@ set shiftwidth=4
 set softtabstop=4
 set noexpandtab
 set tabstop=8
+set background=dark
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"

@@ -10,7 +10,6 @@ vim9script
 # endif
 
 # g:loaded_rosepine = 1
-set background=dark
 
 hi clear
 
@@ -43,46 +42,6 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     ]
 endif
 
-
-
-hi Conceal guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi CurSearch guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi Cursor guifg=NONE guibg=#e0def4 gui=NONE cterm=NONE
-hi lCursor guifg=NONE guibg=#e0def4 gui=NONE cterm=NONE
-hi CursorIM guifg=NONE guibg=#e0def4 gui=NONE cterm=NONE
-hi CursorColumn guifg=#1f1d2e guibg=NONE gui=NONE cterm=NONE
-hi CursorLine guifg=NONE guibg=#403d52 gui=NONE cterm=NONE
-hi Directory guifg=#9ccfd8 guibg=NONE gui=NONE cterm=NONE
-hi DiffAdd guifg=#9ccfd8 guibg=NONE gui=NONE cterm=NONE
-hi DiffChange guifg=#ebbcba guibg=NONE gui=NONE cterm=NONE
-hi DiffDelete guifg=#eb6f92 guibg=NONE gui=NONE cterm=NONE
-hi DiffText guifg=#c4a7e7 guibg=NONE gui=NONE cterm=NONE
-hi EndOfBuffer guifg=#191724 guibg=NONE gui=NONE cterm=NONE
-hi TermCursor guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi TermCursorNC guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi ErrorMsg guifg=#eb6f92 guibg=NONE gui=NONE cterm=NONE
-hi WinSeparator guifg=#6e6a86 guibg=NONE gui=NONE cterm=NONE
-hi! link VertSplit WinSeparator
-hi Folded guifg=#e0def4 guibg=#26233a gui=NONE cterm=NONE
-hi FoldColumn guifg=#e0def4 guibg=#26233a gui=NONE cterm=NONE
-hi IncSearch guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi Substitute guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi LineNr guifg=#908caa guibg=NONE gui=NONE cterm=NONE
-hi LineNrAbove guifg=#908caa guibg=NONE gui=NONE cterm=NONE
-hi LineNrBelow guifg=#908caa guibg=NONE gui=NONE cterm=NONE
-hi CursorLineNr guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi! link CursorLineFold Folded
-hi! link CursorLineSign SignColumn
-hi MatchParen guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-hi ModeMsg guifg=#c4a7e7 guibg=NONE gui=NONE cterm=NONE
-hi! link MsgArea Normal
-hi NonText guifg=#908caa guibg=NONE gui=NONE cterm=NONE
-hi Normal guifg=#e0def4 guibg=#191724 gui=NONE cterm=NONE
-if g:rosepine_transparency
-  hi Normal guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
-endif
-hi SignColumn guifg=#e0def4 guibg=#191724 gui=NONE cterm=NONE
-hi ColorColumn guifg=NONE guibg=#1f1d2e gui=NONE cterm=NONE
 hi Conceal guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
 hi CurSearch guifg=#e0def4 guibg=NONE gui=NONE cterm=NONE
 hi Cursor guifg=NONE guibg=#e0def4 gui=NONE cterm=NONE
@@ -149,6 +108,8 @@ hi! link VisualNOS Visual
 hi WildMenu guifg=#908caa guibg=NONE gui=NONE cterm=NONE
 hi! link WinBar Normal
 hi! link WinBarNC WinBar
+
+
 hi Comment guifg=#908caa guibg=NONE gui=italic cterm=italic
 hi String guifg=#f6c177 guibg=NONE gui=NONE cterm=NONE
 hi! link Character String
