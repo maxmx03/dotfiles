@@ -13,5 +13,5 @@ Estrutura da instrução
 Exemplos:
 comando -a arquivo # Demonstração de uso com opções e/ou argumentos.
 '
-instruction+="minha mensagem: ${@}"
+instruction+="minha mensagem: $1"
 gemini "$instruction" | gum format | gum pager

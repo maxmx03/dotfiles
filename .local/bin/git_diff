@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 gum style \
-	--foreground 3 \
-	'Diff filter [(A|C|D|M|R|T|U|X|B)...[*]]'
+  --foreground 3 \
+  'Diff filter [(A|C|D|M|R|T|U|X|B)...[*]]'
 gum style \
-	--foreground 7 \
-	'Select only files that are Added (A), Copied (C), Deleted (D), Modified (M), Renamed (R), changed (T), are Unmerged (U),
-           are Unknown (X), or have had their pairing Broken (B).'
+  --foreground 7 \
+  'Select only files that are Added (A), Copied (C), Deleted (D), Modified (M), Renamed (R), changed (T), are Unmerged (U),
+are Unknown (X), or have had their pairing Broken (B).'
 TYPE="$(gum choose "A" "C" "D" "M" "R" "T" "U" "X" "B")"
 TOOL="$(gum choose "diff" "difftool")"
 git $TOOL --diff-filter $TYPE $@

@@ -10,8 +10,8 @@ Não utilizar ```markdown content ```, mas apenas content
 
 Minha mensagem:
 '
-row=''
+row=""
 while read -r data; do
-    row+=$data
+  row+=$data
 done
 gemini "${instruction} ${row}" | gum format | gum pager
