@@ -11,8 +11,8 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.local/bin
 FNM_PATH="/home/milianor/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-    export PATH="$FNM_PATH:$PATH"
-    eval "$(fnm env)"
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env)"
 fi
 export EDITOR="vim"
 export BUN_INSTALL="$HOME/.bun"
@@ -56,39 +56,38 @@ HISTFILE=~/.bash_history
 HISTCONTROL=ignoredups
 
 declare -a cmps=(
-    "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
-    "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
-    "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
-    "https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
+  "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
+  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
+  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
+  "https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
 )
 
 function wgetcomp {
-    if [[ ! -f "$HOME"/.cmps/"$1" ]]; then
-	wget --directory-prefix="$HOME/.cmps" "$2"
-    fi
+  if [[ ! -f "$HOME"/.cmps/"$1" ]]; then
+    wget --directory-prefix="$HOME/.cmps" "$2"
+  fi
 }
 
 function get_class {
-    xprop | grep WM_CLASS | awk '{ print $4 }'
+  xprop | grep WM_CLASS | awk '{ print $4 }'
 }
 
 export -f wgetcomp
 parallel wgetcomp {/} {} ::: "${cmps[@]}"
 
 for comp in "$HOME"/.cmps/*; do
-    source "$comp"
+  source "$comp"
 done
 
 function vim {
-    [ -z "$*" ] && yazi || command vim "$@"
+  [ -z "$*" ] && yazi || command vim "$@"
 }
 
 if [[ -n $(command -v jump) ]]; then
-    eval "$(jump shell --bind=z)"
+  eval "$(jump shell --bind=z)"
 fi
 
 eval "$(jump shell --bind=z)"
 if [[ -n $(command -v starship) ]]; then
-    eval "$(starship init bash)"
+  eval "$(starship init bash)"
 fi
-
