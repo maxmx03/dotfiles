@@ -26,9 +26,9 @@
   dot = !git --git-dir=$HOME/.dot.git --work-tree=$HOME
   cm = !commit
   df = !git_diff
-  dm = diff
-  ds = diff --staged
-  dd = diff --diff-filter=D
+  dm = difftool --diff-filter=M
+  ds = difftool --staged
+  dd = difftool --diff-filter=D
   st = status
   history = log --oneline --decorate --graph --all
   unstage = restore --staged --
