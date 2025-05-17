@@ -91,3 +91,7 @@ eval "$(jump shell --bind=z)"
 if [[ -n $(command -v starship) ]]; then
   eval "$(starship init bash)"
 fi
+
+if [[ "$TERM" = "xterm-256color" ]]; then
+  fastfetch
+fi
