@@ -1,6 +1,7 @@
 [general]
 import = [
-	"~/.config/alacritty/rosepine.toml",
+	# "~/.config/alacritty/rosepine.toml",
+	"~/.config/alacritty/rosepine-moon.toml",
 ]
 
 [font]

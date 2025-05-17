@@ -9,4 +9,4 @@ import $"{$HOME}/.vim/functions.vim"
 import $"{$HOME}/.vim/autocmds.vim"
 
 g:rosepine_polyglot = true
-colorscheme rosepine
+colorscheme rosepine_moon
