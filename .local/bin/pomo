@@ -7,14 +7,10 @@ function clock {
 }
 
 function timer {
-  declare -i t percentage
   local message
   t=$(($1 * 60))
   message=$2
   for ((i = 1; i <= t; i++)); do
-    percentage=$((i * 100 / t))
-    bar_length=$((percentage / 2))
-    # printf "\r${message^^} [%-${bar_length}s] %d%%" "$(seq -s "#" "$bar_length" | tr -d '[:digit:]')" "$percentage"
     printf "\r${message^^} %s" "$(clock $((t - i)))"
     sleep 1s
   done
@@ -23,7 +19,6 @@ function timer {
 }
 
 state=$1
-sound=/usr/share/sounds/freedesktop/stereo/complete.oga
 
 function notify {
   at now <<END
@@ -81,6 +76,5 @@ while true; do
     echo "Pomodoro finalized."
     break
   fi
-  clear
 done
 
