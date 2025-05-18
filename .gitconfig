@@ -24,6 +24,7 @@
   conflictstyle = zdiff3
 [alias]
   dot = !git --git-dir=$HOME/.dot.git --work-tree=$HOME
+  ai = add -i
   cm = !commit
   df = !git_diff
   dm = difftool --diff-filter=M
