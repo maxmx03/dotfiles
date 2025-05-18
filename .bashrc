@@ -7,6 +7,7 @@
 
 PS1='[\u@\h \W]\$ '
 
+export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.local/bin
 FNM_PATH="/home/milianor/.local/share/fnm"
@@ -20,12 +21,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export BROWSER=google-chrome-stable
 export FZF_DEFAULT_COMMAND='fd -t f -s -H --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
---tmux=center
 --border=rounded
 --border-label=${USER^}
 --header='Find Files'
 --bind 'enter:become($EDITOR {})'
---preview 'eza --icons -a'
+--preview 'bat -p -n --color=always {}'
 --color=fg+:#e0def4,hl+:#f6c177
 --color=fg:#6e6a86,hl:#f6c177
 --color=border:#c4a7e7,header:#7aa2f7,gutter:#16161e
@@ -39,7 +39,7 @@ export GUM_FORMAT_THEME=$HOME/rosepine.json
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind -x '"\C-l":ls'
-bind -x '"\C-f":fzf'
+bind -x '"\C-f":telescope'
 bind -x '"\C-e":yazi'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
@@ -95,3 +95,5 @@ fi
 if [[ "$TERM" = "xterm-256color" ]]; then
   fastfetch
 fi
+
+source "$HOME/.cargo/env"
