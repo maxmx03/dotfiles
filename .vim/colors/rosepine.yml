@@ -353,3 +353,8 @@ highlights:
         link: Keyword
       - name: vimEnvvar
         link: Parameter
+    - ale:
+      - name: ALEErrorSign
+        fg: base_30_0B
+      - name: ALEWarningSign
+        fg: base_30_0A

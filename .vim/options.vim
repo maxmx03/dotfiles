@@ -15,13 +15,12 @@ set laststatus=0
 set list
 set listchars=tab:→\ ,trail:-,nbsp:+
 set pumheight=10
-# set omnifunc=syntaxcomplete#Complete
 set relativenumber
 set shortmess=aCF
 set showmode
 set smartcase
 set nospell
-set timeoutlen=300
+set timeoutlen=700
 set textwidth=120
 set undodir=~/.cache/vim/undo
 set undofile

@@ -20,7 +20,9 @@ endif
 set termguicolors
 g:colors_name = 'rosepine_moon'
 g:rosepine_transparency = get(g:, 'rosepine_transparency', false)
+
 g:rosepine_polyglot = get(g:, 'rosepine_polyglot', false)
+g:rosepine_ale = get(g:, 'rosepine_ale', false)
 
 if (has('termguicolors') && &termguicolors) || has('gui_running')
   g:terminal_ansi_colors = [
@@ -174,5 +176,11 @@ if g:rosepine_polyglot
   hi! link vim9Block Keyword
   hi! link vimEnvvar Parameter
 endif
+
+if g:rosepine_ale
+  hi ALEErrorSign guifg=#eb6f92 guibg=NONE gui=NONE cterm=NONE
+  hi ALEWarningSign guifg=#f6c177 guibg=NONE gui=NONE cterm=NONE
+endif
 unlet g:rosepine_transparency
 unlet g:rosepine_polyglot
+unlet g:rosepine_ale

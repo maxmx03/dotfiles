@@ -9,8 +9,10 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'girishji/vimcomplete'
 Plug 'girishji/vimsuggest'
 Plug 'justinmk/vim-sneak'
+Plug 'evanleck/vim-svelte'
+Plug 'wuelnerdotexe/vim-astro'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 plug#end()
