@@ -37,6 +37,9 @@ return {
       },
       auto_update = true,
     }
+    local config = {
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    }
     local servers = {
       'eslint',
       'html',
@@ -55,10 +58,11 @@ return {
       'pyright',
       'svelte',
       'volar',
+      'rust_analyzer',
     }
     for _, server in ipairs(servers) do
-      -- vim.lsp.enable(server)
-      lspconfig[server].setup {}
+      vim.lsp.enable(server)
+      vim.lsp.config(server, config)
     end
     local handlers = {
       gopls = require 'config.handlers.gopls',
@@ -70,14 +74,10 @@ return {
       denols = require 'config.handlers.denols',
       emmet_language_server = require 'config.handlers.emmet_language_server',
     }
-    local config = {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    }
     for server, handler in pairs(handlers) do
       local cfg = vim.tbl_deep_extend('force', config, handler)
-      -- vim.lsp.enable(server)
-      -- vim.lsp.config(server, cfg)
-      lspconfig[server].setup(cfg)
+      vim.lsp.enable(server)
+      vim.lsp.config(server, cfg)
     end
   end,
 }
