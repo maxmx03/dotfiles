@@ -23,16 +23,17 @@ state=$1
 function notify {
   at now <<END
   notify-send -t "$1" "session done"
-  pw-play $HOME/Music/clock-alarm.mp3
+  # pw-play $HOME/Music/clock-alarm.mp3
 END
 }
 
 declare -i session
-session=1
+session=0
 while true; do
   case $state in
     work)
       timer "25" "$state"
+      ((session++))
       notify "$state" 2> /dev/null
       ;;
     break)
@@ -52,23 +53,19 @@ while true; do
       ;;
   esac
 
-  case $((session % 4)) in
-    0)
-      state="extrabreak"
+  case $state in
+    work)
+      if [[ $((session % 4)) -eq 0 ]]; then
+        state="extrabreak"
+      else
+        state="break"
+      fi
+      ;;
+    break)
+      state="work"
       ;;
     *)
-      case $state in
-        work)
-          ((session++))
-          state="break"
-          ;;
-        break)
-          state="work"
-          ;;
-        *)
-          state="work"
-          ;;
-      esac
+      state="work"
       ;;
   esac
   read -p "Continue to the next session? [y/N]: " confirm
