@@ -23,7 +23,7 @@ state=$1
 function notify {
   at now <<END
   notify-send -t "$1" "session done"
-  # pw-play $HOME/Music/clock-alarm.mp3
+  pw-play $HOME/Music/clock-alarm.mp3
 END
 }
 
