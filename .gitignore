@@ -19,6 +19,7 @@
 .pulse-cookie
 .viminfo
 .viminf[a-z].tmp
+.profile
 */
 
 !.gitmodules
@@ -33,6 +34,7 @@
 !.vim/bundle/*
 !.vim/autoload/
 !.vim/colors/
+!.vim/plugin/
 !.config/
 !.local/
 !.local/bin/
