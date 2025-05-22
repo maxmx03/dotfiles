@@ -6,7 +6,12 @@
       "windows": []
     },
     {
-      "name": "Code",
+      "name": "Scripts",
+      "root": "~/.local/bin",
+      "windows": []
+    },
+    {
+      "name": "Projects",
       "root": "~/Github",
       "windows": []
     },
@@ -14,11 +19,6 @@
       "name": "VimConfig",
       "root": "~/.vim",
       "windows": []
-    },
-    {
-      "name": "NvimConfig",
-      "root": "~/.config/nvim",
-      "windows": ["nvim"]
     }
   ]
 }

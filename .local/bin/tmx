@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function help {
-  echo "📝 Notes - Help
+  echo "Tmx - Help
 
   Usage: tmx <command>
   Dependencies: jq tmux
@@ -90,23 +90,9 @@ function new {
 }
 
 function attach {
-  declare session sessions
-  sessions=$(tmux ls | awk -F':' '{print $1}')
-  echo "select a session"
-  if [[ -n $(command -v gum) ]]; then
-    session="$(gum choose $sessions)"
-  else
-    select session in $sessions; do
-      if [ -n "$session" ]; then
-        break
-      else
-        echo "Invalid selection."
-      fi
-    done
-  fi
-  tmux attach-session -t "${session}"
+  SESSION=$(tmux list-sessions -F \#S | gum filter --placeholder "Pick session...")
+  tmux switch-client -t "$SESSION" || tmux attach -t "$SESSION"
 }
-
 
 declare -A subcmds=(
   [attach]="attach"
