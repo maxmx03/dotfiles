@@ -1,8 +1,8 @@
 name: rosepine
 author: Max Del Canto
 repo: maxmx03/dotfiles
-contact: "github.com/maxmx03"
-license: "MIT License"
+contact: 'github.com/maxmx03'
+license: 'MIT License'
 config:
   transparent: false
 terminal: # 16 colors
@@ -62,7 +62,7 @@ palette:
   base_30_0R: '#9ccfd8' # Cursor Color
   base_30_0S: '#9ccfd8' # Accent, can be used as primary color
   base_30_0T: '#eb6f92' # Title
-  blend_base_30_0T: '#b4637a'
+  blend_base_30_0T: '#763849'
   base_16_00: '#6e6a86' # LineNr
   base_16_01: '#524f67' # Lighter Background (folding marks)
   base_16_02: '#403d52' # Selection, Visual Background
@@ -78,7 +78,7 @@ palette:
   base_16_0C: '#c4a7e7' # Support, Regular Expressions, Escape Characters, Markup Quotes
   base_16_0D: '#9ccfd8' # Functions, Methods, Attribute IDs, Headings
   base_16_0E: '#c4a7e7' # Keywords, Storage, Selector, Markup Italic, Diff Changed
-  shade_base16_base0E: '#31748f'
+  shade_base16_base0E: '#9c85b8'
   base_16_0F: '#c4a7e7' # Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
 highlights:
   editor:
@@ -309,52 +309,84 @@ highlights:
       fg: base_30_08
   plugins:
     - polyglot:
-      - name: htmlTag
-        link: Tag
-      - name: htmlTagN
-        link: Tag
-      - name: htmlEndTag
-        link: Tag
-      - name: htmlTagName
-        link: Tag
-      - name: htmlSpecialTagName
-        link: Tag
-      - name: htmlArg
-        fg: base_30_0
-      - name: shVariable
-        link: Constant
-      - name: shDerefSimple
-        link: Constant
-      - name: shQuote
-        link: String
-      - name: shFunctionOne
-        link: Function
-      - name: typescriptVariable
-        link: Keyword
-      - name: typescriptTypeReference
-        link: Type
-      - name: typescriptIdentifierName
-        link: Function
-      - name: typescriptObjectLiteral
-        fg: Property
-      - name: typescriptObjectLabel
-        fg: Property
-      - name: vimOption
-        link: Property
-      - name: vimUsrCmd
-        link: Function
-      - name: vimIsCommand
-        link: Function
-      - name: vimFunc
-        link: Function
-      - name: VimUserFunc
-        link: Function
-      - name: vim9Block
-        link: Keyword
-      - name: vimEnvvar
-        link: Parameter
+        - name: htmlTag
+          link: Tag
+        - name: htmlTagN
+          link: Tag
+        - name: htmlEndTag
+          link: Tag
+        - name: htmlTagName
+          link: Tag
+        - name: htmlSpecialTagName
+          link: Tag
+        - name: htmlArg
+          fg: base_30_0N
+        - name: shVariable
+          link: Constant
+        - name: shDerefSimple
+          link: Constant
+        - name: shQuote
+          link: String
+        - name: shFunctionOne
+          link: Function
+        - name: typescriptVariable
+          link: Keyword
+        - name: typescriptTypeReference
+          link: Type
+        - name: typescriptIdentifierName
+          link: Function
+        - name: typescriptObjectLiteral
+          fg: Property
+        - name: typescriptObjectLabel
+          fg: Property
+        - name: vimOption
+          link: Property
+        - name: vimUsrCmd
+          link: Function
+        - name: vimIsCommand
+          link: Function
+        - name: vimFunc
+          link: Function
+        - name: VimUserFunc
+          link: Function
+        - name: vim9Block
+          link: Keyword
+        - name: vimEnvvar
+          link: Parameter
     - ale:
-      - name: ALEErrorSign
-        fg: base_30_0B
-      - name: ALEWarningSign
-        fg: base_30_0A
+        - name: ALEErrorSign
+          fg: base_30_0B
+        - name: ALEWarningSign
+          fg: base_30_0A
+    - coc:
+        - name: CocInlayHint
+          fg: shade_base16_base0E
+        - name: CocInlayHintType
+          link: CocInlayHint
+        - name: CocInlayHintParameter
+          link: CocInlayHint
+        - name: CocFadeOut
+          fg: base_16_03
+        - name: CocErrorSign
+          fg: base_30_0A
+        - name: CocWarningSign
+          fg: base_30_0B
+        - name: CocInfoSign
+          fg: base_30_09
+        - name: CocHintSign
+          fg: base_30_09
+        - name: CocErrorVirtualText
+          link: CocErrorSign
+        - name: CocWarningVirtualText
+          link: CocWarningSign
+        - name: CocInfoVirtualText
+          link: CocInfoSign
+        - name: CocHintVirtualText
+          link: CocHintSign
+    - astro:
+        - name: jsxTag
+          link: Tag
+        - name: jsxTagName
+          link: Tag
+        - name: astroJavaScriptExpression
+          link: Tag

@@ -28,10 +28,9 @@ set updatetime=4000
 set virtualedit=block
 set wildmode=longest,full
 set winminwidth=5
-set nowrap
+set wrap
 set smoothscroll
 set shell=bash
-set termguicolors
 set termwinsize=10x0
 set scrolloff=4
 set sidescrolloff=8

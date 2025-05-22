@@ -16,4 +16,3 @@ sudo pacman -S gvim go
 ```bash
 sudo apt install vim
 ```
-

@@ -4,10 +4,12 @@ import $"{$VIMRUNTIME}/defaults.vim"
 import $"{$VIMRUNTIME}/ftplugin/man.vim"
 import $"{$HOME}/.vim/plugins.vim"
 import $"{$HOME}/.vim/options.vim"
+import $"{$HOME}/.vim/commands.vim"
 import $"{$HOME}/.vim/maps.vim"
 import $"{$HOME}/.vim/functions.vim"
 import $"{$HOME}/.vim/autocmds.vim"
 
 g:rosepine_polyglot = true
-g:rosepine_ale = false
+g:rosepine_coc = true
+g:rosepine_astro = true
 colorscheme rosepine_moon

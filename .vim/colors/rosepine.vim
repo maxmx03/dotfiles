@@ -23,6 +23,8 @@ g:rosepine_transparency = get(g:, 'rosepine_transparency', false)
 
 g:rosepine_polyglot = get(g:, 'rosepine_polyglot', false)
 g:rosepine_ale = get(g:, 'rosepine_ale', false)
+g:rosepine_coc = get(g:, 'rosepine_coc', false)
+g:rosepine_astro = get(g:, 'rosepine_astro', false)
 
 if (has('termguicolors') && &termguicolors) || has('gui_running')
   g:terminal_ansi_colors = [
@@ -44,6 +46,8 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     "#95B1AC",
     ]
 endif
+
+
 
 hi Conceal guifg=#9ccfd8 guibg=NONE gui=NONE cterm=NONE
 hi CurSearch guifg=#9ccfd8 guibg=NONE gui=NONE cterm=NONE
@@ -158,7 +162,7 @@ if g:rosepine_polyglot
   hi! link htmlEndTag Tag
   hi! link htmlTagName Tag
   hi! link htmlSpecialTagName Tag
-  hi htmlArg guifg=NONE guibg=NONE gui=NONE cterm=NONE
+  hi htmlArg guifg=#c4a7e7 guibg=NONE gui=NONE cterm=NONE
   hi! link shVariable Constant
   hi! link shDerefSimple Constant
   hi! link shQuote String
@@ -181,6 +185,29 @@ if g:rosepine_ale
   hi ALEErrorSign guifg=#eb6f92 guibg=NONE gui=NONE cterm=NONE
   hi ALEWarningSign guifg=#f6c177 guibg=NONE gui=NONE cterm=NONE
 endif
+
+if g:rosepine_coc
+  hi CocInlayHint guifg=#9c85b8 guibg=NONE gui=NONE cterm=NONE
+  hi! link CocInlayHintType CocInlayHint
+  hi! link CocInlayHintParameter CocInlayHint
+  hi CocFadeOut guifg=#908caa guibg=NONE gui=NONE cterm=NONE
+  hi CocErrorSign guifg=#f6c177 guibg=NONE gui=NONE cterm=NONE
+  hi CocWarningSign guifg=#eb6f92 guibg=NONE gui=NONE cterm=NONE
+  hi CocInfoSign guifg=#9ccfd8 guibg=NONE gui=NONE cterm=NONE
+  hi CocHintSign guifg=#9ccfd8 guibg=NONE gui=NONE cterm=NONE
+  hi! link CocErrorVirtualText CocErrorSign
+  hi! link CocWarningVirtualText CocWarningSign
+  hi! link CocInfoVirtualText CocInfoSign
+  hi! link CocHintVirtualText CocHintSign
+endif
+
+if g:rosepine_astro
+  hi! link jsxTag Tag
+  hi! link jsxTagName Tag
+  hi! link astroJavaScriptExpression Tag
+endif
 unlet g:rosepine_transparency
 unlet g:rosepine_polyglot
 unlet g:rosepine_ale
+unlet g:rosepine_coc
+unlet g:rosepine_astro

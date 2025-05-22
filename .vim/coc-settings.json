@@ -13,7 +13,7 @@
   "diagnostic.hintSign": "󰌶",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
-  "diagnostic.enable": true,
+  "diagnostic.enable": false,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "suggest.maxCompleteItemCount": 10,
@@ -48,5 +48,6 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd"
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd",
+  "markdown-preview-enhanced.liveUpdate": true
 }
