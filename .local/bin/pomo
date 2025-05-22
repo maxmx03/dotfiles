@@ -31,47 +31,47 @@ declare -i session
 session=0
 while true; do
   case $state in
-    work)
-      timer "25" "$state"
-      ((session++))
-      notify "$state" 2> /dev/null
-      ;;
-    break)
-      timer "5" "$state"
-      notify "$state" 2> /dev/null
-      ;;
-    extrabreak)
-      timer "10" "$state"
-      notify "$state" 2> /dev/null
-      ;;
-    *)
-      echo "
+  work)
+    timer "25" "$state"
+    ((session++))
+    notify "$state" 2>/dev/null
+    ;;
+  break)
+    timer "5" "$state"
+    notify "$state" 2>/dev/null
+    ;;
+  extrabreak)
+    timer "10" "$state"
+    notify "$state" 2>/dev/null
+    ;;
+  *)
+    echo "
       usage:
       pomodoro work
       pomodoro break
       "
-      ;;
+    ;;
   esac
 
   case $state in
-    work)
-      if [[ $((session % 4)) -eq 0 ]]; then
-        state="extrabreak"
-      else
-        state="break"
-      fi
-      ;;
-    break)
-      state="work"
-      ;;
-    *)
-      state="work"
-      ;;
+  work)
+    if [[ $((session % 4)) -eq 0 ]]; then
+      state="extrabreak"
+    else
+      state="break"
+    fi
+    ;;
+  break)
+    state="work"
+    ;;
+  *)
+    state="work"
+    ;;
   esac
-  read -p "Continue to the next session? [y/N]: " confirm
+  read -ei "Y" -p "Continue to the next session? [Y/n]: " confirm
+
   if [[ $confirm != [yY] ]]; then
     echo "Pomodoro finalized."
     break
   fi
 done
-

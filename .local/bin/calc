@@ -13,6 +13,6 @@ while read operation; do
   if [[ -n $(command -v gum) ]]; then
     gum spin --spinner.foreground 4 --spinner minidot --title "Calculating..." -- sleep 0.3
   fi
-  res=`echo "scale=2; $operation" | bc`
+  res=$(echo "scale=2; $operation" | bc)
   echo "Result: $res"
 done

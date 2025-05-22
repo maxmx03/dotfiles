@@ -9,4 +9,4 @@ gum style \
 are Unknown (X), or have had their pairing Broken (B).'
 TYPE="$(gum choose "A" "C" "D" "M" "R" "T" "U" "X" "B")"
 TOOL="$(gum choose "diff" "difftool")"
-git $TOOL --diff-filter $TYPE $@
+git $TOOL --diff-filter $TYPE "$@"
