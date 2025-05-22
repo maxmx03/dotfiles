@@ -1,11 +1,98 @@
 #!/usr/bin/env bash
-source ~/.env
-gum spin --spinner.foreground 4 --spinner globe --title "Gemini is cooking" -- curl -sS "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API}" \
-  -H 'Content-Type: application/json' \
-  -X POST \
-  -d '{
-    "contents": [{
-      "parts":[{"text": "'"$1"'"}]
-    }]
-}' | jq -r '.candidates[0].content.parts[0].text'
 
+source ~/.env
+
+function table {
+  instruction='
+  Descrição do projeto
+  Gerar uma tabela com base no texto
+
+  Formatação
+  Deverá ser em formato markdown.
+  Não utilizar ```markdown content ```, mas apenas content
+
+  Minha mensagem:
+  '
+  line=""
+  while read -r data; do
+    line+=$data
+  done
+  gemini "${instruction} ${line}"
+}
+
+function translate {
+  instruction="
+  Descrição do projeto: traduz o texto para o $1
+
+  formatação:
+  igual ao texto original, mas sem a instrução
+
+  texto a traduzir: $2
+  "
+  gemini "${instruction}"
+}
+
+function pt_br {
+  line=""
+  while read -r data; do
+    line+=$data
+  done
+  translate "$FUNCNAME" "$line"
+}
+
+function en_us {
+  line=""
+  while read -r data; do
+    line+=$data
+  done
+  translate "$FUNCNAME" "$line"
+}
+
+function grammar {
+  line=""
+  while read -r data; do
+    line+=$data
+  done
+  instruction="
+  Descrição do projeto
+  corrija os erros de gramática, e tente melhorar o texto.
+
+  formatação
+  igual ao texto original, mas sem a instrução
+
+  O que fazer:
+  Não traduzir o texto: se eu mostrar o texto em inglês, corrija os erros de gramática do inglês.
+  Não traduzir o texto: se eu mostrar o texto em japonês, corrija os erros de gramática do japonês.
+  Não traduzir o texto: se eu mostrar o texto em Y, corrija os erros de gramática para o Y.
+
+  este é o texto que será corrigido: '$line'
+  "
+  gemini "${instruction}"
+}
+
+# if you're inside vim you can run gemini <args>,
+# but if you're outside vim you can only run gemini without arguments.
+case "$1" in
+table)
+  [[ -d "$VIMRUNTIME" ]] && table # Create a table based on text
+  ;;
+grammar)
+  [[ -d "$VIMRUNTIME" ]] && grammar # fix grammar
+  ;;
+br)
+  [[ -d "$VIMRUNTIME" ]] && pt_br # translate to portuguese
+  ;;
+en)
+  [[ -d "$VIMRUNTIME" ]] && en_us # translate to english
+  ;;
+*)
+  curl -sS "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API}" \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{
+        "contents": [{
+          "parts":[{"text": "'"$1"'"}]
+        }]
+    }' | jq -r '.candidates[0].content.parts[0].text'
+  ;;
+esac

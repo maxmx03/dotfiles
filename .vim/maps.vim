@@ -52,9 +52,21 @@ nmap <silent> <leader>cr <Plug>(coc-reference)
 nmap <silent> <leader>ca <Plug>(coc-codeaction-cursor)
 nmap <silent> <leader>cr :call CocActionAsync("doHover")<cr>
 nmap <silent> <leader>cl <Plug><Plug>(coc-codelens-action)
-nmap <silent> <leader>cf <Plug>(coc-format-selected)
+nmap <silent> <leader>cf <cmd>Format<cr>
 
 # diagnostics
 nmap <silent> <leader>dn <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>dp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>df <Plug>(coc-fix-current)
+
+# markdown
+nmap <silent> <leader>mm <cmd>CocCommand markdown-preview-enhanced.openPreview<cr>
+nmap <leader>md :r! zet date<cr>
+nmap <leader>mc :r! mk code %:e<cr>
+nmap <leader>mt :r! mk table<cr>
+
+# gemini
+xnoremap <leader>gt :!gemini table<cr>
+xnoremap <leader>gb :!gemini br<cr>
+xnoremap <leader>ge :!gemini en<cr>
+xnoremap <leader>gg :!gemini grammar<cr>

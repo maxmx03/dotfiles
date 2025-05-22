@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-instruction='
-Descrição do projeto
+instruction="mostre o manpages de: $1"
+instruction+='
 Gerar saída similar a man pages do Linux.
+
+Exemplo:
 
 Estrutura da instrução
 - Nome do Comando: (comando) - Título principal, nome do seu gem.
@@ -10,8 +12,6 @@ Estrutura da instrução
 - Descrição: Breve explicação do que o comando faz.
 - Opções: -opção, --opção-longa - Descrição concisa da opção.
 
-Exemplos:
 comando -a arquivo # Demonstração de uso com opções e/ou argumentos.
 '
-instruction+="minha mensagem: $1"
 gemini "$instruction" | gum format | gum pager

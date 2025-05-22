@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# script for vim
+
+function code_snippet {
+  echo "\`\`\`$1
+\`\`\`"
+}
+
+function table_snippet {
+  echo "|     |     |
+| --- | --- |
+|     |     |"
+}
+
+case "$1" in
+code)
+  [[ -n "$2" ]] && code_snippet "$2"
+  ;;
+table)
+  table_snippet
+  ;;
+esac
