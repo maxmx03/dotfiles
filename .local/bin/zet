@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+ZETPATH="$HOME/.zet"
+
+function date {
+  DATE="$(command date +%Y/%m/%d)"
+  echo "$DATE"
+}
+
+function edit {
+  RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+  INITIAL_QUERY="${*:-}"
+  fzf --ansi --disabled --query "$INITIAL_QUERY" \
+    --bind "start:reload:$RG_PREFIX {q} $ZETPATH" \
+    --bind "change:reload:sleep 0.1; $RG_PREFIX {q} $ZETPATH || true" \
+    --delimiter : \
+    --preview 'bat --color=always {1} --highlight-line {2}' \
+    --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+    --bind 'enter:become(vim {1} +{2})'
+}
+
+function tree {
+  command tree -r $ZETPATH
+}
+
+function add {
+  if [[ ! -d "$HOME/.zet" ]]; then
+    mkdir $ZETPATH
+  fi
+  FILE="$(date +%Y%m%d%H%M%S)"
+  FILEPATH="$ZETPATH/${FILE}.md"
+  TITLE="$(gum input --placeholder 'title')"
+  TAGS="$(gum input --placeholder 'tags')"
+  DATE="$(date +%Y/%m/%d)"
+  HEADER="---\ntitle: $TITLE\ntags: [$TAGS]\npubDate: $DATE\n---\n"
+  touch "$FILEPATH"
+  echo -e $HEADER >"$FILEPATH"
+  $EDITOR "$FILEPATH"
+}
+
+function help {
+  echo "usage: zet [-h | --help] <command> [<args>]
+
+  dependencies: gum, fzf, bat
+
+  commands:
+  add
+  tree
+  edit
+  date
+  "
+}
+
+case "$1" in
+--help | -h)
+  help
+  ;;
+add)
+  add
+  ;;
+tree)
+  tree
+  ;;
+edit)
+  edit
+  ;;
+date)
+  date
+  ;;
+*)
+  help
+  ;;
+esac

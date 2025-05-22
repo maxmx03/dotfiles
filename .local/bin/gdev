@@ -13,5 +13,6 @@ Objetivo
 
 Minha mensagem:
 '
+instruction+="($(gum input --placeholder "assunto")): "
 instruction+=$(gum write)
 gemini "${instruction}" | gum format | gum pager
