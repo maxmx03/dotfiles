@@ -44,7 +44,7 @@ function help {
   dependencies: gum, fzf, bat
 
   commands:
-  new
+  add
   tree
   edit
   date
