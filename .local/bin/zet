@@ -44,7 +44,7 @@ function help {
   dependencies: gum, fzf, bat
 
   commands:
-  add
+  new
   tree
   edit
   date
@@ -66,6 +66,9 @@ edit)
   ;;
 date)
   date
+  ;;
+git)
+  git --git-dir="$ZETPATH/.git" --work-tree=$ZETPATH "${@:2}"
   ;;
 *)
   help
