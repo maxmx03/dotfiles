@@ -50,7 +50,7 @@ nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
 nmap <silent> <leader>cr <Plug>(coc-reference)
 nmap <silent> <leader>ca <Plug>(coc-codeaction-cursor)
-nmap <silent> <leader>cr :call CocActionAsync("doHover")<cr>
+nmap <silent> <leader>ch :call CocActionAsync("doHover")<cr>
 nmap <silent> <leader>cl <Plug><Plug>(coc-codelens-action)
 nmap <silent> <leader>cf <cmd>Format<cr>
 
