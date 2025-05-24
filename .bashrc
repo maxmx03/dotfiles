@@ -87,7 +87,6 @@ if [[ -n $(command -v jump) ]]; then
   eval "$(jump shell --bind=z)"
 fi
 
-eval "$(jump shell --bind=z)"
 if [[ -n $(command -v starship) ]]; then
   eval "$(starship init bash)"
 fi
