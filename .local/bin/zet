@@ -1,41 +1,129 @@
 #!/usr/bin/env bash
 
 ZETPATH="$HOME/.zet"
+DB_FILE="$ZETPATH/index.sqlite"
 
-function date {
-  DATE="$(command date +%Y/%m/%d)"
-  echo "$DATE"
+function log {
+  gum log --time rfc822 --level "$@"
+}
+
+function init {
+  if mkdir -p "$ZETPATH"; then
+    log info "$ZETPATH is created."
+  else
+    log error "Unable to create folder." name "$ZETPATH"
+  fi
+  zet git init
+  sqlite3 "$DB_FILE" <<EOF
+  CREATE TABLE IF NOT EXISTS notes (
+    id TEXT PRIMARY KEY,
+    title TEXT NOT NULL,
+    pub_date TEXT,
+    updated_date TEXT
+  );
+  CREATE TABLE IF NOT EXISTS tags (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE
+  );
+  CREATE TABLE IF NOT EXISTS note_tags (
+    note_id INTEGER,
+    tag_id INTEGER,
+    PRIMARY KEY (note_id, tag_id),
+    FOREIGN KEY (note_id) REFERENCES notes(id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
+  );
+EOF
+  log info "Zettelkasten initialized in $DB_FILE"
+  log info "Database and tables created in $DB_FILE"
 }
 
 function edit {
-  RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
-  INITIAL_QUERY="${*:-}"
-  fzf --ansi --disabled --query "$INITIAL_QUERY" \
-    --bind "start:reload:$RG_PREFIX {q} $ZETPATH" \
-    --bind "change:reload:sleep 0.1; $RG_PREFIX {q} $ZETPATH || true" \
-    --delimiter : \
-    --preview 'bat --color=always {1} --highlight-line {2}' \
-    --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-    --bind 'enter:become(vim {1} +{2})'
+  TITLE=$(gum input --placeholder "title")
+  FILE=$(zet db "SELECT id FROM notes WHERE notes.title = '$TITLE'")
+  if [[ -z "$FILE" ]]; then
+    log warn "$TITLE not found"
+    return 1
+  fi
+  FILEPATH="$ZETPATH/${FILE}.md"
+  if ! $EDITOR "$FILEPATH"; then
+    log error "$EDITOR failed to open $FILE"
+    return 1
+  fi
 }
 
 function tree {
   command tree -r $ZETPATH
 }
 
-function add {
-  if [[ ! -d "$HOME/.zet" ]]; then
-    mkdir $ZETPATH
+function add_database {
+  FILE_ID=$1
+  TITLE=$2
+  PUB_DATE=$3
+  UPDATED_DATE=$4
+  TAGS=$5
+
+  sqlite3_escape() {
+    echo "$1" | sed "s/'/''/g"
+  }
+
+  zet db "INSERT INTO notes (id, title, pub_date, updated_date)
+VALUES ('$FILE_ID', '$(sqlite3_escape "$TITLE")', '$PUB_DATE', '$UPDATED_DATE');
+"
+  if [ $? -ne 0 ]; then
+    log error "Erro: Falha ao inserir a nota '$TITLE' no banco de dados."
+    rm -f "$FILEPATH"
+    return 1
   fi
-  FILE="$(date +%Y%m%d%H%M%S)"
+
+  for TAG in $(echo "$TAGS" | tr ',' '\n' | sed 's/^ *//;s/ *$//' | grep -v "^$"); do
+    ESCAPED_TAG=$(sqlite3_escape "$TAG")
+
+    sqlite3 "$DB_FILE" "INSERT OR IGNORE INTO tags (name) VALUES ('$ESCAPED_TAG');"
+    if [ $? -ne 0 ]; then
+      log warn "Aviso: Falha ao inserir/ignorar tag '$TAG'."
+    fi
+
+    sqlite3 "$DB_FILE" "
+  INSERT OR IGNORE INTO note_tags (note_id, tag_id)
+  VALUES (
+    '$FILE_ID',
+    (SELECT id FROM tags WHERE name = '$ESCAPED_TAG')
+    );
+    "
+    if [ $? -ne 0 ]; then
+      log warn "Aviso: Falha ao associar tag '$TAG' à nota '$FILE_ID'."
+    fi
+  done
+}
+
+function add {
+  if [[ ! -d "$ZETPATH" ]]; then
+    log error "$ZETPATH does not exists."
+    return 2
+  fi
+  FILE=$(date +%Y%m%d%H%M%S)
   FILEPATH="$ZETPATH/${FILE}.md"
   TITLE="$(gum input --placeholder 'title')"
   TAGS="$(gum input --placeholder 'tags')"
   DATE="$(date +%Y/%m/%d)"
   HEADER="---\ntitle: $TITLE\ntags: [$TAGS]\npubDate: $DATE\n---\n"
-  touch "$FILEPATH"
+  echo "$FILEPATH"
+  if ! touch "$FILEPATH"; then
+    log error "Failed to create $FILEPATH"
+    return 1
+  else
+    log info "$FILEPATH created."
+  fi
   echo -e $HEADER >"$FILEPATH"
-  $EDITOR "$FILEPATH"
+
+  if ! add_database "$FILE" "$TITLE" "$DATE" "$DATE" "$TAGS"; then
+    return 1
+  fi
+
+  if ! $EDITOR "$FILEPATH"; then
+    log error "$EDITOR failed to open $FILEPATH"
+    return 1
+  fi
 }
 
 function help {
@@ -44,16 +132,21 @@ function help {
   dependencies: gum, fzf, bat
 
   commands:
+  init
   add
   tree
   edit
   date
+  git
   "
 }
 
 case "$1" in
 --help | -h)
   help
+  ;;
+init)
+  init
   ;;
 add)
   add
@@ -62,13 +155,61 @@ tree)
   tree
   ;;
 edit)
-  edit
+  edit "${@:2}"
   ;;
 date)
   date
   ;;
+db)
+  case "${@:2}" in
+  --query | -q)
+    SQL_QUERY=$(gum write --placeholder "query")
+    zet db "$SQL_QUERY"
+    ;;
+  --delete*)
+    FILE="$(zet db "SELECT id FROM notes WHERE notes.title = '$3'").md"
+    if [[ -z $FILE ]]; then
+      log error "$FILE not found"
+      return 1
+    fi
+    rm "$ZETPATH/$FILE"
+    zet db "DELETE FROM notes WHERE notes.title = '$3'"
+    log info "$FILE removed"
+    ;;
+  --notes)
+    zet db "SELECT * FROM notes"
+    ;;
+  --tags)
+    zet db "SELECT * FROM tags"
+    ;;
+  --all)
+    zet db "SELECT
+        n.id,
+        n.title,
+        n.pub_date,
+        n.updated_date,
+        GROUP_CONCAT(t.name, ', ') AS tags
+        FROM
+        notes n
+        LEFT JOIN
+        note_tags nt ON n.id = nt.note_id
+        LEFT JOIN
+        tags t ON nt.tag_id = t.id
+        GROUP BY
+        n.id, n.title, n.pub_date, n.updated_date
+        ORDER BY
+        n.updated_date DESC;"
+    ;;
+  *)
+    sqlite3 $DB_FILE "${@:2}"
+    ;;
+  esac
+  ;;
 git)
   git --git-dir="$ZETPATH/.git" --work-tree=$ZETPATH "${@:2}"
+  ;;
+remove)
+  remove
   ;;
 *)
   help
