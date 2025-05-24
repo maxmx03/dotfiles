@@ -15,4 +15,4 @@ Minha mensagem:
 '
 instruction+="($(gum input --placeholder "assunto")): "
 instruction+=$(gum write)
-gemini "${instruction}" | gum format | gum pager
+gum spin --spinner dot --title "Processing..." -- gemini "${instruction}" | gum format | gum pager

@@ -14,4 +14,4 @@ Estrutura da instrução
 
 comando -a arquivo # Demonstração de uso com opções e/ou argumentos.
 '
-gemini "$instruction" | gum format | gum pager
+gum spin --spinner dot --title "Processing..." -- gemini "$instruction" | gum format | gum pager
