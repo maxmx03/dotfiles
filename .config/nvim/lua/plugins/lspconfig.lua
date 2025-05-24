@@ -61,8 +61,9 @@ return {
       'rust_analyzer',
     }
     for _, server in ipairs(servers) do
-      vim.lsp.enable(server)
-      vim.lsp.config(server, config)
+      -- vim.lsp.enable(server)
+      -- vim.lsp.config(server, config)
+      lspconfig[server].setup(config)
     end
     local handlers = {
       gopls = require 'config.handlers.gopls',
@@ -76,8 +77,9 @@ return {
     }
     for server, handler in pairs(handlers) do
       local cfg = vim.tbl_deep_extend('force', config, handler)
-      vim.lsp.enable(server)
-      vim.lsp.config(server, cfg)
+      -- vim.lsp.enable(server)
+      -- vim.lsp.config(server, cfg)
+      lspconfig[server].setup(cfg)
     end
   end,
 }

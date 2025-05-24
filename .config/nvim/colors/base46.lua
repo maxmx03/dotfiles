@@ -338,11 +338,8 @@ hl(0, 'CmpItemKindTypeParameter', { fg = base46.base_16.base0A, reverse = true }
 hl(0, 'MarkviewCode', { bg = base46.base_30.base01 })
 hl(0, 'MarkviewInlineCode', { bg = base46.base_30.base01 })
 
-hl(0, 'Winbar_Lsp', { fg = base46.base_30.base00, bg = base46.base_30.base0S })
-hl(0, 'Winbar_Lsp_Separator', { fg = base46.base_30.base0S })
-
-hl(0, 'Winbar_OS', { fg = base46.base_30.base00, bg = base46.base_30.base0S })
-hl(0, 'Winbar_OS_Separator', { fg = base46.base_30.base0S })
+hl(0, 'WinbarText', { fg = base46.base_30.base00, bg = base46.base_30.base0S })
+hl(0, 'WinbarSeparator', { fg = base46.base_30.base0S })
 
 if not vim.tbl_isempty(base46.groups or {}) then
   for name, val in pairs(base46.groups) do
