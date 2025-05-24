@@ -8,6 +8,12 @@ map('n', 'Sv', '<cmd>vsplit<cr>', opts)
 map('n', '+', '<c-a>', opts)
 map('n', '-', '<c-x>', opts)
 
+-- NOTE: gemini
+map('x', 'gt', ':!gemini table')
+map('x', 'gb', ':!gemini br')
+map('x', 'ge', ':!gemini en')
+map('x', 'gg', ':!gemini grammar')
+
 -- NOTE: window-pick
 map('n', '<tab>', '<cmd>WindowPick<cr>', opts)
 
