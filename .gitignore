@@ -21,8 +21,17 @@
 .viminfo
 .viminf[a-z].tmp
 .profile
+.emacs.d/*
+.emacs.d/autosave/*
+.emacs.d/backup/*
 */
 
+!.emacs
+!.emacs.d/
+!.emacs.d/doom.png
+!.emacs.d/backup/
+!.emacs.d/autosave/
+!.gitkeep
 !.gitmodules
 !.gitconfig
 !.gitignore

@@ -29,7 +29,9 @@ au('LspAttach', {
         lint.try_lint()
       end,
     })
-    vim.o.winbar = winbar.get_winbar(client.name)
+    if not vim.g.neovide then
+      vim.o.winbar = winbar.get_winbar(client.name)
+    end
   end,
 })
 

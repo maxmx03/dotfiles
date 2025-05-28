@@ -7,6 +7,7 @@ map('n', 'Ss', '<cmd>split<cr>', opts)
 map('n', 'Sv', '<cmd>vsplit<cr>', opts)
 map('n', '+', '<c-a>', opts)
 map('n', '-', '<c-x>', opts)
+map('n', '<c-f>', ':edit ~/', opts)
 
 -- NOTE: gemini
 map('x', 'gt', ':!gemini table')
