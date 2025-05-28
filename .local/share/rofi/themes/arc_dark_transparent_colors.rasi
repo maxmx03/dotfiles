@@ -1,54 +1,47 @@
 /*******************************************************
- * Rosepine colors based on ROFI Arc Dark colors for EndeavourOS
- * Maintainer: maxmx03
+ * ROFI Arch Dark Transparent colors for EndeavourOS
+ * Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
  *******************************************************/
 * {
-    selected-normal-foreground:  rgba ( 249, 249, 249, 100 % );
+    selected-normal-foreground:  rgba ( 255, 147, 5, 100 % );
     foreground:                  rgba ( 196, 203, 212, 100 % );
-     rosepine-base:               rgba(25, 23, 36, 1.0);
-     rosepine-moon:               rgba(31, 29, 46, 1.0);
-    rosepine-dawn:               rgba(224, 222, 244, 1.0);
-    rosepine-love:               rgba(196, 167, 231, 1.0);
-    rosepine-text:               rgba(224, 222, 244, 1.0);
-    rosepine-subtle:             rgba(110, 106, 134, 1.0);
-    rosepine-highlight-med:      rgba(156, 207, 216, 1.0);
-    rosepine-overlay:            rgba(38, 35, 58, 1.0);
+    normal-foreground:           @foreground;
+    alternate-normal-background: rgba ( 45, 48, 59, 1 % );
+    red:                         rgba ( 220, 50, 47, 100 % );
+    selected-urgent-foreground:  rgba ( 249, 249, 249, 100 % );
+    blue:                        rgba ( 38, 139, 210, 100 % );
+    urgent-foreground:           rgba ( 204, 102, 102, 100 % );
+    alternate-urgent-background: rgba ( 75, 81, 96, 90 % );
+    active-foreground:           rgba ( 101, 172, 255, 100 % );
     lightbg:                     rgba ( 238, 232, 213, 100 % );
-    selected-normal-foreground:  @rosepine-base;
-    normal-foreground: @rosepine-text;
-    selected-active-background: @rosepine-highlight-med;
-    foreground:                  @rosepine-text;
-    background:                  rgba ( 45, 48, 59, 95 % );
-    normal-background:            @rosepine-base;
+    selected-active-foreground:  rgba ( 249, 249, 249, 100 % );
+    alternate-active-background: rgba ( 45, 48, 59, 88 % );
+    background:                  rgba ( 45, 48, 59, 88 % );
     alternate-normal-foreground: @foreground;
-    alternate-normal-background: @background;
-    red:                         rgba( 220, 50, 47, 1.0 );
-    selected-urgent-foreground:  @rosepine-base;
-    blue:                        @rosepine-highlight-med;
-    urgent-foreground:           @rosepine-love;
-    alternate-urgent-foreground: @rosepine-love;
-    alternate-urgent-background: @rosepine-overlay;
-    active-foreground:           @rosepine-love;
-    lightbg:                     @rosepine-dawn;
-    selected-active-foreground:  @rosepine-base;
-    alternate-active-background: @rosepine-overlay;
-    background:                  @rosepine-base;
+    normal-background:           rgba ( 45, 48, 59, 1 % );
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    selected-normal-background:  rgba ( 24, 26, 32, 100 % );
+    border-color:                rgba ( 124, 131, 137, 100 % );
+    spacing:                     2;
+    separatorcolor:              rgba ( 45, 48, 59, 1 % );
+    urgent-background:           rgba ( 45, 48, 59, 15 % );
+    selected-urgent-background:  rgba ( 165, 66, 66, 100 % );
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            rgba ( 0, 0, 0, 0 % );
     alternate-active-foreground: @active-foreground;
     active-background:           rgba ( 29, 31, 33, 17 % );
-    lightfg:                     @rosepine-subtle;
-    selected-normal-background:  @rosepine-highlight-med;
-    border-color:                @rosepine-subtle;
-    background-color: @background;
-    separatorcolor:              @rosepine-moon;
-    urgent-background:           @rosepine-moon;
-    selected-urgent-background:  @rosepine-love;
+    selected-active-background:  rgba ( 26, 28, 35, 100 % );
 }
-
+window {
+    background-color: @background;
+    border:           1;
+    padding:          5;
+}
 mainbox {
-    background-color:            rgba( 0, 0, 0, 0.0 );
+    border:  0;
     padding: 0;
-    active-background:           @rosepine-moon;
-    selected-active-background:  @rosepine-love;
+}
+message {
     border:       2px 0px 0px ;
     border-color: @separatorcolor;
     padding:      1px ;

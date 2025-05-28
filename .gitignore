@@ -13,6 +13,7 @@
 .yarn*
 .feh*
 .config/*
+.local/share/*
 .config/mpd/database
 .config/mpd/log
 .config/mpd/state
@@ -38,6 +39,8 @@
 !.config/
 !.local/
 !.local/bin/
+!.local/share/
+!.local/share/rofi/
 !.config/alacritty/
 !.config/dunst/
 !.config/fish/

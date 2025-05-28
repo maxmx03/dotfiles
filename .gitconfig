@@ -8,9 +8,9 @@
 [init]
   defaultBranch = main
 [diff]
-  tool = vimdiff
+  tool = nvimdiff
 [merge]
-  tool = vimdiff
+  tool = nvimdiff
   conflictstyle = diff3
 [core]
   pager = delta

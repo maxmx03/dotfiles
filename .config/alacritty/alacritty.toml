@@ -1,8 +1,5 @@
 [general]
-import = [
-	# "~/.config/alacritty/rosepine.toml",
-	"~/.config/alacritty/rosepine-moon.toml",
-]
+import = ["~/.config/alacritty/doom-one.toml"]
 
 [font]
 normal = { family = "JetBrainsMonoNLNerdFont", style = "Regular" }

@@ -16,6 +16,11 @@
       "windows": []
     },
     {
+      "name": "Blog",
+      "root": "~/Github/zet-blog",
+      "windows": []
+    },
+    {
       "name": "VimConfig",
       "root": "~/.vim",
       "windows": []

@@ -2,7 +2,7 @@
 local M = {}
 local fn = vim.fn
 
-M.colorscheme = 'carbonfox'
+M.colorscheme = 'doom-one'
 M.transparency = 0
 
 M.store = function()

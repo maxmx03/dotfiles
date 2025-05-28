@@ -158,7 +158,7 @@ edit)
   edit "${@:2}"
   ;;
 date)
-  date
+  date +%Y/%m/%d
   ;;
 db)
   case "${@:2}" in
@@ -184,21 +184,21 @@ db)
     ;;
   --all)
     zet db "SELECT
-        n.id,
-        n.title,
-        n.pub_date,
-        n.updated_date,
-        GROUP_CONCAT(t.name, ', ') AS tags
-        FROM
-        notes n
-        LEFT JOIN
-        note_tags nt ON n.id = nt.note_id
-        LEFT JOIN
-        tags t ON nt.tag_id = t.id
-        GROUP BY
-        n.id, n.title, n.pub_date, n.updated_date
-        ORDER BY
-        n.updated_date DESC;"
+      n.id,
+      n.title,
+      n.pub_date,
+      n.updated_date,
+      GROUP_CONCAT(t.name, ', ') AS tags
+      FROM
+      notes n
+      LEFT JOIN
+      note_tags nt ON n.id = nt.note_id
+      LEFT JOIN
+      tags t ON nt.tag_id = t.id
+      GROUP BY
+      n.id, n.title, n.pub_date, n.updated_date
+      ORDER BY
+      n.updated_date DESC;"
     ;;
   *)
     sqlite3 $DB_FILE "${@:2}"
@@ -207,9 +207,6 @@ db)
   ;;
 git)
   git --git-dir="$ZETPATH/.git" --work-tree=$ZETPATH "${@:2}"
-  ;;
-remove)
-  remove
   ;;
 *)
   help

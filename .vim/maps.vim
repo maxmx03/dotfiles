@@ -4,7 +4,9 @@ g:maplocalleader = ','
 
 # update and quit vim
 nmap <leader>w <cmd>update<cr>
-nmap q <cmd>quit<cr>
+noremap q <cmd>quit<cr>
+
+nmap <c-f> :edit 
 
 # tabs
 nmap <c-up> :tabnew 

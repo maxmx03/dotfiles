@@ -48,3 +48,8 @@ set background=dark
 if &term == 'xterm-kitty'
     &t_ut = ''
 endif
+
+if has('gui')
+    set guioptions=
+    set guifont=JetBrainsMono\ Nerd\ Font\ 18
+endif

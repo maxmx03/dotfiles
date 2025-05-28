@@ -1,4 +1,4 @@
-name: rosepine_moon
+name: doomone
 author: Max Del Canto
 repo: maxmx03/dotfiles
 contact: 'github.com/maxmx03'
@@ -6,71 +6,71 @@ license: 'MIT License'
 config:
   transparent: false
 terminal: # 16 colors
-  1: '#232136'
-  2: '#eb6f92'
-  3: '#3e8fb0'
-  4: '#f6c177'
-  5: '#3e8fb0'
-  6: '#ea9a97'
-  7: '#9ccfd8'
-  8: '#e0def4'
-  9: '#9ccfd8'
-  10: '#f6c177'
-  11: '#9ccfd8'
-  12: '#ea9a97'
-  13: '#9ccfd8'
-  14: '#908caa'
-  15: '#908caa'
-  16: '#eb6f92'
+  1: '#282c34' # black
+  2: '#ff6c6b' # red
+  3: '#98be65' # green
+  4: '#ECBE7B' # yellow
+  5: '#51afef' # blue
+  6: '#c678dd' # magenta
+  7: '#46D9FF' # cyan
+  8: '#bbc2cf' # white
+  9: '#5B6268' # brightblack
+  10: '#ff6c6b' # brightred
+  11: '#98be65' # brightgreen
+  12: '#da8548' # brightyellow
+  13: '#51afef' # brightblue
+  14: '#a9a1e1' # brightmagenta
+  15: '#5699AF' # brightcyan
+  16: '#dfdfdf' # brightwhite
 palette:
-  base_30_00: '#232136' # Default background
-  base_30_01: '#393552' # Float background
-  base_30_02: '#2a273f' # Statusline background
-  base_30_03: '#524f67' # VertSplit, FloatBorder
-  base_30_04: '#e0def4' # Statusline foreground
-  base_30_05: '#e0def4' # Default Foreground
-  base_30_06: '#9ccfd8' # Diff Added
-  base_30_07: '#ea9a97' # Diff Modified
-  base_30_08: '#eb6f92' # Diff Deleted
-  base_30_09: '#9ccfd8' # Diagnostic Info, Hint
-  base_30_0A: '#f6c177' # Diagnostic Warning
-  base_30_0B: '#eb6f92' # Diagnostics Error
-  base_30_0C: '#f6c177' # Markup Bold
-  base_30_0D: '#3e8fb0' # Markup Italic
-  base_30_0E: '#3e8fb0' # Markup url
-  base_30_0F: '#f6c177' # Markup Inline Code
-  base_30_0G: '#eb6f92' # Markup Heading 1
-  base_30_0H: '#eb6f92' # Markup Heading 2
-  base_30_0I: '#f6c177' # Markup Heading 3
-  base_30_0J: '#f6c177' # Markup Heading 4
-  base_30_0K: '#ea9a97' # Markup Heading 5
-  base_30_0L: '#ea9a97' # Markup Heading 6
-  base_30_0M: '#9ccfd8' # Markup Tag
-  base_30_0N: '#c4a7e7' # Markup Tag Attribute
-  base_30_0O: '#9ccfd8' # Markup Tag Delimiter
-  base_30_0P: '#9ccfd8' # Pmenu Background
-  base_30_0Q: '#9ccfd8' # Folder Icon Color
-  base_30_0R: '#9ccfd8' # Cursor Color
-  base_30_0S: '#9ccfd8' # Accent, can be used as primary color
-  base_30_0T: '#eb6f92' # Title
+  base_30_00: '#282c34' # (Starker background)
+  base_30_01: '#21242b' # (Float background)
+  base_30_02: '#1c1f24' # (Statusline background - usando base1 que é um tom mais escuro)
+  base_30_03: '#23272e' # (VertSplit, FloatBorder - usando base3 para um tom intermediário)
+  base_30_04: '#bbc2cf' # (Statusline foreground)
+  base_30_05: '#bbc2cf' # (Default Foreground)
+  base_30_06: '#98be65' # (Diff Added)
+  base_30_07: '#da8548' # (Diff Modified)
+  base_30_08: '#ff6c6b' # (Diff Deleted)
+  base_30_09: '#46D9FF' # (Diagnostic Info, Hint)
+  base_30_0A: '#ECBE7B' # (Diagnostic Warning)
+  base_30_0B: '#ff6c6b' # (Diagnostics Error)
+  base_30_0C: '#ECBE7B' # (Markup Bold)
+  base_30_0D: '#51afef' # (Markup Italic - Doom One usa blue para itálico)
+  base_30_0E: '#51afef' # (Markup url - Doom One usa blue para URLs)
+  base_30_0F: '#ECBE7B' # (Markup Inline Code)
+  base_30_0G: '#ff6c6b' # (Markup Heading 1)
+  base_30_0H: '#ff6c6b' # (Markup Heading 2)
+  base_30_0I: '#ECBE7B' # (Markup Heading 3)
+  base_30_0J: '#ECBE7B' # (Markup Heading 4)
+  base_30_0K: '#da8548' # (Markup Heading 5)
+  base_30_0L: '#da8548' # (Markup Heading 6)
+  base_30_0M: '#46D9FF' # (Markup Tag)
+  base_30_0N: '#a9a1e1' # (Markup Tag Attribute)
+  base_30_0O: '#46D9FF' # (Markup Tag Delimiter)
+  base_30_0P: '#51afef' # (Pmenu Background)
+  base_30_0Q: '#a9a1e1' # (Folder Icon Color)
+  base_30_0R: '#51afef' # (Cursor Color)
+  base_30_0S: '#51afef' # (Accent, can be used as primary color)
+  base_30_0T: '#ff6c6b' # (Title)
   blend_base_30_0T: '#763849'
-  base_16_00: '#6e6a86' # LineNr
-  base_16_01: '#2a283e' # Lighter Background (folding marks)
-  base_16_02: '#44415a' # Selection, Visual Background
-  base_16_03: '#908caa' # Comments, Invisibles, Line Highlighting
-  base_16_04: '#e0def4' # Variable Parameter
-  base_16_05: '#908caa' # Caret, Delimiters, Operators
-  base_16_06: '#e0def4' # Property, Variable Member
-  base_16_07: '#c4a7e7' # PreProc, Include, Define, Macro, PreCondit
-  base_16_08: '#e0def4' # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-  base_16_09: '#f6c177' # Integers, Boolean, Constants, XML Attributes, Markup Link Url
-  base_16_0A: '#f6c177' # Classes, Markup Bold, Search Text Background
-  base_16_0B: '#3e8fb0' # Strings, Inherited Class, Markup Code, Diff Inserted
-  base_16_0C: '#c4a7e7' # Support, Regular Expressions, Escape Characters, Markup Quotes
-  base_16_0D: '#9ccfd8' # Functions, Methods, Attribute IDs, Headings
-  base_16_0E: '#c4a7e7' # Keywords, Storage, Selector, Markup Italic, Diff Changed
-  shade_base16_base0E: '#9c85b8'
-  base_16_0F: '#c4a7e7' # Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
+  base_16_00: '#3f444a' #(LineNr - Doom One usa base4 para line numbers)
+  base_16_01: '#3f444a' #(Lighter Background - folding marks - usando base4 para leveza)
+  base_16_02: '#2257A0' # dark-blue (Selection, Visual Background)
+  base_16_03: '#5b6268' # (Comments, Invisibles, Line Highlighting)
+  base_16_04: '#ddaeeb' # (Variable Parameter)
+  base_16_05: '#bbc2cf' # (Caret, Delimiters, Operators)
+  base_16_06: '#bbc2cf' # (Property, Variable Member)
+  base_16_07: '#a9a1e1' # (PreProc, Include, Define, Macro, PreCondit)
+  base_16_08: '#bbc2cf' # (Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted)
+  base_16_09: '#da8548' # (Integers, Boolean, Constants, XML Attributes, Markup Link Url)
+  base_16_0A: '#ECBE7B' # (Classes, Markup Bold, Search Text Background)
+  base_16_0B: '#98be65' # (Strings, Inherited Class, Markup Code, Diff Inserted)
+  base_16_0C: '#a9a1e1' # (Support, Regular Expressions, Escape Characters, Markup Quotes)
+  base_16_0D: '#c678dd' # (Functions, Methods, Attribute IDs, Headings)
+  base_16_0E: '#51afef' # (Keywords, Storage, Selector, Markup Italic, Diff Changed)
+  shade_base16_base0E: '#3b6a9c'
+  base_16_0F: '#a9a1e1' # (Opening/Closing Embedded Language Tags)
 highlights:
   editor:
     - name: Conceal

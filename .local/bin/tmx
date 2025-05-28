@@ -79,7 +79,7 @@ function new {
   declare session confirm
   session=$1
 
-  [[ -z $session ]] && _tmx_help && return
+  [[ -z $session ]] && help && return
 
   read -p "attach to the session '$session'? (y/n): " confirm
   if [[ "$confirm" == [yY] ]]; then

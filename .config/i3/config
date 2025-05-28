@@ -292,9 +292,10 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec --no-startup-id /usr/bin/google-chrome-stable
+bindsym $mod+w exec --no-startup-id /usr/bin/brave
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 bindsym Print exec --no-startup-id gnome-screenshot --interactive
+bindsym $mod+m exec --no-startup-id emacsclient -c
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
@@ -310,7 +311,7 @@ set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
 set $ws5 "5:"
-set $ws6 "6"
+set $ws6 "6:"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -330,6 +331,7 @@ assign [class="ghostty"] $ws1
 assign [class="kitty"] $ws1
 assign [class="Alacritty"] $ws1
 assign [class="(?i)Google-chrome"] $ws2
+assign [class="(?i)Brave-browser"] $ws2
 assign [class="Evince"] $ws3
 assign [class="Thunar"] $ws3
 assign [class="obsidian"] $ws3
@@ -338,12 +340,14 @@ assign [class="heroic"] $ws4
 assign [class="Lutris"] $ws4
 assign [class="Minigalaxy"] $ws4
 assign [class="Gnome-pomodoro"] $ws5
+assign [class="Emacs"] $ws6
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=ghostty] focus
 for_window [class=kitty] focus
 for_window [class=Alacritty] focus
 for_window [class=(?i)Google-chrome] focus
+for_window [class=(?i)Brave-browser] focus
 for_window [class=Evince] focus
 for_window [class=Thunar] focus
 for_window [class=obsidian] focus
@@ -352,6 +356,7 @@ for_window [class=heroic] focus
 for_window [class=Lutris] focus
 for_window [class=Minigalaxy] focus
 for_window [class=Gnome-pomodoro] focus
+for_window [class=Emacs] focus
 
 ##############
 # compositor #
@@ -419,7 +424,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 # set wallpaper
 # i use redshift hooks to change wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-# exec --no-startup-id sleep 1 && feh --bg-fill --random /home/milianor/Imagens/wallpaper/light
+exec --no-startup-id sleep 1 && feh --bg-fill --random $HOME/Imagens/wallpaper
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -453,7 +458,7 @@ exec --no-startup-id /usr/bin/dunst
 
 # Autostart apps as you like
 #exec --no-startup-id sleep 2 && xfce4-terminal
-exec --no-startup-id sleep 7 && google-chrome-stable https://endeavouros.com/
+exec --no-startup-id sleep 7 && brave
 #exec --no-startup-id sleep 3 && thunar
 
 # open discord
@@ -511,31 +516,47 @@ for_window [floating class="Alacritty"] resize set 1536 864
 # color settings for bar and windows #
 ######################################
 
-# set primary Rosé Pine colorscheme colors
-set $base           #191724
-set $surface        #1f1d2e
-set $overlay        #26233a
-set $muted          #6e6a86
-set $subtle         #908caa
-set $text           #e0def4
-set $love           #eb6f92
-set $gold           #f6c177
-set $rose           #ebbcba
-set $pine           #31748f
-set $foam           #9ccfd8
-set $iris           #c4a7e7
-set $highlightlow   #21202e
-set $highlightmed   #403d52
-set $highlighthigh  #524f67
+# doom one
+set $bg #282c34
+set $fg #bbc2cf
+
+set $bg_alt #21242b
+set $fg_alt #5B6268
+
+# These should represent a spectrum from bg to fg, where base0 is a starker
+# bg and base8 is a starker fg. For example, if bg is light grey and fg is
+# dark grey, base0 should be white and base8 should be black.
+set $base0 #1B2229
+set $base1 #1c1f24
+set $base2 #202328
+set $base3 #23272e
+set $base4 #3f444a
+set $base5 #5B6268
+set $base6 #73797e
+set $base7 #9ca0a4
+set $base8 #DFDFDF
+
+set $red      #ff6c6b
+set $orange   #da8548
+set $green    #98be65
+set $teal     #4db5bd
+set $yellow   #ECBE7B
+set $blue     #51afef
+set $darkblue #2257A0
+set $magenta  #c678dd
+set $violet   #a9a1e1
+set $cyan     #46D9FF
+set $darkcyan #5699AF
+
 
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $rose     $base $text  $foam      $foam
-client.focused_inactive  $text     $base $text  $subtle    $surface
-client.unfocused         $text     $base $text  $overlay   $overlay
-client.urgent            $text     $base $text  $love      $love
-client.placeholder       $base     $base $text  $overlay   $overlay
-client.background        $base
+client.focused           $blue     $bg   $fg    $blue      $blue
+client.focused_inactive  $fg       $bg   $fg    $base3     $base3
+client.unfocused         $fg       $bg   $fg    $bg_alt    $bg_alt
+client.urgent            $fg       $bg   $fg    $red       $red
+client.placeholder       $bg       $bg   $fg    $bg_alt    $bg_alt
+client.background        $bg
 
 
 ############################################
@@ -545,31 +566,21 @@ client.background        $base
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-    font pango: Noto Sans Regular 11
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	position top
-#	    	i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-#tray_output primary
-	tray_padding 0
-
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-	strip_workspace_numbers yes
-##strip_workspace_name no
-
-	colors {
-		separator          $rose
-		background         $surface
-		statusline         $text
-#                  		        border 		        bg		txt		indicator
-		focused_workspace	$foam			$foam	        $surface	$rose
-		active_workspace	$surface		$rose	        $text		$love
-		inactive_workspace	$surface		$base		$text    	$overlay
-		urgent_workspace	$love	        	$love		$text		$love
-	}
+  font pango: Noto Sans Regular 11
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    position top
+    tray_padding 0
+    strip_workspace_numbers yes
+    colors {
+      separator   $blue
+        background  $base3
+        statusline  $fg
+                            #border #bg         #text       #indicator
+        focused_workspace   $blue   $blue       $base3      $magenta
+        active_workspace    $base3  $magenta    $fg         $red
+        inactive_workspace  $base3  $bg         $fg         $blue
+        urgent_workspace    $red    $red        $fg         $red
+    }
 }
 
 # you can add different bars for multidisplay setups on each display:
@@ -610,7 +621,7 @@ bar {
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
-	    -config ~/.config/rofi/rofidmenu.rasi
+          -config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi
@@ -618,7 +629,7 @@ bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
 bindsym $mod+t exec --no-startup-id rofi -show window \
-		-config ~/.config/rofi/rofidmenu.rasi
+        -config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F10 exec --no-startup-id rofi -show window \
 #		-config ~/.config/rofi/rofidmenu.rasi

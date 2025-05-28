@@ -21,7 +21,6 @@ return {
       },
     }
 
-    local lspconfig = require 'lspconfig'
     require('mason').setup()
     require('mason-lspconfig').setup {
       automatic_installation = true,
@@ -36,9 +35,6 @@ return {
         'black',
       },
       auto_update = true,
-    }
-    local config = {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
     }
     local servers = {
       'eslint',
@@ -58,12 +54,13 @@ return {
       'pyright',
       'svelte',
       'volar',
-      'rust_analyzer',
+    }
+    local lsp_config = require 'lspconfig'
+    local config = {
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
     }
     for _, server in ipairs(servers) do
-      -- vim.lsp.enable(server)
-      -- vim.lsp.config(server, config)
-      lspconfig[server].setup(config)
+      lsp_config[server].setup(config)
     end
     local handlers = {
       gopls = require 'config.handlers.gopls',
@@ -77,9 +74,7 @@ return {
     }
     for server, handler in pairs(handlers) do
       local cfg = vim.tbl_deep_extend('force', config, handler)
-      -- vim.lsp.enable(server)
-      -- vim.lsp.config(server, cfg)
-      lspconfig[server].setup(cfg)
+      lsp_config[server].setup(cfg)
     end
   end,
 }

@@ -15,10 +15,11 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env)"
 fi
-export EDITOR="vim"
+
+export EDITOR="nvim"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export BROWSER=google-chrome-stable
+export BROWSER=brave
 export FZF_DEFAULT_COMMAND='fd -t f -s -H --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
 --border=rounded
@@ -40,7 +41,7 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind -x '"\C-l":ls'
 bind -x '"\C-f":telescope'
-bind -x '"\C-e":yazi'
+bind -x '"\C-e":nvim'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias fish="asciiquarium"
@@ -78,10 +79,6 @@ parallel wgetcomp {/} {} ::: "${cmps[@]}"
 for comp in "$HOME"/.cmps/*; do
   source "$comp"
 done
-
-function vim {
-  [ -z "$*" ] && yazi || command vim "$@"
-}
 
 if [[ -n $(command -v jump) ]]; then
   eval "$(jump shell --bind=z)"
