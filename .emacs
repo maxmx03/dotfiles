@@ -21,7 +21,9 @@
  '(global-display-line-numbers-mode t)
  '(global-tab-line-mode t)
  '(global-tree-sitter-mode t)
+ '(global-treesit-auto-mode t)
  '(ido-mode 'both nil (ido))
+ '(lsp-auto-guess-root t)
  '(lsp-enable-suggest-server-download t)
  '(lsp-format-buffer-on-save t)
  '(lsp-inlay-hint-enable t)
@@ -33,7 +35,8 @@
  '(package-enable-at-startup t)
  '(package-load-list '(all))
  '(package-selected-packages
-   '(company dashboard doom-themes evil lsp-mode lsp-ui lua-mode))
+   '(company dashboard doom-themes evil lsp-java lsp-mode lsp-ui
+	     markdown-ts-mode treesit-auto))
  '(repeat-mode t)
  '(scroll-bar-mode nil)
  '(tab-line-tabs-function 'tab-line-tabs-mode-buffers)
@@ -45,7 +48,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#282c34" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 158 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font")))))
- 
+
 (dashboard-setup-startup-hook)
 (evil-mode 1)
 (evil-define-key 'normal 'global (kbd "C-e") 'evil-scroll-up)
+
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
