@@ -1,7 +1,5 @@
 # Max's dotfiles
 
-![Captura de tela de 2025-05-05 22-18-45](https://github.com/user-attachments/assets/4e46494d-5ef5-4b15-b7df-3584ff18732c)
-
 <p align="center">
   <a href="https://rosepinetheme.com/palette.html#rose-pine">
     <img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/main/assets/palette.png" width="125" />
@@ -45,6 +43,4 @@
 
 ## Wallpapers
 
-[click here](https://www.canva.com/design/DAGmbIWt6QI/jpMOMzY_aI2BMsWc9yMg0Q/edit?utm_content=DAGmbIWt6QI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-
-![wallpapers](https://github.com/user-attachments/assets/d066693e-f078-4998-8c57-033181b3b493)
+[click here](https://www.canva.com/design/DAGosBtOSZw/g9dW1AlI_Yeahu6a7g8TjQ/edit?utm_content=DAGosBtOSZw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
