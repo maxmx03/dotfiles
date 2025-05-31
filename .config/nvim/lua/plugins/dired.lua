@@ -1,0 +1,34 @@
+return {
+  'X3eRo0/dired.nvim',
+  dependencies = { 'MunifTanjim/nui.nvim' },
+  config = function()
+    require('dired').setup {
+      path_separator = '/',
+      show_banner = true,
+      show_icons = true,
+      show_hidden = true,
+      show_dot_dirs = true,
+      show_colors = true,
+      keybinds = {
+        dired_enter = '<cr>',
+        dired_back = '-',
+        dired_up = '_',
+        dired_rename = 'r',
+        dired_create = 'a',
+        dired_delete = 'd',
+        dired_delete_range = 'd',
+        dired_copy = 'y',
+        dired_copy_range = 'y',
+        dired_copy_marked = 'mc',
+        dired_move = 'x',
+        dired_move_range = 'x',
+        dired_move_marked = 'mx',
+        dired_paste = 'P',
+        dired_mark = 'm',
+        dired_mark_range = 'm',
+        dired_delete_marked = 'md',
+        dired_quit = 'q',
+      },
+    }
+  end,
+}
