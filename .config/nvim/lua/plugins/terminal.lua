@@ -1,4 +1,7 @@
 return {
   'maxmx03/terminal.nvim',
-  opts = {},
+  opts = {
+    layout = 'below',
+    size = 0.7,
+  },
 }

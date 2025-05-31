@@ -13,11 +13,19 @@ return {
     },
     config = function()
       local wk = require 'which-key'
-      local keymaps = require 'config.keymaps'
+      local keymaps = require 'config.wk-maps'
       wk.add(keymaps)
       wk.setup {
         preset = 'modern',
       }
+    end,
+  },
+  {
+    'nvimtools/hydra.nvim',
+    config = function()
+      local Hydra = require 'hydra'
+      local cmd = require('hydra.keymap-util').cmd
+      require('config.hydra.telescope').load(Hydra, cmd)
     end,
   },
 }

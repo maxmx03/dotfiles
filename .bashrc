@@ -45,7 +45,8 @@ bind -x '"\C-e":nvim'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias fish="asciiquarium"
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 alias dot="git dot"
 alias atc="tmx attach"
 

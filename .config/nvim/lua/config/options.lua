@@ -31,12 +31,11 @@ o.pumheight = 10
 o.scrolloff = 4
 o.pumblend = 10
 o.sidescrolloff = 8
-o.laststatus = 0
-o.updatetime = 4000
+o.laststatus = 3
+o.updatetime = 2000
 o.signcolumn = 'yes'
 o.showmode = false
 o.termguicolors = true
 o.guicursor =
   'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
-o.guifont = 'JetBrainsMono Nerd Font:h16'

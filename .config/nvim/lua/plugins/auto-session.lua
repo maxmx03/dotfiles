@@ -2,6 +2,6 @@ return {
   'rmagatti/auto-session',
   lazy = false,
   opts = {
-    suppressed_dirs = { '~/', '~/.config/nvim' },
+    suppressed_dirs = { '~/' },
   },
 }

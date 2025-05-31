@@ -1,47 +1,42 @@
-local winbar = require 'lib.winbar'
-local au = vim.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
 
-au('LspAttach', {
+autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
     if client and client.server_capabilities.inlayHintProvider then
-      if vim.fn.expand '%:e' ~= 'vue' then
-        vim.lsp.inlay_hint.enable(true)
-      end
+      vim.lsp.inlay_hint.enable(true)
     end
+
+    autocmd({ 'CursorHold', 'CursorHoldI' }, {
+      callback = function()
+        vim.lsp.buf.document_highlight()
+      end,
+    })
+
+    autocmd('CursorMoved', {
+      callback = function()
+        vim.lsp.buf.clear_references()
+      end,
+    })
 
     local lsp_signature = require 'lsp_signature'
     lsp_signature.on_attach({
       floating_window = false,
-      hint_prefix = ' ',
+      hint_prefix = ' ',
       hint_scheme = 'String',
     }, bufnr)
-
-    au('BufWritePost', {
-      pattern = '*.*',
-      callback = function()
-        local ok, lint = pcall(require, 'lint')
-        if not ok then
-          return
-        end
-        lint.try_lint()
-      end,
-    })
-    if not vim.g.neovide then
-      vim.o.winbar = winbar.get_winbar(client.name)
-    end
   end,
 })
 
-au('TextYankPost', {
+autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
-au('FileType', {
+autocmd('FileType', {
   pattern = {
     'javascript',
     'typescript',
@@ -61,7 +56,7 @@ au('FileType', {
   end,
 })
 
-au('FileType', {
+autocmd('FileType', {
   pattern = 'go',
   callback = function()
     vim.bo.tabstop = 4
@@ -71,7 +66,7 @@ au('FileType', {
   end,
 })
 
-au('FileType', {
+autocmd('FileType', {
   pattern = 'python',
   callback = function()
     vim.bo.tabstop = 4
@@ -81,7 +76,7 @@ au('FileType', {
   end,
 })
 
-au('BufWinEnter', {
+autocmd('BufWinEnter', {
   pattern = { '*.md' },
   callback = function()
     vim.opt.colorcolumn = '80'
@@ -89,7 +84,7 @@ au('BufWinEnter', {
   end,
 })
 
-au({ 'BufWinLeave' }, {
+autocmd({ 'BufWinLeave' }, {
   pattern = { '*.md' },
   callback = function()
     vim.opt.colorcolumn = '120'
@@ -97,7 +92,7 @@ au({ 'BufWinLeave' }, {
   end,
 })
 
-au({ 'BufWritePost' }, {
+autocmd({ 'BufWritePost' }, {
   pattern = { '*.spec.js', '*.test.js', '*.spec.ts', '*.test.ts' },
   callback = function()
     require('neotest').run.run(vim.fn.expand '%')

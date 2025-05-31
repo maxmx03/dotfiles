@@ -1,6 +1,11 @@
 {
-    "diagnostics.disable": [
-        "different-requires"
-    ],
-    "workspace.checkThirdParty": "Disable"
+  "workspace.library": [
+    "/usr/share/nvim/runtime",
+    "~/.local/share/nvim/lazy/blink.cmp",
+    "~/.local/share/nvim/lazy/mason.nvim",
+    "~/.local/share/nvim/lazy/neo-tree.nvim",
+    "${3rd}/luv/library",
+    "${3rd}/busted/library",
+    "${3rd}/luassert/library"
+  ]
 }

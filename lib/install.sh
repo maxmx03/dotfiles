@@ -35,7 +35,6 @@ if [[ $confirm == "y" ]]; then
     tree
     go
     eza
-    lazygit
     starship
     man
     fzf
