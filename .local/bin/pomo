@@ -49,6 +49,7 @@ while true; do
       usage:
       pomodoro work
       pomodoro break
+      pomodoro extrabreak
       "
     ;;
   esac
