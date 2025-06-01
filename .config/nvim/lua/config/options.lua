@@ -15,7 +15,6 @@ o.softtabstop = 4
 o.expandtab = false
 o.tabstop = 8
 o.clipboard = 'unnamedplus'
--- o.completeopt = 'menu,menuone,noinsert,popup'
 o.completeopt = 'menu,menuone,noselect'
 o.fillchars:append { eob = ' ' }
 o.list = true

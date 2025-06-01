@@ -41,7 +41,7 @@ local doomone = {
     base0N = '#a9a1e1', -- Markup Tag Attribute
     base0O = '#46D9FF', -- Markup Tag Delimiter
     base0P = '#51afef', -- Pmenu Background
-    base0Q = '#a9a1e1', -- Folder Icon Color
+    base0Q = '#51afef', -- Folder Icon Color
     base0R = '#51afef', -- Cursor Color
     base0S = '#51afef', -- Accent, can be used as primary color
     base0T = '#a9a1e1', -- Title
@@ -63,6 +63,10 @@ local doomone = {
     base0D = '#c678dd', -- Functions, Methods, Attribute IDs, Headings
     base0E = '#51afef', -- Keywords, Storage, Selector, Markup Italic, Diff Changed
     base0F = '#a9a1e1', -- Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
+  },
+  groups = {
+    DashboardHeader = { fg = '#5b6268' },
+    DashboardKey = { fg = '#a9a1e1' },
   },
 }
 

@@ -26,6 +26,7 @@ return {
       local Hydra = require 'hydra'
       local cmd = require('hydra.keymap-util').cmd
       require('config.hydra.telescope').load(Hydra, cmd)
+      require('config.hydra.folding').load(Hydra)
     end,
   },
 }

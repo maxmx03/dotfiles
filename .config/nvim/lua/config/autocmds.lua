@@ -5,21 +5,22 @@ autocmd('LspAttach', {
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-    if client and client.server_capabilities.inlayHintProvider then
+    if client and client:supports_method 'textDocument/inlayHint' then
       vim.lsp.inlay_hint.enable(true)
     end
 
-    autocmd({ 'CursorHold', 'CursorHoldI' }, {
-      callback = function()
-        vim.lsp.buf.document_highlight()
-      end,
-    })
-
-    autocmd('CursorMoved', {
-      callback = function()
-        vim.lsp.buf.clear_references()
-      end,
-    })
+    if client and client:supports_method 'textDocument/documentHighlight' then
+      autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        callback = function()
+          vim.lsp.buf.document_highlight()
+        end,
+      })
+      autocmd('CursorMoved', {
+        callback = function()
+          vim.lsp.buf.clear_references()
+        end,
+      })
+    end
 
     local lsp_signature = require 'lsp_signature'
     lsp_signature.on_attach({
@@ -92,9 +93,9 @@ autocmd({ 'BufWinLeave' }, {
   end,
 })
 
-autocmd({ 'BufWritePost' }, {
-  pattern = { '*.spec.js', '*.test.js', '*.spec.ts', '*.test.ts' },
+autocmd('Filetype', {
+  pattern = { 'dashboard' },
   callback = function()
-    require('neotest').run.run(vim.fn.expand '%')
+    vim.o.foldenable = false
   end,
 })
