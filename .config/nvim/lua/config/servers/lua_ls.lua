@@ -32,6 +32,9 @@ return {
   end,
   settings = {
     Lua = {
+      codeLens = {
+        enable = true,
+      },
       hint = {
         enable = true,
       },

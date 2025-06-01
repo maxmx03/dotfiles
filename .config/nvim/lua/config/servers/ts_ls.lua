@@ -1,5 +1,3 @@
-local nvim_lsp = require 'lspconfig'
-
 local function pwd()
   local dir, err, err_name = vim.uv.cwd()
   if err ~= nil or dir == nil or string.len(dir) == 0 then
@@ -12,8 +10,6 @@ local function pwd()
 end
 
 return {
-  root_dir = nvim_lsp.util.root_pattern 'package.json',
-  single_file_support = false,
   filetypes = {
     'javascript',
     'javascriptreact',
