@@ -7,6 +7,12 @@ return {
   {
     'mason-org/mason.nvim',
     opts = {},
+    keys = {
+      { '<leader>mm', '<cmd>Mason<cr>', desc = 'packages' },
+      { '<leader>ml', '<cmd>MasonLog<cr>', desc = 'logs' },
+      { '<leader>mu', '<cmd>MasonUpdate<cr>', desc = 'update' },
+      { '<leader>ma', '<cmd>MasonUpdate<cr>', desc = 'uninstall all' },
+    },
   },
   {
     'mason-org/mason-lspconfig.nvim',

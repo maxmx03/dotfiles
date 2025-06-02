@@ -12,5 +12,7 @@ return {
     'typescriptreact',
     'htmlangular',
     'php',
+    'markdown.mdx',
+    'mdx',
   },
 }

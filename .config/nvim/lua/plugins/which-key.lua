@@ -13,7 +13,7 @@ return {
     },
     config = function()
       local wk = require 'which-key'
-      local keymaps = require 'config.wk-maps'
+      local keymaps = require 'config.which-key.keymaps'
       wk.add(keymaps)
       wk.setup {
         preset = 'modern',

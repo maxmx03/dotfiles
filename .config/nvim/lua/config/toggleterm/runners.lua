@@ -1,4 +1,4 @@
-local Runner = require 'config.terminal.runner'
+local Runner = require 'config.toggleterm.runner'
 
 return {
   c = function(dir)

@@ -22,11 +22,11 @@ return {
       lsp_format = 'fallback',
       stop_after_first = true,
     },
-    format_on_save = {
-      timeout_ms = 500,
-      stop_after_first = true,
-      lsp_format = 'fallback',
-    },
+    -- format_on_save = {
+    --   timeout_ms = 500,
+    --   stop_after_first = true,
+    --   lsp_format = 'fallback',
+    -- },
   },
   config = function(_, opts)
     local conform = require 'conform'

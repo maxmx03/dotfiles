@@ -1,19 +1,16 @@
 local normal = {
   mode = { 'n' },
-  { '<leader>;', '<cmd>Dashboard<cr>', desc = 'open dashboard' },
-  { '<leader>/', '<Plug>(comment_toggle_linewise_current)', desc = 'comment' },
   { '<leader>w', '<cmd>update<cr>', desc = 'save file' },
   { '<leader>q', '<cmd>quit<cr>', desc = 'exit' },
   { '<leader>s', '<cmd>split<cr>', desc = 'split window hori' },
   { '<leader>v', '<cmd>vsplit<cr>', desc = 'split window vert' },
-  { '<leader>e', '<cmd>Neotree toggle<cr>', desc = 'split window vert' },
   { '<c-x>', group = 'Emacs Shortcuts' },
   { '<c-x>o', '<c-w>w<cr>', desc = 'next window' },
   { '<c-x>r', '<c-w>r<cr>', desc = 'rotate windows' },
   { '<c-x>2', '<cmd>split<cr>', desc = 'split window vert' },
   { '<c-x>3', '<cmd>vsplit<cr>', desc = 'split window hori' },
   { '<c-x>c', '<cmd>qa<cr>', desc = 'exit neovim' },
-  { '<c-x>b', '<cmd>Neotree source=buffers right focus toggle<cr>', desc = 'list buffers' },
+  { '<c-x>b', '<cmd>Neotree source=buffers float focus toggle<cr>', desc = 'list buffers' },
   { '<c-x><c-d>', '<cmd>Dired<cr>', desc = 'file manager' },
   { '<c-x><c-f>', ':find ', desc = 'find file' },
   { '<c-x><c-s>', '<cmd>write<cr>', desc = 'save' },
@@ -31,8 +28,7 @@ local normal = {
   { '<leader>lh', '<cmd>Lazy home<cr>', desc = 'home' },
   { '<leader>lu', '<cmd>Lazy update<cr>', desc = 'update' },
   { '<leader>lr', '<cmd>Lazy restore<cr>', desc = 'restore' },
-  { '<leader>l', group = 'code' },
-  { '<leader>cf', '<cmd>Conform<cr>', desc = 'format' },
+  { '<leader>c', group = '(LSP) Code' },
   { '<leader>ch', vim.lsp.buf.hover, desc = 'hover' },
   { '<leader>ca', vim.lsp.buf.code_action, desc = 'action' },
   { '<leader>cd', vim.lsp.buf.definition, desc = 'definition' },
@@ -41,12 +37,10 @@ local normal = {
   { '<leader>cr', vim.lsp.buf.rename, desc = 'rename' },
   { '<leader>cs', vim.lsp.buf.document_symbol, desc = 'document symbol' },
   { '<leader>cm', '<cmd>Man<cr>', desc = 'man' },
-  { '<leader>d', group = 'Diagnostics' },
-  {
-    '<leader>dt',
-    '<cmd>Trouble diagnostics toggle<cr>',
-    desc = 'Diagnostics (Trouble)',
-  },
+  { '<leader>cf', '<cmd>Conform<cr>', desc = 'format' },
+  { '<leader>d', group = '(LSP) Diagnostics' },
+  { '<leader>do', vim.diagnostic.open_float, desc = 'open float' },
+  { '<leader>dl', vim.diagnostic.setloclist, desc = 'list of diagnostics' },
   {
     '<leader>dn',
     function()
@@ -61,38 +55,11 @@ local normal = {
     end,
     desc = 'prev',
   },
-  { '<leader>do', vim.diagnostic.open_float, desc = 'open float' },
-  { '<leader>dl', vim.diagnostic.setloclist, desc = 'list of diagnostics' },
-  { '<leader>g', group = 'Git' },
-  { '<leader>gn', '<cmd>Gitsigns next_hunk<cr>', desc = 'next hunk' },
-  { '<leader>gp', '<cmd>Gitsigns prev_hunk<cr>', desc = 'prev hunk' },
-  { '<leader>gs', '<cmd>Gitsigns stage_hunk<cr>', desc = 'stage hunk' },
-  { '<leader>gu', '<cmd>Gitsigns undo_stage_hunk<cr>', desc = 'undo stage hunk' },
-  { '<leader>gg', '<cmd>Gitsigns preview_hunk<cr>', desc = 'preview hunk' },
-  { '<leader>b', group = 'buffer' },
-  { '<leader>m', group = 'mason' },
-  { '<leader>mm', '<cmd>Mason<cr>', desc = 'packages' },
-  { '<leader>ml', '<cmd>MasonLog<cr>', desc = 'logs' },
-  { '<leader>mu', '<cmd>MasonUpdate<cr>', desc = 'update' },
-  { '<leader>ma', '<cmd>MasonUpdate<cr>', desc = 'uninstall all' },
-  { '<leader>x', group = 'terminal' },
-  { '<leader>xx', '<cmd>TermOpen<cr>', desc = 'open' },
-  { '<leader>xt', '<cmd>Runner<cr>', desc = 'exec program' },
-}
-
-local visual = {
-  mode = { 'v' },
-  { '<leader>/', '<Plug>(comment_toggle_linewise_visual)', desc = 'comment' },
-}
-
-local terminal = {
-  mode = { 't' },
-  { '<leader>xx', '<cmd>TermHide<cr>', desc = 'Hide' },
-  { '<leader>xc', '<cmd>TermClose<cr>', desc = 'Close' },
+  { '<leader>g', group = 'GitSigns' },
+  { '<leader>m', group = 'Mason' },
+  { '<leader>x', group = 'Toggleterm' },
 }
 
 return {
   normal,
-  visual,
-  terminal,
 }

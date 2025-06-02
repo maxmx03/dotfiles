@@ -2,6 +2,9 @@ return {
   {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
+    keys = {
+      { '<leader>;', '<cmd>Dashboard<cr>', desc = 'Dashboard' },
+    },
     config = function()
       local neovim_version = function()
         local version = vim.version()
@@ -23,7 +26,8 @@ return {
         return '  Loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins'
       end
       local header = function()
-        local val = require('include.ascii')[math.random(2)]
+        local ascii = require 'include.ascii'
+        local val = ascii[math.random(#ascii)]
         local emmptyLine = string.rep(' ', vim.fn.strwidth(val[1]))
         table.insert(val, 1, emmptyLine)
         table.insert(val, 2, emmptyLine)
@@ -42,7 +46,7 @@ return {
               desc = 'Projects',
               key = 'p',
               -- keymap = 'SPC s f',
-              action = 'Telescope session-lens',
+              action = 'Telescope projects',
             },
             {
               icon = ' ',

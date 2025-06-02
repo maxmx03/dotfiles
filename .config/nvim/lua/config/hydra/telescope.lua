@@ -35,7 +35,7 @@ function M.load(Hydra, cmd)
     body = '<Leader>t',
     heads = {
       { 'f', cmd 'Telescope find_files theme=dropdown' },
-      { 'p', cmd 'SessionSearch' },
+      { 'p', cmd 'Telescope projects theme=dropdown' },
       { 'g', cmd 'Telescope live_grep theme=dropdown' },
       { 'h', cmd 'Telescope highlights theme=dropdown' },
       { 't', cmd 'Telescope colorscheme theme=dropdown' },

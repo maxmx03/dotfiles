@@ -19,11 +19,13 @@ autocmd('LspAttach', {
 
     if client and client:supports_method 'textDocument/documentHighlight' then
       autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        buffer = bufnr,
         callback = function()
           vim.lsp.buf.document_highlight()
         end,
       })
       autocmd('CursorMoved', {
+        buffer = bufnr,
         callback = function()
           vim.lsp.buf.clear_references()
         end,

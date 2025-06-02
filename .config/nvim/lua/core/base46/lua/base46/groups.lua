@@ -387,6 +387,8 @@ function M.load_faces(base46, config)
     { fg = base46.magenta, bg = blend(base46.magenta, base46.base_30.base00, 0.15) }
   )
   hl(0, 'LspInlayHint', { fg = shade(base46.base_16.base0E, 4) })
+  hl(0, 'LspCodeLens', { fg = shade(base46.base_16.base0E, 4) })
+  hl(0, 'LspCodeLensSeparator', { fg = shade(base46.base_16.base0E, 4) })
 
   hl(
     0,
@@ -486,7 +488,7 @@ function M.load_faces(base46, config)
   hl(0, 'WinbarHead', { fg = base46.base_16.base0E, reverse = true })
 
   hl(0, 'HydraRed', { fg = base46.red })
-  hl(0, 'HydraAmaranth', { fg = base46.orange })
+  hl(0, 'HydraAmaranth', { fg = base46.violet })
   hl(0, 'HydraTeal', { fg = base46.blue })
   hl(0, 'HydraPink', { fg = base46.magenta })
 
