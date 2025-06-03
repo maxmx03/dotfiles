@@ -5,6 +5,10 @@ local config = function()
   end
 
   local cmp = require 'cmp'
+  local autopairs_is_installed, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+  if autopairs_is_installed then
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+  end
 
   cmp.setup {
     formatting = {

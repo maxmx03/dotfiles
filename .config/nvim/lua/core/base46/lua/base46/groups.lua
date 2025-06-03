@@ -155,7 +155,7 @@ function M.load_faces(base46, config)
   hl(0, 'Cursor', { bg = base46.base_30.base0R })
   hl(0, 'lCursor', { bg = base46.base_30.base0R })
   hl(0, 'CursorIM', { bg = base46.base_30.base0R })
-  hl(0, 'CursorColumn', { fg = base46.base_30.base01 })
+  hl(0, 'CursorColumn', { link = 'ColorColumn' })
   hl(0, 'CursorLine', { bg = base46.base_16.base02 })
   hl(0, 'Directory', { fg = base46.base_30.base0Q, bold = true })
   hl(
@@ -472,6 +472,10 @@ function M.load_faces(base46, config)
 
   hl(0, 'MarkviewCode', { bg = base46.base_30.base01 })
   hl(0, 'MarkviewInlineCode', { bg = base46.base_30.base01 })
+  hl(0, 'MarkviewCheckboxChecked', { fg = base46.blue })
+  hl(0, 'MarkviewCheckboxUnchecked', { fg = base46.violet })
+  hl(0, 'MarkviewCheckboxPending', { fg = base46.yellow })
+  hl(0, 'MarkviewCheckboxProgress', { fg = base46.cyan })
 
   hl(0, 'ModeLineGitHead', { fg = base46.red })
   hl(0, 'ModeLineGitAdd', { link = 'GitSignsAdd' })
@@ -492,10 +496,25 @@ function M.load_faces(base46, config)
   hl(0, 'HydraTeal', { fg = base46.blue })
   hl(0, 'HydraPink', { fg = base46.magenta })
 
+  hl(0, 'IblColumn', { bg = shade(base46.base_30.base00, 1.5) })
+
+  hl(0, 'RainbowDelimiterRed', { fg = base46.red })
+  hl(0, 'RainbowDelimiterBlue', { fg = base46.blue })
+  hl(0, 'RainbowDelimiterYellow', { fg = base46.yellow })
+  hl(0, 'RainbowDelimiterOrange', { fg = base46.orange })
+  hl(0, 'RainbowDelimiterGreen', { fg = base46.green })
+  hl(0, 'RainbowDelimiterViolet', { fg = base46.violet })
+  hl(0, 'RainbowDelimiterCyan', { fg = base46.cyan })
+
   if not vim.tbl_isempty(base46.groups or {}) then
     for name, val in pairs(base46.groups) do
       hl(0, name, val)
     end
+  end
+  if vim.g.base46 then
+    vim.defer_fn(function()
+      vim.api.nvim_del_var 'base46'
+    end, 800)
   end
 end
 

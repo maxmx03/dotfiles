@@ -3,7 +3,7 @@ return {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
     keys = {
-      { '<leader>e', '<cmd>Neotree toggle<cr>', desc = 'split window vert' },
+      { '<leader>e', '<cmd>Neotree toggle<cr>', desc = 'open neo-tree' },
     },
     dependencies = {
       'nvim-lua/plenary.nvim',

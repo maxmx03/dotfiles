@@ -17,9 +17,6 @@ return {
         width = 0.87,
         height = 0.80,
       },
-      mappings = {
-        n = { ['q'] = require('telescope.actions').close },
-      },
     },
   },
   config = function(_, opts)

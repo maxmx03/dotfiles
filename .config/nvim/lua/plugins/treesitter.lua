@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -19,6 +20,7 @@ return {
           'yaml',
           'typst',
           'html',
+          'query',
         },
         highlight = {
           enable = true,

@@ -6,6 +6,11 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
-    config = true,
+    opts = {
+      check_ts = true,
+    },
   },
+  {
+    'tpope/vim-surround'
+  }
 }

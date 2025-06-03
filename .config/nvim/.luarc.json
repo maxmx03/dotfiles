@@ -3,11 +3,14 @@
     "/usr/share/nvim/runtime",
     "~/.local/share/nvim/lazy/mason.nvim",
     "~/.local/share/nvim/lazy/neo-tree.nvim",
+    "~/.local/share/nvim/lazy/indent-blankline.nvim",
+    "~/.local/share/nvim/lazy/rainbow-delimiters.nvim",
     "${3rd}/luv/library",
     "${3rd}/busted/library",
     "${3rd}/luassert/library"
   ],
     "diagnostics.disable": [
-        "different-requires"
+        "different-requires",
+        "unused-function"
     ]
 }

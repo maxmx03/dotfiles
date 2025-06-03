@@ -51,7 +51,7 @@ return {
 
       -- Exclude filetypes or buftypes from highlighting e.g. 'exclude_buftypes = {'text'}'
       exclude_filetypes = {
-        'neo-tree'
+        'neo-tree',
       },
       exclude_buftypes = {},
     }

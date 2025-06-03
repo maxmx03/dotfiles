@@ -87,8 +87,8 @@ autocmd('FileType', {
   end,
 })
 
-autocmd('BufWinEnter', {
-  pattern = { '*.md' },
+autocmd('FileType', {
+  pattern = { 'markdown' },
   callback = function()
     vim.opt.colorcolumn = '80'
     vim.opt.textwidth = 80
@@ -108,4 +108,5 @@ autocmd('Filetype', {
   callback = function()
     vim.o.foldenable = false
   end,
+  desc = 'Disable folding for dashboard',
 })
