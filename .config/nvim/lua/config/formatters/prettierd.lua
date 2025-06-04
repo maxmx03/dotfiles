@@ -1,13 +1,1 @@
-return {
-  'javascript',
-  'javascriptreact',
-  'typescriptreact',
-  'typescript',
-  'svelte',
-  'vue',
-  'json',
-  'mdx',
-  'markdown',
-  'css',
-  'html',
-}
+return require 'config.formatters.prettier'

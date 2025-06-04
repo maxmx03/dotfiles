@@ -1,5 +1,5 @@
-local filemanager = require 'include.filemanager'
-local formatters = filemanager.getfiles 'config/formatters'
+local unix = require 'include.unix'
+local formatters = unix.ls 'config/formatters'
 local formatters_by_ft = {}
 for _, formatter in pairs(formatters) do
   local languages = require('config.formatters.' .. formatter)

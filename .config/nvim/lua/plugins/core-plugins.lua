@@ -1,15 +1,15 @@
-local filemanager = require 'include.filemanager'
+local core = require 'core'
 
 return {
   {
-    dir = filemanager.core_plugin 'modeline',
+    dir = core.include 'modeline',
     opts = {},
     dependencies = {
       'lewis6991/gitsigns.nvim',
     },
   },
   {
-    dir = filemanager.core_plugin 'base46',
+    dir = core.include 'base46',
     lazy = false,
     priority = 1000,
     opts = vim.g.base46,

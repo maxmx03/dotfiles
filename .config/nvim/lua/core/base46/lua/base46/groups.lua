@@ -399,6 +399,7 @@ function M.load_faces(base46, config)
   hl(0, 'TelescopeSelection', { link = 'CursorLine' })
   hl(0, 'TelescopeSelectionCaret', { fg = base46.base_30.base0S, bg = base46.base_16.base02 })
 
+  hl(0, 'DashboardHeader', { fg = base46.base_16.base03 })
   hl(0, 'DashboardFooter', { fg = base46.base_16.base0B })
   hl(0, 'DashboardIcon', { fg = base46.base_30.base0Q })
   hl(0, 'DashboardDesc', { fg = base46.base_30.base0Q })

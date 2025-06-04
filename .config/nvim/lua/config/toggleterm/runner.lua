@@ -26,7 +26,7 @@ function Runner:create()
     return
   end
   if self.makeBin then
-    local mkdir = require 'include.mkdir'
+    local mkdir = require 'include.unix'.mkdir
     local ok, err = mkdir(root_dir .. '/bin')
     if not ok then
       vim.notify(string.format('Err: %s', err), vim.log.levels.ERROR)

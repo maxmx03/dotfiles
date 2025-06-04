@@ -23,8 +23,8 @@ return {
       capabilities = capabilities,
       root_markers = { '.git' },
     })
-    local filemanager = require 'include.filemanager'
-    local servers = filemanager.getfiles 'config/servers'
+    local unix = require 'include.unix'
+    local servers = unix.ls 'config/servers'
     for _, server in ipairs(servers) do
       local server_not_found, server_path = pcall(string.format, 'config.servers.%s', server)
       if not server_not_found then

@@ -1,13 +1,14 @@
 return {
   'javascript',
   'javascriptreact',
-  'typescriptreact',
   'typescript',
+  'typescriptreact',
   'svelte',
   'vue',
   'json',
   'mdx',
   'markdown',
   'css',
+  'scss',
   'html',
 }

@@ -22,27 +22,27 @@ local horizon = {
     base04 = '#757c98', -- Statusline foreground
     base05 = '#D5D8DA', -- Default Foreground, Caret, Delimiters, Operators
     base06 = '#27D796', -- Diff Added
-    base07 = '#25B2BC', -- Diff dified
-    base08 = '#E95678', -- Diff Deleted
-    base09 = '#FAC29A', -- Diagnostic Info, Hint
-    base0A = '#FAB795', -- Diagnostic Warning
-    base0B = '#21BFC2', -- Diagnostics Error
-    base0C = '#25B2BC', -- rkup Bold
-    base0D = '#B877DB', -- rkup Italic
-    base0E = '#F43E5C', -- rkup URL
-    base0F = '#F09383', -- rkup Inline Code
-    base0G = '#FAC29A', -- rkup Heading 1
-    base0H = '#FAB795', -- rkup Heading 2
-    base0I = '#27D796', -- rkup Heading 3
-    base0J = '#25B2BC', -- rkup Heading 4
-    base0K = '#B877DB', -- rkup Heading 5
-    base0L = '#F43E5C', -- rkup Heading 6
+    base07 = '#21BFC2', -- Diff Modified
+    base08 = '#E95379', -- Diff Deleted
+    base09 = '#27D796', -- Diagnostic Info, Hint
+    base0A = '#FAB28E', -- Diagnostic Warning
+    base0B = '#F43E5C', -- Diagnostics Error
+    base0C = '#25B2BC', -- Markup Bold
+    base0D = '#B877DB', -- Markup Italic
+    base0E = '#F43E5C', -- Markup URL
+    base0F = '#F09383', -- Markup Inline Code
+    base0G = '#FAC29A', -- Markup Heading 1
+    base0H = '#FAB795', -- Markup Heading 2
+    base0I = '#27D796', -- Markup Heading 3
+    base0J = '#25B2BC', -- Markup Heading 4
+    base0K = '#B877DB', -- Markup Heading 5
+    base0L = '#F43E5C', -- Markup Heading 6
     base0M = '#E95678', -- Markup Tag
     base0N = '#21BFC2', -- rkup Tag Attribute
     base0O = '#F09383', -- rkup Tag Delimiter
     base0P = '#FAB795', -- Pmenu Background
     base0Q = '#B877DB', -- Folder Background
-    base0R = '#E95678', -- Cursor Color
+    base0R = '#8E8F8D', -- Cursor Color
     base0S = '#FAB795', -- Accent, can be used as primary color
     base0T = '#FAC29A', -- Title
   },
@@ -63,6 +63,10 @@ local horizon = {
     base0D = '#25B2BC', -- Functions, thods, Attribute IDs, Headings
     base0E = '#B877DB', -- Keywords, Storage, Selector, rkup Italic, Diff Changed
     base0F = '#B877DB', -- Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
+  },
+  groups = {
+    DashboardHeader = { fg = '#E95678' },
+    DashboardKey = { fg = '#25B2BC' },
   },
 }
 

@@ -63,6 +63,9 @@ local dracula = {
     base0E = '#FF79C6', -- Keywords, Storage, Selector, Markup Italic, Diff Changed
     base0F = '#BD93F9', -- Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
   },
+  groups = {
+    DashboardKey = { fg = '#FF79C6' }
+  }
 }
 
 return dracula

@@ -1,8 +1,8 @@
-local filemanager = require 'include.filemanager'
-local servers = filemanager.getfiles 'config/servers'
-local formatters = filemanager.getfiles 'config/formatters'
--- local linters = filemanager.getfiles('config/guard/linters')
--- local ensure_installed = vim.tbl_extend('force', linters or {}, formatters or {})
+local unix = require 'include.unix'
+local servers = unix.ls 'config/servers'
+local formatters = unix.ls 'config/formatters'
+-- local linters = unix.ls 'config/linters'
+-- local tools = vim.tbl_extend('force', linters or {}, formatters or {})
 return {
   {
     'mason-org/mason.nvim',

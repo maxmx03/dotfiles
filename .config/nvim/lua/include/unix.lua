@@ -2,7 +2,7 @@ local M = {}
 
 ---@param path string
 ---@return string[]
-function M.getfiles(path)
+function M.ls(path)
   local files = vim.fn.readdir(vim.fn.stdpath 'config' .. '/lua/' .. path)
   local file_names = {}
   for _, file in ipairs(files) do
@@ -16,10 +16,16 @@ function M.getfiles(path)
   return file_names
 end
 
----@param name string
----@return string
-function M.core_plugin(name)
-  return vim.fn.stdpath 'config' .. '/lua/core/' .. name
+---@param path string
+function M.mkdir(path)
+  local stat = vim.uv.fs_statfs(path)
+  if stat == nil then
+    local ok, err = vim.uv.fs_mkdir(path, 493)
+    if not ok then
+      return err
+    end
+  end
+  return true, nil
 end
 
 return M
