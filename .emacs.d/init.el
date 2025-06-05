@@ -5,11 +5,12 @@
  '(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" "~/.emacs.d/.cache/autosave/" t)))
 (setq backup-directory-alist '(("." . "~/.emacs.d/.cache/backup")))
 (set-face-attribute
- 'default nil :family "JetBrainsMono Nerd Font"  :height 130)
+ 'default nil :family "JetBrainsMono Nerd Font"  :height 160)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (global-display-line-numbers-mode 1)
+(windmove-default-keybindings)
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -87,6 +88,9 @@
   :ensure t
   :straight t
   :defer t
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
   :hook
   (after-init . evil-mode)
   :config
@@ -101,7 +105,6 @@
   (evil-set-leader 'visual (kbd "SPC"))
 
   (evil-define-key 'normal 'global (kbd "C-e") 'evil-scroll-up)
-
   (evil-define-key 'normal 'global (kbd "<leader> e") 'dired)
   (evil-define-key 'normal 'global (kbd "<leader> x x") 'vterm)
   (evil-define-key 'normal 'global (kbd "<leader> w") 'save-buffer)
@@ -115,6 +118,18 @@
   (evil-define-key 'normal 'global (kbd "<leader> /") 'consult-line)
   )
 
+(use-package evil-surround
+  :ensure t
+  :straight t
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package evil-collection
+  :defer t
+  :straight t
+  :ensure t
+  :hook
+  (evil-collection-init))
 
 (use-package treesit-auto
   :ensure t
@@ -177,12 +192,13 @@
   :straight t
   :init (doom-modeline-mode 1))
 
-(use-package evil-surround
-  :ensure t
-  :straight t
-  :config
-  (global-evil-surround-mode 1))
-
 (use-package vterm
-    :straight t
-    :ensure t)
+  :straight t
+  :ensure t)
+
+(use-package markdown-mode
+  :defer t
+  :straight t
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)           
+  :init (setq markdown-command "multimarkdown"))
