@@ -7,6 +7,7 @@
  '(auto-save-file-name-transforms
    '(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" "~/.emacs.d/autosave" t)))
  '(backup-directory-alist '(("." . "~/.emacs.d/backup")))
+ '(current-language-environment "Brazilian Portuguese")
  '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
    '("0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
@@ -31,13 +32,15 @@
  '(package-enable-at-startup t)
  '(package-load-list '(all))
  '(package-selected-packages
-   '(all-the-icons cider clojure-mode company dashboard doom-modeline
-		   doom-themes evil flycheck flycheck-clj-kondo
-		   paredit rainbow-delimiters treesit-auto))
+   '(all-the-icons cider clojure-mode company consult dashboard
+		   doom-modeline doom-themes evil evil-surround
+		   flycheck flycheck-clj-kondo paredit
+		   rainbow-delimiters treesit-auto which-key-posframe))
  '(repeat-mode t)
  '(scroll-bar-mode nil)
  '(tab-line-tabs-function 'tab-line-tabs-mode-buffers)
  '(tool-bar-mode nil)
+ '(which-key-mode t)
  '(windmove-default-keybindings '([ignore] control)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -45,7 +48,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#282c34" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 158 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font")))))
-
-(dashboard-setup-startup-hook)
-(evil-mode 1)
-(evil-define-key 'normal 'global (kbd "C-e") 'evil-scroll-up)

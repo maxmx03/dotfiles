@@ -332,6 +332,7 @@ assign [class="ghostty"] $ws1
 assign [class="kitty"] $ws1
 assign [class="Alacritty"] $ws1
 assign [class="neovide"] $ws1
+assign [class="Emacs"] $ws1
 assign [class="(?i)Google-chrome"] $ws2
 assign [class="(?i)Brave-browser"] $ws2
 assign [class="Evince"] $ws3
@@ -358,6 +359,7 @@ for_window [class=Lutris] focus
 for_window [class=Minigalaxy] focus
 for_window [class=Gnome-pomodoro] focus
 for_window [class=neovide] focus
+for_window [class=Emacs] focus
 
 ##############
 # compositor #
