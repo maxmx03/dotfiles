@@ -1,17 +1,64 @@
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-
-;; Performance
 (setq gc-cons-threshold #x40000000)
 (setq read-process-output-max (* 1024 1024 4))
+(setq package-enable-at-startup nil)
+(setq auto-save-file-name-transforms
+ '(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" "~/.emacs.d/.cache/autosave/" t)))
+(setq backup-directory-alist '(("." . "~/.emacs.d/.cache/backup")))
+(set-face-attribute
+ 'default nil :family "JetBrainsMono Nerd Font"  :height 130)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(global-display-line-numbers-mode 1)
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
 (use-package dashboard
-  :ensure t
+  :straight t
   :config
-  (dashboard-setup-startup-hook))
+  (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
+  (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
+  (dashboard-setup-startup-hook)
+  (setq dashboard-center-content t)
+  (setq dashboard-startup-banner "~/.emacs.d/doom.png")
+  )
+
+(use-package doom-themes
+  :ensure t
+  :straight t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (nerd-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 (use-package consult
   :ensure t
+  :straight t
   :defer t
   :init
   ;; Enhance register preview with thin lines and no mode line.
@@ -21,8 +68,24 @@
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref))
 
+(use-package undo-tree
+  :defer t
+  :ensure t
+  :straight t
+  :hook
+  (after-init . global-undo-tree-mode)
+  :init
+  (setq undo-tree-visualizer-timestamps t
+        undo-tree-visualizer-diff t
+          undo-limit 800000
+        undo-strong-limit 12000000 
+        undo-outer-limit 120000000)
+  :config
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/undo"))))
+
 (use-package evil
   :ensure t
+  :straight t
   :defer t
   :hook
   (after-init . evil-mode)
@@ -40,6 +103,9 @@
   (evil-define-key 'normal 'global (kbd "C-e") 'evil-scroll-up)
 
   (evil-define-key 'normal 'global (kbd "<leader> e") 'dired)
+  (evil-define-key 'normal 'global (kbd "<leader> x x") 'vterm)
+  (evil-define-key 'normal 'global (kbd "<leader> w") 'save-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader> q") 'quit-window)
 
   ;; Keybindings for searching and finding files.
   (evil-define-key 'normal 'global (kbd "<leader> t f") 'consult-find)
@@ -51,23 +117,30 @@
 
 
 (use-package treesit-auto
+  :ensure t
+  :straight t
+  :after emacs
   :custom
   (treesit-auto-install 'prompt)
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
+  (global-treesit-auto-mode t))
 
 (use-package flycheck
+  :straight t
   :init (global-flycheck-mode))
 
-(use-package flycheck-clj-kondo)
+(use-package flycheck-clj-kondo
+  :straight t)
 
 (use-package clojure-mode
+  :straight t
   :config
   (require 'flycheck-clj-kondo))
 
 (use-package cider
   :defer t
+  :straight t
   :init
   (progn
     (add-hook 'clojure-mode-hook 'cider-mode)
@@ -79,11 +152,13 @@
   (setq cider-auto-mode nil))
 
 (use-package rainbow-delimiters
+  :straight t
   :defer t
   :init
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package paredit
+  :straight t
   :defer t
   :init
   (progn
@@ -94,12 +169,20 @@
     (add-hook 'cider-repl-mode-hook 'paredit-mode)))
 
 (use-package all-the-icons
-  :if (display-graphic-p))
+  :ensure t
+  :straight t)
 
-(require 'doom-modeline)
-(doom-modeline-mode 1)
+(use-package doom-modeline
+  :ensure t
+  :straight t
+  :init (doom-modeline-mode 1))
 
 (use-package evil-surround
   :ensure t
+  :straight t
   :config
   (global-evil-surround-mode 1))
+
+(use-package vterm
+    :straight t
+    :ensure t)
