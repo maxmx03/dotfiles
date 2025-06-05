@@ -15,3 +15,11 @@
 .config/mpd/database
 .config/mpd/log
 .config/mpd/state
+.emacs.d/*
+.emacs.d/elpa/
+.emacs.d/eln-cache/
+.emacs.d/auto-save-list/
+
+!.emacs.d/init.el
+!.emacs.d/custom.el
+!.emacs.d/doom.png
