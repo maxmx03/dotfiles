@@ -59,7 +59,7 @@ return {
               icon = ' ',
               desc = 'File explorer',
               key = 'n',
-              keymap = '<c-x><c-d>',
+              keymap = '<c-x>d',
               action = ':Dired',
             },
             {

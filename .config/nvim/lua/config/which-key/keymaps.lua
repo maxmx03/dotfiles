@@ -12,6 +12,7 @@ local normal = {
   { '<c-x>c', '<cmd>qa<cr>', desc = 'exit neovim' },
   { '<c-x>b', '<cmd>Neotree source=buffers float focus toggle<cr>', desc = 'list buffers' },
   { '<c-x><c-d>', '<cmd>Dired<cr>', desc = 'file manager' },
+  { '<c-x>d', '<cmd>Dired<cr>', desc = 'file manager' },
   { '<c-x><c-f>', ':find ', desc = 'find file' },
   { '<c-x><c-s>', '<cmd>write<cr>', desc = 'save' },
   { '<c-h>', group = 'Help' },

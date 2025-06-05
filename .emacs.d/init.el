@@ -47,3 +47,9 @@
     (add-hook 'clojurescript-mode-hook 'paredit-mode)
     (add-hook 'clojurec-mode-hook 'paredit-mode)
     (add-hook 'cider-repl-mode-hook 'paredit-mode)))
+
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(require 'doom-modeline)
+(doom-modeline-mode 1)

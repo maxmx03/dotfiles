@@ -23,10 +23,6 @@
  '(global-tree-sitter-mode t)
  '(global-treesit-auto-mode t)
  '(ido-mode 'both nil (ido))
- '(lsp-auto-guess-root t)
- '(lsp-enable-suggest-server-download t)
- '(lsp-format-buffer-on-save t)
- '(lsp-inlay-hint-enable t)
  '(menu-bar-mode nil)
  '(package-archives
    '(("melpa" . "https://melpa.org/packages/")
@@ -35,8 +31,9 @@
  '(package-enable-at-startup t)
  '(package-load-list '(all))
  '(package-selected-packages
-   '(cider clojure-mode company dashboard doom-themes evil flycheck
-	   flycheck-clj-kondo paredit rainbow-delimiters treesit-auto))
+   '(all-the-icons cider clojure-mode company dashboard doom-modeline
+		   doom-themes evil flycheck flycheck-clj-kondo
+		   paredit rainbow-delimiters treesit-auto))
  '(repeat-mode t)
  '(scroll-bar-mode nil)
  '(tab-line-tabs-function 'tab-line-tabs-mode-buffers)
