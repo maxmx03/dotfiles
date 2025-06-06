@@ -30,7 +30,6 @@ export FZF_DEFAULT_OPTS="
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
-bind -x '"\C-l":ls'
 bind -x '"\C-f":telescope'
 bind -x '"\C-e":nvim'
 alias ls="eza --icons"
@@ -85,3 +84,4 @@ if [[ "$TERM" = "xterm-256color" ]]; then
 fi
 
 source "$HOME/.cargo/env"
+source "$HOME/.ghcup/env" # haskell
