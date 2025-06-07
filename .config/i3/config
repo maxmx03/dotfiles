@@ -174,8 +174,8 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 # start a terminal
 # bindsym $mod+Return exec --no-startup-id xfce4-terminal
 # bindsym $mod+Return exec --no-startup-id ghostty
-# bindsym $mod+Return exec --no-startup-id kitty
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id kitty
+# bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -509,7 +509,8 @@ for_window [window_role="About"] floating enable
 # for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
 # for_window [floating class="ghostty"] resize set 1536 864
 # for_window [floating class="kitty"] resize set 1536 864
-for_window [floating class="Alacritty"] resize set 1536 864
+# for_window [floating class="Alacritty"] resize set 1536 864
+for_window [floating class="neovide"] resize set 1536 864
 
 # set position of floating window
 #for_window [class=".*"] move position center
