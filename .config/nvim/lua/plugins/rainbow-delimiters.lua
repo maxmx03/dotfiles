@@ -11,6 +11,9 @@ return {
       },
       strategy = {
         clojure = 'rainbow-delimiters.strategy.local',
+        fennel = 'rainbow-delimiters.strategy.local',
+        commonlisp = 'rainbow-delimiters.strategy.local',
+        query = 'rainbow-delimiters.strategy.local',
       },
       highlight = {
         'RainbowDelimiterBlue',

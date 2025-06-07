@@ -471,6 +471,35 @@ function M.load_faces(base46, config)
   hl(0, 'CmpItemKindOperator', { fg = base46.base_16.base0E, reverse = true })
   hl(0, 'CmpItemKindTypeParameter', { fg = base46.base_16.base0A, reverse = true })
 
+  hl(0, 'NavicIconsFile', { fg = base46.base_30.base05 })
+  hl(0, 'NavicIconsModule', { fg = base46.base_16.base0A })
+  hl(0, 'NavicIconsNamespace', { fg = base46.base_16.base0A })
+  hl(0, 'NavicIconsPackage', { fg = base46.base_16.base0A })
+  hl(0, 'NavicIconsClass', { fg = base46.base_16.base0A })
+  hl(0, 'NavicIconsMethod', { fg = base46.base_16.base0D })
+  hl(0, 'NavicIconsProperty', { fg = base46.base_16.base06 })
+  hl(0, 'NavicIconsField', { fg = base46.base_16.base06 })
+  hl(0, 'NavicIconsConstructor', { fg = base46.base_16.base0A })
+  hl(0, 'NavicIconsEnum', { fg = base46.base_16.base0A })
+  hl(0, 'NavicIconsInterface', { fg = base46.base_16.base0A })
+  hl(0, 'NavicIconsFunction', { fg = base46.base_16.base0D })
+  hl(0, 'NavicIconsVariable', { fg = base46.base_16.base08 })
+  hl(0, 'NavicIconsConstant', { fg = base46.base_16.base09 })
+  hl(0, 'NavicIconsString', { fg = base46.base_16.base0B })
+  hl(0, 'NavicIconsNumber', { fg = base46.base_16.base09 })
+  hl(0, 'NavicIconsBoolean', { fg = base46.base_16.base09 })
+  hl(0, 'NavicIconsArray', { fg = base46.base_16.base06 })
+  hl(0, 'NavicIconsObject', { fg = base46.base_16.base06 })
+  hl(0, 'NavicIconsKey', { fg = base46.base_16.base0E })
+  hl(0, 'NavicIconsNull', { fg = base46.base_16.base09 })
+  hl(0, 'NavicIconsEnumMember', { fg = base46.base_16.base09 })
+  hl(0, 'NavicIconsStruct', { fg = base46.base_16.base07 })
+  hl(0, 'NavicIconsEvent', { fg = base46.base_30.base0S })
+  hl(0, 'NavicIconsOperator', { fg = base46.base_16.base05 })
+  hl(0, 'NavicIconsTypeParameter', { fg = base46.base_16.base0A })
+  hl(0, 'NavicText', { fg = base46.base_30.base05 })
+  hl(0, 'NavicSeparator', { fg = base46.base_16.base0E })
+
   hl(0, 'MarkviewCode', { bg = base46.base_30.base01 })
   hl(0, 'MarkviewInlineCode', { bg = base46.base_30.base01 })
   hl(0, 'MarkviewCheckboxChecked', { fg = base46.blue })
@@ -488,10 +517,6 @@ function M.load_faces(base46, config)
   hl(0, 'ModeLineMode', { fg = base46.base_30.base0S })
   hl(0, 'ModeLineFile', { fg = base46.violet })
 
-  hl(0, 'WinbarText', { fg = base46.base_16.base0E, reverse = true })
-  hl(0, 'Winbar_Separator', { fg = base46.base_30.base0E })
-  hl(0, 'WinbarHead', { fg = base46.base_16.base0E, reverse = true })
-
   hl(0, 'HydraRed', { fg = base46.red })
   hl(0, 'HydraAmaranth', { fg = base46.violet })
   hl(0, 'HydraTeal', { fg = base46.blue })
@@ -506,6 +531,19 @@ function M.load_faces(base46, config)
   hl(0, 'RainbowDelimiterGreen', { fg = base46.green })
   hl(0, 'RainbowDelimiterViolet', { fg = base46.violet })
   hl(0, 'RainbowDelimiterCyan', { fg = base46.cyan })
+
+  hl(0, 'MasonHeader', { link = 'FloatTitle' })
+  hl(0, 'MasonHighlight', { fg = base46.base_30.base0S })
+  hl(
+    0,
+    'MasonHighlightBlock',
+    { fg = blend(base46.base_30.base0S, base46.base_30.base01, 0.15), bg = base46.base_30.base0S }
+  )
+  hl(0, 'MasonHighlightBlockBold', {
+    fg = blend(base46.base_30.base0S, base46.base_30.base01, 0.15),
+    bg = base46.base_30.base0S,
+    bold = true,
+  })
 
   if not vim.tbl_isempty(base46.groups or {}) then
     for name, val in pairs(base46.groups) do

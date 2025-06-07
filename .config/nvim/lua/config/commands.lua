@@ -11,16 +11,16 @@ command('Runner', function()
 
   local dirs = vim.fs.find({ 'makefile', 'Makefile' }, { path = dir, upward = true, limit = 1 })
   local default = function()
-    local runners = require 'config.toggleterm.runners'
+    local runners = require 'config.terminal.runners'
     local runner = runners[vim.bo.filetype]
-    local arg = runner(dir)
-    vim.cmd.TermExec('cmd=' .. arg)
+    local cmd = runner(dir)
+    vim.cmd.TermOpen(cmd)
   end
 
   if vim.tbl_isempty(dirs) then
     default()
   else
-    vim.cmd.TermExec 'cmd=make'
+    vim.cmd.TermOpen 'make'
   end
 end, { nargs = 0, bang = false })
 

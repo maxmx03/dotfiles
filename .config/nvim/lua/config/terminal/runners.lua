@@ -1,4 +1,4 @@
-local Runner = require 'config.toggleterm.runner'
+local Runner = require 'config.terminal.runner'
 
 return {
   c = function(dir)
@@ -43,7 +43,7 @@ return {
     ---@type Runner
     local lua = Runner:new {
       root_files = { 'init.lua', 'stylua.toml', '.stylua.toml' },
-      cmd = 'luac -o ./bin/program.lc %s && lua ./bin/program.lc',
+      cmd = 'luac -o ./bin/program.out %s && lua ./bin/program.out',
       -- cmd = 'luajit -b %s -X ./bin/program && luajit ./bin/program',
       dir = dir,
     }

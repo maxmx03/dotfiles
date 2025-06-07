@@ -3,13 +3,23 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
+    local lsp_signature = require 'lsp_signature'
+    lsp_signature.on_attach({
+      floating_window = false,
+      hint_prefix = ' ',
+      hint_scheme = 'String',
+    }, bufnr)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-    if client and client:supports_method 'textDocument/inlayHint' then
+    if not client then
+      return
+    end
+
+    if client:supports_method 'textDocument/inlayHint' then
       vim.lsp.inlay_hint.enable(true)
     end
 
-    if client and client:supports_method 'textDocument/codeLens' then
+    if client:supports_method 'textDocument/codeLens' then
       vim.lsp.codelens.refresh()
       vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
         buffer = bufnr,
@@ -17,7 +27,7 @@ autocmd('LspAttach', {
       })
     end
 
-    if client and client:supports_method 'textDocument/documentHighlight' then
+    if client:supports_method 'textDocument/documentHighlight' then
       autocmd({ 'CursorHold', 'CursorHoldI' }, {
         buffer = bufnr,
         callback = function()
@@ -32,12 +42,11 @@ autocmd('LspAttach', {
       })
     end
 
-    local lsp_signature = require 'lsp_signature'
-    lsp_signature.on_attach({
-      floating_window = false,
-      hint_prefix = ' ',
-      hint_scheme = 'String',
-    }, bufnr)
+    if client:supports_method 'textDocument/documentSymbol' then
+      local navic = require 'nvim-navic'
+      navic.attach(client, bufnr)
+      vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+    end
   end,
 })
 
@@ -87,8 +96,8 @@ autocmd('FileType', {
   end,
 })
 
-autocmd('FileType', {
-  pattern = { 'markdown' },
+autocmd('BufWinEnter', {
+  pattern = { '*.md' },
   callback = function()
     vim.opt.colorcolumn = '80'
     vim.opt.textwidth = 80

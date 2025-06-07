@@ -1,6 +1,6 @@
 local unix = require 'include.unix'
 local servers = unix.ls 'config/servers'
-local formatters = unix.ls 'config/formatters'
+local formatters = unix.ls('config/formatters', { 'fnlfmt' })
 -- local linters = unix.ls 'config/linters'
 -- local tools = vim.tbl_extend('force', linters or {}, formatters or {})
 return {
