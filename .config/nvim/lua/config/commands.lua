@@ -48,9 +48,26 @@ command('MarkdownToggleTask', function()
     end
   end
   local node = vim.treesitter.get_node()
-  local result = toggle_checkbox(node)
-  if not result then
-    local sibling = node:next_sibling()
-    toggle_checkbox(sibling)
+  if not node then
+    return
+  end
+  local sibling = node:next_sibling()
+  local parent = node:parent()
+  if not toggle_checkbox(node) then
+    if not toggle_checkbox(sibling) then
+      if node:type() == 'list_item' then
+        local checkbox = node:child(1)
+        toggle_checkbox(checkbox)
+      elseif node:type() == 'block_continuation' then
+        vim.api.nvim_feedkeys('w', 'n', false)
+        vim.defer_fn(function()
+          local checkbox = vim.treesitter.get_node():next_sibling()
+          toggle_checkbox(checkbox)
+        end, 0)
+      elseif parent and parent:type() == 'paragraph' then
+        local checkbox = parent:prev_sibling()
+        toggle_checkbox(checkbox)
+      end
+    end
   end
 end, { nargs = 0, bang = false })
