@@ -2,8 +2,10 @@
 (setq read-process-output-max (* 1024 1024 4))
 (setq package-enable-at-startup nil)
 (setq auto-save-file-name-transforms
- '(("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" "~/.emacs.d/.cache/autosave/" t)))
-(setq backup-directory-alist '(("." . "~/.emacs.d/.cache/backup")))
+ '((".*" "~/.emacs.d/.cache/autosave/" t)))
+(setq backup-directory-alist '((".*" . "~/.emacs.d/.cache/backup")))
+(make-directory "~/.emacs.d/.cache/backup" t)
+(make-directory "~/.emacs.d/.cache/autosave" t)
 (set-face-attribute
  'default nil :family "JetBrainsMono Nerd Font"  :height 160)
 (menu-bar-mode -1)
@@ -108,7 +110,8 @@
   (evil-define-key 'normal 'global (kbd "<leader> e") 'dired)
   (evil-define-key 'normal 'global (kbd "<leader> x x") 'vterm)
   (evil-define-key 'normal 'global (kbd "<leader> w") 'save-buffer)
-  (evil-define-key 'normal 'global (kbd "<leader> q") 'quit-window)
+  (evil-define-key 'normal 'global (kbd "<leader> ;") 'dashboard-open)
+  (evil-define-key 'normal 'global (kbd "<leader> q") 'evil-quit)
 
   ;; Keybindings for searching and finding files.
   (evil-define-key 'normal 'global (kbd "<leader> t f") 'consult-find)
@@ -128,7 +131,7 @@
   :defer t
   :straight t
   :ensure t
-  :hook
+  :init
   (evil-collection-init))
 
 (use-package treesit-auto
