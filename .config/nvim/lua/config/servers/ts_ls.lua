@@ -1,13 +1,4 @@
-local function pwd()
-  local dir, err, err_name = vim.uv.cwd()
-  if err ~= nil or dir == nil or string.len(dir) == 0 then
-    if err_name then
-      return ''
-    end
-    return ''
-  end
-  return dir
-end
+local unix = require 'include.unix'
 
 return {
   filetypes = {
@@ -24,7 +15,7 @@ return {
       {
         name = '@vue/typescript-plugin',
         -- location = '/usr/local/lib/node_modules/@vue/typescript-plugin',
-        location = string.format('%s/node_modules/@vue/typescript-plugin', pwd()),
+        location = string.format('%s/node_modules/@vue/typescript-plugin', unix.pwd()),
         languages = { 'javascript', 'typescript', 'vue' },
       },
     },

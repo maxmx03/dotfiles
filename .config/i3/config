@@ -311,8 +311,8 @@ set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
+set $ws5 "5:"
+set $ws6 "6:"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -331,8 +331,6 @@ set $ws10 "10"
 assign [class="ghostty"] $ws1
 assign [class="kitty"] $ws1
 assign [class="Alacritty"] $ws1
-assign [class="neovide"] $ws1
-assign [class="Emacs"] $ws1
 assign [class="(?i)Google-chrome"] $ws2
 assign [class="(?i)Brave-browser"] $ws2
 assign [class="Evince"] $ws3
@@ -342,7 +340,8 @@ assign [class="steam"] $ws4
 assign [class="heroic"] $ws4
 assign [class="Lutris"] $ws4
 assign [class="Minigalaxy"] $ws4
-assign [class="Gnome-pomodoro"] $ws5
+assign [class="neovide"] $ws5
+assign [class="Emacs"] $ws6
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=ghostty] focus
@@ -425,8 +424,8 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-# exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill --random $HOME/Imagens/wallpaper
+exec --no-startup-id sleep 1 && nitrogen --restore
+# exec --no-startup-id sleep 1 && feh --bg-fill --random $HOME/Imagens/wallpaper
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600

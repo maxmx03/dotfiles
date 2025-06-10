@@ -55,12 +55,12 @@ local horizon = {
     base05 = '#D5D8DA', -- Caret, Delimiters, Operators
     base06 = '#E95678', -- Property, Variable mber
     base07 = '#B877DB', -- PreProc, Include, Define, cro, PreCondit
-    base08 = '#E95678', -- Variables, X Tags, Markup Link Text, Markup Lists, Diff Deleted
-    base09 = '#F09383', -- Integers, Boolean, Constants, X Attributes, Markup Link Url
-    base0A = '#FAC29A', -- Classes, rkup Bold, Search Text Background
+    base08 = '#E95678', -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+    base09 = '#F09383', -- Integers, Boolean, Constants, XML Attributes, Markup Link Url
+    base0A = '#FAC29A', -- Classes, Markup Bold, Search Text Background
     base0B = '#FAB795', -- Strings, Inherited Class, rkup Code, Diff Inserted
     base0C = '#B877DB', -- Support, Regular Expressions, Escape Characters, rkup Quotes
-    base0D = '#25B2BC', -- Functions, thods, Attribute IDs, Headings
+    base0D = '#25B2BC', -- Functions, Methods, Attribute IDs, Headings
     base0E = '#B877DB', -- Keywords, Storage, Selector, rkup Italic, Diff Changed
     base0F = '#B877DB', -- Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
   },

@@ -19,7 +19,6 @@ local config = function()
         local strings = vim.split(kind.kind, '%s', { trimempty = true })
         kind.kind = ' ' .. (strings[1] or '') .. ' '
         kind.menu = '    (' .. (strings[2] or '') .. ')'
-
         return kind
       end,
     },
@@ -35,11 +34,11 @@ local config = function()
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
+      { name = 'supermaven' },
       { name = 'luasnip' },
       { name = 'bootstrap' },
       { name = 'path' },
       { name = 'emoji' },
-      { name = 'codecompanion' },
     }, {
       { name = 'buffer' },
     }),
@@ -89,11 +88,26 @@ return {
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       'rafamadriz/friendly-snippets',
-      'onsails/lspkind.nvim',
+      'Jezda1337/cmp_bootstrap',
+      {
+        'onsails/lspkind.nvim',
+        config = function()
+          local lspkind = require 'lspkind'
+          lspkind.init {
+            preset = vim.g.neovide and 'codicons' or 'default',
+            symbol_map = {
+              Supermaven = '󱐌',
+            },
+          }
+        end,
+      },
+      {
+        'supermaven-inc/supermaven-nvim',
+        config = function()
+          require('supermaven-nvim').setup {}
+        end,
+      },
     },
     config = config,
-  },
-  {
-    'Jezda1337/cmp_bootstrap',
   },
 }

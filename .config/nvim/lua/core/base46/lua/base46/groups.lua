@@ -545,6 +545,8 @@ function M.load_faces(base46, config)
     bold = true,
   })
 
+  hl(0, 'CmpItemKindSupermaven', { link = 'CmpItemKindEvent' })
+
   if not vim.tbl_isempty(base46.groups or {}) then
     for name, val in pairs(base46.groups) do
       hl(0, name, val)

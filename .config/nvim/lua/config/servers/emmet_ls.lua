@@ -1,5 +1,6 @@
 return {
   filetypes = {
+    'astro',
     'css',
     'eruby',
     'html',
@@ -12,7 +13,6 @@ return {
     'typescriptreact',
     'htmlangular',
     'php',
-    'markdown.mdx',
     'mdx',
   },
 }
