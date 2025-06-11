@@ -1,99 +1,34 @@
 #!/usr/bin/env bash
 
 ZETPATH="$HOME/.zet"
-DB_FILE="$ZETPATH/index.sqlite"
 
 function log {
   gum log --time rfc822 --level "$@"
 }
 
-function init {
-  if mkdir -p "$ZETPATH"; then
-    log info "$ZETPATH is created."
-  else
-    log error "Unable to create folder." name "$ZETPATH"
-  fi
-  zet git init
-  sqlite3 "$DB_FILE" <<EOF
-  CREATE TABLE IF NOT EXISTS notes (
-    id TEXT PRIMARY KEY,
-    title TEXT NOT NULL,
-    pub_date TEXT,
-    updated_date TEXT
-  );
-  CREATE TABLE IF NOT EXISTS tags (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL UNIQUE
-  );
-  CREATE TABLE IF NOT EXISTS note_tags (
-    note_id INTEGER,
-    tag_id INTEGER,
-    PRIMARY KEY (note_id, tag_id),
-    FOREIGN KEY (note_id) REFERENCES notes(id) ON DELETE CASCADE,
-    FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
-  );
-EOF
-  log info "Zettelkasten initialized in $DB_FILE"
-  log info "Database and tables created in $DB_FILE"
-}
-
 function edit {
-  TITLE=$(gum input --placeholder "title")
-  FILE=$(zet db "SELECT id FROM notes WHERE notes.title = '$TITLE'")
-  if [[ -z "$FILE" ]]; then
-    log warn "$TITLE not found"
+  if [[ ! -d "$ZETPATH" ]]; then
+    log error "$ZETPATH does not exists."
     return 1
   fi
-  FILEPATH="$ZETPATH/${FILE}.md"
-  if ! $EDITOR "$FILEPATH"; then
-    log error "$EDITOR failed to open $FILE"
-    return 1
-  fi
+  NOTES="$(find $ZETPATH -type f -name "*.md")"
+  SELECTED_NOTE=$(gum filter $NOTES)
+  $EDITOR "$SELECTED_NOTE"
 }
 
 function tree {
   command tree -r $ZETPATH
 }
 
-function add_database {
-  FILE_ID=$1
-  TITLE=$2
-  PUB_DATE=$3
-  UPDATED_DATE=$4
-  TAGS=$5
-
-  sqlite3_escape() {
+function get_note_dir {
+  escape_tag() {
     echo "$1" | sed "s/'/''/g"
   }
-
-  zet db "INSERT INTO notes (id, title, pub_date, updated_date)
-VALUES ('$FILE_ID', '$(sqlite3_escape "$TITLE")', '$PUB_DATE', '$UPDATED_DATE');
-"
-  if [ $? -ne 0 ]; then
-    log error "Erro: Falha ao inserir a nota '$TITLE' no banco de dados."
-    rm -f "$FILEPATH"
-    return 1
-  fi
-
+  TAGS="$1"
   for TAG in $(echo "$TAGS" | tr ',' '\n' | sed 's/^ *//;s/ *$//' | grep -v "^$"); do
-    ESCAPED_TAG=$(sqlite3_escape "$TAG")
-
-    sqlite3 "$DB_FILE" "INSERT OR IGNORE INTO tags (name) VALUES ('$ESCAPED_TAG');"
-    if [ $? -ne 0 ]; then
-      log warn "Aviso: Falha ao inserir/ignorar tag '$TAG'."
-    fi
-
-    sqlite3 "$DB_FILE" "
-  INSERT OR IGNORE INTO note_tags (note_id, tag_id)
-  VALUES (
-    '$FILE_ID',
-    (SELECT id FROM tags WHERE name = '$ESCAPED_TAG')
-    );
-    "
-    if [ $? -ne 0 ]; then
-      log warn "Aviso: Falha ao associar tag '$TAG' à nota '$FILE_ID'."
-    fi
+    NOTEDIR+="$(escape_tag "$TAG")/"
   done
+  echo "$NOTEDIR"
 }
 
 function add {
@@ -101,13 +36,18 @@ function add {
     log error "$ZETPATH does not exists."
     return 2
   fi
-  FILE=$(date +%Y%m%d%H%M%S)
-  FILEPATH="$ZETPATH/${FILE}.md"
+  DATE=$(date +%Y%m%d%H%M%S)
   TITLE="$(gum input --placeholder 'title')"
+  TYPE="$(gum choose fleeting literature permanent)"
   TAGS="$(gum input --placeholder 'tags')"
-  DATE="$(date +%Y/%m/%d)"
-  HEADER="---\ntitle: $TITLE\ntags: [$TAGS]\npubDate: $DATE\n---\n"
-  echo "$FILEPATH"
+  PUBDATE="$(date +%Y/%m/%d)"
+  HEADER="---\ntitle: $TITLE\ntags: [$TAGS]\npubDate: $PUBDATE\n---\n"
+  NOTEDIR="$(get_note_dir "$TAGS")"
+  if ! mkdir -p "$ZETPATH/$TYPE/$NOTEDIR"; then
+    log error "Failed to create $NOTEDIR"
+    return 1
+  fi
+  FILEPATH="$ZETPATH/$TYPE/$NOTEDIR/$TITLE-${DATE}.md"
   if ! touch "$FILEPATH"; then
     log error "Failed to create $FILEPATH"
     return 1
@@ -115,35 +55,131 @@ function add {
     log info "$FILEPATH created."
   fi
   echo -e $HEADER >"$FILEPATH"
-
-  if ! add_database "$FILE" "$TITLE" "$DATE" "$DATE" "$TAGS"; then
-    return 1
-  fi
-
   if ! $EDITOR "$FILEPATH"; then
     log error "$EDITOR failed to open $FILEPATH"
     return 1
   fi
 }
 
+function init {
+  if [[ -d "$ZETPATH" ]]; then
+    log error "$ZETPATH already exists."
+    return 1
+  fi
+  if ! mkdir -p "$ZETPATH"; then
+    log error "Failed to create $ZETPATH"
+    return 1
+  fi
+  log info "$ZETPATH created."
+  zet git init
+  README="# Zettelkasten
+
+ A simple note-taking tool. Why? Because I want something simple and fast. How to start? First, learn about
+ [zettelkasten](https://zettelkasten.de/overview/), then learn about **Marksman** and **Obsidian**. Write your
+ notes to be compatible with **Marksman** and **Obsidian**. Why markdown? Because you can easily create web pages with it,
+ and it can even be easily converted to MDX.
+
+# Dependencies
+
+- [gum](https://github.com/charmbracelet/gum)
+- [marksman](https://github.com/artempyanykh/marksman)
+- [neovim](https://neovim.io/)
+- [obsidian](https://obsidian.md/) (optional)
+
+## Plugins for neovim
+
+- [markview](https://github.com/OXY2DEV/markview.nvim)
+- [markdown.nvim](https://github.com/tadmccorkle/markdown.nvim) (optional)
+
+## Usage
+
+To get started, initialize your vault:
+\`\`\`bash
+zet init
+\`\`\`
+
+Add a new note:
+\`\`\`bash
+zet add
+\`\`\`
+
+## Alternatives
+
+- [telekasten](https://github.com/nvim-telekasten/telekasten.nvim)
+- [zk-org](https://github.com/zk-org/zk)
+- [neorg](https://github.com/nvim-neorg/neorg)
+- [emacs org-mode](https://orgmode.org/)
+"
+  if ! echo "$README" >"$ZETPATH/README.md"; then
+    log error "Failed to create $ZETPATH/README.md"
+  fi
+  MARKSMANCONFIG='markdown.file_extensions = ["md", "markdown"]
+markdown.glfm_heading_ids.enable = true
+text_sync = "full"
+title_from_heading = false
+incremental_references = false
+paranoid = false
+
+[code_action]
+toc.enable = true
+create_missing_file.enable = true
+
+[completion]
+candidates = 50
+wiki.style = "title-slug"
+'
+  if ! echo "$MARKSMANCONFIG" >"$ZETPATH/.marksman.toml"; then
+    log error "Failed to create $ZETPATH/.marksman.toml"
+    return 1
+  fi
+}
+
+function find_tags {
+  if [[ ! -d "$ZETPATH" ]]; then
+    log error "$ZETPATH does not exists."
+    return 1
+  fi
+  find "$ZETPATH" -type d -name ".git" -prune -o -type d -print0 |
+    tail -n +2 -z |
+    while IFS= read -r -d '' tag; do
+      basename "$tag"
+    done
+}
+
+function find_notes {
+  if [[ ! -d "$ZETPATH" ]]; then
+    log error "$ZETPATH does not exists."
+    return 1
+  fi
+  find $ZETPATH -type f -name "*.md"
+}
+
 function help {
   echo "usage: zet [-h | --help] <command> [<args>]
 
-  dependencies: gum, fzf, bat
+  dependencies: gum, tree
 
   commands:
-  init
-  add
-  tree
-  edit
-  date
-  git
+  init      initialize zet
+  add       add a new note
+  tree      show zet directory tree
+  edit      edit a note
+  date      show current date
+  git       run git command in zet directory
+  --tags -t  list all tags
+  --notes -n list all notes
   "
 }
 
 case "$1" in
 --help | -h)
   help
+  ;;
+--notes | -n)
+  find_notes
+  ;;
+--tags | -t)
+  find_tags
   ;;
 init)
   init
@@ -155,55 +191,10 @@ tree)
   tree
   ;;
 edit)
-  edit "${@:2}"
+  edit
   ;;
 date)
   date +%Y/%m/%d
-  ;;
-db)
-  case "${@:2}" in
-  --query | -q)
-    SQL_QUERY=$(gum write --placeholder "query")
-    zet db "$SQL_QUERY"
-    ;;
-  --delete*)
-    FILE="$(zet db "SELECT id FROM notes WHERE notes.title = '$3'").md"
-    if [[ -z $FILE ]]; then
-      log error "$FILE not found"
-      return 1
-    fi
-    rm "$ZETPATH/$FILE"
-    zet db "DELETE FROM notes WHERE notes.title = '$3'"
-    log info "$FILE removed"
-    ;;
-  --notes)
-    zet db "SELECT * FROM notes"
-    ;;
-  --tags)
-    zet db "SELECT * FROM tags"
-    ;;
-  --all)
-    zet db "SELECT
-      n.id,
-      n.title,
-      n.pub_date,
-      n.updated_date,
-      GROUP_CONCAT(t.name, ', ') AS tags
-      FROM
-      notes n
-      LEFT JOIN
-      note_tags nt ON n.id = nt.note_id
-      LEFT JOIN
-      tags t ON nt.tag_id = t.id
-      GROUP BY
-      n.id, n.title, n.pub_date, n.updated_date
-      ORDER BY
-      n.updated_date DESC;"
-    ;;
-  *)
-    sqlite3 $DB_FILE "${@:2}"
-    ;;
-  esac
   ;;
 git)
   git --git-dir="$ZETPATH/.git" --work-tree=$ZETPATH "${@:2}"
