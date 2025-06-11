@@ -6,16 +6,6 @@ function log {
   gum log --time rfc822 --level "$@"
 }
 
-function edit {
-  if [[ ! -d "$ZETPATH" ]]; then
-    log error "$ZETPATH does not exists."
-    return 1
-  fi
-  NOTES="$(find $ZETPATH -type f -name "*.md")"
-  SELECTED_NOTE=$(gum filter $NOTES)
-  $EDITOR "$SELECTED_NOTE"
-}
-
 function tree {
   command tree -r $ZETPATH
 }
@@ -152,6 +142,15 @@ function find_notes {
     return 1
   fi
   find $ZETPATH -type f -name "*.md"
+}
+
+function edit {
+  if [[ ! -d "$ZETPATH" ]]; then
+    log error "$ZETPATH does not exists."
+    return 1
+  fi
+  SELECTED_NOTE=$(find_notes | gum filter)
+  $EDITOR "$SELECTED_NOTE"
 }
 
 function help {
