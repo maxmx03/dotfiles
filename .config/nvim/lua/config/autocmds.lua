@@ -119,3 +119,12 @@ autocmd('Filetype', {
   end,
   desc = 'Disable folding for dashboard',
 })
+
+autocmd('BufEnter', {
+  pattern = { 'bash' },
+  callback = function()
+    if not (vim.fn.mode() == 't') then
+      vim.cmd 'startinsert'
+    end
+  end,
+})

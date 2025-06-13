@@ -14,7 +14,7 @@ local onedark = {
   magenta = '#E06C75',
   red = '#E06C75',
   base_30 = {
-    base00 = '#1C1E26', -- Default background
+    base00 = '#1f2329', -- Default background
     base01 = '#191a22', -- Float background
     base02 = '#1A1C23', -- Statusline background
     base03 = '#4B5263', -- WinSeparator, Border
@@ -26,23 +26,23 @@ local onedark = {
     base09 = '#B48EAD', -- Diagnostic Info, Hint
     base0A = '#D08770', -- Diagnostic Warning
     base0B = '#E06C75', -- Diagnostics Error
-    base0C = '#56b6c2', -- rkup Bold
-    base0D = '#C678DD', -- rkup Italic
-    base0E = '#61AFEF', -- rkup url
-    base0F = '#E5C07B', -- rkup Inline Code
-    base0G = '#D19A66', -- rkup Heading 1
-    base0H = '#98C379', -- rkup Heading 2
-    base0I = '#EBCB8B', -- rkup Heading 3
-    base0J = '#BF616A', -- rkup Heading 4
-    base0K = '#98C379', -- rkup Heading 5
-    base0L = '#E06C75', -- rkup Heading 6
+    base0C = '#56b6c2', -- Markup Bold
+    base0D = '#C678DD', -- Markup Italic
+    base0E = '#61AFEF', -- Markup url
+    base0F = '#E5C07B', -- Markup Inline Code
+    base0G = '#D19A66', -- Markup Heading 1
+    base0H = '#98C379', -- Markup Heading 2
+    base0I = '#EBCB8B', -- Markup Heading 3
+    base0J = '#BF616A', -- Markup Heading 4
+    base0K = '#98C379', -- Markup Heading 5
+    base0L = '#E06C75', -- Markup Heading 6
     base0M = '#C678DD', -- Markup Tag
     base0N = '#E5C07B', -- rkup Tag Attribute
     base0O = '#C678DD', -- rkup Tag Delimiter
     base0P = '#C678DD', -- Pmenu Background
     base0Q = '#528BFF', -- Folder Background
     base0R = '#528BFF', -- Cursor Color
-    base0S = '#BF616A', -- Accent, can be used as primary color
+    base0S = '#528BFF', -- Accent, can be used as primary color
     base0T = '#D19A66', -- Title
   },
   base_16 = {
@@ -62,6 +62,10 @@ local onedark = {
     base0D = '#61AFEF', -- Functions, thods, Attribute IDs, Headings
     base0E = '#C678DD', -- Keywords, Storage, Selector, rkup Italic, Diff Changed
     base0F = '#C678DD', -- Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
+  },
+  groups = {
+    DashboardHeader = { fg = '#4B5263' },
+    DashboardKey = { fg = '#C678DD' },
   },
 }
 

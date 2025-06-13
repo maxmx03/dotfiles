@@ -417,7 +417,7 @@ function M.load_faces(base46, config)
   hl(0, 'NvimTreeGitRenamedIcon', { fg = base46.base_30.base07 })
   hl(0, 'NvimTreeGitStagedIcon', { fg = base46.base_30.base06 })
 
-  hl(0, 'NeoTreeNormal', { bg = base46.base_30.base01 })
+  hl(0, 'NeoTreeNormal', { fg = base46.base_30.base05, bg = base46.base_30.base01 })
   hl(0, 'NeoTreeGitDeleted', { fg = base46.base_30.base08 })
   hl(0, 'NeoTreeGitConflict', { fg = base46.base_30.base08 })
   hl(0, 'NeoTreeGitModified', { fg = base46.base_30.base07 })
