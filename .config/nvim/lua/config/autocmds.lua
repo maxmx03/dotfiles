@@ -125,6 +125,8 @@ autocmd('BufEnter', {
   callback = function()
     if not (vim.fn.mode() == 't') then
       vim.cmd 'startinsert'
+    else
+      vim.cmd 'stopinsert'
     end
   end,
 })
