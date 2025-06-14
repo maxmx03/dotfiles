@@ -8,11 +8,13 @@ return {
       '<c-up>',
       function()
         vim.cmd.stopinsert()
-        vim.api.nvim_feedkeys(
-          vim.api.nvim_replace_termcodes('<C-w>k', true, false, true),
-          'n',
-          true
-        )
+        vim.defer_fn(function()
+          vim.api.nvim_feedkeys(
+            vim.api.nvim_replace_termcodes('<C-w>k', true, false, true),
+            'n',
+            true
+          )
+        end, 0)
       end,
       desc = 'exit terminal and move up',
     },

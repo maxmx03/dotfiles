@@ -34,9 +34,7 @@ bind -x '"\C-f":telescope'
 bind -x '"\C-e":nvim'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
-alias fish="asciiquarium"
-alias vi="nvim"
-alias vim="nvim"
+alias aquarium="asciiquarium"
 alias dot="git dot"
 alias atc="tmx attach"
 

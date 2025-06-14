@@ -45,7 +45,7 @@ autocmd('LspAttach', {
     if client:supports_method 'textDocument/documentSymbol' then
       local navic = require 'nvim-navic'
       navic.attach(client, bufnr)
-      vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+      vim.o.winbar = "%t %{%v:lua.require'nvim-navic'.get_location()%}"
     end
   end,
 })
@@ -125,8 +125,6 @@ autocmd('BufEnter', {
   callback = function()
     if not (vim.fn.mode() == 't') then
       vim.cmd 'startinsert'
-    else
-      vim.cmd 'stopinsert'
     end
   end,
 })
