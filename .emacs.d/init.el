@@ -203,5 +203,5 @@
   :defer t
   :straight t
   :ensure t
-  :mode ("README\\.md\\'" . gfm-mode)           
+  :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))

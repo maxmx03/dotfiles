@@ -35,7 +35,6 @@ bind -x '"\C-e":nvim'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias aquarium="asciiquarium"
-alias dot="git dot"
 alias atc="tmx attach"
 
 shopt -s histappend
@@ -81,5 +80,20 @@ if [[ "$TERM" = "xterm-256color" ]]; then
   fastfetch
 fi
 
+function dot {
+  if [[ "$*" == "add ." ]]; then
+    gum log --time rfc822 --level error "Unsafe action detected;"
+    git dot ai
+    return
+  fi
+
+  if [[ "$*" == "clean" ]]; then
+    gum log --time rfc822 --level error "Unsafe action detected;"
+    git dot "$@" -n
+    return
+  fi
+
+  git dot "$@"
+}
+
 source "$HOME/.cargo/env"
-source "$HOME/.ghcup/env" # haskell
