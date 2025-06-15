@@ -562,7 +562,7 @@ client.background        $bg
 
 
 ############################################
-# polybar settings
+# polybar
 ############################################
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
