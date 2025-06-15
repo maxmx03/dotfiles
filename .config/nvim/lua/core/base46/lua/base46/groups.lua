@@ -198,10 +198,10 @@ function M.load_faces(base46, config)
   hl(0, 'MsgArea', { link = 'Normal' })
   hl(0, 'NonText', { fg = base46.base_16.base03 })
 
-  if config.transparency == 1 then
+  if config.transparency then
     hl(0, 'Normal', { fg = base46.base_30.base05, bg = base46.none })
     hl(0, 'SignColumn', { fg = base46.base_30.base05 })
-    hl(0, 'ColorColumn', { bg = base46.base_30.base00 })
+    hl(0, 'ColorColumn', { bg = shade(base46.base_30.base00, 1) })
     local background = shade(base46.base_16.base01, 2)
     hl(0, 'BufferLineFill', { bg = background })
     hl(0, 'BufferLineBufferSelected', { fg = base46.base_30.base05 })
