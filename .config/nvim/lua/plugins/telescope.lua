@@ -23,5 +23,6 @@ return {
     local telescope = require 'telescope'
     telescope.setup(opts)
     telescope.load_extension 'projects'
+    telescope.load_extension 'themes'
   end,
 }
