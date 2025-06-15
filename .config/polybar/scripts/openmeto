@@ -4,12 +4,12 @@
 source ~/.env
 
 declare wc=(
-  "☀️"
-  "⛅"
-  "☁️"
-  "🌧️"
-  "⛈️"
-  "❄️"
+  "󰖙"
+  "󰖕"
+  ""
+  ""
+  ""
+  ""
 )
 
 declare -A WEATHER_CODES=(
@@ -46,7 +46,7 @@ weather=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&l
 weather_code=$(echo "$weather" | jq -r '.current.weather_code' 2>/dev/null)
 
 if [ -z "$weather_code" ]; then
-  echo "⛅"
+  echo ""
 else
   feels_like=$(echo "$weather" | jq -r '.current.apparent_temperature')
 

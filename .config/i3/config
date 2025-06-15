@@ -207,8 +207,8 @@ bindsym $mod+Shift+r restart
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 # Backlight setting using dunst osc
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
 
 # change focus
 bindsym $mod+j focus left
@@ -307,12 +307,12 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -424,8 +424,8 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-exec --no-startup-id sleep 1 && nitrogen --restore
-# exec --no-startup-id sleep 1 && feh --bg-fill --random $HOME/Imagens/wallpaper
+# exec --no-startup-id sleep 1 && nitrogen --restore
+exec --no-startup-id sleep 1 && feh --bg-fill --random $HOME/Imagens/wallpaper
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -562,59 +562,10 @@ client.background        $bg
 
 
 ############################################
-# bar settings (input comes from i3blocks) #
+# polybar settings
 ############################################
 
-# Start i3bar to display a workspace bar
-# (plus the system information i3status finds out, if available)
-bar {
-  font pango: Noto Sans Regular 11
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    position top
-    tray_padding 0
-    strip_workspace_numbers yes
-    colors {
-      separator   $blue
-        background  $base3
-        statusline  $fg
-                            #border #bg         #text       #indicator
-        focused_workspace   $blue   $blue       $base3      $magenta
-        active_workspace    $base3  $magenta    $fg         $red
-        inactive_workspace  $base3  $bg         $fg         $blue
-        urgent_workspace    $red    $red        $fg         $red
-    }
-}
-
-# you can add different bars for multidisplay setups on each display:
-# set output HDMI-0 to the display you want the bar, --transparency can be set.
-# Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
-# https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-# #08052be6 --> e6=90%
-
-# bar {
-#	font pango: Noto Sans Regular 10
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightblue	$lightblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #####################################
 # Application menu handled by rofi: #
