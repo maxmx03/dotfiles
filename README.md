@@ -1,5 +1,11 @@
 # Max's dotfiles
 
+<a href="https://wallpapers-clan.com/desktop-wallpapers/zoro-glowing-eye-scar-black-anime/">
+
+![zoro](https://github.com/user-attachments/assets/2ede95b1-ced3-4b14-9069-4c16277947e9)
+
+</a>
+
 ## Configs
 
 - [Arch Linux](https://archlinux.org/)
