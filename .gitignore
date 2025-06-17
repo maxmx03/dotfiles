@@ -4,13 +4,13 @@
 .env
 .dmrc
 .vim/.netrwhist
-.bash_*
+.bash_logout
+.bash_history
 .steam*
 .yarn*
 .feh*
 .viminfo
 .viminf[a-z].tmp
-.profile
 .config/redshift/redshift.conf
 .config/mpd/database
 .config/mpd/log
