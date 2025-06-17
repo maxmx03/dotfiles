@@ -338,6 +338,7 @@ function utilities_pkgs {
     at
     bat
     ffmpeg
+    pacman-contrib # perl neovim sudo vim and most important checkupdates
   )
   yay -S "${PACKAGES[@]}"
   [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
