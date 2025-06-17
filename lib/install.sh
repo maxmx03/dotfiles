@@ -100,9 +100,11 @@ function vim_pkgs {
 function tmux_pkgs {
   PACKAGES=(
     tmux
-    tmux-plugins
   )
   yay -S "${PACKAGES[@]}"
+  if [[ ! -d $HOME/.tmux/plugins ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
 }
 
 function hypr_pkgs {
