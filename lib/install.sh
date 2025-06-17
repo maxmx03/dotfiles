@@ -1,5 +1,14 @@
 #!/bin/bash
 
+function yay_pkgs {
+  sudo pacman -S --needed base-devel --noconfirm
+  sudo pacman -S make --noconfirm
+  cd "$HOME" || exit
+  git clone https://aur.archlinux.org/yay.git
+  cd yay || exit
+  makepkg -si
+}
+
 if [[ -z $(command -v yay) ]]; then
   echo "Before we continue, we need to install yay"
   CONFIRM="y"
@@ -11,13 +20,13 @@ fi
 
 if [[ -z $(command -v go) ]]; then
   echo "Before we continue, we need to install golang"
-  CONFIRM
+  CONFIRM="y"
   read -ei "y" -p "Do you want to install golang?" CONFIRM
   if [[ $CONFIRM == "y" ]]; then
     yay -S go
   fi
   echo "export PATH=$PATH:$HOME/go/bin" >>$HOME/.bashrc
-  echo "don't forget to run source .bashrc"
+  echo "Don't forget to run source .bashrc"
 fi
 
 if [[ -z $(command -v gum) ]]; then
@@ -28,7 +37,17 @@ if [[ -z $(command -v gum) ]]; then
     yay -S go
     go install github.com/charmbracelet/gum@latest
   fi
-  echo "don't forget to run source .bashrc"
+  echo "Don't forget to run source .bashrc"
+fi
+
+if [[ -z $(command -v cargo) ]]; then
+  echo "Before we continue, we need to install cargo"
+  CONFIRM="y"
+  read -ei "y" -p "Do you want to install cargo?" CONFIRM
+  if [[ $CONFIRM == "y" ]]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  fi
+  echo "Don't forget to run source .bashrc"
 fi
 
 if [[ -z $(command -v git) ]]; then
@@ -41,27 +60,20 @@ if [[ -z $(command -v git) ]]; then
   fi
 fi
 
-if [[ -z $(command -v git) ]]; then
-  echo "Before we continue, we need to clone dotfiles"
-  CONFIRM="y"
-  read -ei "y" -p "Do you want to clone dotfiles?" CONFIRM
-  if [[ $CONFIRM == "y" ]]; then
-    git clone --bare https://github.com/milianor/dotfiles.git $HOME/.dot.git
+function confirm {
+  gum style --foreground=3 "$1"
+  if gum confirm; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+if [[ ! -d $HOME/.dot.git ]]; then
+  if confirm "Do you want to clone dotfiles?"; then
+    git clone --bare https://github.com/maxmx03/dotfiles.git $HOME/.dot.git
   fi
 fi
-
-function dot {
-  git --git-dir=$HOME/.dot.git --work-tree=$HOME
-}
-
-function yay_pkgs {
-  sudo pacman -S --needed base-devel --noconfirm
-  sudo pacman -S make --noconfirm
-  cd "$HOME" || exit
-  git clone https://aur.archlinux.org/yay.git
-  cd yay || exit
-  makepkg -si
-}
 
 function neovim_pkgs {
   PACKAGES=(
@@ -71,6 +83,18 @@ function neovim_pkgs {
     gcc
   )
   yay -S "${PACKAGES[@]}"
+  if [[ -n $(command -v cargo) ]]; then
+    cargo install tree-sitter-cli
+  fi
+}
+
+function vim_pkgs {
+  PACKAGES=(
+    gvim
+  )
+  yay -S "${PACKAGES[@]}"
+  git --git-dir=$HOME/.dot.git --work-tree=$HOME submodule init
+  git --git-dir=$HOME/.dot.git --work-tree=$HOME submodule update
 }
 
 function tmux_pkgs {
@@ -222,7 +246,7 @@ function i3_pkgs {
     noto-fonts-emoji
     noto-fonts-extra
     ttf-hack-nerd
-    vscode-codicons-git
+    # vscode-codicons-git
     awesome-terminal-fonts
     cantarell-fonts
     ttf-bitstream-vera
@@ -253,6 +277,7 @@ function i3_pkgs {
     pipewire-jack
     pipewire-pulse
     lib32-pipewire
+    pavucontrol
 
     # drivers and libraries
     alsa-utils
@@ -276,20 +301,32 @@ function i3_pkgs {
     mpd    # music
     arandr # screen
     mpv    # video
-    vim    # text editor
 
     # lock
     imagemagick
     zbar
-    magickcache-git
+    # magickcache-git
     xss-lock
 
     feh # wallpaper
+    fastfetch
+    xdg-user-dirs
+    xdg-open
   )
   yay -S "${PACKAGES[@]}"
+  echo "exec i3" >$HOME/.xinitrc
+  echo "startx
+[[ -f ~/.bashrc ]] && . ~/.bashrc" >$HOME/.bash_profile
+  if [[ ! -f $HOME/.env ]]; then
+    echo "LATITUDE=0
+  LONGITUDE=0
+  GEMINI_API=0
+  " >$HOME/.env
+  fi
+  xdg-user-dirs-update
 }
 
-function utilities {
+function utilities_pkgs {
   PACKAGES=(
     jq
     less
@@ -313,7 +350,7 @@ function utilities {
   [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
 }
 
-function amd {
+function amd_pkgs {
   AMD_PACKAGES=(
     mesa
     mesa-utils
@@ -337,41 +374,109 @@ function emacs_pkgs {
   yay -S "${PACKAGES[@]}"
 }
 
-echo "echo First, select the configuration files you want to keep."
-echo "What will happen is that Git will restore the deleted files."
-dot difftool --diff-filter=D --name-only | xargs gum choose --no-limit | xargs dot restore
+function main {
+  ACTION="$1"
 
-CONTINUE=$(gum input --placeholder "Do you to install dotfiles packages? [y/n]")
+  if [[ -z $ACTION ]]; then
+    echo "Please select an action"
+    exit 1
+  fi
 
-while [[ "$CONTINUE" == [yY] ]]; do
-  INSTALLATION="$(gum choose i3 hyprland tmux utilities neovim amd emacs)"
-  case "$INSTALLATION" in
-  i3)
-    i3_pkgs
+  if [[ $ACTION == "restore_dotfiles" ]]; then
+    if confirm "Do you want to restore dotfiles?"; then
+      gum style --foreground=3 "Select config files to remove fron staged area"
+      git --git-dir=$HOME/.dot.git --work-tree=$HOME difftool --staged --name-only | gum choose --no-limit | xargs git --git-dir=$HOME/.dot.git --work-tree=$HOME restore --staged --
+
+      gum style --foreground=3 "Select config files to be restored"
+      git --git-dir=$HOME/.dot.git --work-tree=$HOME difftool --diff-filter=M --name-only | gum choose --no-limit | xargs git --git-dir=$HOME/.dot.git --work-tree=$HOME restore
+    fi
+  fi
+
+  if [[ $ACTION == "install_packages" ]]; then
+    while confirm "Do you want to install dotfiles packages?"; do
+      INSTALLATION="$(gum choose i3 hyprland tmux utilities neovim vim amd emacs)"
+      case "$INSTALLATION" in
+      i3)
+        i3_pkgs
+        ;;
+      hyprland)
+        hypr_pkgs
+        ;;
+      amd)
+        amd_pkgs
+        ;;
+      neovim)
+        neovim_pkgs
+        ;;
+      vim)
+        vim_pkgs
+        ;;
+      tmux)
+        tmux_pkgs
+        ;;
+      utilities)
+        utilities_pkgs
+        ;;
+      emacs)
+        emacs_pkgs
+        ;;
+      *)
+        if ! confirm "continue?"; then
+          exit 0
+        fi
+        ;;
+      esac
+      if ! confirm "continue?"; then
+        exit 0
+      fi
+    done
+
+  fi
+
+  if [[ $ACTION == "make_executable" ]]; then
+    while confirm "Know we need to config some things, like make scripts executable"; do
+      BIN_SCRIPTS="$HOME/.local/bin"
+      if [[ -d $BIN_SCRIPTS ]]; then
+        gum style --foreground=3 "Select scripts to make executable"
+        ls "$BIN_SCRIPTS" | gum choose --no-limit | xargs -I {} chmod u+x "$BIN_SCRIPTS/{}"
+      fi
+
+      I3_SCRIPTS="$HOME/.config/i3/scripts"
+      if [[ -d $I3_SCRIPTS ]]; then
+        gum style --foreground=3 "Select scripts to make executable"
+        ls "$I3_SCRIPTS" | gum choose --no-limit | xargs -I {} chmod u+x "$I3_SCRIPTS/{}"
+      fi
+
+      POLYBAR_SCRIPTS="$HOME/.config/polybar/scripts"
+      if [[ -d $POLYBAR_SCRIPTS ]]; then
+        gum style --foreground=3 "Select scripts to make executable"
+        ls $POLYBAR_SCRIPTS | gum choose --no-limit | xargs -I {} chmod u+x "$POLYBAR_SCRIPTS/{}"
+      fi
+      if ! confirm "continue?"; then
+        exit 0
+      fi
+    done
+
+  fi
+}
+
+while confirm "Do you want to install dotfiles?"; do
+  ACTION="$(gum choose restore_dotfiles install_packages make_executable)"
+  case "$ACTION" in
+  restore_dotfiles)
+    main restore_dotfiles
     ;;
-  hyprland)
-    hypr_pkgs
+  install_packages)
+    main install_packages
     ;;
-  amd)
-    amd_pkgs
-    ;;
-  neovim)
-    neovim_pkgs
-    ;;
-  tmux)
-    tmux_pkgs
-    ;;
-  utilities)
-    utilities_pkgs
-    ;;
-  emacs)
-    emacs_pkgs
+  make_executable)
+    main make_executable
     ;;
   *)
-    CONTINUE=$(gum input --placeholder "Do you want to install more packages? [y/n]")
+    echo "Unknown action"
+    exit 1
     ;;
   esac
-  CONTINUE=$(gum input --placeholder "Do you want to install more packages? [y/n]")
 done
 
 echo "If you found a bug, please report it to the author or send a pull request"
