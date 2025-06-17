@@ -79,6 +79,7 @@ function neovim_pkgs {
   PACKAGES=(
     luarocks
     neovim
+    neovide
     python-pynvim
     gcc
   )
@@ -189,24 +190,10 @@ function hypr_pkgs {
 
 function i3_pkgs {
   PACKAGES=(
-    xorg-fonts-encodings
-    xorg-server
-    xorg-server-common
-    xorg-server-xvfb
-    xorg-setxkbmap
-    xorg-xauth
-    xorg-xbacklight
-    xorg-xdpyinfo
+    xorg
     xorg-xinit
-    xorg-xinput
-    xorg-xkbcomp
-    xorg-xkill
-    xorg-xmodmap
-    xorg-xprop
-    xorg-xrandr
-    xorg-xrdb
-    xorg-xset
     xorgproto
+    xarchiver
 
     i3-wm
     i3blocks
@@ -226,11 +213,14 @@ function i3_pkgs {
     thunar
     thunar-archive-plugin
     thunar-volman
+    tumbler
     gvfs # for mobile
+    gvfs-afc
     gvfs-gphoto2
     gvfs-mtp
     gvfs-nfs
     gvfs-smb
+
     timeshift          # backup
     gnome-disk-utility # disk
     gnome-screenshot   # screenshot
@@ -272,6 +262,9 @@ function i3_pkgs {
     adwaita-icon-theme-legacy
     adwaita-fonts
     nwg-look
+    arc-gtk-theme
+    qogir-cursor-theme
+    qogir-icon-theme
 
     # multimedia, audio, video
     pipewire
@@ -341,7 +334,6 @@ function utilities_pkgs {
     curl
     wget
     unzip
-    gzip
     at
     bat
     ffmpeg
