@@ -300,10 +300,11 @@ function i3_pkgs {
     gst-plugins-ugly
     gstreamer
 
-    mpc    # music
-    mpd    # music
-    arandr # screen
-    mpv    # video
+    mpc      # music
+    mpd      # music
+    timidity # mpd depedencie
+    arandr   # screen
+    mpv      # video
 
     feh # wallpaper
     fastfetch
