@@ -305,6 +305,7 @@ function i3_pkgs {
     fastfetch
     xdg-user-dirs
     xdg-open
+    cpupower # tuning cpu frequency
   )
   yay -S "${PACKAGES[@]}"
   echo "exec i3" >$HOME/.xinitrc
