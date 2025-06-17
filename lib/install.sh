@@ -209,6 +209,7 @@ function i3_pkgs {
     i3-wm
     i3blocks
     i3lock
+    scrot # screenshot for i3lock
     i3status
 
     polybar        # status bar
@@ -246,7 +247,7 @@ function i3_pkgs {
     noto-fonts-emoji
     noto-fonts-extra
     ttf-hack-nerd
-    # vscode-codicons-git
+    vscode-codicons-git
     awesome-terminal-fonts
     cantarell-fonts
     ttf-bitstream-vera
@@ -292,6 +293,8 @@ function i3_pkgs {
     gst-plugin-pipewire
     gst-plugins-bad
     gst-plugins-bad-libs
+    zbar        # bar code reader
+    imagemagick # zbar needs imagemagick
     gst-plugins-base
     gst-plugins-base-libs
     gst-plugins-ugly
@@ -301,12 +304,6 @@ function i3_pkgs {
     mpd    # music
     arandr # screen
     mpv    # video
-
-    # lock
-    imagemagick
-    zbar
-    # magickcache-git
-    xss-lock
 
     feh # wallpaper
     fastfetch
