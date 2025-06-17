@@ -21,19 +21,6 @@
   - [vim](https://github.com/vim/vim) Text editor
   - [yazi](https://github.com/sxyazi/yazi) Blazing fast terminal file manager
   - [dunst](https://github.com/dunst-project/dunst) A customizable and lightweight notification-daemon
-- [hyprland](https://github.com/hyprwm/Hyprland) A dynamic tiling Wayland compositor
-  - [waybar](https://github.com/Alexays/Waybar) A fast and highly customizable Wayland bar
-  - [foot](https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/misc/foot/default.nix) Terminal for wayland
-  - [mako](https://github.com/emersion/mako) Wayland notification daemon
-
-## Terminals
-
-- [ghostty](https://ghostty.org/) Cross-platform terminal emulator
-- [alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator.
-
-## Shells
-
-- [fish](https://fishshell.com/) A smart and user-friendly command line shell
 
 ## DOCS
 
