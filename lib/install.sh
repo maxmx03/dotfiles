@@ -178,7 +178,7 @@ function hypr_pkgs {
     sassc # whitesur dependencies
     qogir-cursor-theme-git
     xdg-user-dirs
-    xdg-open
+    xdg-utils
     nwg-look
   )
 
@@ -304,7 +304,7 @@ function i3_pkgs {
     feh # wallpaper
     fastfetch
     xdg-user-dirs
-    xdg-open
+    xdg-utils
     cpupower # tuning cpu frequency
   )
   yay -S "${PACKAGES[@]}"
