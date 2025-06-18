@@ -54,6 +54,9 @@ exec_always --no-startup-id picom -b
 # autostart applications/services on login: #
 #############################################
 
+# redshift | yay -S redshift
+exec --no-startup-id redshift
+
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
