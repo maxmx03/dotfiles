@@ -12,12 +12,7 @@
     },
     {
       "name": "Projects",
-      "root": "~/Github",
-      "windows": []
-    },
-    {
-      "name": "Blog",
-      "root": "~/Github/zet-blog",
+      "root": "~/Projetos",
       "windows": []
     },
     {

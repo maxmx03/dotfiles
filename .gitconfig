@@ -6,7 +6,7 @@
 [pull]
   rebase = true
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [diff]
   tool = nvimdiff
 [merge]
@@ -34,4 +34,5 @@
   history = log --oneline --decorate --graph --all
   unstage = restore --staged --
   undo = restore
-
+[fetch]
+	prune = true
