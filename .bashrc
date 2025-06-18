@@ -7,18 +7,9 @@
 
 PS1='[\u@\h \W]\$ '
 
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.local/bin
-FNM_PATH="/home/milianor/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env)"
-fi
-
+export PATH=$PATH:$HOME/go/bin
 export EDITOR="nvim"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 export BROWSER=brave
 export FZF_DEFAULT_COMMAND='fd -t f -s -H --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
@@ -92,8 +83,20 @@ function dot {
     git dot "$@" -n
     return
   fi
-
   git dot "$@"
 }
 
-source "$HOME/.cargo/env"
+CARGO_HOME="$HOME/.cargo"
+if [[ -d "$CARGO_HOME" ]]; then
+  export PATH="$CARGO_HOME/bin:$PATH"
+  source "$HOME/.cargo/env"
+else
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env)"
+else
+  curl -o- https://fnm.vercel.app/install | bash
+fi
