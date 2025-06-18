@@ -1,0 +1,7 @@
+[Added Associations]
+image/png=feh.desktop;
+image/jpeg=feh.desktop;
+
+[Default Applications]
+image/jpeg=feh.desktop
+inode/directory=thunar.desktop
