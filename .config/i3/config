@@ -69,7 +69,6 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 exec --no-startup-id /usr/bin/dunst
 
 # Autostart apps as you like
-exec --no-startup-id sleep 7 && brave
 exec --no-startup-id sleep 3 && ~/.local/bin/tmx newx tmux.json
 
 ###############
