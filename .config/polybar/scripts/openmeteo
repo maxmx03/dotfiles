@@ -4,12 +4,12 @@
 source ~/.env
 
 declare wc=(
-  "󰖙"
-  "󰖕"
-  ""
-  ""
-  ""
-  ""
+  "☀️"
+  "🌥️"
+  "☁️"
+  "☂️"
+  "⛈️"
+  "☃️"
 )
 
 declare -A WEATHER_CODES=(
