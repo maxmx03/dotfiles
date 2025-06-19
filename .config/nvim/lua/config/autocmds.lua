@@ -56,46 +56,6 @@ autocmd('TextYankPost', {
   end,
 })
 
-autocmd('FileType', {
-  pattern = {
-    'javascript',
-    'typescript',
-    'html',
-    'svelte',
-    'javascriptreact',
-    'typescriptreact',
-    'css',
-    'scss',
-    'vue',
-  },
-  callback = function()
-    vim.bo.tabstop = 2
-    vim.bo.shiftwidth = 2
-    vim.bo.softtabstop = 2
-    vim.bo.expandtab = true
-  end,
-})
-
-autocmd('FileType', {
-  pattern = 'go',
-  callback = function()
-    vim.bo.tabstop = 4
-    vim.bo.shiftwidth = 4
-    vim.bo.softtabstop = 4
-    vim.bo.expandtab = false
-  end,
-})
-
-autocmd('FileType', {
-  pattern = 'python',
-  callback = function()
-    vim.bo.tabstop = 4
-    vim.bo.shiftwidth = 4
-    vim.bo.softtabstop = 4
-    vim.bo.expandtab = true
-  end,
-})
-
 autocmd('BufWinEnter', {
   pattern = { '*.md' },
   callback = function()
