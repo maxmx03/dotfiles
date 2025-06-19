@@ -1,7 +1,7 @@
 local groups = require 'base46.groups'
 
 ---@alias themes1 'carbonfox' | 'darkplus' | 'doom-one' | 'gruvbox' | 'horizon' | 'dracula'
----@alias themes2 'monokai-pro' | 'onedark' | 'oxocarbon' | 'tokyonight' | 'tomorrow-night'
+---@alias themes2 'monokai-pro' | 'onedark' | 'oxocarbon' | 'tokyonight' | 'tomorrow-night' | 'gruber-darker'
 
 ---@class base46.config
 ---@field colorscheme themes1 | themes2
