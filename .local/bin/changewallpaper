@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $(gum choose random select) in
+random)
+  feh --bg-fill --random "$HOME"/Imagens/wallpaper
+  ;;
+select)
+  ls $HOME/Imagens/wallpaper | gum choose | xargs -I % feh --bg-fill "$HOME"/Imagens/wallpaper/%
+  ;;
+*)
+  feh --bg-fill --random "$HOME"/Imagens/wallpaper
+  ;;
+esac
