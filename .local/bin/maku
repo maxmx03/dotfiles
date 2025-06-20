@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+SRC="./src"
+INCLUDES="./includes"
+BUILD="./build"
+FLAGS="-std=c89"
+CC=clang
+
+if [ ! -d "$BUILD" ]; then
+  mkdir $BUILD
+fi
+
+ls $SRC | xargs -I {} basename {} .c | xargs -I {} $CC $FLAGS -I$INCLUDES -c ./src/{}.c -o $BUILD/{}.o
+cd $BUILD && ls *.o | xargs "$CC" -o program
