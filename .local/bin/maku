@@ -62,6 +62,11 @@ int main(int argc, char **argv) {
   exit 0
 fi
 
+if [[ "$1" = "run" ]]; then
+  $BUILD/program
+  exit 0
+fi
+
 if [ ! -d "$BUILD" ]; then
   mkdir $BUILD
 fi
@@ -86,4 +91,4 @@ fi
 
 ls $SOURCE | xargs -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -I$INCLUDE -c ./src/{}.c -o $BUILD/{}.o
 cd $BUILD && find . -name "*.o" -print0 | xargs -0 "$CC" -o program
-cd .. && find $BUILD -name "*.*" -print0 | xargs -0 gum log --time rfc822 --level info "COMPILED"
+cd .. && find $BUILD -name "*" -print0 | xargs -0 gum log --time rfc822 --level info "COMPILED"
