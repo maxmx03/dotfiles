@@ -1,27 +1,89 @@
 #!/usr/bin/env bash
 
+function log {
+  gum log --time rfc822 --level "$@"
+}
+
 MAKU_CONFIG_FILE="maku.build"
+if [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
+  log error "Please run 'maku init' first"
+  exit 1
+else
+  source ./"$MAKU_CONFIG_FILE"
+fi
 
 if [[ "$1" = "init" ]]; then
-  echo '# vim: ft=sh
+  if [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
+    log info "$MAKU_CONFIG_FILE already exists"
+  else
+    echo '# vim: ft=sh
 BUILD="./build"
 SOURCE="./src"
 INCLUDE="./include"
 CC="gcc"
 CFLAGS="-std=c99"' >"$MAKU_CONFIG_FILE"
+  fi
+
+  if [[ ! -d "$BUILD" ]]; then
+    if mkdir "$BUILD"; then
+      log info "Created $BUILD"
+    else
+      log error "Failed to create $BUILD"
+      exit 1
+    fi
+  fi
+
+  if [[ ! -d "$SOURCE" ]]; then
+    if mkdir "$SOURCE"; then
+      echo '#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv) {
+  printf("Hello, world!\n");
+  return 0;
+}' >"$SOURCE/main.c"
+      # find -type f -name *.c -print0 | xargs -I {} gum log --time rfc822 --level info {}
+      find $SOURCE -name "*.c" -print0 | xargs -0 gum log --time rfc822 --level info "CREATED"
+    else
+      log error "Failed to create $SOURCE"
+      exit 1
+    fi
+  fi
+
+  if [[ ! -d "$INCLUDE" ]]; then
+    if mkdir "$INCLUDE"; then
+      log info "Created $INCLUDE"
+    else
+      log error "Failed to create $INCLUDE"
+      exit 1
+    fi
+  fi
+
   exit 0
 fi
-
-if [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
-  echo "please run 'maku init' first"
-  exit 1
-fi
-
-source ./"$MAKU_CONFIG_FILE"
 
 if [ ! -d "$BUILD" ]; then
   mkdir $BUILD
 fi
 
+if [ ! -d "$SOURCE" ]; then
+  log error "Source directory does not exist"
+  log error "Please run 'maku init'"
+  exit 0
+fi
+
+if [ ! -f "$SOURCE/main.c" ]; then
+  log error "$SOURCE/main.c not found"
+  exit 1
+fi
+
+if [ ! -d "$INCLUDE" ]; then
+  ls $SOURCE | xargs -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -c ./src/{}.c -o $BUILD/{}.o
+  cd $BUILD && ls *.o | xargs "$CC" -o program
+  ls | xargs -I {} gum log --time rfc822 --level info $BUILD/{}
+  exit 0
+fi
+
 ls $SOURCE | xargs -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -I$INCLUDE -c ./src/{}.c -o $BUILD/{}.o
-cd $BUILD && ls *.o | xargs "$CC" -o program
+cd $BUILD && find . -name "*.o" -print0 | xargs -0 "$CC" -o program
+cd .. && find $BUILD -name "*.*" -print0 | xargs -0 gum log --time rfc822 --level info "COMPILED"

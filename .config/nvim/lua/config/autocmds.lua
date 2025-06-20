@@ -83,6 +83,8 @@ autocmd('Filetype', {
 autocmd('BufEnter', {
   pattern = { 'bash' },
   callback = function()
-    vim.cmd 'startinsert'
+    vim.defer_fn(function()
+      vim.cmd.startinsert()
+    end, 0)
   end,
 })
