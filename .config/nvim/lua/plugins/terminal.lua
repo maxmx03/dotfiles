@@ -5,18 +5,11 @@ return {
     { mode = { 't' }, '<leader>xx', '<cmd>TermHide<cr>', desc = 'toggle Terminal' },
     {
       mode = { 't', 'n' },
-      '<c-up>',
+      '<ESC>',
       function()
         if vim.o.buftype == 'terminal' then
           vim.defer_fn(function()
-            vim.cmd.stopinsert()
-          end, 0)
-          vim.defer_fn(function()
-            vim.api.nvim_feedkeys(
-              vim.api.nvim_replace_termcodes('<C-w>k', true, false, true),
-              'n',
-              true
-            )
+            vim.cmd.TermHide()
           end, 0)
         end
       end,
