@@ -22,7 +22,7 @@ CFLAGS="-std=c99"' >"$MAKU_CONFIG_FILE"
   fi
 
   if [[ -z "$MAKU_CONFIG_FILE" ]] || [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
-    log error "maku.build not found"
+    log error "$MAKU_CONFIG_FILE not found"
     exit 1
   fi
 
@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
 
 function build {
   if [[ -z "$MAKU_CONFIG_FILE" ]] || [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
-    log error "maku.build not found"
+    log error "$MAKU_CONFIG_FILE not found"
     exit 1
   fi
 
@@ -109,7 +109,7 @@ function build {
 
 function run {
   if [[ -z "$MAKU_CONFIG_FILE" ]] || [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
-    log error "maku.build not found"
+    log error "$MAKU_CONFIG_FILE not found"
     exit 1
   fi
 
@@ -136,6 +136,33 @@ function help {
   echo "  run: Runs the project"
 }
 
+function clean {
+  if [[ -z "$MAKU_CONFIG_FILE" ]] || [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
+    log error "$MAKU_CONFIG_FILE not found"
+    exit 1
+  fi
+
+  source "$MAKU_CONFIG_FILE"
+
+  if [[ -z "$BUILD" ]] || [[ -z "$SOURCE" ]] || [[ -z "$INCLUDE" ]]; then
+    log error "$MAKU_CONFIG_FILE not found"
+    exit 1
+  fi
+
+  if [ ! -d "$BUILD" ]; then
+    log error "Nothing to clean"
+    exit 0
+  fi
+
+  if ! rm -r "$BUILD"; then
+    log error "Failed to clean build directory"
+    exit 1
+  else
+    log info "Cleaned build directory"
+  fi
+  exit 0
+}
+
 case "$1" in
 init)
   init
@@ -145,6 +172,9 @@ build)
   ;;
 run)
   run
+  ;;
+clean)
+  clean
   ;;
 *)
   help
