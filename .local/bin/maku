@@ -67,6 +67,18 @@ int main(int argc, char **argv) {
 }
 
 function build {
+  if [[ -z "$MAKU_CONFIG_FILE" ]] || [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
+    log error "maku.build not found"
+    exit 1
+  fi
+
+  source "$MAKU_CONFIG_FILE"
+
+  if [[ -z "$BUILD" ]] || [[ -z "$SOURCE" ]] || [[ -z "$INCLUDE" ]]; then
+    log error "$MAKU_CONFIG_FILE not found"
+    exit 1
+  fi
+
   if [ ! -d "$SOURCE" ]; then
     log error "Source directory does not exist"
     log error "Please run 'maku init'"
@@ -85,12 +97,34 @@ function build {
     exit 0
   fi
 
+  if [ ! -d "$BUILD" ]; then
+    mkdir "$BUILD"
+    exit 0
+  fi
+
   ls $SOURCE | xargs -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -I$INCLUDE -c ./src/{}.c -o $BUILD/{}.o
   cd $BUILD && find . -name "*.o" -print0 | xargs -0 "$CC" -o program
   cd .. && find $BUILD -name "*" -print0 | xargs -0 gum log --time rfc822 --level info "COMPILED"
 }
 
 function run {
+  if [[ -z "$MAKU_CONFIG_FILE" ]] || [[ ! -f "$MAKU_CONFIG_FILE" ]]; then
+    log error "maku.build not found"
+    exit 1
+  fi
+
+  source "$MAKU_CONFIG_FILE"
+
+  if [[ -z "$BUILD" ]] || [[ -z "$SOURCE" ]] || [[ -z "$INCLUDE" ]]; then
+    log error "$MAKU_CONFIG_FILE not found"
+    exit 1
+  fi
+
+  if [ ! -d "$BUILD" ]; then
+    log error "Please run maku build first"
+    exit 0
+  fi
+
   $BUILD/program
 }
 
