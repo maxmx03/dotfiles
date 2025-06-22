@@ -10,7 +10,7 @@
 -- --- Config and Plugins ---
 ---@type base46.config
 vim.g.base46 = {
-  colorscheme = vim.g.neovide and 'gruber-darker' or 'doom-one',
+  colorscheme = 'doom-one',
   transparency = not vim.g.neovide,
 }
 require 'config.globals'
