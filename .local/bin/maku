@@ -16,7 +16,8 @@ function init {
 BUILD="./build"
 SOURCE="./src"
 INCLUDE="./include"
-CC="gcc"
+CC="clang" # or gcc
+LDFLAGS="-lm"
 CFLAGS="-std=c99"' >"$MAKU_CONFIG_FILE"
     log info "Created $MAKU_CONFIG_FILE"
   fi
@@ -91,8 +92,8 @@ function build {
   fi
 
   if [ ! -d "$INCLUDE" ]; then
-    ls $SOURCE | xargs -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -c ./src/{}.c -o $BUILD/{}.o
-    cd $BUILD && ls *.o | xargs "$CC" -o program
+    find "$SOURCE" -name "*.c" -print0 | xargs -0 -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -c ./src/{}.c -o $BUILD/{}.o
+    cd $BUILD && ls *.o | xargs "$CC" -o program $LDFLAGS
     ls | xargs -I {} gum log --time rfc822 --level info $BUILD/{}
     exit 0
   fi
@@ -101,8 +102,8 @@ function build {
     mkdir "$BUILD"
   fi
 
-  ls $SOURCE | xargs -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -I$INCLUDE -c ./src/{}.c -o $BUILD/{}.o
-  cd $BUILD && find . -name "*.o" -print0 | xargs -0 "$CC" -o program
+  find "$SOURCE" -name "*.c" -print0 | xargs -0 -I {} basename {} .c | xargs -I {} $CC -MD -MF $BUILD/{}.d $CFLAGS -I$INCLUDE -c ./src/{}.c -o $BUILD/{}.o
+  cd $BUILD && find . -name "*.o" -print0 | xargs -0 "$CC" -o program $LDFLAGS
   cd .. && find $BUILD -name "*" -print0 | xargs -0 gum log --time rfc822 --level info "COMPILED"
 }
 
