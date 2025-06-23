@@ -11,4 +11,5 @@ return {
   'css',
   'scss',
   'html',
+  'yaml',
 }

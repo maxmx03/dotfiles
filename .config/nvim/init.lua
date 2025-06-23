@@ -11,7 +11,6 @@
 ---@type base46.config
 vim.g.base46 = {
   colorscheme = 'doom-one',
-  transparency = not vim.g.neovide,
 }
 require 'config.globals'
 require 'config.commands'
