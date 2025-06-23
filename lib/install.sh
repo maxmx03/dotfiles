@@ -198,7 +198,8 @@ function i3_pkgs {
     i3-wm
     i3blocks
     i3lock
-    scrot # screenshot for i3lock
+    xss-lock # send idle status to systemd
+    scrot    # screenshot for i3lock
     i3status
 
     polybar        # status bar
