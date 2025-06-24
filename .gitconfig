@@ -6,7 +6,7 @@
 [pull]
   rebase = true
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [diff]
   tool = nvimdiff
 [merge]
@@ -35,4 +35,4 @@
   unstage = restore --staged --
   undo = restore
 [fetch]
-	prune = true
+  prune = true
