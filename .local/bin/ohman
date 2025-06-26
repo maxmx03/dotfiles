@@ -2,7 +2,7 @@
 
 instruction="mostre o manpages de: $1"
 instruction+='
-Gerar saída similar a man pages do Linux.
+Gerar saída similar a man pages do Linux com mais exemplos.
 
 Exemplo:
 
