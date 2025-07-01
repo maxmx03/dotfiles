@@ -54,9 +54,6 @@ exec_always --no-startup-id picom -b
 # autostart applications/services on login: #
 #############################################
 
-# set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
-
 # redshift | yay -S redshift
 exec --no-startup-id redshift
 
@@ -69,7 +66,8 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 exec --no-startup-id sleep 1 && feh --bg-fill --random $HOME/Imagens/wallpaper
 
 # set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+# exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id xset s off -dpms
 
 # Desktop notifications
 exec --no-startup-id /usr/bin/dunst
