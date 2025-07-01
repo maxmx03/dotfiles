@@ -21,7 +21,6 @@ local function default()
     [[%{(bufname() !=# '' && &bt != 'terminal' ? '(' : '')}]],
     "%{( &ft == 'cpp' ? 'C++' : toupper(strpart(&ft, 0, 1)) . strpart(&ft, 1)) }",
     p.diagnostic(),
-    ' ',
     [[%{(bufname() !=# '' && &bt != 'terminal' ? ')' : '')}]],
     p.progress(),
     p.lsp(),
