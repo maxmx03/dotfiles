@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+xprop | grep WM_CLASS | awk '{ print $4 }'

@@ -108,86 +108,6 @@ function tmux_pkgs {
   fi
 }
 
-function hypr_pkgs {
-  PACKAGES=(
-    hyprland
-    xdg-desktop-portal-hyprland # must have
-
-    # Qt Wayland Support
-    qt5-wayland
-    qt6-wayland
-    mako # notification daemon
-    # screensharing
-    pipewire
-    wireplumber
-    pipewire-pulse
-    pipewire-alsa
-    pipewire-jack
-    alsa-utils
-    alsa-plugins
-
-    polkit-gnome # authentication agent
-    rofi-lbonn-wayland-git
-    network-manager-applet
-    swww # wallpaper
-
-    wlogout # logout and shutdown menu
-
-    # sound control
-    pavucontrol
-    pamixer
-
-    foot       # terminal
-    tmux       # terminal multiplexer
-    htop       # terminal system monitor
-    waybar-git # wayland bar
-    cmus       # music
-    firefox
-
-    # fonts
-    ttf-dejavu
-    ttf-liberation
-    ttf-hanazono
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    adobe-source-code-pro-fonts
-    adobe-source-sans-fonts
-    adobe-source-serif-fonts
-    adobe-source-han-sans-otc-fonts
-    adobe-source-han-serif-otc-fonts
-    ttf-jetbrains-mono-nerd
-    ttf-hack-nerd
-    vscode-codicons-git
-
-    slurp     #screenshot
-    grim      #screenshot
-    cliphist  # clipboard manager
-    hyprshade # shade
-
-    nautilus # file manager
-    gvfs     # for mobile
-
-    gnome-disk-utility # disk
-    gnome-software     # applications
-    flatpak            # packages
-    eog                # picture viewer
-    mpv                # video
-    alarm-clock-applet # alarm
-
-    sassc # whitesur dependencies
-    qogir-cursor-theme-git
-    xdg-user-dirs
-    xdg-utils
-    nwg-look
-  )
-
-  yay -S "${PACKAGES[@]}"
-  xdg-user-dirs-update
-  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-  gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
-}
-
 function i3_pkgs {
   PACKAGES=(
     xorg
@@ -307,6 +227,7 @@ function i3_pkgs {
     xdg-user-dirs
     xdg-utils
     cpupower # tuning cpu frequency
+    fish     # shell
   )
   yay -S "${PACKAGES[@]}"
   echo "exec i3" >$HOME/.xinitrc
@@ -327,7 +248,6 @@ function utilities_pkgs {
     less
     tree
     eza
-    starship
     man
     fzf
     fd
@@ -340,9 +260,9 @@ function utilities_pkgs {
     bat
     ffmpeg
     pacman-contrib # perl neovim sudo vim and most important checkupdates
+    bash-completion
   )
   yay -S "${PACKAGES[@]}"
-  [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
 }
 
 function amd_pkgs {

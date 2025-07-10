@@ -67,7 +67,7 @@ autocmd('BufWinEnter', {
 autocmd({ 'BufWinLeave' }, {
   pattern = { '*.md' },
   callback = function()
-    vim.opt.colorcolumn = '120'
+    vim.opt.colorcolumn = ''
     vim.opt.textwidth = 120
   end,
 })

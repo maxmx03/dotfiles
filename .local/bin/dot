@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [[ "$*" == "add ." ]]; then
+  gum log --time rfc822 --level error "Unsafe action detected;"
+  git dot add -i
+  exit 1
+fi
+
+if [[ "$*" == "clean" ]]; then
+  gum log --time rfc822 --level error "Unsafe action detected;"
+  git dot "$@" -n
+  exit 1
+fi
+
+git dot "$@"
