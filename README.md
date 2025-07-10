@@ -9,7 +9,7 @@
 ## Configs
 
 - [Arch Linux](https://archlinux.org/)
-- [shell](https://www.gnu.org/software/bash/) GNU Bash
+- [shell](https://www.gnu.org/software/bash/) GNU Bash + [Fish](https://fishshell.com/)
   - [eza](https://github.com/eza-community/eza) A modern alternative to ls
   - [jump](https://github.com/gsamokovarov/jump) Jump helps you navigate faster
   - [starship](https://starship.rs/) The minimal, blazing-fast, and infinitely customizable prompt for any
@@ -24,8 +24,8 @@
   - [picom](https://github.com/yshui/picom) A lightweight compositor for X11 with animation support
   - [MPD](https://github.com/MusicPlayerDaemon/MPD) Music Player Daemon
   - [vim](https://github.com/vim/vim) Text editor
-  - [yazi](https://github.com/sxyazi/yazi) Blazing fast terminal file manager
   - [dunst](https://github.com/dunst-project/dunst) A customizable and lightweight notification-daemon
+  - [emacs](https://www.gnu.org/software/emacs/) An extensible, customizable, free/libre text editor — and more.
 
 ## Bash scripts
 
@@ -35,6 +35,7 @@
   - [ohman](https://github.com/maxmx03/dotfiles/blob/main/.local/bin/ohman) Provides man page functionality, powered by the gemini script.
 - [zet](https://github.com/maxmx03/dotfiles/blob/main/.local/bin/zet) A Zettelkasten note-taking script that helps me create and organize my notes.
 - [tmx](https://github.com/maxmx03/dotfiles/blob/main/.local/bin/tmx) A tmux wrapper script that provides a more intuitive way to use tmux.
+  and more...
 
 ## DOCS
 
