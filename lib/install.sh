@@ -227,7 +227,6 @@ function i3_pkgs {
     xdg-user-dirs
     xdg-utils
     cpupower # tuning cpu frequency
-    fish     # shell
   )
   yay -S "${PACKAGES[@]}"
   echo "exec i3" >$HOME/.xinitrc
@@ -248,6 +247,7 @@ function utilities_pkgs {
     less
     tree
     eza
+    starship
     man
     fzf
     fd
@@ -263,6 +263,7 @@ function utilities_pkgs {
     bash-completion
   )
   yay -S "${PACKAGES[@]}"
+  [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
 }
 
 function amd_pkgs {

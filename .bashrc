@@ -44,6 +44,38 @@ else
   curl -o- https://fnm.vercel.app/install | bash
 fi
 
-if [ -z "$FISH_VERSION" ]; then
-  fish
+declare -a cmps=(
+  "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
+  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
+  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
+  "https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
+)
+
+function wgetcomp {
+  if [[ ! -f "$HOME"/.cache/bash/completions/"$1" ]]; then
+    wget --directory-prefix="$HOME/.cache/bash/completions" "$2"
+  fi
+}
+
+function get_class {
+  xprop | grep WM_CLASS | awk '{ print $4 }'
+}
+
+export -f wgetcomp
+parallel wgetcomp {/} {} ::: "${cmps[@]}"
+
+for comp in "$HOME"/.cache/bash/completions/*; do
+  source "$comp"
+done
+
+if [[ -n $(command -v jump) ]]; then
+  eval "$(jump shell --bind=z)"
+fi
+
+if [[ -n $(command -v starship) ]]; then
+  eval "$(starship init bash)"
+fi
+
+if [[ "$TERM" = "xterm-256color" ]]; then
+  fastfetch
 fi
