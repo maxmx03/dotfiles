@@ -2,6 +2,8 @@ vim9script
 g:mapleader = "\<Space>"
 g:maplocalleader = ','
 
+nmap <space>e :Explore<cr>
+
 # update and quit vim
 nmap <leader>w <cmd>update<cr>
 noremap q <cmd>quit<cr>
@@ -72,3 +74,4 @@ xnoremap <leader>gt :!gemini table<cr>
 xnoremap <leader>gb :!gemini br<cr>
 xnoremap <leader>ge :!gemini en<cr>
 xnoremap <leader>gg :!gemini grammar<cr>
+
