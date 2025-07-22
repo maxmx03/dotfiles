@@ -1,3 +1,5 @@
+local color = require 'base46.color'
+
 ---@type base46
 local solarized = {
   name = 'solarized',
@@ -12,9 +14,10 @@ local solarized = {
   magenta = '#d33682',
   red = '#dc322f',
   base_30 = {
-    base00 = '#002b36', -- Default background
-    base01 = '#002731', -- Float background
-    base02 = '#002731', -- Statusline background
+    -- base00 = '#002b36', -- Default background
+    base00 = '#001e26', -- Default background
+    base01 = color.shade('#001e26', 3), -- Float background
+    base02 = color.shade('#001e26', 3), -- Statusline background
     base03 = '#586e75', -- WinSeparator, Border
     base04 = '#93a1a1', -- Statusline foreground
     base05 = '#839496', -- Default Foreground, Caret, Delimiters, Operators
@@ -36,12 +39,12 @@ local solarized = {
     base0L = '#b58900', -- Markup Heading 6
     base0M = '#859900', -- Markup Tag
     base0N = '#268bd3', -- Markup Tag Attribute
-    base0O = '#cb4b16', -- Markup Tag Delimiter
+    base0O = '#dc322f', -- Markup Tag Delimiter
     base0P = '#2aa198', -- Pmenu Background
     base0Q = '#268bd3', -- Folder Background
     base0R = '#93a1a1', -- Cursor Color
     base0S = '#b58900', -- Accent, can be used as primary color
-    base0T = '#dc322f', -- Title
+    base0T = '#859900', -- Title
   },
   base_16 = {
     base00 = '#586e75', -- LineNr
@@ -49,7 +52,7 @@ local solarized = {
     base02 = '#073642', -- Selection, Visual Background
     base03 = '#586e75', -- Comments, Invisibles, Line Highlighting
     base04 = '#cb4b16', -- Variable Parameter
-    base05 = '#cb4b16', -- Caret, Delimiters, Operators
+    base05 = '#dc322f', -- Caret, Delimiters, Operators
     base06 = '#839496', -- Property, Variable Member
     base07 = '#849900', -- PreProc, Include, Define, Macro, PreCondit
     base08 = '#839496', -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted

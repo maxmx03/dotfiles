@@ -5,6 +5,7 @@
     "norg": "html",
     "markdown": "html"
   },
+  "stylua.styluaPath": "/home/milianor/.cargo/bin/stylua",
   "emmet.excludeLanguages": [],
   "html.autoClosingTags": true,
   "javascript.autoClosingTags": true,
@@ -13,7 +14,7 @@
   "diagnostic.hintSign": "󰌶",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
-  "diagnostic.enable": false,
+  "diagnostic.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "suggest.maxCompleteItemCount": 10,

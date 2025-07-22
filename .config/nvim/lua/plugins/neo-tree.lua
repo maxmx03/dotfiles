@@ -4,7 +4,6 @@ return {
     branch = 'v3.x',
     keys = {
       { '<leader>e', '<cmd>Neotree toggle<cr>', desc = 'open neo-tree' },
-      { '<Tab>', '<cmd>Neotree source=buffers float focus toggle<cr>', desc = 'list buffers' },
     },
     dependencies = {
       'nvim-lua/plenary.nvim',

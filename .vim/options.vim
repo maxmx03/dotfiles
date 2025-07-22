@@ -45,7 +45,7 @@ set background=dark
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"
 
-if &term == 'xterm-kitty'
+if &term == 'xterm-256color'
     &t_ut = ''
 endif
 
@@ -53,3 +53,4 @@ if has('gui')
     set guioptions=
     set guifont=JetBrainsMono\ Nerd\ Font\ 18
 endif
+

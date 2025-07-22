@@ -9,7 +9,7 @@ import $"{$HOME}/.vim/maps.vim"
 import $"{$HOME}/.vim/functions.vim"
 import $"{$HOME}/.vim/autocmds.vim"
 
-g:doomone_polyglot = true
-g:doomone_coc = true
-g:doomone_astro = true
-colorscheme doomone
+g:solarized_polyglot = true
+g:solarized_coc = true
+g:solarized_astro = true
+colorscheme solarized
