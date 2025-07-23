@@ -504,6 +504,8 @@ function M.load_faces(base46, config)
   hl(0, 'NavicSeparator', { fg = base46.base_16.base0E })
 
   hl(0, 'MarkviewCode', { bg = base46.base_30.base01 })
+  hl(0, 'MarkviewCodeFg', { fg = base46.base_30.base01 })
+  hl(0, 'MarkviewCodeInfo', { bg = base46.base_30.base01 })
   hl(0, 'MarkviewInlineCode', { bg = base46.base_30.base01 })
   hl(0, 'MarkviewCheckboxChecked', { fg = base46.blue })
   hl(0, 'MarkviewCheckboxUnchecked', { fg = base46.violet })
