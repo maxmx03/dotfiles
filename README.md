@@ -9,7 +9,7 @@
 ## Configs
 
 - [Arch Linux](https://archlinux.org/)
-- [shell](https://www.gnu.org/software/bash/) GNU Bash + [Fish](https://fishshell.com/)
+- [shell](https://www.gnu.org/software/bash/) GNU Bash
   - [eza](https://github.com/eza-community/eza) A modern alternative to ls
   - [jump](https://github.com/gsamokovarov/jump) Jump helps you navigate faster
   - [starship](https://starship.rs/) The minimal, blazing-fast, and infinitely customizable prompt for any
@@ -40,9 +40,3 @@
 ## DOCS
 
 - [Dotfiles: Best way to store in a bare git repository](https://www.atlassian.com/git/tutorials/dotfiles)
-- [Neovim](https://github.com/maxmx03/dotfiles/blob/main/.config/nvim/README.md)
-- [Vim](https://github.com/maxmx03/dotfiles/blob/main/.vim/README.md)
-
-## Wallpapers
-
-[click here](https://www.canva.com/design/DAGosBtOSZw/g9dW1AlI_Yeahu6a7g8TjQ/edit?utm_content=DAGosBtOSZw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
