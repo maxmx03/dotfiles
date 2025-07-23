@@ -363,6 +363,7 @@ function M.load_faces(base46, config)
   hl(0, '@lsp.mod.readonly', { link = 'Constant' })
   hl(0, '@lsp.mod.global', { link = 'Constant' })
 
+  hl(0, 'DiagnosticOk', { fg = base46.green })
   hl(0, 'DiagnosticError', { fg = base46.base_30.base0B })
   hl(0, 'DiagnosticWarn', { fg = base46.base_30.base0A })
   hl(0, 'DiagnosticInfo', { fg = base46.base_30.base09 })
