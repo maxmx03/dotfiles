@@ -11,7 +11,7 @@ end
 
 local function default()
   local comps = {
-    stl_format('Brand', ' '),
+    stl_format('Brand', ' '),
     [[ %#ModeLineMode#%{v:lua.ml_mode()}%*]],
     ' %#ModeLineFile#%t%*',
     ' #%{bufnr()} ',
