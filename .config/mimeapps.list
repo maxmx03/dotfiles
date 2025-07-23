@@ -6,7 +6,7 @@ application/x-bittorrent=freedownloadmanager.desktop;
 
 [Default Applications]
 image/jpeg=feh.desktop
-inode/directory=thunar.desktop
+inode/directory=org.gnome.Nautilus.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
