@@ -1,7 +1,7 @@
 return {
   {
     'OXY2DEV/markview.nvim',
-    lazy = false,
+    priority = 49,
     ft = { 'markdown', 'mdx', 'markdown.mdx' },
     ---@type markview.config
     opts = {

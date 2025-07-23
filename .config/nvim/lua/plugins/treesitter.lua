@@ -5,7 +5,6 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     cmd = { 'TSInstall', 'TSBufEnable', 'TSBufDisable', 'TSModuleInfo' },
     build = ':TSUpdate',
-    lazy = true,
     config = function()
       require('nvim-treesitter.configs').setup {
         auto_install = true,
