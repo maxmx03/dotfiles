@@ -1,9 +1,8 @@
 configuration{
     modi: "run,drun,window";
     lines: 5;
-    font: "Iosevka 12";
+    font: "Montserrat 12";
     show-icons: true;
-    icon-theme: "Paper Mono";
     terminal: "st";
     drun-display-format: "{icon} {name}";
     location: 0;
@@ -12,7 +11,7 @@ configuration{
     display-drun: "   Apps ";
 }
 
-@theme "doomone"
+@theme "theme"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
@@ -20,10 +19,11 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 360px;
-    border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
+    location:       center;
+    width:          640;
+    border-radius:  8;
 }
 
 mainbox {
@@ -31,10 +31,23 @@ mainbox {
 }
 
 inputbar {
-    children: [prompt,entry];
     background-color: @bg-col;
     border-radius: 5px;
     padding: 2px;
+
+    font:       "Montserrat 20";
+    padding:    12px;
+    spacing:    12px;
+    children:   [ entry ];
+}
+
+entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+entry {
+    font:   inherit;
+    placeholder         : "Search";
 }
 
 prompt {
@@ -58,21 +71,22 @@ entry {
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
-    columns: 2;
     background-color: @bg-col;
+    lines:      10;
+    columns:    1;
+    fixed-height:   false;
+    border:         1px 0 0;
 }
 
 element {
-    padding: 5px;
+    padding:            8px 16px;
+    spacing:            16px;
     background-color: @bg-col;
     text-color: @fg-col  ;
 }
 
 element-icon {
-    size: 25px;
+    size: 1.5em;
 }
 
 element selected {

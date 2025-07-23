@@ -131,9 +131,10 @@ function i3_pkgs {
     polkit-gnome   # permissions
 
     # file manager
-    thunar
-    thunar-archive-plugin
-    thunar-volman
+    # thunar
+    # thunar-archive-plugin
+    # thunar-volman
+    nautilus
     tumbler
     gvfs # for mobile
     gvfs-afc
@@ -168,6 +169,7 @@ function i3_pkgs {
     ttf-jetbrains-mono-nerd
     ttf-liberation
     ttf-opensans
+    otf-montserrat
 
     dbus     # notification daemon
     dunst    # notification

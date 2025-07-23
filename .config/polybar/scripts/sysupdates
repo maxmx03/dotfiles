@@ -6,9 +6,9 @@ total_updates=$((updates_pacman + updates_aur))
 important_updates=$(checkupdates 2>/dev/null | grep -c "amd\|amdgpu\|mesa\|radeon\|linux\|xorg")
 
 if [ "$important_updates" -gt 0 ]; then
-  echo " $important_updates (major) updates "
+  echo "󰏕 $important_updates (major)"
 elif [ "$total_updates" -gt 0 ]; then
-  echo " $total_updates (minor) updates "
+  echo "󰏕 $total_updates"
 else
   echo ""
 fi
