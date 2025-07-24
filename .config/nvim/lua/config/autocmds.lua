@@ -6,8 +6,8 @@ autocmd('LspAttach', {
     local lsp_signature = require 'lsp_signature'
     lsp_signature.on_attach({
       floating_window = false,
-      hint_prefix = ' ',
-      hint_scheme = 'String',
+      hint_prefix = ' ',
+      hint_scheme = 'LspInlayHint',
     }, bufnr)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
