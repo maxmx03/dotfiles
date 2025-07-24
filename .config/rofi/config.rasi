@@ -35,7 +35,7 @@ inputbar {
     border-radius: 5px;
     padding: 2px;
 
-    font:       "Montserrat 20";
+    font:       "Montserrat 14";
     padding:    12px;
     spacing:    12px;
     children:   [ entry ];
