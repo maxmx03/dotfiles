@@ -1,4 +1,2 @@
-if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
-  startx
-fi
+startx
 [[ -f ~/.bashrc ]] && . ~/.bashrc
