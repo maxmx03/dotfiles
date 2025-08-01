@@ -231,9 +231,6 @@ function i3_pkgs {
     cpupower # tuning cpu frequency
   )
   yay -S "${PACKAGES[@]}"
-  echo "exec i3" >$HOME/.xinitrc
-  echo "startx
-[[ -f ~/.bashrc ]] && . ~/.bashrc" >$HOME/.bash_profile
   if [[ ! -f $HOME/.env ]]; then
     echo "LATITUDE=0
   LONGITUDE=0
