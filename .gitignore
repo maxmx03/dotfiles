@@ -4,6 +4,7 @@
 .env
 .dmrc
 .vim/.netrwhist
+.vim/plugged
 .bash_logout
 .bash_history
 .steam*
