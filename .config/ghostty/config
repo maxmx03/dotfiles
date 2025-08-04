@@ -1,5 +1,6 @@
 shell-integration = fish
-theme = Solarized Dark Higher Contrast
+theme = Solarized Dark - Patched
+background = #001e26
 font-size = 16
 font-family = JetBrainsMono NF
 window-width = 120
