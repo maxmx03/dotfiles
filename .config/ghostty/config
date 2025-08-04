@@ -1,0 +1,9 @@
+shell-integration = fish
+theme = Solarized Dark Higher Contrast
+font-size = 16
+font-family = JetBrainsMono NF
+window-width = 120
+window-height = 30
+gtk-titlebar = false
+background-opacity = 0.85
+confirm-close-surface = false
