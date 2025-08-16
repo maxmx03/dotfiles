@@ -20,7 +20,6 @@ end
 
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
-
 set -U __done_notify_sound 1
 set -U __done_notification_urgency_level low
 set FNM_PATH "$HOME/.local/share/fnm"
@@ -28,3 +27,4 @@ set CARGO_PATH "$HOME/.cargo/bin"
 set BIN_PATH "$HOME/.local/bin"
 set -gx PATH $BIN_PATH $FNM_PATH $CARGO_PATH $PATH
 set -gx EDITOR nvim
+eval (fnm env)
