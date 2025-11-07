@@ -125,7 +125,7 @@ function i3_pkgs {
     polybar        # status bar
     picom          # compositor
     xfce4-terminal # terminal
-    kitty          # terminal
+    ghostty        # terminal
     xclip          # clipboard
     polkit         # permissions
     polkit-gnome   # permissions
@@ -188,6 +188,8 @@ function i3_pkgs {
     arc-gtk-theme
     qogir-cursor-theme
     qogir-icon-theme
+    whitesur-icon-theme
+    whitesur-gtk-theme
 
     # multimedia, audio, video
     pipewire
