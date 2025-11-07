@@ -26,7 +26,6 @@ return {
           'query',
           'bash',
           'json',
-          'jsonc',
           'toml',
           'make',
           'cmake',
