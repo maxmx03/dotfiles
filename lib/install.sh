@@ -236,7 +236,7 @@ function i3_pkgs {
   if [[ ! -f $HOME/.env ]]; then
     echo "LATITUDE=0
   LONGITUDE=0
-  GEMINI_API=0
+  GEMINI_API_KEY=0
   " >$HOME/.env
   fi
   xdg-user-dirs-update

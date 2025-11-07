@@ -1,10 +1,10 @@
 local map = vim.keymap.set
 local opts = { silent = true }
 
-map('x', '<a-t>', ':!gemini table<cr>')
-map('x', '<a-b>', ':!gemini br<cr>')
-map('x', '<a-e>', ':!gemini en<cr>')
-map('x', '<a-g>', ':!gemini grammar<cr>')
+map('x', '<a-t>', ':!gen table<cr>')
+map('x', '<a-b>', ':!gen br<cr>')
+map('x', '<a-e>', ':!gen en<cr>')
+map('x', '<a-g>', ':!gen grammar<cr>')
 map('n', '<tab>', '<cmd>WindowPick<cr>', opts)
 map('n', '<c-left>', '<c-w>h', opts)
 map('n', '<c-right>', '<c-w>l', opts)

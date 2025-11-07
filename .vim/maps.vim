@@ -70,8 +70,7 @@ nmap <leader>mc :r! mk code %:e<cr>
 nmap <leader>mt :r! mk table<cr>
 
 # gemini
-xnoremap <leader>gt :!gemini table<cr>
-xnoremap <leader>gb :!gemini br<cr>
-xnoremap <leader>ge :!gemini en<cr>
-xnoremap <leader>gg :!gemini grammar<cr>
-
+xnoremap <leader>gt :!gen table<cr>
+xnoremap <leader>gb :!gen br<cr>
+xnoremap <leader>ge :!gen en<cr>
+xnoremap <leader>gg :!gen grammar<cr>
