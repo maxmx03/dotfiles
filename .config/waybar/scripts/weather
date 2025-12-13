@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-source ~/.config/waybar/scripts/.env
+source ~/.env
 
 declare wc=(
   "☀️"

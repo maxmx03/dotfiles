@@ -26,8 +26,9 @@
       color: $base01;
       transition: color 800ms;
 
-      &:hover, &.active {
-        color: $base0;
+      &:hover,
+      &.active {
+        color: $accent;
         background: none;
       }
     }
