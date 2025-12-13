@@ -13,7 +13,7 @@ fundle plugin franciscolourenco/done
 fundle init
 
 function fish_greeting
-    if test $TERM = xterm-ghostty
+    if test $TERM = xterm-256color
         fastfetch
     end
 end

@@ -112,6 +112,7 @@ function hypr_pkgs {
   PACKAGES=(
     hyprland
     xdg-desktop-portal-hyprland # must have
+    fish
 
     # Qt Wayland Support
     qt5-wayland
