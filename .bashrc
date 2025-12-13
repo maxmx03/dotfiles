@@ -4,22 +4,13 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 PS1='[\u@\h \W]\$ '
-
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:$HOME/.local/bin
-FNM_PATH="/home/milianor/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env)"
-fi
-
+HISTFILESIZE=5000
+HISTSIZE=5000
+HISTFILE=~/.bash_history
+HISTCONTROL=ignoredups
 export EDITOR="nvim"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export BROWSER=brave
+export BROWSER=google-chrome-stable
 export FZF_DEFAULT_COMMAND='fd -t f -s -H --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
 --border=rounded
@@ -27,6 +18,8 @@ export FZF_DEFAULT_OPTS="
 --header='Find Files'
 --bind 'enter:become($EDITOR {})'
 --preview 'bat -p -n --color=always {}'"
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/go/bin
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
@@ -34,15 +27,22 @@ bind -x '"\C-f":telescope'
 bind -x '"\C-e":nvim'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
-alias aquarium="asciiquarium"
-alias atc="tmx attach"
-
 shopt -s histappend
 
-HISTFILESIZE=5000
-HISTSIZE=5000
-HISTFILE=~/.bash_history
-HISTCONTROL=ignoredups
+CARGO_HOME="$HOME/.cargo"
+if [[ -d "$CARGO_HOME" ]]; then
+  export PATH="$CARGO_HOME/bin:$PATH"
+  source "$HOME/.cargo/env"
+else
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env)"
+else
+  curl -o- https://fnm.vercel.app/install | bash
+fi
 
 declare -a cmps=(
   "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
@@ -52,8 +52,8 @@ declare -a cmps=(
 )
 
 function wgetcomp {
-  if [[ ! -f "$HOME"/.cmps/"$1" ]]; then
-    wget --directory-prefix="$HOME/.cmps" "$2"
+  if [[ ! -f "$HOME"/.cache/bash/completions/"$1" ]]; then
+    wget --directory-prefix="$HOME/.cache/bash/completions" "$2"
   fi
 }
 
@@ -64,7 +64,7 @@ function get_class {
 export -f wgetcomp
 parallel wgetcomp {/} {} ::: "${cmps[@]}"
 
-for comp in "$HOME"/.cmps/*; do
+for comp in "$HOME"/.cache/bash/completions/*; do
   source "$comp"
 done
 
@@ -80,20 +80,17 @@ if [[ "$TERM" = "xterm-256color" ]]; then
   fastfetch
 fi
 
-function dot {
-  if [[ "$*" == "add ." ]]; then
-    gum log --time rfc822 --level error "Unsafe action detected;"
-    git dot ai
-    return
-  fi
+if [ -d "/var/lib/flatpak/exports/share" ]; then
+  export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:${XDG_DATA_DIRS}"
+fi
 
-  if [[ "$*" == "clean" ]]; then
-    gum log --time rfc822 --level error "Unsafe action detected;"
-    git dot "$@" -n
-    return
-  fi
+if [ -d "$HOME/.local/share/flatpak/exports/share" ]; then
+  export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:${XDG_DATA_DIRS}"
+fi
 
-  git dot "$@"
-}
-
-source "$HOME/.cargo/env"
+# fnm
+FNM_PATH="/home/milianor/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env)"
+fi

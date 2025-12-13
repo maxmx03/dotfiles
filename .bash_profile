@@ -1,4 +1,5 @@
+export GTK_THEME="WhiteSur-Dark"
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
-  startx
+  Hyprland
 fi
 [[ -f ~/.bashrc ]] && . ~/.bashrc
