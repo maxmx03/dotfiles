@@ -118,14 +118,35 @@ function hypr_pkgs {
     qt5-wayland
     qt6-wayland
     mako # notification daemon
-    # screensharing
+
+    # multimedia, audio, video
     pipewire
-    wireplumber
-    pipewire-pulse
     pipewire-alsa
+    pipewire-audio
     pipewire-jack
+    pipewire-pulse
+    lib32-pipewire
+    pavucontrol
+
+    # drivers and libraries
     alsa-utils
     alsa-plugins
+    alsa-lib
+    alsa-firmware
+    lib32-alsa-lib
+    lib32-alsa-plugins
+
+    # for obs studio
+    gst-libav
+    gst-plugin-pipewire
+    gst-plugins-bad
+    gst-plugins-bad-libs
+    zbar        # bar code reader
+    imagemagick # zbar needs imagemagick
+    gst-plugins-base
+    gst-plugins-base-libs
+    gst-plugins-ugly
+    gstreamer
 
     polkit-gnome # authentication agent
     rofi
