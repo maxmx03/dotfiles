@@ -127,108 +127,20 @@ function hypr_pkgs {
     alsa-plugins
 
     polkit-gnome # authentication agent
-    rofi-lbonn-wayland-git
+    rofi
     network-manager-applet
     swww # wallpaper
-
-    wlogout # logout and shutdown menu
 
     # sound control
     pavucontrol
     pamixer
 
-    foot       # terminal
-    tmux       # terminal multiplexer
-    htop       # terminal system monitor
-    waybar-git # wayland bar
-    cmus       # music
-    firefox
-
-    # fonts
-    ttf-dejavu
-    ttf-liberation
-    ttf-hanazono
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    adobe-source-code-pro-fonts
-    adobe-source-sans-fonts
-    adobe-source-serif-fonts
-    adobe-source-han-sans-otc-fonts
-    adobe-source-han-serif-otc-fonts
-    ttf-jetbrains-mono-nerd
-    ttf-hack-nerd
-    vscode-codicons-git
-
-    slurp     #screenshot
-    grim      #screenshot
-    cliphist  # clipboard manager
-    hyprshade # shade
-
-    nautilus # file manager
-    gvfs     # for mobile
-
-    gnome-disk-utility # disk
-    gnome-software     # applications
-    flatpak            # packages
-    eog                # picture viewer
-    mpv                # video
-    alarm-clock-applet # alarm
-
-    sassc # whitesur dependencies
-    qogir-cursor-theme-git
-    xdg-user-dirs
-    xdg-open
-    nwg-look
-  )
-
-  yay -S "${PACKAGES[@]}"
-  xdg-user-dirs-update
-  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-  gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
-}
-
-function i3_pkgs {
-  PACKAGES=(
-    xorg
-    xorg-xinit
-    xorgproto
-    xarchiver
-
-    i3-wm
-    i3blocks
-    i3lock
-    scrot # screenshot for i3lock
-    i3status
-
-    polybar        # status bar
-    picom          # compositor
-    xfce4-terminal # terminal
-    kitty          # terminal
-    xclip          # clipboard
-    polkit         # permissions
-    polkit-gnome   # permissions
-
-    # file manager
-    thunar
-    thunar-archive-plugin
-    thunar-volman
-    tumbler
-    gvfs # for mobile
-    gvfs-afc
-    gvfs-gphoto2
-    gvfs-mtp
-    gvfs-nfs
-    gvfs-smb
-
-    timeshift          # backup
-    gnome-disk-utility # disk
-    gnome-screenshot   # screenshot
-
-    # network
-    nmap
-    networkmanager
-    network-manager-applet
+    foot   # terminal
+    tmux   # terminal multiplexer
+    htop   # terminal system monitor
+    waybar # wayland bar
+    cmus   # music
+    brave-bin
 
     # fonts
     ttf-dejavu
@@ -247,13 +159,34 @@ function i3_pkgs {
     ttf-jetbrains-mono-nerd
     ttf-liberation
     ttf-opensans
+    otf-montserrat
 
-    dbus     # notification daemon
-    dunst    # notification
-    redshift # daylight
-    rofi     # menu
+    slurp     #screenshot
+    grim      #screenshot
+    cliphist  # clipboard manager
+    hyprshade # shade
 
-    # theme
+    nautilus # file manager
+    tumbler
+    gvfs # for mobile
+    gvfs-afc
+    gvfs-gphoto2
+    gvfs-mtp
+    gvfs-nfs
+    gvfs-smb
+
+    gnome-disk-utility # disk
+    gnome-software     # applications
+    flatpak            # packages
+    eog                # picture viewer
+    mpv                # video
+
+    sassc # whitesur dependencies
+
+    qogir-cursor-theme-git
+    xdg-user-dirs
+    xdg-open
+    nwg-look
     gtk2
     gtk3
     gtk4
@@ -261,63 +194,15 @@ function i3_pkgs {
     adwaita-icon-theme
     adwaita-icon-theme-legacy
     adwaita-fonts
-    nwg-look
-    arc-gtk-theme
-    qogir-cursor-theme
-    qogir-icon-theme
+    whitesur-icon-theme
+    whitesur-gtk-theme
 
-    # multimedia, audio, video
-    pipewire
-    pipewire-alsa
-    pipewire-audio
-    pipewire-jack
-    pipewire-pulse
-    lib32-pipewire
-    pavucontrol
-
-    # drivers and libraries
-    alsa-utils
-    alsa-plugins
-    alsa-lib
-    alsa-firmware
-    lib32-alsa-lib
-    lib32-alsa-plugins
-
-    # for obs studio
-    gst-libav
-    gst-plugin-pipewire
-    gst-plugins-bad
-    gst-plugins-bad-libs
-    zbar        # bar code reader
-    imagemagick # zbar needs imagemagick
-    gst-plugins-base
-    gst-plugins-base-libs
-    gst-plugins-ugly
-    gstreamer
-
-    mpc      # music
-    mpd      # music
-    timidity # mpd depedencie
-    arandr   # screen
-    mpv      # video
-
-    feh # wallpaper
-    fastfetch
-    xdg-user-dirs
-    xdg-open
-    cpupower # tuning cpu frequency
   )
+
   yay -S "${PACKAGES[@]}"
-  echo "exec i3" >$HOME/.xinitrc
-  echo "startx
-[[ -f ~/.bashrc ]] && . ~/.bashrc" >$HOME/.bash_profile
-  if [[ ! -f $HOME/.env ]]; then
-    echo "LATITUDE=0
-  LONGITUDE=0
-  GEMINI_API=0
-  " >$HOME/.env
-  fi
   xdg-user-dirs-update
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+  gsettings set org.gnome.desktop.interface cursor-theme "Qogir-cursors"
 }
 
 function utilities_pkgs {
@@ -339,6 +224,7 @@ function utilities_pkgs {
     bat
     ffmpeg
     pacman-contrib # perl neovim sudo vim and most important checkupdates
+    git-delta
   )
   yay -S "${PACKAGES[@]}"
   [[ -n $(command -v go) ]] && go install github.com/gsamokovarov/jump@latest
@@ -361,13 +247,6 @@ function amd_pkgs {
   yay -S "${AMD_PACKAGES[@]}"
 }
 
-function emacs_pkgs {
-  PACKAGES=(
-    emacs
-  )
-  yay -S "${PACKAGES[@]}"
-}
-
 function main {
   ACTION="$1"
 
@@ -388,11 +267,8 @@ function main {
 
   if [[ $ACTION == "install_packages" ]]; then
     while confirm "Do you want to install dotfiles packages?"; do
-      INSTALLATION="$(gum choose i3 hyprland tmux utilities neovim vim amd emacs)"
+      INSTALLATION="$(gum choose hyprland tmux utilities neovim vim amd)"
       case "$INSTALLATION" in
-      i3)
-        i3_pkgs
-        ;;
       hyprland)
         hypr_pkgs
         ;;
@@ -410,9 +286,6 @@ function main {
         ;;
       utilities)
         utilities_pkgs
-        ;;
-      emacs)
-        emacs_pkgs
         ;;
       *)
         if ! confirm "continue?"; then

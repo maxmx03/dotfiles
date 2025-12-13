@@ -4,7 +4,7 @@ export WAYLAND_DISPLAY=wayland-1
 export XDG_RUNTIME_DIR=/run/user/1000
 declare wallpapers wallpaper total_wallpapers random_index
 
-wallpapers=($HOME/wallpapers/*)
+wallpapers=($HOME/.wallpapers/*)
 total_wallpapers=${#wallpapers[@]}
 random_index=$((RANDOM % "$total_wallpapers"))
 wallpaper=${wallpapers["$random_index"]}
