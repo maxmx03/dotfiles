@@ -10,7 +10,7 @@ HISTSIZE=5000
 HISTFILE=~/.bash_history
 HISTCONTROL=ignoredups
 export EDITOR="nvim"
-export BROWSER=brave
+export BROWSER=google-chrome-stable
 export FZF_DEFAULT_COMMAND='fd -t f -s -H --strip-cwd-prefix=always'
 export FZF_DEFAULT_OPTS="
 --border=rounded
@@ -81,17 +81,21 @@ if [[ "$TERM" = "xterm-256color" ]]; then
 fi
 . "$HOME/.cargo/env"
 
-# fnm
-FNM_PATH="/home/maxmx03/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env)"
-fi
-
 if [ -d "/var/lib/flatpak/exports/share" ]; then
   export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:${XDG_DATA_DIRS}"
 fi
 
 if [ -d "$HOME/.local/share/flatpak/exports/share" ]; then
   export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:${XDG_DATA_DIRS}"
+fi
+
+# fnm
+FNM_PATH="/home/milianor/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env)"
+fi
+
+if [[ -n $(command -v fastfetch) ]]; then
+  fastfetch
 fi
