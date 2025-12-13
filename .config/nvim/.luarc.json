@@ -6,6 +6,7 @@
     "~/.local/share/nvim/lazy/indent-blankline.nvim",
     "~/.local/share/nvim/lazy/rainbow-delimiters.nvim",
     "~/.local/share/nvim/lazy/markview.nvim",
+    "~/.local/share/nvim/lazy/auto-session",
     "${3rd}/luv/library",
     "${3rd}/busted/library",
     "${3rd}/luassert/library"

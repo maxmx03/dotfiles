@@ -6,8 +6,8 @@ autocmd('LspAttach', {
     local lsp_signature = require 'lsp_signature'
     lsp_signature.on_attach({
       floating_window = false,
-      hint_prefix = ' ',
-      hint_scheme = 'String',
+      hint_prefix = ' ',
+      hint_scheme = 'LspInlayHint',
     }, bufnr)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
@@ -45,7 +45,7 @@ autocmd('LspAttach', {
     if client:supports_method 'textDocument/documentSymbol' then
       local navic = require 'nvim-navic'
       navic.attach(client, bufnr)
-      vim.o.winbar = "%t %{%v:lua.require'nvim-navic'.get_location()%}"
+      vim.o.winbar = " %t %{%v:lua.require'nvim-navic'.get_location()%}"
     end
   end,
 })
@@ -53,46 +53,6 @@ autocmd('LspAttach', {
 autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
-  end,
-})
-
-autocmd('FileType', {
-  pattern = {
-    'javascript',
-    'typescript',
-    'html',
-    'svelte',
-    'javascriptreact',
-    'typescriptreact',
-    'css',
-    'scss',
-    'vue',
-  },
-  callback = function()
-    vim.bo.tabstop = 2
-    vim.bo.shiftwidth = 2
-    vim.bo.softtabstop = 2
-    vim.bo.expandtab = true
-  end,
-})
-
-autocmd('FileType', {
-  pattern = 'go',
-  callback = function()
-    vim.bo.tabstop = 4
-    vim.bo.shiftwidth = 4
-    vim.bo.softtabstop = 4
-    vim.bo.expandtab = false
-  end,
-})
-
-autocmd('FileType', {
-  pattern = 'python',
-  callback = function()
-    vim.bo.tabstop = 4
-    vim.bo.shiftwidth = 4
-    vim.bo.softtabstop = 4
-    vim.bo.expandtab = true
   end,
 })
 
@@ -107,7 +67,7 @@ autocmd('BufWinEnter', {
 autocmd({ 'BufWinLeave' }, {
   pattern = { '*.md' },
   callback = function()
-    vim.opt.colorcolumn = '120'
+    vim.opt.colorcolumn = ''
     vim.opt.textwidth = 120
   end,
 })
@@ -123,8 +83,8 @@ autocmd('Filetype', {
 autocmd('BufEnter', {
   pattern = { 'bash' },
   callback = function()
-    if not (vim.fn.mode() == 't') then
-      vim.cmd 'startinsert'
-    end
+    vim.defer_fn(function()
+      vim.cmd.startinsert()
+    end, 0)
   end,
 })

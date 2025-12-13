@@ -22,7 +22,7 @@ o.listchars:append { tab = '→ ' }
 o.wrap = true
 o.formatoptions = 'jcroqlnt'
 o.textwidth = 120
-o.colorcolumn = '120'
+o.colorcolumn = ''
 o.undofile = true
 o.undodir = fn.stdpath 'cache' .. '/undo'
 o.shortmess:append { W = true, c = true, C = true, F = true }

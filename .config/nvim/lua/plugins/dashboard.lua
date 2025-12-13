@@ -45,8 +45,8 @@ return {
               icon = '󰨭 ',
               desc = 'Projects',
               key = 'p',
-              -- keymap = 'SPC s f',
-              action = 'Telescope projects',
+              keymap = 'SPC t p',
+              action = 'Telescope session-lens',
             },
             {
               icon = ' ',

@@ -1,10 +1,10 @@
 local map = vim.keymap.set
 local opts = { silent = true }
 
-map('x', '<a-t>', ':!gemini table<cr>')
-map('x', '<a-b>', ':!gemini br<cr>')
-map('x', '<a-e>', ':!gemini en<cr>')
-map('x', '<a-g>', ':!gemini grammar<cr>')
+map('x', '<a-t>', ':!gen table<cr>')
+map('x', '<a-b>', ':!gen br<cr>')
+map('x', '<a-e>', ':!gen en<cr>')
+map('x', '<a-g>', ':!gen grammar<cr>')
 map('n', '<tab>', '<cmd>WindowPick<cr>', opts)
 map('n', '<c-left>', '<c-w>h', opts)
 map('n', '<c-right>', '<c-w>l', opts)
@@ -14,3 +14,7 @@ map('n', 'gt', '<cmd>MarkdownToggleTask<cr>', opts)
 map('n', '<F3>', '<cmd>Runner<cr>', opts)
 map('n', '+', '<c-a>', opts)
 map('n', '-', '<c-x>', opts)
+map('n', '<M-left>', '<cmd>BufferLineCyclePrev<cr>', opts)
+map('n', '<M-right>', '<cmd>BufferLineCycleNext<cr>', opts)
+map('n', '<M-down>', '<cmd>bd<cr>', opts)
+map('n', '<M-up>', '<cmd>BufferLinePick<cr>', opts)
