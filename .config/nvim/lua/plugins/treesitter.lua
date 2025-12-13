@@ -21,7 +21,7 @@ return {
           'markdown',
           'markdown_inline',
           'todotxt',
-          'latex',
+          -- 'latex',
           'yaml',
           'query',
           'bash',
@@ -44,9 +44,9 @@ return {
       }
     end,
   },
-  {
-    'davidmh/mdx.nvim',
-    config = true,
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  },
+  -- {
+  --   'davidmh/mdx.nvim',
+  --   config = true,
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  -- },
 }
