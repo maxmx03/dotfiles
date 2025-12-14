@@ -31,71 +31,50 @@ shopt -s histappend
 
 CARGO_HOME="$HOME/.cargo"
 if [[ -d "$CARGO_HOME" ]]; then
-  export PATH="$CARGO_HOME/bin:$PATH"
-  source "$HOME/.cargo/env"
+	export PATH="$CARGO_HOME/bin:$PATH"
+	source "$HOME/.cargo/env"
 else
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env)"
+	export PATH="$FNM_PATH:$PATH"
+	eval "$(fnm env)"
 else
-  curl -o- https://fnm.vercel.app/install | bash
+	curl -o- https://fnm.vercel.app/install | bash
 fi
 
 declare -a cmps=(
-  "https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
-  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
-  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
-  "https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
+	"https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash"
+	"https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
+	"https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/tmux.completion.sh"
+	"https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/bash/docker"
 )
 
 function wgetcomp {
-  if [[ ! -f "$HOME"/.cache/bash/completions/"$1" ]]; then
-    wget --directory-prefix="$HOME/.cache/bash/completions" "$2"
-  fi
+	if [[ ! -f "$HOME"/.cache/bash/completions/"$1" ]]; then
+		wget --directory-prefix="$HOME/.cache/bash/completions" "$2"
+	fi
 }
 
 function get_class {
-  xprop | grep WM_CLASS | awk '{ print $4 }'
+	xprop | grep WM_CLASS | awk '{ print $4 }'
 }
 
 export -f wgetcomp
+# Tange, O. (2025, November 22). GNU Parallel 20251122 ('Mamdani').
+# Zenodo. https://doi.org/10.5281/zenodo.17692695
 parallel wgetcomp {/} {} ::: "${cmps[@]}"
 
 for comp in "$HOME"/.cache/bash/completions/*; do
-  source "$comp"
+	source "$comp"
 done
 
 if [[ -n $(command -v jump) ]]; then
-  eval "$(jump shell --bind=z)"
+	eval "$(jump shell --bind=z)"
 fi
 
 if [[ -n $(command -v starship) ]]; then
-  eval "$(starship init bash)"
-fi
-
-if [[ "$TERM" = "xterm-256color" ]]; then
-  fastfetch
+	eval "$(starship init bash)"
 fi
 . "$HOME/.cargo/env"
-
-if [ -d "/var/lib/flatpak/exports/share" ]; then
-  export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:${XDG_DATA_DIRS}"
-fi
-
-if [ -d "$HOME/.local/share/flatpak/exports/share" ]; then
-  export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:${XDG_DATA_DIRS}"
-fi
-
-# fnm
-FNM_PATH="/home/milianor/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env)"
-fi
-
-if [[ -n $(command -v fastfetch) ]]; then
-  fastfetch
-fi
