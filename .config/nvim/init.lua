@@ -10,7 +10,7 @@
 -- --- Config and Plugins ---
 ---@type base46.config
 vim.g.base46 = {
-  colorscheme = 'monokai-pro',
+  colorscheme = 'solarized',
   transparency = not vim.g.neovide,
 }
 require 'config.globals'
