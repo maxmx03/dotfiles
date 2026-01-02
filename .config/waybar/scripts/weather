@@ -46,7 +46,7 @@ weather_code=$(echo "$weather" | jq -r '.current.weather_code' 2>/dev/null)
 is_day=$(echo "$weather" | jq -r '.current.is_day' 2>/dev/null)
 
 if [ -z "$weather_code" ]; then
-	echo "⛅"
+	echo ""
 else
 	if [ "$is_day" == "0" ] && [ "$weather_code" == "0" ]; then
 		icon="🌙"
