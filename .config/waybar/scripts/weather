@@ -41,20 +41,23 @@ declare -A WEATHER_CODES=(
 )
 
 # api: https://open-meteo.com/
-weather=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&longitude=${LONGITUDE}&current=apparent_temperature,weather_code&timezone=auto")
+weather=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&longitude=${LONGITUDE}&current=temperature_2m,weather_code,is_day&timezone=auto")
 weather_code=$(echo "$weather" | jq -r '.current.weather_code' 2>/dev/null)
+is_day=$(echo "$weather" | jq -r '.current.is_day' 2>/dev/null)
 
 if [ -z "$weather_code" ]; then
 	echo "⛅"
 else
-	feels_like=$(echo "$weather" | jq -r '.current.apparent_temperature')
-
-	tempint=$(echo "$feels_like" | cut -d. -f1)
+	if [ "$is_day" == "0" ] && [ "$weather_code" == "0" ]; then
+		icon="🌙"
+	else
+		icon="${WEATHER_CODES[$weather_code]}"
+	fi
+	temp=$(echo "$weather" | jq -r '.current.temperature_2m')
+	tempint=$(echo "$temp" | cut -d. -f1)
 	extrachar=''
 	if [[ $tempint -gt 0 && $tempint -lt 10 ]]; then
 		extrachar='+'
 	fi
-	text=$(printf "%s %s°C" "${WEATHER_CODES[$weather_code]}" "$extrachar$feels_like")
-
-	echo "${text}"
+	printf "%s %s°C" "$icon" "$extrachar$temp"
 fi

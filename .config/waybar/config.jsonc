@@ -54,9 +54,10 @@
 		"move-to-monitor": true,
 		"format": "{icon}",
 		"format-icons": {
-			"active": "",
-			"default": "",
-			"empty": "",
+			"1": "",
+			"2": "󰈹",
+			"3": "󰉋",
+			"4": "",
 		},
 		"persistent-workspaces": {
 			"1": "HDMI-A-1",
@@ -89,7 +90,7 @@
 	"custom/weather": {
 		"tooltip": true,
 		"format": "{}",
-		"interval": 120,
+		"interval": 1800,
 		"exec": "~/.config/waybar/scripts/weather",
 		"return-type": "string",
 	},

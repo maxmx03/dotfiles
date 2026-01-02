@@ -24,12 +24,14 @@
   #workspaces {
     button {
       color: $base01;
+      margin: 0px 5px;
       transition: color 800ms;
 
       &:hover,
       &.active {
         color: $accent;
         background: none;
+        font-size: 18px;
       }
     }
   }
