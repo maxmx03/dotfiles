@@ -1,4 +1,8 @@
-if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
-  Hyprland
-fi
+#
+# ~/.bash_profile
+#
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
+  start-hyprland
+fi

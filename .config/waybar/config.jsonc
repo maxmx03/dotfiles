@@ -1,116 +1,116 @@
 {
-  "layer": "top",
-  "position": "top",
-  "margin-top": 3,
-  "margin-bottom": 0,
-  "output": [
-    "HDMI-A-1"
-  ],
-  "modules-left": [
-    "custom/logo",
-    "hyprland/workspaces",
-    "hyprland/window"
-  ],
-  "modules-center": [
-    "clock",
-  ],
-  "modules-right": [
-    "pulseaudio",
-    "custom/weather",
-    "tray",
-    "custom/powermenu",
-  ],
-  "custom/logo": {
-    "format": "󰥓",
-    "on-click": "~/.config/waybar/scripts/wallpaper",
-    "tooltip": false,
-  },
-  "tray": {
-    "icon-size": 24,
-    "spacing": 10,
-  },
-  "hyprland/window": {
-    "format": "{}",
-    "rewrite": {
-      "(\\d\\. )?(.*) terminal": "<span color=\"#f8f9fa\"> Terminal</span>",
-      "terminal (.*)": "<span color=\"#f8f9fa\"></span>",
-      "terminal": "<span color=\"#f8f9fa\"> Terminal</span>",
-      "(\\d\\. )?(.*) Brave": "<span color=\"#f8f9fa\">󰈹 Brave</span>",
-      "Brave (.*)": "<span color=\"#f8f9fa\">󰈹 Brave</span>",
-      "Brave": "<span color=\"#f8f9fa\">󰈹 Brave</span>",
-      "(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
-      "Mozilla Firefox (.*)": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
-      "Mozilla Firefox": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
-      "(\\d\\. )?(.*) Google Chrome": "<span color=\"#f8f9fa\"> Google Chrome</span>",
-      "Google Chrome (.*)": "<span color=\"#f8f9fa\"> Google Chrome</span>",
-      "Google Chrome": "<span color=\"#f8f9fa\"> Google Chrome</span>",
-    },
-    "separate-outputs": false,
-  },
-  "hyprland/workspaces": {
-    "active-only": false,
-    "all-outputs": false,
-    "show-special": true,
-    "move-to-monitor": true,
-    "format": "{icon}",
-    "format-icons": {
-      "active": "",
-      "default": "",
-      "empty": "",
-    },
-    "persistent-workspaces": {
-      "1": "HDMI-A-1",
-      "2": "HDMI-A-1",
-      "3": "HDMI-A-1",
-    },
-    "on-scroll-down": "hyprctl dispatch workspace e-1",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "sort-by": "number",
-  },
-  "custom/powermenu": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "exec ~/.config/waybar/scripts/powermenu",
-  },
-  "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
-    "format-icons": {
-      "headphone": "󰋎",
-      "default": [
-        "",
-        ""
-      ],
-    },
-    "scroll-step": 1,
-    "on-click": "pavucontrol",
-  },
-  "custom/weather": {
-    "tooltip": true,
-    "format": "{}",
-    "interval": 120,
-    "exec": "~/.config/waybar/scripts/weather",
-    "return-type": "string",
-  },
-  "clock": {
-    "interval": 60,
-    "format": "{:%a - %H:%M}",
-    "max-length": 25,
-    "timezone": "America/Sao_Paulo",
-    "tooltip-format": "<span background='#212529'><tt><small>{calendar}</small></tt></span>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#c1c0bf'><b>{}</b></span>",
-        "days": "<span color='#c1c0bf'><b>{}</b></span>",
-        "weeks": "<span color='#ab9df2'><b>W{}</b></span>",
-        "weekdays": "<span color='#c1c0bf'><b>{}</b></span>",
-        "today": "<span background='#ff6188' color='#000000'><b>{}</b></span>",
-      },
-    },
-  },
+	"layer": "top",
+	"position": "top",
+	"margin-top": 3,
+	"margin-bottom": 0,
+	"output": [
+		"HDMI-A-1"
+	],
+	"modules-left": [
+		"custom/logo",
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+	"modules-center": [
+		"clock",
+	],
+	"modules-right": [
+		"pulseaudio",
+		"custom/weather",
+		"tray",
+		"custom/powermenu",
+	],
+	"custom/logo": {
+		"on-click": "~/.config/hypr/wallpaper.sh",
+		"format": "󰥓",
+		"tooltip": false,
+	},
+	"tray": {
+		"icon-size": 24,
+		"spacing": 10,
+	},
+	"hyprland/window": {
+		"format": "{}",
+		"rewrite": {
+			"(\\d\\. )?(.*) terminal": "<span color=\"#f8f9fa\"> Terminal</span>",
+			"terminal (.*)": "<span color=\"#f8f9fa\"></span>",
+			"terminal": "<span color=\"#f8f9fa\"> Terminal</span>",
+			"(\\d\\. )?(.*) Brave": "<span color=\"#f8f9fa\">󰈹 Brave</span>",
+			"Brave (.*)": "<span color=\"#f8f9fa\">󰈹 Brave</span>",
+			"Brave": "<span color=\"#f8f9fa\">󰈹 Brave</span>",
+			"(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
+			"Mozilla Firefox (.*)": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
+			"Mozilla Firefox": "<span color=\"#f8f9fa\">󰈹 Firefox</span>",
+			"(\\d\\. )?(.*) Google Chrome": "<span color=\"#f8f9fa\"> Google Chrome</span>",
+			"Google Chrome (.*)": "<span color=\"#f8f9fa\"> Google Chrome</span>",
+			"Google Chrome": "<span color=\"#f8f9fa\"> Google Chrome</span>",
+		},
+		"separate-outputs": false,
+	},
+	"hyprland/workspaces": {
+		"active-only": false,
+		"all-outputs": false,
+		"show-special": true,
+		"move-to-monitor": true,
+		"format": "{icon}",
+		"format-icons": {
+			"active": "",
+			"default": "",
+			"empty": "",
+		},
+		"persistent-workspaces": {
+			"1": "HDMI-A-1",
+			"2": "HDMI-A-1",
+			"3": "HDMI-A-1",
+		},
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"sort-by": "number",
+	},
+	"custom/powermenu": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "exec ~/.config/waybar/scripts/powermenu",
+	},
+	"pulseaudio": {
+		"format": "{icon}   {volume}%",
+		"format-bluetooth": "{volume}% {icon}",
+		"format-muted": "",
+		"format-icons": {
+			"headphone": "󰋎",
+			"default": [
+				"",
+				""
+			],
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol",
+	},
+	"custom/weather": {
+		"tooltip": true,
+		"format": "{}",
+		"interval": 120,
+		"exec": "~/.config/waybar/scripts/weather",
+		"return-type": "string",
+	},
+	"clock": {
+		"interval": 60,
+		"format": "{:%a - %H:%M}",
+		"max-length": 25,
+		"timezone": "America/Sao_Paulo",
+		"tooltip-format": "<span background='#212529'><tt><small>{calendar}</small></tt></span>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#c1c0bf'><b>{}</b></span>",
+				"days": "<span color='#c1c0bf'><b>{}</b></span>",
+				"weeks": "<span color='#ab9df2'><b>W{}</b></span>",
+				"weekdays": "<span color='#c1c0bf'><b>{}</b></span>",
+				"today": "<span background='#ff6188' color='#000000'><b>{}</b></span>",
+			},
+		},
+	},
 }

@@ -1,3 +1,3 @@
 if test -z "$DISPLAY"
-  Hyprland
+  start-hyprland
 end
