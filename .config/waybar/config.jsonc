@@ -9,7 +9,8 @@
 	"modules-left": [
 		"custom/logo",
 		"hyprland/workspaces",
-		"hyprland/window"
+		"hyprland/window",
+		"mpd"
 	],
 	"modules-center": [
 		"clock",
@@ -99,7 +100,7 @@
 		"format": "{:%a - %H:%M}",
 		"max-length": 25,
 		"timezone": "America/Sao_Paulo",
-		"tooltip-format": "<span background='#212529'><tt><small>{calendar}</small></tt></span>",
+		"tooltip-format": "<span background='#1c1c1e'><tt><small>{calendar}</small></tt></span>",
 		"calendar": {
 			"mode": "year",
 			"mode-mon-col": 3,
@@ -110,8 +111,38 @@
 				"days": "<span color='#c1c0bf'><b>{}</b></span>",
 				"weeks": "<span color='#ab9df2'><b>W{}</b></span>",
 				"weekdays": "<span color='#c1c0bf'><b>{}</b></span>",
-				"today": "<span background='#ff6188' color='#000000'><b>{}</b></span>",
+				"today": "<span background='#ff6188' color='#1c1c1e'><b>{}</b></span>",
 			},
 		},
+	},
+	"mpd": {
+		"format": "{stateIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+		"format-disconnected": "Disconnected ",
+		"format-stopped": "{stateIcon} Stopped ",
+		"unknown-tag": "N/A",
+		"interval": 10,
+		"consume-icons": {
+			"on": " "
+		},
+		"random-icons": {
+			"off": "<span color=\"#f53c3c\"></span> ",
+			"on": " "
+		},
+		"repeat-icons": {
+			"on": " "
+		},
+		"single-icons": {
+			"on": "1 "
+		},
+		"state-icons": {
+			"playing": "",
+			"paused": ""
+		},
+		"tooltip-format": "MPD (connected)",
+		"tooltip-format-disconnected": "MPD (disconnected)",
+		// Comandos de clique para facilitar a vida
+		"on-click": "mpc toggle",
+		"on-scroll-up": "mpc volume +5",
+		"on-scroll-down": "mpc volume -5"
 	},
 }
