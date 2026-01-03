@@ -21,4 +21,4 @@ fi
 yay -S --needed - <pkglist.txt
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal foot
-systemctl --user enable --now pipewire pipewire-pulse wireplumber
+systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd

@@ -36,6 +36,8 @@ linux-firmware 20251125-2
 loupe 49.1-1
 man-db 2.13.1-1
 mesa-utils 9.0.0-7
+mpc 0.35-1
+mpd 0.24.6-2
 nautilus 49.2-1
 neovim 0.11.5-1
 network-manager-applet 1.36.0-1
@@ -54,11 +56,13 @@ pipewire 1:1.4.9-2
 pipewire-alsa 1:1.4.9-2
 pipewire-jack 1:1.4.9-2
 pipewire-pulse 1:1.4.9-2
+qbittorrent 5.1.4-1
 ripgrep 15.1.0-1
 rofi 2.0.0-1
 slurp 1.5.0-1
 steam 1.0.0.85-1
 timeshift 25.12.2-1
+timidity++ 2.15.0-12
 ttf-jetbrains-mono-nerd 3.4.0-1
 unrar 1:7.2.3-1
 unzip 6.0-23
