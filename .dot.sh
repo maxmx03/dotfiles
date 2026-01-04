@@ -18,7 +18,20 @@ if [[ -z $(command -v yay) ]]; then
 	fi
 fi
 
+# pacman -Qen > pkglist.txt # oficial
+# pacman -Qem >> pkglist.txt # aur
+
 yay -S --needed - <pkglist.txt
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal foot
 systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd
+
+# --- Memory otimization for Gaming and Emuladors
+sudo mkdir -p /etc/sysctl.d
+echo "vm.max_map_count=1048576" | sudo tee /etc/sysctl.d/99-gaming.conf
+
+sudo mkdir -p /etc/security/limits.d
+sudo bash -c "cat <<EOF > /etc/security/limits.d/99-gaming.conf
+$USER soft memlock unlimited
+$USER hard memlock unlimited
+EOF"
