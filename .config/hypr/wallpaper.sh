@@ -16,4 +16,9 @@ function change_bg() {
 	fi
 }
 
-change_bg
+if [[ -d "$HOME/Imagens/wallpapers" ]]; then
+	change_bg
+else
+	mpvpaper -o "panscan=1.0 --loop-playlist shuffle" '*' 'https://youtube.com/playlist?list=PLErvQdcMEGccLDcj31W056ac9EMGjHUqa&si=zTGutBMMVc7WJiT_' &
+	disown
+fi
