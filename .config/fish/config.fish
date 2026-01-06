@@ -22,11 +22,10 @@ alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 set -U __done_notify_sound 1
 set -U __done_notification_urgency_level low
-# set FNM_PATH "$HOME/.local/share/fnm"
-# set CARGO_PATH "$HOME/.cargo/bin"
-set BIN_PATH "$HOME/.local/bin"
-set ANDROID_SDK "$HOME/Android/Sdk"
-set FLUTTER_PATH "$HOME/develop/flutter_linux_3.38.5-stable/flutter/bin"
-set -gx PATH $BIN_PATH $FLUTTER_PATH $ANDROID_SDK $PATH
+# fish_add_path "$HOME/.local/share/fnm"
+fish_add_path "$HOME/Android/Sdk/platform-tools"
+fish_add_path "$HOME/.local/bin"
+fish_add_path "$HOME/.cargo/bin"
+fish_add_path "$HOME/develop/flutter_linux_3.38.5-stable/flutter/bin"
 set -gx EDITOR nvim
 # eval (fnm env)
