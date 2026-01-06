@@ -100,6 +100,7 @@
 		"format": "{:%a - %H:%M}",
 		"max-length": 25,
 		"timezone": "America/Sao_Paulo",
+		"locale": "pt_BR.UTF-8",
 		"tooltip-format": "<span background='#1c1c1e'><tt><small>{calendar}</small></tt></span>",
 		"calendar": {
 			"mode": "year",
@@ -109,9 +110,9 @@
 			"format": {
 				"months": "<span color='#c1c0bf'><b>{}</b></span>",
 				"days": "<span color='#c1c0bf'><b>{}</b></span>",
-				"weeks": "<span color='#ab9df2'><b>W{}</b></span>",
+				"weeks": "<span color='#4EC9B0'><b>W{}</b></span>",
 				"weekdays": "<span color='#c1c0bf'><b>{}</b></span>",
-				"today": "<span background='#ff6188' color='#1c1c1e'><b>{}</b></span>",
+				"today": "<span background='#4FC1FF' color='#1c1c1e'><b>{}</b></span>",
 			},
 		},
 	},
