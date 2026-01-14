@@ -50,8 +50,8 @@
 	},
 	"tray": {
 		"color": "#e0e0e0",
-		"icon-size": 24,
-		"spacing": 10,
+		"icon-size": 16,
+		"spacing": 20,
 	},
 	"hyprland/window": {
 		"format": "{}",
@@ -137,7 +137,6 @@
 		},
 		"tooltip-format": "MPD (connected)",
 		"tooltip-format-disconnected": "MPD (disconnected)",
-		// Comandos de clique para facilitar a vida
 		"on-click": "mpc toggle",
 		"on-scroll-up": "mpc volume +5",
 		"on-scroll-down": "mpc volume -5"
