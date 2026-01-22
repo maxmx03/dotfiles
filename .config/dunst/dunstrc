@@ -42,7 +42,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 1
-    frame_color = "#1c1c1e"
+    frame_color = "#264f78"
     highlight = "#0091ff"
     gap_size = 0
     separator_color = auto

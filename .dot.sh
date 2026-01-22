@@ -24,7 +24,7 @@ fi
 yay -S --needed - <pkglist.txt
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal foot
-systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd
+systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd atd
 
 # --- Memory otimization for Gaming and Emuladors
 sudo mkdir -p /etc/sysctl.d
