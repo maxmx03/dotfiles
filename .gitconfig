@@ -1,0 +1,38 @@
+[user]
+  name = "Max Miliano"
+  email = "milianordelcanto@gmail.com"
+[credential]
+  helper = store
+[pull]
+  rebase = true
+[init]
+  defaultBranch = main
+[diff]
+  tool = nvimdiff
+[merge]
+  tool = nvimdiff
+  conflictstyle = diff3
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  dark = true
+  side-by-side = true
+[merge]
+  conflictstyle = zdiff3
+[alias]
+  dot = !git --git-dir=$HOME/.dot.git --work-tree=$HOME
+  ai = add -i
+  cm = !commit
+  df = !git_diff
+  dm = difftool --diff-filter=M
+  ds = difftool --staged
+  dd = difftool --diff-filter=D
+  st = status
+  history = log --oneline --decorate --graph --all
+  unstage = restore --staged --
+  undo = restore
+[fetch]
+  prune = true
