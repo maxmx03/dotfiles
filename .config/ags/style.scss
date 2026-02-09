@@ -1,0 +1,271 @@
+* {
+  font-family:
+    "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Lucida Grande",
+    "Roboto", "Ubuntu", "Cantarell", "Noto Sans", "Font Awesome 6 Free",
+    "Symbols Nerd Font", "Noto Sans Symbols", "Noto Color Emoji";
+  font-size: 14px;
+}
+
+.Bar {
+  background-color: rgba(20, 20, 20, 0.6);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0;
+  margin: 4px 8px;
+  backdrop-filter: blur(10px);
+}
+
+.bar-container {
+  margin: 2px;
+  -gtkwidget-spacing: 10px;
+}
+
+.left-section,
+.center-section,
+.right-section {
+  padding: 6px 12px;
+}
+
+.arch-logo {
+  margin-right: 15px;
+  padding: 4px;
+  background-color: transparent;
+}
+
+.workspaces {
+  -gtkwidget-spacing: 8px;
+}
+
+.workspace {
+  min-width: 32px;
+  min-height: 32px;
+  margin: 0 2px;
+  padding: 0;
+  border-radius: 10px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+  border: none;
+  box-shadow: none;
+}
+
+.workspace:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.workspace.occupied {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.workspace.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.workspace.urgent {
+  background-color: rgba(255, 100, 100, 0.3);
+  color: #fff;
+  animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.datetime {
+  padding: 5px 15px;
+  border-radius: 6px;
+  background-color: transparent;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.datetime:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidemenu {
+  -gtkwidget-spacing: 8px;
+}
+
+.volume-control,
+.network-control,
+.search,
+.tray-toggle {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  font-family: "Symbols Nerd Font", "Noto Sans Symbols", "Font Awesome 6 Free";
+}
+
+.volume-control:hover,
+.network-control:hover,
+.search:hover,
+.tray-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.centerbox {
+  margin: 0 auto;
+}
+.quick-settings-container {
+  background-color: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  color: #eeeeee;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  .qs-page {
+    transition: all 0.3s ease;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+    opacity: 0.9;
+  }
+
+  .volume-slider-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    slider {
+      trough {
+        min-height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+
+        highlight {
+          background: #3498db;
+          border-radius: 2px;
+        }
+      }
+
+      handle {
+        background: #ffffff;
+        min-width: 14px;
+        min-height: 14px;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  .icon-button, .arrow-button {
+    background: transparent;
+    border-radius: 50%;
+    padding: 8px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .qs-button {
+    background: transparent;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .app-name {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 8px;
+  }
+}
+
+.systray {
+  -gtkwidget-spacing: 4px;
+  margin: 0 4px;
+}
+
+.tray-item button {
+  padding: 4px;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.tray-item button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.launcher-trigger {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  margin-right: 8px;
+}
+
+.launcher-trigger:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.launcher-container {
+  background-color: rgba(30, 30, 30, 0.95);
+  color: white;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+}
+
+.launcher-container entry {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.app-list {
+  padding: 4px;
+}
+
+.app-button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  margin: 2px 0;
+}
+
+.app-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-button label {
+  font-size: 15px;
+  font-weight: 500;
+}
