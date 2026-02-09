@@ -1,3 +1,5 @@
+@use "./src/styles/powermenu.scss";
+
 * {
   font-family:
     "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Lucida Grande",
@@ -18,7 +20,6 @@
 
 .bar-container {
   margin: 2px;
-  -gtkwidget-spacing: 10px;
 }
 
 .left-section,
@@ -31,10 +32,6 @@
   margin-right: 15px;
   padding: 4px;
   background-color: transparent;
-}
-
-.workspaces {
-  -gtkwidget-spacing: 8px;
 }
 
 .workspace {
@@ -94,14 +91,11 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.sidemenu {
-  -gtkwidget-spacing: 8px;
-}
-
 .volume-control,
 .network-control,
 .search,
-.tray-toggle {
+.tray-toggle,
+.power-menu-trigger {
   padding: 5px 10px;
   border-radius: 6px;
   background-color: transparent;
@@ -112,7 +106,8 @@
 .volume-control:hover,
 .network-control:hover,
 .search:hover,
-.tray-toggle:hover {
+.tray-toggle:hover,
+.power-menu-trigger:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -202,7 +197,6 @@
 }
 
 .systray {
-  -gtkwidget-spacing: 4px;
   margin: 0 4px;
 }
 

@@ -1,0 +1,84 @@
+$bg: rgba(20, 20, 20, 0.95);
+$fg: #ffffff;
+$border: rgba(255, 255, 255, 0.1);
+$hover: rgba(255, 255, 255, 0.1);
+
+window#powermenu {
+    all: unset;
+    color: $fg;
+
+    .main {
+        background: $bg;
+        padding: 20px;
+        border: 1px solid $border;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .menubutton {
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        outline: none;
+
+        image {
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            min-height: 80px;
+            min-width: 80px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+        }
+
+        label {
+            color: $fg;
+        }
+
+        &:focus image, &:hover image {
+            background: $hover;
+            transform: scale(1.05);
+        }
+    }
+}
+
+window#verification {
+    all: unset;
+    color: $fg;
+
+    .main {
+        background: $bg;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid $border;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .label {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+        border-radius: 8px;
+        font-weight: normal;
+        outline: none;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid $border;
+        min-width: 120px;
+        color: $fg;
+        transition: all 0.2s ease;
+
+        &:focus, &:hover {
+            background: $hover;
+        }
+    }
+}

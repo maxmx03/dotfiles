@@ -1,39 +1,43 @@
-import app from "ags/gtk4/app"
-import { Astal, Gdk, Gtk } from "ags/gtk4"
-import { execAsync } from "ags/process"
-import { createPoll } from "ags/time"
-import { createBinding } from "ags"
-import Workspaces from "./Workspaces"
-import GLib from "gi://GLib?version=2.0"
-import SysTray from "./SysTray"
-import VolumeMenu from "./VolumeMenu"
-import Wp from "gi://AstalWp?version=0.1"
+import app from "ags/gtk4/app";
+import { Astal, Gdk, Gtk } from "ags/gtk4";
+import { execAsync } from "ags/process";
+import { createPoll } from "ags/time";
+import { createBinding } from "ags";
+import Workspaces from "./Workspaces";
+import GLib from "gi://GLib?version=2.0";
+import SysTray from "./SysTray";
+import VolumeMenu from "./VolumeMenu";
+import Wp from "gi://AstalWp?version=0.1";
+import { toggleWindow } from "@/windows";
 
 const DateTime = () => {
   const time = createPoll(
     "",
     1000,
     () => GLib.DateTime.new_now_local().format("%a %H:%M")!,
-  )
+  );
 
   return (
-    <button class="datetime" onClicked={() => app.toggle_window("calendar")}>
+    <button
+      class="datetime"
+      onClicked={() => app.toggle_window("calendar")}
+    >
       <label label={time} />
     </button>
-  )
-}
+  );
+};
 
 const VolumeTrigger = () => {
-  const speaker = Wp.get_default()?.audio.defaultSpeaker!
-  const volume = createBinding(speaker, "volume")
+  const speaker = Wp.get_default()?.audio.defaultSpeaker!;
+  const volume = createBinding(speaker, "volume");
 
   const icon = createBinding(speaker, "volume").as((v: number) => {
-    if (speaker.mute) return "audio-volume-muted-symbolic"
-    if (v === 0) return "audio-volume-muted-symbolic"
-    if (v < 0.33) return "audio-volume-low-symbolic"
-    if (v < 0.66) return "audio-volume-medium-symbolic"
-    return "audio-volume-high-symbolic"
-  })
+    if (speaker.mute) return "audio-volume-muted-symbolic";
+    if (v === 0) return "audio-volume-muted-symbolic";
+    if (v < 0.33) return "audio-volume-low-symbolic";
+    if (v < 0.66) return "audio-volume-medium-symbolic";
+    return "audio-volume-high-symbolic";
+  });
 
   return (
     <button
@@ -45,8 +49,8 @@ const VolumeTrigger = () => {
         <label label={volume((v: number) => `${Math.floor(v * 100)}%`)} />
       </box>
     </button>
-  )
-}
+  );
+};
 
 const SideMenu = () => {
   return (
@@ -59,12 +63,18 @@ const SideMenu = () => {
       </button>
       <SysTray />
       <VolumeTrigger />
+      <button
+        class="power-menu-trigger"
+        onClicked={() => toggleWindow("powermenu")}
+      >
+        <image iconName="system-shutdown-symbolic" />
+      </button>
     </box>
-  )
-}
+  );
+};
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
-  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
+  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
   return (
     <window
@@ -99,5 +109,5 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         </box>
       </box>
     </window>
-  )
+  );
 }
