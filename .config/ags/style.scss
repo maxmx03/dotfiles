@@ -321,3 +321,166 @@ button {
   box-shadow: none;
   border: none;
 }
+
+// Calendar Dashboard Styles (inspired by reference)
+.datemenu-container {
+  min-width: 300px;
+  
+  .time {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1rem;
+  }
+}
+
+.dash-main {
+  background-color: rgba(20, 20, 20, 0.85);
+  padding: 20px;
+  border-radius: 0 30px 30px 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 8px 8px 2px 1px rgba(255, 255, 255, 0.1);
+}
+
+.time-label {
+  color: #ffffff;
+  font-size: 6.5rem;
+  font-weight: bold;
+}
+
+.uptime-label {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.notifications-container {
+  background-color: rgba(20, 20, 20, 0.85);
+  padding: 16px;
+  border-radius: 20px;
+  margin-right: 8px;
+  min-width: 300px;
+  box-shadow: -8px 8px 2px 1px rgba(255, 255, 255, 0.1);
+}
+
+.window-header {
+  margin-top: 12px;
+  
+  button.clear {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 8px 12px;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    box {
+      color: #ffffff;
+    }
+  }
+  
+  box {
+    color: #ffffff;
+    
+    label {
+      color: #ffffff;
+    }
+  }
+}
+
+.not-found {
+  color: rgba(255, 255, 255, 0.6);
+  
+  image {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.labelSmallBold {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.scroll {
+  min-height: 200px;
+}
+
+.notification-item {
+  margin: 4px 0;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.notification-title {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.notification-body {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+// GTK Calendar styling
+calendar {
+  background-color: rgba(30, 30, 30, 0.85);
+  box-shadow: -8px 8px 2px 1px rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  min-width: 280px;
+  min-height: 280px;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 16px;
+
+  & header {
+    color: #ffffff;
+    border: unset;
+    padding: 8px 0;
+    font-weight: 600;
+  }
+
+  & grid > * {
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 10px;
+    margin: 0.1rem;
+    color: #ffffff;
+  }
+
+  & .day-number {
+    color: #ffffff;
+
+    &:selected {
+      color: #ffffff;
+      background-color: #3498db;
+      border-radius: 10px;
+    }
+  }
+
+  & .today {
+    border-radius: 10px;
+    margin: 0.1rem;
+    min-width: 30px;
+    min-height: 30px;
+    color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+
+  & .other-month {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  // Day names row
+  & .highlight {
+    color: #3498db;
+    font-weight: 600;
+  }
+
+  // Hover effect
+  &:hover {
+    color: #3498db;
+  }
+}
