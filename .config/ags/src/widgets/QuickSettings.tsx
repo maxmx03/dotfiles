@@ -4,6 +4,7 @@ import { createBinding, createEffect, createState, For } from "ags";
 import app from "ags/gtk4/app";
 import { execAsync } from "ags/process";
 import Pango from "gi://Pango?version=1.0";
+import WallpaperMenu from "./WallpaperMenu";
 
 const [qs_page, qs_page_set] = createState("main");
 
@@ -93,6 +94,16 @@ function MainPage() {
                     cssClasses={["section-title"]}
                 />
                 <box spacing={8}>
+                    <button
+                        hexpand
+                        class="qs-button"
+                        onClicked={() => qs_page_set("wallpaper")}
+                    >
+                        <box spacing={8} halign={Gtk.Align.CENTER}>
+                            <image iconName="preferences-desktop-wallpaper-symbolic" />
+                            <label label="Wallpapers" />
+                        </box>
+                    </button>
                     <button
                         hexpand
                         class="qs-button"
@@ -186,6 +197,7 @@ export default function QuickSettings(gdkmonitor: Gdk.Monitor) {
                 >
                     <MainPage />
                     <VolumePage />
+                    <WallpaperMenu onBack={() => qs_page_set("main")} />
                 </stack>
             </box>
         </window>

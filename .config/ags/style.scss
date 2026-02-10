@@ -194,6 +194,34 @@
     opacity: 0.7;
     margin-top: 8px;
   }
+
+  .wallpaper-grid {
+    padding: 8px;
+
+    .wallpaper-button {
+      padding: 0;
+      margin: 4px;
+      border-radius: 8px;
+      background: transparent;
+      box-shadow: none;
+
+      &:hover .wallpaper-preview {
+        border: 2px solid #3498db;
+      }
+
+      .wallpaper-preview {
+        border-radius: 8px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+        background-color: rgba(255, 255, 255, 0.05);
+
+        image {
+          object-fit: cover;
+        }
+      }
+    }
+  }
 }
 
 .systray {
@@ -205,7 +233,33 @@
   border-radius: 6px;
   background-color: transparent;
   transition: all 0.2s ease;
-}
+  .wallpaper-grid {
+    padding: 8px;
+
+    .wallpaper-button {
+      padding: 0;
+      margin: 4px;
+      border-radius: 8px;
+      background: transparent;
+      box-shadow: none;
+
+      &:hover .wallpaper-preview {
+        border: 2px solid #3498db;
+      }
+
+      .wallpaper-preview {
+        border-radius: 8px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+
+        image {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+} // end quick-settings-container
 
 .tray-item button:hover {
   background-color: rgba(255, 255, 255, 0.1);
