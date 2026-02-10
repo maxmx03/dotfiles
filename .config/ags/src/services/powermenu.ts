@@ -68,43 +68,17 @@ export default class PowerMenu extends GObject.Object {
     }
 
     async action(action: string) {
-        const actions: Record<string, [string, string, string]> = {
-            Sleep: [
-                commands.sleep,
-                "Sleep",
-                `${user} will be sleep automatically in 60 seconds`,
-            ],
-            Reboot: [
-                commands.reboot,
-                "Reboot",
-                "The system will restart automatically in 60 seconds",
-            ],
-            Logout: [
-                commands.logout,
-                "Log Out",
-                `${user} will be logged out automatically in 60 seconds`,
-            ],
-            Shutdown: [
-                commands.shutdown,
-                "Shutdown",
-                "The system will shutdown automatically in 60 seconds",
-            ],
+        const actions: Record<string, string> = {
+            Sleep: commands.sleep,
+            Reboot: commands.reboot,
+            Logout: commands.logout,
+            Shutdown: commands.shutdown,
         };
 
-        const [cmd, title, label] = actions[action]!;
+        const cmd = actions[action];
+        if (!cmd) return;
 
-        this.#cmd = cmd;
-        this.#title = title;
-        this.#label = label;
-
-        this.notify("cmd");
-        this.notify("title");
-        this.notify("label");
-
+        await bash(cmd);
         app.get_window(windows_names.powermenu)?.hide();
-        app.get_window(windows_names.verification)?.show();
-
-        this.#timer.reset();
-        this.#timer.start();
     }
 }

@@ -4,7 +4,7 @@ import Bar from "@/widgets/Bar";
 import Calendar from "@/widgets/Calendar";
 import AppLauncher from "@/widgets/AppLauncher";
 import QuickSettings from "@/widgets/QuickSettings";
-import { PowerMenuWindow, VerificationWindow } from "@/windows/powermenu";
+import { PowerMenuWindow } from "@/windows/powermenu";
 
 app.start({
   css: style,
@@ -15,6 +15,5 @@ app.start({
     app.get_monitors().map(AppLauncher);
     app.get_monitors().map(QuickSettings);
     PowerMenuWindow();
-    VerificationWindow();
   },
 });
