@@ -322,165 +322,157 @@ button {
   border: none;
 }
 
-// Calendar Dashboard Styles (inspired by reference)
-.datemenu-container {
-  min-width: 300px;
-  
-  .time {
-    font-size: 1.5rem;
-  }
-
-  .date {
-    font-size: 1rem;
-  }
-}
-
-.dash-main {
-  background-color: rgba(20, 20, 20, 0.85);
-  padding: 20px;
-  border-radius: 0 30px 30px 0;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 8px 8px 2px 1px rgba(255, 255, 255, 0.1);
-}
-
-.time-label {
-  color: #ffffff;
-  font-size: 6.5rem;
-  font-weight: bold;
-}
-
-.uptime-label {
-  color: #ffffff;
-  font-size: 1rem;
-  margin-bottom: 20px;
+// Calendar Dashboard Styles
+.calendar-window-box {
+  background-color: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  padding: 4px;
 }
 
 .notifications-container {
-  background-color: rgba(20, 20, 20, 0.85);
   padding: 16px;
-  border-radius: 20px;
-  margin-right: 8px;
-  min-width: 300px;
-  box-shadow: -8px 8px 2px 1px rgba(255, 255, 255, 0.1);
-}
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 
-.window-header {
-  margin-top: 12px;
-  
-  button.clear {
-    background-color: transparent;
-    border-radius: 8px;
-    padding: 8px 12px;
-    
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+  .header-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    padding-left: 8px;
+  }
+
+  separator {
+    margin: 12px 0;
+    opacity: 0.1;
+  }
+
+  .scroll {
+    min-height: 400px;
+  }
+
+  .notification-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 4px 8px;
+
+    .notification-header {
+      opacity: 0.8;
+
+      .notification-app-name {
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      button {
+        background: transparent;
+        border-radius: 100%;
+        padding: 4px;
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
     }
-    
-    box {
+
+    .notification-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .notification-body {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+  }
+
+  .dnd-box {
+    padding: 8px 12px;
+    font-weight: 600;
+  }
+
+  .clear-button {
+    background: transparent;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
       color: #ffffff;
     }
   }
-  
-  box {
-    color: #ffffff;
-    
-    label {
+}
+
+.datemenu-container {
+  padding: 24px;
+
+  .dash-main {
+    .time-label {
+      font-size: 8rem;
+      font-weight: 800;
       color: #ffffff;
+      margin-bottom: -10px;
+    }
+
+    .uptime-label {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+
+    .calendar-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 20px;
+      padding: 16px;
+
+      calendar {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        color: #ffffff;
+        min-width: 400px;
+        min-height: 400px;
+        font-size: 1.3rem;
+
+        &.header {
+          color: #ffffff;
+        }
+        &.button {
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
+
+        &:selected {
+          background-color: #3498db;
+          border-radius: 8px;
+        }
+
+        &.highlight {
+          color: #3498db;
+          font-weight: bold;
+        }
+
+        &.today {
+          color: #3498db;
+          background: rgba(52, 152, 219, 0.2);
+          border-radius: 8px;
+        }
+      }
     }
   }
 }
 
 .not-found {
-  color: rgba(255, 255, 255, 0.6);
-  
+  opacity: 0.4;
   image {
-    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 8px;
   }
-}
-
-.labelSmallBold {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.scroll {
-  min-height: 200px;
-}
-
-.notification-item {
-  margin: 4px 0;
-  padding: 8px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-}
-
-.notification-title {
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.notification-body {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-}
-
-// GTK Calendar styling
-calendar {
-  background-color: rgba(30, 30, 30, 0.85);
-  box-shadow: -8px 8px 2px 1px rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  min-width: 280px;
-  min-height: 280px;
-  padding: 20px;
-  border-radius: 20px;
-  margin-top: 16px;
-
-  & header {
-    color: #ffffff;
-    border: unset;
-    padding: 8px 0;
+  label {
+    font-size: 1rem;
     font-weight: 600;
-  }
-
-  & grid > * {
-    min-width: 20px;
-    min-height: 20px;
-    border-radius: 10px;
-    margin: 0.1rem;
-    color: #ffffff;
-  }
-
-  & .day-number {
-    color: #ffffff;
-
-    &:selected {
-      color: #ffffff;
-      background-color: #3498db;
-      border-radius: 10px;
-    }
-  }
-
-  & .today {
-    border-radius: 10px;
-    margin: 0.1rem;
-    min-width: 30px;
-    min-height: 30px;
-    color: #3498db;
-    background-color: rgba(52, 152, 219, 0.1);
-  }
-
-  & .other-month {
-    color: rgba(255, 255, 255, 0.3);
-  }
-
-  // Day names row
-  & .highlight {
-    color: #3498db;
-    font-weight: 600;
-  }
-
-  // Hover effect
-  &:hover {
-    color: #3498db;
   }
 }
