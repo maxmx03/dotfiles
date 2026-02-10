@@ -6,9 +6,9 @@ import { createBinding } from "ags";
 import Workspaces from "./Workspaces";
 import GLib from "gi://GLib?version=2.0";
 import SysTray from "./SysTray";
-import VolumeMenu from "./VolumeMenu";
 import Wp from "gi://AstalWp?version=0.1";
 import { toggleWindow } from "@/windows";
+import { showQSPage } from "./QuickSettings";
 
 const DateTime = () => {
   const time = createPoll(
@@ -42,12 +42,23 @@ const VolumeTrigger = () => {
   return (
     <button
       class="volume-control"
-      onClicked={() => app.toggle_window("quick-settings")}
+      onClicked={() => showQSPage("main")}
     >
       <box spacing={4}>
         <image iconName={icon} />
         <label label={volume((v: number) => `${Math.floor(v * 100)}%`)} />
       </box>
+    </button>
+  );
+};
+
+const WallpaperTrigger = () => {
+  return (
+    <button
+      class="wallpaper-control"
+      onClicked={() => showQSPage("wallpaper")}
+    >
+      <image iconName="preferences-desktop-wallpaper-symbolic" />
     </button>
   );
 };
@@ -62,6 +73,7 @@ const SideMenu = () => {
         <image iconName="system-search-symbolic" />
       </button>
       <SysTray />
+      <WallpaperTrigger />
       <VolumeTrigger />
       <button
         class="power-menu-trigger"

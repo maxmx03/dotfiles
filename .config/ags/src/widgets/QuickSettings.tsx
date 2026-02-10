@@ -8,6 +8,11 @@ import WallpaperMenu from "./WallpaperMenu";
 
 const [qs_page, qs_page_set] = createState("main");
 
+export function showQSPage(page: string) {
+    qs_page_set(page);
+    app.toggle_window("quick-settings");
+}
+
 function VolumeSlider({ stream, icon }: { stream: any; icon: string }) {
     if (!stream) return <box />;
 
