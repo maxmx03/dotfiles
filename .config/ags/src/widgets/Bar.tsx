@@ -7,7 +7,7 @@ import Workspaces from "./Workspaces";
 import GLib from "gi://GLib?version=2.0";
 import SysTray from "./SysTray";
 import Wp from "gi://AstalWp?version=0.1";
-import { toggleWindow } from "@/windows";
+
 import { showQSPage } from "./QuickSettings";
 
 const DateTime = () => {
@@ -71,6 +71,12 @@ const SideMenu = () => {
         onClicked={() => app.toggle_window("launcher")}
       >
         <image iconName="system-search-symbolic" />
+      </button>
+      <button
+        class="window-switcher-trigger"
+        onClicked={() => app.toggle_window("window-switcher")}
+      >
+        <image iconName="view-grid-symbolic" />
       </button>
       <SysTray />
       <WallpaperTrigger />

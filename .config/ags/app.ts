@@ -6,6 +6,7 @@ import AppLauncher from "@/widgets/AppLauncher";
 import QuickSettings from "@/widgets/QuickSettings";
 import NotificationPopups from "@/widgets/NotificationPopups";
 import { PowerMenuWindow } from "@/windows/powermenu";
+import WindowSwitcher from "@/widgets/WindowSwitcher";
 
 app.start({
   css: style,
@@ -15,6 +16,7 @@ app.start({
     app.get_monitors().map(AppLauncher);
     app.get_monitors().map(QuickSettings);
     app.get_monitors().map(NotificationPopups);
+    app.get_monitors().map(WindowSwitcher);
     PowerMenuWindow();
   },
 });

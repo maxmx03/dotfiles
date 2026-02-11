@@ -1,0 +1,72 @@
+// Window Switcher Styles - Normal window size
+.window-switcher-container {
+  background-color: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 16px;
+}
+
+.switcher-header {
+  .switcher-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+}
+
+.client-list {
+  padding: 8px;
+}
+
+.client-item {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+  min-height: 60px;
+  
+  .client-icon {
+    margin-bottom: 4px;
+    opacity: 0.8;
+  }
+  
+  .client-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    
+    .client-icon {
+      opacity: 1;
+    }
+    
+    .client-title {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &.selected {
+    background-color: rgba(52, 152, 219, 0.2);
+    border-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    
+    .client-icon {
+      opacity: 1;
+    }
+    
+    .client-title {
+      color: #ffffff;
+      font-weight: 600;
+    }
+  }
+}
