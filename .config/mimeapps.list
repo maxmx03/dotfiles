@@ -8,8 +8,19 @@ inode/directory=org.gnome.Nautilus.desktop
 image/jpeg=org.gnome.Loupe.desktop
 application/pdf=org.gnome.Papers.desktop
 image/png=org.gnome.Loupe.desktop
+x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop
+x-scheme-handler/magnet=freedownloadmanager_magnet_up.desktop
+application/x-bittorrent=freedownloadmanager_torrent.desktop
+video/webm=mpv.desktop
+x-scheme-handler/obsidian=obsidian.desktop
+application/x-theme=antigravity.desktop
+video/mp4=mpv.desktop
 
 [Added Associations]
 image/jpeg=feh.desktop;org.gnome.Loupe.desktop;
 application/pdf=org.gnome.Papers.desktop;
 image/png=org.gnome.Loupe.desktop;
+application/x-zerosize=org.gnome.Totem.desktop;
+video/webm=mpv.desktop;
+application/x-theme=antigravity.desktop;
+video/mp4=org.gnome.Totem.desktop;mpv.desktop;

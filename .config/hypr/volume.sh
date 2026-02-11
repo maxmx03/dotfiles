@@ -23,25 +23,25 @@ function get_volume_icon {
 	fi
 }
 
-function show_volume_notif {
-	volume=$(get_volume)
-	get_volume_icon
-	notify-send -e -h string:x-canonical-private-synchronous:volume \
-		-h int:value:$volume -t 1000 "Volume" "$volume_icon $volume%"
-}
+# function show_volume_notif {
+# 	volume=$(get_volume)
+# 	get_volume_icon
+# 	notify-send -e -h string:x-canonical-private-synchronous:volume \
+# 		-h int:value:$volume -t 1000 "Volume" "$volume_icon $volume%"
+# }
 
 case $1 in
 up)
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 	wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ $volume_step%+
-	show_volume_notif
+	# show_volume_notif
 	;;
 down)
 	wpctl set-volume @DEFAULT_AUDIO_SINK@ $volume_step%-
-	show_volume_notif
+	# show_volume_notif
 	;;
 mute)
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-	show_volume_notif
+	# show_volume_notif
 	;;
 esac
