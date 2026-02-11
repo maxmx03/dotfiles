@@ -1,5 +1,0 @@
-#!/bin/sh
-
-ags quit
-ags run &
-disown
