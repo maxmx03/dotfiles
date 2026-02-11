@@ -8,7 +8,7 @@ This repository contains my complete system configuration, featuring a modern Wa
 
 ## Screenshot
 
-![Desktop Screenshot](./assets/screenshot.png)
+<img width="2560" height="734" alt="20260210_21h12m01s_grim" src="https://github.com/user-attachments/assets/6ed6625a-90ed-4bc5-8e78-4978ea074342" />
 
 ## Components
 
