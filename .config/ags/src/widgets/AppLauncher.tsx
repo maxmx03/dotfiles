@@ -28,7 +28,7 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
   return (
     <window
       name="launcher"
-      anchor={Astal.WindowAnchor.RIGHT | Astal.WindowAnchor.TOP}
+      anchor={Astal.WindowAnchor.NONE}
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.NORMAL}
       keymode={Astal.Keymode.ON_DEMAND}
@@ -37,10 +37,18 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
       layer={Astal.Layer.OVERLAY}
       marginTop={12}
     >
+      <Gtk.EventControllerKey
+        onKeyPressed={(/* { widget } */ _, keyval: number) => {
+          if (keyval === Gdk.KEY_Escape) {
+            // widget.hide()
+            app.toggle_window("launcher")
+          }
+        }}
+      />
       <box
         orientation={Gtk.Orientation.VERTICAL}
         class="launcher-container"
-        widthRequest={400}
+        widthRequest={800}
         heightRequest={500}
       >
         <entry
