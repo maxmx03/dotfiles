@@ -3,7 +3,6 @@ import app from "ags/gtk4/app";
 export const windows_names = {
     bar: "bar",
     powermenu: "powermenu",
-    verification: "verification",
     applauncher: "launcher",
     calendar: "calendar",
     quicksettings: "quick-settings",

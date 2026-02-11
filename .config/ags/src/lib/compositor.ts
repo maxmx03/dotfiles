@@ -1,6 +1,5 @@
 import AstalHyprland from "gi://AstalHyprland?version=0.1";
 import { Accessor, createBinding } from "ags";
-import { Gdk } from "ags/gtk4";
 
 const hyprland = AstalHyprland.get_default();
 

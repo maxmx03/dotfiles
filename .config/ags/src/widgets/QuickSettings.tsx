@@ -3,7 +3,6 @@ import Wp from "gi://AstalWp?version=0.1";
 import { createBinding, createEffect, createState, For } from "ags";
 import app from "ags/gtk4/app";
 import { execAsync } from "ags/process";
-import Pango from "gi://Pango?version=1.0";
 import WallpaperMenu from "./WallpaperMenu";
 
 const [qs_page, qs_page_set] = createState("main");

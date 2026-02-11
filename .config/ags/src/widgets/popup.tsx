@@ -1,6 +1,6 @@
 import { Astal, Gdk, Gtk } from "ags/gtk4";
 import app from "ags/gtk4/app";
-import { Accessor, createState } from "ags";
+import { createState } from "ags";
 import Graphene from "gi://Graphene?version=1.0";
 import Adw from "gi://Adw?version=1";
 import { config, theme } from "@/options";

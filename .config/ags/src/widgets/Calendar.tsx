@@ -1,8 +1,8 @@
 import app from "ags/gtk4/app";
 import { Astal, Gdk, Gtk } from "ags/gtk4";
 import GLib from "gi://GLib?version=2.0";
+import { createBinding, For } from "ags";
 import { createPoll } from "ags/time";
-import { createBinding, createEffect, For } from "ags";
 import { time } from "@/services/time";
 import AstalNotifd from "gi://AstalNotifd?version=0.1";
 import NotificationItem from "./NotificationItem";

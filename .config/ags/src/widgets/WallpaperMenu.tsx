@@ -1,7 +1,6 @@
-import { Astal, Gdk, Gtk } from "ags/gtk4";
-import { createBinding, createEffect, createState, For } from "ags";
+import { Gtk } from "ags/gtk4";
+import { For } from "ags";
 import { execAsync } from "ags/process";
-import app from "ags/gtk4/app";
 import Gio from "gi://Gio?version=2.0";
 import GLib from "gi://GLib?version=2.0";
 

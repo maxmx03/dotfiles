@@ -1,4 +1,4 @@
-import { Astal, Gdk, Gtk } from "ags/gtk4";
+import { Gdk, Gtk } from "ags/gtk4";
 import Tray from "gi://AstalTray?version=0.1";
 import { createBinding, For } from "ags";
 

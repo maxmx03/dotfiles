@@ -5,5 +5,4 @@ export const icons = {
         logout: "system-log-out-symbolic",
         shutdown: "system-shutdown-symbolic",
     },
-    close: "window-close-symbolic",
 };
