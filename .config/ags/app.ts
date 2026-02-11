@@ -4,6 +4,7 @@ import Bar from "@/widgets/Bar";
 import Calendar from "@/widgets/Calendar";
 import AppLauncher from "@/widgets/AppLauncher";
 import QuickSettings from "@/widgets/QuickSettings";
+import NotificationPopups from "@/widgets/NotificationPopups";
 import { PowerMenuWindow } from "@/windows/powermenu";
 
 app.start({
@@ -12,8 +13,8 @@ app.start({
     app.get_monitors().map(Bar);
     app.get_monitors().map(Calendar);
     app.get_monitors().map(AppLauncher);
-    app.get_monitors().map(AppLauncher);
     app.get_monitors().map(QuickSettings);
+    app.get_monitors().map(NotificationPopups);
     PowerMenuWindow();
   },
 });

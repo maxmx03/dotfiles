@@ -476,3 +476,19 @@ button {
     font-weight: 600;
   }
 }
+
+.notification-popup-item {
+  background-color: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  padding: 4px;
+  min-width: 350px;
+
+  .notification-item {
+    margin: 0;
+    border: none;
+    background: transparent;
+  }
+}
