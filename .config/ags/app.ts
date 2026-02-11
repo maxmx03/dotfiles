@@ -6,6 +6,7 @@ import AppLauncher from "@/widgets/AppLauncher";
 import QuickSettings from "@/widgets/QuickSettings";
 import NotificationPopups from "@/widgets/NotificationPopups";
 import { PowerMenuWindow } from "@/windows/powermenu";
+import { toggleWindow } from "@/windows";
 
 app.start({
   css: style,

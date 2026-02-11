@@ -66,8 +66,11 @@ export function Popup({
             anchor={TOP | BOTTOM | RIGHT | LEFT}
             application={app}
             $={init}
-            onNotifyVisible={({ visible }) => {
-                if (visible) contentbox.grab_focus();
+            onNotifyVisible={(self) => {
+                if (self.visible && !visible()) {
+                    show();
+                }
+                if (self.visible) contentbox.grab_focus();
             }}
         >
             <Gtk.EventControllerKey
