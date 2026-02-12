@@ -1,6 +1,7 @@
 import { Astal, Gdk, Gtk } from "ags/gtk4"
 import AstalHyprland from "gi://AstalHyprland?version=0.1"
-import { createBinding, For, createState } from "ags"
+import { createBinding, createComputed, For, createState } from "ags"
+import type { Accessor } from "ags"
 import app from "ags/gtk4/app"
 
 const hyprland = AstalHyprland.get_default()
@@ -11,14 +12,18 @@ function ClientButton({
   onClick,
 }: {
   client: AstalHyprland.Client
-  selected: boolean
+  selected: Accessor<boolean>
   onClick: () => void
 }) {
+  const cssClasses = createComputed(() =>
+    selected() ? ["client-button", "selected"] : ["client-button"]
+  )
+
   return (
     <button
-      class={selected ? "client-button selected" : "client-button"}
       onClicked={onClick}
-      cssClasses={["client-item"]}
+      focusable
+      cssClasses={cssClasses}
     >
       <box spacing={12}>
         <image
@@ -44,24 +49,30 @@ export default function WindowSwitcher(gdkmonitor: Gdk.Monitor) {
   const [selectedIndex, setSelectedIndex] = createState(0)
 
   // Get all Hyprland clients (filter out special windows)
-  const clients = createBinding(hyprland, "clients").as((clientList) =>
-    clientList.filter(
+  const clients = createBinding(hyprland, "clients").as((clientList) => {
+    const filtered = clientList.filter(
       (client) =>
         client.get_title() &&
         client.get_class() &&
         client.get_class() !== "ags" &&
         client.get_class() !== "gjs" &&
-        client.get_class() !== "gnome-shell",
-    ),
-  )
+        client.get_class() !== "gnome-shell"
+    )
+    console.log("Filtered clients:", filtered.map(c => c.get_title()))
+    return filtered
+  })
 
   const focusClient = (client: AstalHyprland.Client) => {
+    console.log("Focusing client:", client.get_title(), "index:", selectedIndex())
     client.focus()
     app.toggle_window("window-switcher")
   }
 
   // Reset selection when clients change
-  clients.subscribe(() => setSelectedIndex(0))
+  clients.subscribe(() => {
+    console.log("Clients changed, resetting selection to 0")
+    setSelectedIndex(0)
+  })
 
   return (
     <window
@@ -87,16 +98,18 @@ export default function WindowSwitcher(gdkmonitor: Gdk.Monitor) {
             case Gdk.KEY_Down:
             case Gdk.KEY_Tab:
               if (clientList.length > 0) {
-                setSelectedIndex((prev) => (prev + 1) % clientList.length)
+                const newIndex = (selectedIndex() + 1) % clientList.length
+                console.log("Down/Tab: old index", selectedIndex(), "new index", newIndex)
+                setSelectedIndex(newIndex)
               }
               return true
 
             case Gdk.KEY_Up:
             case Gdk.KEY_ISO_Left_Tab:
               if (clientList.length > 0) {
-                setSelectedIndex(
-                  (prev) => (prev - 1 + clientList.length) % clientList.length,
-                )
+                const newIndex = (selectedIndex() - 1 + clientList.length) % clientList.length
+                console.log("Up/Shift+Tab: old index", selectedIndex(), "new index", newIndex)
+                setSelectedIndex(newIndex)
               }
               return true
 
@@ -123,14 +136,6 @@ export default function WindowSwitcher(gdkmonitor: Gdk.Monitor) {
         self.add_controller(keyController)
       }}
     >
-      <Gtk.EventControllerKey
-        onKeyPressed={(/* { widget } */ _, keyval: number) => {
-          if (keyval === Gdk.KEY_Escape) {
-            // widget.hide()
-            app.toggle_window("window-switcher")
-          }
-        }}
-      />
       <box
         orientation={Gtk.Orientation.VERTICAL}
         cssClasses={["window-switcher-container"]}
@@ -155,7 +160,7 @@ export default function WindowSwitcher(gdkmonitor: Gdk.Monitor) {
               {(client, index) => (
                 <ClientButton
                   client={client}
-                  selected={selectedIndex((i) => i === index)}
+                  selected={selectedIndex((i) => i === index())}
                   onClick={() => focusClient(client)}
                 />
               )}

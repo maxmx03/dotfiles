@@ -82,8 +82,8 @@ const SideMenu = () => {
       <WallpaperTrigger />
       <VolumeTrigger />
       <button
-        class="power-menu-trigger"
-        onClicked={() => toggleWindow("powermenu")}
+        cssClasses={["power-menu-trigger"]}
+        onClicked={() => app.toggle_window("powermenu")}
       >
         <image iconName="system-shutdown-symbolic" />
       </button>
