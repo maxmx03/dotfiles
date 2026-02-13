@@ -62,7 +62,6 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
             }
           }}
           $={(self) => {
-            // Focus entry when window is shown
             app.connect("window-toggled", (_, win) => {
               if (win.name === "launcher" && win.visible) {
                 self.grab_focus()

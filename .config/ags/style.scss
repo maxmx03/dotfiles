@@ -296,6 +296,7 @@
 }
 
 .app-button:hover,
+.app-button:focus,
 .app-button.selected {
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -483,4 +484,3 @@ button {
     background: transparent;
   }
 }
-
