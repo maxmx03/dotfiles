@@ -4,7 +4,7 @@ import { execAsync } from "ags/process"
 import Gio from "gi://Gio?version=2.0"
 import GLib from "gi://GLib?version=2.0"
 
-const WALLPAPER_DIR = `${GLib.get_home_dir()}/Pictures/wallpapers`
+const WALLPAPER_DIR = `${GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_PICTURES)}/wallpapers`
 
 function getWallpapers() {
   try {
