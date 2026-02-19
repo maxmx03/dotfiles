@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 function change_bg() {
-	wallpapers=($HOME/Pictures/wallpapers/*)
+	wallpaper_dir="$(xdg-user-dir PICTURES)/wallpapers"
+	wallpapers=("$wallpaper_dir"/*)
 	total_wallpapers=${#wallpapers[@]}
 	random_index=$((RANDOM % "$total_wallpapers"))
 	wallpaper=${wallpapers["$random_index"]}
