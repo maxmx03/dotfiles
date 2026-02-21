@@ -1,67 +1,58 @@
-import app from "ags/gtk4/app";
-import { Astal, Gdk, Gtk } from "ags/gtk4";
-import { execAsync } from "ags/process";
-import { createPoll } from "ags/time";
-import { createBinding } from "ags";
-import Workspaces from "./Workspaces";
-import GLib from "gi://GLib?version=2.0";
-import SysTray from "./SysTray";
-import Wp from "gi://AstalWp?version=0.1";
+import app from "ags/gtk4/app"
+import { Astal, Gdk, Gtk } from "ags/gtk4"
+import { execAsync } from "ags/process"
+import { createPoll } from "ags/time"
+import { createBinding } from "ags"
+import Workspaces from "./Workspaces"
+import GLib from "gi://GLib?version=2.0"
+import SysTray from "./SysTray"
+import Wp from "gi://AstalWp?version=0.1"
 
-import { showQSPage } from "./QuickSettings";
+import { showQSPage } from "./QuickSettings"
 
 const DateTime = () => {
   const time = createPoll(
     "",
     1000,
     () => GLib.DateTime.new_now_local().format("%a %H:%M")!,
-  );
+  )
 
   return (
-    <button
-      class="datetime"
-      onClicked={() => app.toggle_window("calendar")}
-    >
+    <button class="datetime" onClicked={() => app.toggle_window("calendar")}>
       <label label={time} />
     </button>
-  );
-};
+  )
+}
 
 const VolumeTrigger = () => {
-  const speaker = Wp.get_default()?.audio.defaultSpeaker!;
-  const volume = createBinding(speaker, "volume");
+  const speaker = Wp.get_default()?.audio.defaultSpeaker!
+  const volume = createBinding(speaker, "volume")
 
   const icon = createBinding(speaker, "volume").as((v: number) => {
-    if (speaker.mute) return "audio-volume-muted-symbolic";
-    if (v === 0) return "audio-volume-muted-symbolic";
-    if (v < 0.33) return "audio-volume-low-symbolic";
-    if (v < 0.66) return "audio-volume-medium-symbolic";
-    return "audio-volume-high-symbolic";
-  });
+    if (speaker.mute) return "audio-volume-muted-symbolic"
+    if (v === 0) return "audio-volume-muted-symbolic"
+    if (v < 0.33) return "audio-volume-low-symbolic"
+    if (v < 0.66) return "audio-volume-medium-symbolic"
+    return "audio-volume-high-symbolic"
+  })
 
   return (
-    <button
-      class="volume-control"
-      onClicked={() => showQSPage("main")}
-    >
+    <button class="volume-control" onClicked={() => showQSPage("main")}>
       <box spacing={4}>
         <image iconName={icon} />
         <label label={volume((v: number) => `${Math.floor(v * 100)}%`)} />
       </box>
     </button>
-  );
-};
+  )
+}
 
 const WallpaperTrigger = () => {
   return (
-    <button
-      class="wallpaper-control"
-      onClicked={() => showQSPage("wallpaper")}
-    >
+    <button class="wallpaper-control" onClicked={() => showQSPage("wallpaper")}>
       <image iconName="preferences-desktop-wallpaper-symbolic" />
     </button>
-  );
-};
+  )
+}
 
 const SideMenu = () => {
   return (
@@ -88,11 +79,11 @@ const SideMenu = () => {
         <image iconName="system-shutdown-symbolic" />
       </button>
     </box>
-  );
-};
+  )
+}
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
-  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
+  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
   return (
     <window
@@ -111,7 +102,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             onClicked={() => execAsync("alacritty").catch(console.error)}
           >
             <image
-              file="/home/milianor/.config/ags/src/assets/icons/archlinux.svg"
+              file={`${GLib.get_user_config_dir()}/ags/src/assets/icons/archlinux.svg`}
               pixelSize={20}
             />
           </button>
@@ -127,5 +118,5 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         </box>
       </box>
     </window>
-  );
+  )
 }
