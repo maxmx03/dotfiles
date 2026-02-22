@@ -2,13 +2,19 @@
 
 Personal configuration files for my Arch Linux + Hyprland setup.
 
+<img width="1920" height="524" alt="20260222_19h40m57s_grim" src="https://github.com/user-attachments/assets/bc6882ea-dce6-445c-99a6-d080e5c438fe" />
+
 ## Overview
 
 This repository contains my complete system configuration, featuring a modern Wayland-based desktop environment with a custom status bar built using AGS (Aylur's GTK Shell).
 
 ## Screenshot
 
-<img width="2560" height="734" alt="20260210_21h12m01s_grim" src="https://github.com/user-attachments/assets/6ed6625a-90ed-4bc5-8e78-4978ea074342" />
+<img width="1920" height="1080" alt="20260222_19h39m51s_grim" src="https://github.com/user-attachments/assets/d12047ac-63cf-4a4e-b308-6692cfd5a050" />
+<img width="1920" height="1080" alt="20260222_19h40m07s_grim" src="https://github.com/user-attachments/assets/4a0d50fb-b755-467b-b244-22806c964d4c" />
+<img width="1920" height="548" alt="20260222_19h51m05s_grim" src="https://github.com/user-attachments/assets/5b01dbce-7ca8-4002-9931-5a3ae7249d0c" />
+<img width="1920" height="369" alt="20260222_19h51m17s_grim" src="https://github.com/user-attachments/assets/e5713bb7-3f60-4ecd-a10e-47995f5d047b" />
+<img width="1920" height="1080" alt="20260222_19h42m32s_grim" src="https://github.com/user-attachments/assets/4976523c-640d-4de3-9f0f-09f1c63a1471" />
 
 ## Components
 
@@ -57,12 +63,14 @@ This repository contains my complete system configuration, featuring a modern Wa
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+git clone --bare https://github.com/yourusername/dotfiles.git ~/.dot.git
+git --git-dir=$HOME/.dot.git --work-tree=$HOME reset --hard
+git --git-dir=$HOME/.dot.git --work-tree=$HOME config --local status.showUntrackedFiles no
 ```
 
 2. Run the installation script:
 ```bash
+chmod u+x .dot.sh
 ./.dot.sh
 ```
 
