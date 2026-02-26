@@ -149,7 +149,7 @@ function VolumePage() {
                 <label label="Detailed Volume" cssClasses={["section-title"]} />
             </box>
 
-            <scrolledwindow heightRequest={300} propagateNaturalHeight>
+            <scrolledwindow vexpand>
                 <box orientation={Gtk.Orientation.VERTICAL} spacing={12}>
                     <For each={streams}>
                         {(stream) => (
