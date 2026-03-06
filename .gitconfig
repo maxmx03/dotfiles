@@ -34,5 +34,6 @@
   history = log --oneline --decorate --graph --all
   unstage = restore --staged --
   undo = restore
+  submodule-update = !git submodule update --remote --merge
 [fetch]
   prune = true

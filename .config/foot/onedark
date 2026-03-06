@@ -1,0 +1,26 @@
+# OneDarker Edition for Foot
+[colors-dark]
+alpha=0.90
+cursor=0e1013 a0a8b7
+foreground=a0a8b7
+background=0e1013
+
+# Normal colors
+regular0=0e1013   # black
+regular1=e55561   # red
+regular2=8ebd6b   # green
+regular3=e2b86b   # yellow
+regular4=4fa6ed   # blue
+regular5=bf68d9   # magenta (purple)
+regular6=48b0bd   # cyan
+regular7=a0a8b7   # white (fg)
+
+# Bright colors
+bright0=535965    # bright black (grey)
+bright1=e55561    # bright red
+bright2=8ebd6b    # bright green
+bright3=e2b86b    # bright yellow
+bright4=4fa6ed    # bright blue
+bright5=bf68d9    # bright magenta
+bright6=48b0bd    # bright cyan
+bright7=7a818e    # bright white (light_grey)
