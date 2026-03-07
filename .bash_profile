@@ -6,3 +6,4 @@
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
   start-hyprland
 fi
+. "$HOME/.cargo/env"
