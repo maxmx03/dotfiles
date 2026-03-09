@@ -12,21 +12,13 @@ alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias lz="eza --long --icons -a --total-size"
 
-# Prompt personalizada com git
-PS1='\[\033[01;32m\]→\[\033[00m\] $(if git rev-parse --git-dir > /dev/null 2>&1; then \
-    branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null); \
-    if git diff --quiet 2>/dev/null; then \
-        echo -n "[\033[01;34m$branch\033[00m]"; \
-    else \
-        echo -n "[\033[01;31m$branch*\033[00m]"; \
-    fi; \
-fi) \[\033[01;34m\W\[\033[00m\] '
 HISTFILESIZE=5000
 HISTSIZE=5000
 HISTFILE=~/.bash_history
 HISTCONTROL=ignoredups
 
 eval "$(jump shell --bind=z)"
+eval "$(starship init bash)"
 
 # fnm
 FNM_PATH="/home/milianor/.local/share/fnm"
@@ -58,3 +50,4 @@ done
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+. "$HOME/.cargo/env"
