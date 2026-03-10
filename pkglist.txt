@@ -56,7 +56,6 @@ noto-fonts-emoji
 noto-fonts-extra
 nwg-look
 obs-studio
-opencode
 otf-montserrat
 pacman-contrib
 papers
