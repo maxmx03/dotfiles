@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ -z "$ZETPATH" ]]; then
-  ZETPATH="$(xdg-user-dir DOCUMENTS)/notes/"
+  ZETPATH="$(xdg-user-dir DOCUMENTS)/notes"
 fi
 
 function log {
@@ -18,7 +18,7 @@ function get_note_dir {
   }
   TAGS="$1"
   for TAG in $(echo "$TAGS" | tr ',' '\n' | sed 's/^ *//;s/ *$//' | grep -v "^$"); do
-    NOTEDIR+="$(escape_tag "$TAG")/"
+    NOTEDIR+="$(escape_tag "$TAG")"
   done
   echo "$NOTEDIR"
 }
@@ -98,6 +98,17 @@ function add {
   else
     log info "$FILEPATH created."
   fi
+  ROOT_NOTE="$ZETPATH/$TYPE/$NOTEDIR/$NOTEDIR.md"
+  if [ ! -f "$ROOT_NOTE" ]; then
+    if ! touch "$ROOT_NOTE"; then
+      log error "Failed to create $ROOT_NOTE"
+      return 1
+    fi
+    log info "New root note created: $ROOT_NOTE"
+    echo -e $HEADER >"$ROOT_NOTE"
+  fi
+  echo "- [[${DATE}${TITLE}|${TITLE}]]" >>"$ROOT_NOTE"
+  log info "Link added to $ROOT_NOTE"
   echo -e $HEADER >"$FILEPATH"
   if ! $EDITOR "$FILEPATH"; then
     log error "$EDITOR failed to open $FILEPATH"
