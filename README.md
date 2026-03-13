@@ -19,12 +19,14 @@ This repository contains my complete system configuration, featuring a modern Wa
 ## Components
 
 ### Window Manager
+
 - **[Hyprland](https://hyprland.org/)** - Dynamic tiling Wayland compositor
   - Animated wallpapers support
   - Volume control scripts
   - Custom keybindings and window rules
 
 ### Status Bar & Widgets
+
 - **[AGS](https://github.com/Aylur/ags)** - Aylur's GTK Shell
   - Custom bar with workspaces, system tray, and quick settings
   - Powermenu with verification dialog
@@ -33,18 +35,20 @@ This repository contains my complete system configuration, featuring a modern Wa
   - Wallpaper selector menu
 
 ### Terminal & Shell
+
 - **[Foot](https://codeberg.org/dnkl/foot)** - Fast, lightweight Wayland terminal
-- **[Fish](https://fishshell.com/)** - Friendly interactive shell
-  - Custom "Frozen" theme
-  - Profile-specific configurations
+- **[bash](<https://en-wikipedia-org.translate.goog/wiki/Bash_(Unix_shell)?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc>)** - Bourne Again SHell
+  - [startship](https://starship.rs/)
+  - [jump](https://github.com/gsamokovarov/jump)
 
 ### System Tools
+
 - **Tmux** - Terminal multiplexer with custom configuration
 - **Rofi** - Application launcher and powermenu
-- **MPD** - Music Player Daemon with custom configuration
 - **MPV** - Media player configuration
 
 ### Custom Scripts (`.local/bin/`)
+
 - `dot` - Safe git wrapper for dotfiles management
 - `tmx` - Tmux session manager
 - `mk` - Project scaffolding tool
@@ -52,29 +56,34 @@ This repository contains my complete system configuration, featuring a modern Wa
 - `git_diff` - Enhanced git diff viewer
 - `power-profiles` - System power profile switcher
 - `editorconfig` - Editor configuration generator
+- `zet` - Zettelkasten note manager
 
 ## Installation
 
 ### Prerequisites
+
 - Arch Linux (or Arch-based distribution)
 - `git` and `base-devel` installed
 
 ### Quick Setup
 
 1. Clone the repository:
+
 ```bash
-git clone --bare https://github.com/yourusername/dotfiles.git ~/.dot.git
+git clone --bare https://github.com/maxmx03/dotfiles.git ~/.dot.git
 git --git-dir=$HOME/.dot.git --work-tree=$HOME reset --hard
 git --git-dir=$HOME/.dot.git --work-tree=$HOME config --local status.showUntrackedFiles no
 ```
 
 2. Run the installation script:
+
 ```bash
 chmod u+x .dot.sh
 ./.dot.sh
 ```
 
 This script will:
+
 - Install `yay` (AUR helper) if not present
 - Install all packages from `pkglist.txt`
 - Configure system settings for gaming (memory limits, etc.)
@@ -105,6 +114,7 @@ git config --global alias.dot '!git --git-dir=$HOME/.dotfiles/.git --work-tree=$
 ```
 
 Use the `dot` script for safer operations:
+
 ```bash
 dot status
 dot add <file>
@@ -130,7 +140,7 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd atd
 - **GTK Theme**: WhiteSur GTK Theme
 - **Icon Theme**: WhiteSur Icon Theme
 - **Terminal Theme**: VS Code Dark+
-- **Fonts**: 
+- **Fonts**:
   - Noto Fonts (main)
   - JetBrains Mono Nerd Font (terminal)
   - Montserrat (display)
@@ -141,18 +151,16 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd atd
 .
 ├── .config/
 │   ├── ags/           # Aylur's GTK Shell config
-│   ├── fish/          # Fish shell config
 │   ├── foot/          # Terminal config
 │   ├── hypr/          # Hyprland config
-│   ├── mpd/           # Music player daemon
 │   ├── mpv/           # Media player
-│   └── rofi/          # Application launcher
 ├── .local/bin/        # Custom scripts
 ├── .dot.sh            # Installation script
 ├── pkglist.txt        # Package list
 ├── .tmux.conf         # Tmux configuration
 ├── .gitconfig         # Git configuration
 └── .bash_profile      # Bash profile
+└── .basrc             # Bash configuration
 ```
 
 ## Credits
