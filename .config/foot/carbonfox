@@ -1,0 +1,37 @@
+# -*- conf -*-
+
+[colors-dark]
+cursor=161616 3ddbd9
+alpha=0.90
+# background=161616
+background=0f0f0f
+foreground=f2f4f8
+flash=7f7f00
+flash-alpha=0.5
+
+## Normal/regular colors (color palette 0-7)
+regular0=161616  # black (background)
+regular1=ee5396  # red
+regular2=42be65  # green
+regular3=FAE3B0  # yellow
+regular4=82cfff  # blue (keywords)
+regular5=ff7eb6  # magenta
+regular6=3ddbd9  # cyan
+regular7=f2f4f8  # white
+
+## Bright colors (color palette 8-15)
+bright0=525252   # bright black (gray/linenr)
+bright1=ee5396   # bright red (error)
+bright2=42be65   # bright green (strings)
+bright3=FAE3B0   # bright yellow
+bright4=82cfff   # bright blue (accent)
+bright5=ff7eb6   # bright magenta
+bright6=3ddbd9   # bright cyan (variables)
+bright7=ffffff   # bright white
+
+## Misc colors
+selection-foreground=f2f4f8
+selection-background=264f78
+urls=82cfff
+
+# vim: ft=dosini
