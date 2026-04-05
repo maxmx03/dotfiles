@@ -131,4 +131,3 @@ paru
 paru-debug
 whitesur-gtk-theme
 whitesur-icon-theme
-yay-debug
