@@ -2,7 +2,7 @@
 
 Personal configuration files for my Arch Linux + Hyprland setup.
 
-<img width="1920" height="524" alt="20260222_19h40m57s_grim" src="https://github.com/user-attachments/assets/bc6882ea-dce6-445c-99a6-d080e5c438fe" />
+<img width="2560" height="611" alt="20260414_16h52m57s_grim" src="https://github.com/user-attachments/assets/ad2c12f7-b0b5-4a39-9821-755e15fb75c7" />
 
 ## Overview
 
@@ -10,11 +10,11 @@ This repository contains my complete system configuration, featuring a modern Wa
 
 ## Screenshot
 
-<img width="1920" height="1080" alt="20260222_19h39m51s_grim" src="https://github.com/user-attachments/assets/d12047ac-63cf-4a4e-b308-6692cfd5a050" />
-<img width="1920" height="1080" alt="20260222_19h40m07s_grim" src="https://github.com/user-attachments/assets/4a0d50fb-b755-467b-b244-22806c964d4c" />
-<img width="1920" height="548" alt="20260222_19h51m05s_grim" src="https://github.com/user-attachments/assets/5b01dbce-7ca8-4002-9931-5a3ae7249d0c" />
-<img width="1920" height="369" alt="20260222_19h51m17s_grim" src="https://github.com/user-attachments/assets/e5713bb7-3f60-4ecd-a10e-47995f5d047b" />
-<img width="1920" height="1080" alt="20260222_19h42m32s_grim" src="https://github.com/user-attachments/assets/4976523c-640d-4de3-9f0f-09f1c63a1471" />
+<img width="2560" height="1080" alt="20260414_16h52m33s_grim" src="https://github.com/user-attachments/assets/f20126a3-31e2-4cac-a20d-4535440bf374" />
+<img width="2549" height="1080" alt="20260414_16h52m28s_grim" src="https://github.com/user-attachments/assets/23b6d34b-2c27-49be-8ad8-fb2cc3bc998e" />
+<img width="2560" height="1080" alt="20260414_16h51m16s_grim" src="https://github.com/user-attachments/assets/761c67e2-d300-48aa-bd31-d6eb7dc68fc3" />
+<img width="2560" height="1079" alt="20260414_16h51m06s_grim" src="https://github.com/user-attachments/assets/9e01f249-3e93-430b-940b-d98b27430ed2" />
+<img width="2560" height="1080" alt="20260414_16h52m37s_grim" src="https://github.com/user-attachments/assets/be13617a-ee50-4fe2-b2eb-f3a2da57aaf5" />
 
 ## Components
 
@@ -154,6 +154,8 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd atd
 │   ├── foot/          # Terminal config
 │   ├── hypr/          # Hyprland config
 │   ├── mpv/           # Media player
+│   ├── nvim/          # Text Editor
+│   ├── emacs/         # Religion
 ├── .local/bin/        # Custom scripts
 ├── .dot.sh            # Installation script
 ├── pkglist.txt        # Package list
