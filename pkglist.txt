@@ -1,4 +1,3 @@
-7zip 26.00-1
 alsa-utils
 amd-ucode
 android-udev
@@ -26,7 +25,6 @@ geoclue
 git
 git-delta
 gnome-disk-utility
-go
 gradle
 grim
 gst-plugin-pipewire
@@ -38,7 +36,6 @@ hyprland
 hyprpolkitagent
 hyprshot
 jq
-less
 lib32-mesa
 lib32-vulkan-radeon
 libnotify
@@ -51,6 +48,7 @@ luarocks
 lvm2
 man-db
 mesa-utils
+meson
 mpv
 nautilus
 network-manager-applet
@@ -113,21 +111,25 @@ xf86-video-amdgpu
 yt-dlp
 zip
 zram-generator
+alarm-clock-applet
 apple-fonts
 appmenu-glib-translator-git
+aseprite
 awww-git
 aylurs-gtk-shell-git
-brave-bin
 docker-desktop
+downgrade
 freedownloadmanager
 heroic-games-launcher-bin
 jump
 libastal-meta
 minecraft-launcher
 nautilus-open-any-terminal
-neovim-nightly-bin
+neovim-git
 pacman-cleanup-hook
-paru
-paru-debug
+pacman-log-orphans-hook
 whitesur-gtk-theme
 whitesur-icon-theme
+yay
+yay-debug
+zen-browser-bin

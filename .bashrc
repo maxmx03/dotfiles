@@ -23,8 +23,8 @@ eval "$(starship init bash)"
 # fnm
 FNM_PATH="/home/milianor/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
+	export PATH="$FNM_PATH:$PATH"
+	eval "$(fnm env)"
 fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -34,20 +34,16 @@ export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 export EDITOR=nvim
 
 declare -a cmps=(
-  "https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
+	"https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
 )
 function wgetcomp {
-  if [[ ! -f "$HOME"/.cache/bash/completions/"$1" ]]; then
-    wget --directory-prefix="$HOME/.cache/bash/completions" "$2"
-  fi
+	if [[ ! -f "$HOME"/.cache/bash/completions/"$1" ]]; then
+		wget --directory-prefix="$HOME/.cache/bash/completions" "$2"
+	fi
 }
 export -f wgetcomp
 parallel wgetcomp {/} {} ::: "${cmps[@]}"
 for comp in "$HOME"/.cache/bash/completions/*; do
-  source "$comp"
+	source "$comp"
 done
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 . "$HOME/.cargo/env"
