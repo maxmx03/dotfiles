@@ -32,6 +32,8 @@ export PATH="$HOME/develop/flutter/bin:$PATH"
 export PATH="$HOME/develop/spring-boot-cli/bin:$PATH"
 export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 export EDITOR=nvim
+export ZETPATH="$(xdg-user-dir DOCUMENTS)/Obsidian Vault/"
+export ZETPATH_NOTES="$(xdg-user-dir DOCUMENTS)/Obsidian Vault/Notes/"
 
 declare -a cmps=(
 	"https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"

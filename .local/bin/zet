@@ -24,6 +24,10 @@ function get_note_dir {
 }
 
 function kanban {
+  if [[ ! -z "$ZETPATH_KANBAN" ]]; then
+    ZETPATH="$ZETPATH_KANBAN"
+  fi
+
   if [[ ! -d "$ZETPATH" ]]; then
     log error "$ZETPATH does not exists."
     return 1
@@ -60,26 +64,31 @@ kanban-plugin: board
 %%
   "
   FILE="$(gum input --placeholder 'file name').md"
-  if ! mkdir -p "$ZETPATH/kanban"; then
-    log error "Failed to create $ZETPATH/kanban/$FILE"
+  if ! mkdir -p "$ZETPATH/Kanban"; then
+    log error "Failed to create $ZETPATH/Kanban/$FILE"
     return 1
   fi
-  if ! touch "$ZETPATH/kanban/$FILE"; then
-    log error "Failed to create $ZETPATH/kanban/$FILE"
+  if ! touch "$ZETPATH/Kanban/$FILE"; then
+    log error "Failed to create $ZETPATH/Kanban/$FILE"
     return 1
   else
-    log info "$ZETPATH/kanban/$FILE created."
+    log info "$ZETPATH/Kanban/$FILE created."
   fi
-  echo -e "$TEMPLATE" >"$ZETPATH/kanban/$FILE"
+  echo -e "$TEMPLATE" >"$ZETPATH/Kanban/$FILE"
   obsidian &
   disown
 }
 
 function add {
+  if [[ ! -z "$ZETPATH_NOTES" ]]; then
+    ZETPATH="$ZETPATH_NOTES"
+  fi
+
   if [[ ! -d "$ZETPATH" ]]; then
     log error "$ZETPATH does not exists."
     return 1
   fi
+
   DATE=$(date +%Y%m%d%H%M%S)
   TITLE="$(gum input --placeholder 'title')"
   TYPE="$(gum choose fleeting literature permanent)"
