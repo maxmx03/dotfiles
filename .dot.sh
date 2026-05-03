@@ -23,6 +23,18 @@ fi
 
 yay -S --needed - <pkglist.txt
 
+git clone https://github.com/vinceliuice/MacTahoe-gtk-theme.git --depth 1 ~/tahoe
+cd ~/tahoe || exit
+./install.sh # -t pink -c dark
+cd "$HOME"
+rm -rf ~/tahoe
+
+git clone https://github.com/vinceliuice/MacTahoe-icon-theme.git --depth 1 ~/tahoe
+cd ~/tahoe
+./install.sh # -t pink
+cd "$HOME"
+rm -rf ~/tahoe
+
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal foot
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
