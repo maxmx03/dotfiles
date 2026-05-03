@@ -1,3 +1,4 @@
+7zip
 alsa-utils
 amd-ucode
 android-udev
@@ -5,6 +6,7 @@ at
 base
 base-devel
 bat
+blender
 btrfs-progs
 cabextract
 clang
@@ -14,7 +16,6 @@ cronie
 dart-sass
 deno
 discord
-docker
 efibootmgr
 emacs-wayland
 eza
@@ -25,6 +26,7 @@ geoclue
 git
 git-delta
 gnome-disk-utility
+godot
 gradle
 grim
 gst-plugin-pipewire
@@ -36,6 +38,7 @@ hyprland
 hyprpolkitagent
 hyprshot
 jq
+lib32-libpulse
 lib32-mesa
 lib32-vulkan-radeon
 libnotify
@@ -74,6 +77,7 @@ python-pip
 python-pynvim
 raylib
 ripgrep
+sassc
 sfml
 slurp
 solaar
@@ -93,8 +97,10 @@ tmux
 totem
 trash-cli
 tree
+tree-sitter-cli
 ttf-dejavu
 ttf-jetbrains-mono-nerd
+ttf-liberation
 ttf-nerd-fonts-symbols
 ufw
 unixodbc
@@ -117,7 +123,6 @@ appmenu-glib-translator-git
 aseprite
 awww-git
 aylurs-gtk-shell-git
-docker-desktop
 downgrade
 freedownloadmanager
 heroic-games-launcher-bin
@@ -128,8 +133,7 @@ nautilus-open-any-terminal
 neovim-git
 pacman-cleanup-hook
 pacman-log-orphans-hook
-whitesur-gtk-theme
-whitesur-icon-theme
+ttf-ms-fonts
 yay
 yay-debug
 zen-browser-bin
