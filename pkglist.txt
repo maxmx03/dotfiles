@@ -1,4 +1,5 @@
 7zip
+adw-gtk-theme
 alsa-utils
 amd-ucode
 android-udev
@@ -16,10 +17,13 @@ cronie
 dart-sass
 deno
 discord
+dosfstools
 efibootmgr
 emacs-wayland
+exfatprogs
 eza
 fd
+firefox
 foot
 fuse2
 geoclue
@@ -106,7 +110,6 @@ ufw
 unixodbc
 unrar
 unzip
-vim
 vulkan-radeon
 wget
 wireplumber
@@ -128,7 +131,6 @@ freedownloadmanager
 heroic-games-launcher-bin
 jump
 libastal-meta
-minecraft-launcher
 nautilus-open-any-terminal
 neovim-git
 pacman-cleanup-hook
@@ -136,4 +138,3 @@ pacman-log-orphans-hook
 ttf-ms-fonts
 yay
 yay-debug
-zen-browser-bin

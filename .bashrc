@@ -20,32 +20,6 @@ HISTCONTROL=ignoredups
 eval "$(jump shell --bind=z)"
 eval "$(starship init bash)"
 
-# fnm
-FNM_PATH="/home/milianor/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-	export PATH="$FNM_PATH:$PATH"
-	eval "$(fnm env)"
-fi
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/develop/flutter/bin:$PATH"
-export PATH="$HOME/develop/spring-boot-cli/bin:$PATH"
-export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 export EDITOR=nvim
-export ZETPATH="$(xdg-user-dir DOCUMENTS)/Obsidian Vault/"
-export ZETPATH_NOTES="$(xdg-user-dir DOCUMENTS)/Obsidian Vault/Notes/"
-
-declare -a cmps=(
-	"https://raw.githubusercontent.com/ohmybash/oh-my-bash/refs/heads/master/completions/go.completion.sh"
-)
-function wgetcomp {
-	if [[ ! -f "$HOME"/.cache/bash/completions/"$1" ]]; then
-		wget --directory-prefix="$HOME/.cache/bash/completions" "$2"
-	fi
-}
-export -f wgetcomp
-parallel wgetcomp {/} {} ::: "${cmps[@]}"
-for comp in "$HOME"/.cache/bash/completions/*; do
-	source "$comp"
-done
-. "$HOME/.cargo/env"
+export MANPAGER='nvim +Man!'

@@ -4,6 +4,5 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
-  start-hyprland
+	start-hyprland
 fi
-. "$HOME/.cargo/env"
