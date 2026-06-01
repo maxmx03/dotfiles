@@ -16,7 +16,8 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor {
   output = 'HDMI-A-1',
-  mode = '2560x1080@74.99',
+  -- mode = '2560x1080@74.99',
+  mode = '2560x1080@60',
   position = 'auto',
   scale = 'auto',
 }
@@ -29,7 +30,7 @@ hl.monitor {
 local terminal = 'foot'
 local fileManager = 'nautilus'
 local menu = 'ags toggle'
-local browser = 'firefox'
+local browser = 'brave'
 
 -------------------
 ---- AUTOSTART ----
@@ -40,13 +41,16 @@ local browser = 'firefox'
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 hl.on('hyprland.start', function()
+  hl.exec_cmd 'hyprpaper'
+  hl.exec_cmd 'hypridle'
+  hl.exec_cmd 'hyprsunset'
   hl.exec_cmd(terminal .. '--server')
   hl.exec_cmd 'nm-applet --indicator'
-  hl.exec_cmd 'ags run'
   hl.exec_cmd 'systemctl --user start hyprpolkitagent'
-  hl.exec_cmd 'awww-daemon'
-  hl.exec_cmd 'alarm-clock-applet --hidden'
-  hl.exec_cmd '~/.config/hypr/wallpaper.sh'
+  hl.exec_cmd 'ags run'
+  -- hl.exec_cmd 'awww-daemon'
+  -- hl.exec_cmd 'alarm-clock-applet --hidden'
+  -- hl.exec_cmd '~/.config/hypr/wallpaper.sh'
 end)
 
 -------------------------------
@@ -61,7 +65,7 @@ hl.env('HYPRCURSOR_SIZE', '24')
 hl.env('GTK_THEME', 'adw-gtk3-dark')
 hl.env('LANG', 'pt_BR.UTF-8')
 hl.env('LC_ALL', 'pt_BR.UTF-8')
-hl.env('BROWSER', 'firefox')
+hl.env('BROWSER', 'brave')
 
 -----------------------
 ----- PERMISSIONS -----
@@ -89,7 +93,7 @@ hl.env('BROWSER', 'firefox')
 hl.config {
   general = {
     gaps_in = 5,
-    gaps_out = 20,
+    gaps_out = 10,
 
     border_size = 2,
 
@@ -108,7 +112,7 @@ hl.config {
   },
 
   decoration = {
-    rounding = 10,
+    rounding = 20,
     rounding_power = 2,
 
     -- Change transparency of focused and unfocused windows
@@ -125,7 +129,7 @@ hl.config {
     blur = {
       enabled = true,
       size = 3,
-      passes = 1,
+      passes = 2,
       vibrancy = 0.1696,
     },
   },
@@ -279,23 +283,25 @@ hl.device {
 local mainMod = 'SUPER' -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. ' + Q', hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. ' + C', hl.dsp.window.close())
+hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd 'emacs')
+-- local closeWindowBind = hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
+
+hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 --hl.bind(
 --  mainMod .. ' + M',
 --  hl.dsp.exec_cmd "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 --)
-hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. ' + N', hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. ' + V', hl.dsp.window.float { action = 'toggle' })
-hl.bind(mainMod .. ' + R', hl.dsp.exec_cmd(menu .. ' launcher'))
+hl.bind(mainMod .. ' + R', hl.dsp.exec_cmd(menu .. 'launcher'))
 hl.bind(mainMod .. ' + P', hl.dsp.window.pseudo())
 hl.bind(mainMod .. ' + J', hl.dsp.layout 'togglesplit') -- dwindle only
 hl.bind('Print', hl.dsp.exec_cmd 'grim -g "$(slurp)"')
-hl.bind(mainMod .. ' + Escape', hl.dsp.exec_cmd(menu .. ' powermenu'))
+hl.bind(mainMod .. ' + Escape', hl.dsp.exec_cmd(menu .. 'powermenu'))
 hl.bind(mainMod .. ' + W', hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. ' + F', hl.dsp.window.fullscreen())
-hl.bind(mainMod .. ' + Return', hl.dsp.exec_cmd 'emacs')
+hl.bind(mainMod .. ' + Return', hl.dsp.exec_cmd(terminal))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. ' + left', hl.dsp.focus { direction = 'left' })
@@ -421,9 +427,9 @@ hl.window_rule {
 }
 
 hl.window_rule {
-  name = 'firefox',
+  name = 'brave',
   workspace = 2,
-  match = { class = 'firefox' },
+  match = { class = 'brave' },
 }
 
 hl.window_rule {
