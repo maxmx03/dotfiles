@@ -29,7 +29,7 @@ hl.monitor {
 -- Set programs that you use
 local terminal = 'foot'
 local fileManager = 'nautilus'
-local menu = 'ags toggle'
+local menu = 'ags toggle '
 local browser = 'brave'
 
 -------------------
