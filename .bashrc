@@ -23,3 +23,5 @@ eval "$(starship init bash)"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
+export ZETPATH="$(xdg-user-dir DOCUMENTS)/obsidian/"
+export ZETPATH_NOTES="$(xdg-user-dir DOCUMENTS)/obsidian/Notes/"

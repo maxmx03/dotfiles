@@ -30,7 +30,7 @@ hl.monitor {
 local terminal = 'foot'
 local fileManager = 'nautilus'
 local menu = 'ags toggle '
-local browser = 'brave'
+local browser = 'google-chrome-stable'
 
 -------------------
 ---- AUTOSTART ----
@@ -41,16 +41,15 @@ local browser = 'brave'
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 hl.on('hyprland.start', function()
-  hl.exec_cmd 'hyprpaper'
   hl.exec_cmd 'hypridle'
   hl.exec_cmd 'hyprsunset'
   hl.exec_cmd(terminal .. '--server')
   hl.exec_cmd 'nm-applet --indicator'
   hl.exec_cmd 'systemctl --user start hyprpolkitagent'
   hl.exec_cmd 'ags run'
-  -- hl.exec_cmd 'awww-daemon'
+  hl.exec_cmd 'awww-daemon'
   -- hl.exec_cmd 'alarm-clock-applet --hidden'
-  -- hl.exec_cmd '~/.config/hypr/wallpaper.sh'
+  hl.exec_cmd '~/.config/hypr/wallpaper'
 end)
 
 -------------------------------
@@ -65,7 +64,7 @@ hl.env('HYPRCURSOR_SIZE', '24')
 hl.env('GTK_THEME', 'adw-gtk3-dark')
 hl.env('LANG', 'pt_BR.UTF-8')
 hl.env('LC_ALL', 'pt_BR.UTF-8')
-hl.env('BROWSER', 'brave')
+hl.env('BROWSER', 'google-chrome')
 
 -----------------------
 ----- PERMISSIONS -----
@@ -98,8 +97,8 @@ hl.config {
     border_size = 2,
 
     col = {
-      active_border = { colors = { 'rgb(ee5396)', 'rgb(78a9ff)', 'rgb(3ddbd9)' }, angle = 45 },
-      inactive_border = 'rgb(161616)',
+      active_border = { colors = { 'rgb(268bd3)' } },
+      inactive_border = 'rgb(586e75)',
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -283,7 +282,7 @@ hl.device {
 local mainMod = 'SUPER' -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd 'emacs')
+hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd 'obsidian')
 -- local closeWindowBind = hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
 
 hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
@@ -325,8 +324,8 @@ hl.bind(mainMod .. ' + SHIFT + S', hl.dsp.window.move { workspace = 'special:mag
 hl.bind(mainMod .. ' + mouse_down', hl.dsp.focus { workspace = 'e+1' })
 hl.bind(mainMod .. ' + mouse_up', hl.dsp.focus { workspace = 'e-1' })
 
-hl.bind(mainMod .. ' + page_down', hl.dsp.focus { workspace = 'e+1' })
-hl.bind(mainMod .. ' + page_up', hl.dsp.focus { workspace = 'e-1' })
+hl.bind(mainMod .. ' + page_up', hl.dsp.focus { workspace = 'e+1' })
+hl.bind(mainMod .. ' + page_down', hl.dsp.focus { workspace = 'e-1' })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. ' + mouse:272', hl.dsp.window.drag(), { mouse = true })
@@ -427,9 +426,9 @@ hl.window_rule {
 }
 
 hl.window_rule {
-  name = 'brave',
+  name = 'chrome',
   workspace = 2,
-  match = { class = 'brave' },
+  match = { class = 'google-chrome' },
 }
 
 hl.window_rule {
