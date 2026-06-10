@@ -30,7 +30,7 @@ hl.monitor {
 local terminal = 'foot'
 local fileManager = 'nautilus'
 local menu = 'ags toggle '
-local browser = 'google-chrome-stable'
+local browser = 'firefox'
 
 -------------------
 ---- AUTOSTART ----
@@ -64,7 +64,7 @@ hl.env('HYPRCURSOR_SIZE', '24')
 hl.env('GTK_THEME', 'adw-gtk3-dark')
 hl.env('LANG', 'pt_BR.UTF-8')
 hl.env('LC_ALL', 'pt_BR.UTF-8')
-hl.env('BROWSER', 'google-chrome')
+hl.env('BROWSER', 'firefox')
 
 -----------------------
 ----- PERMISSIONS -----
@@ -97,8 +97,8 @@ hl.config {
     border_size = 2,
 
     col = {
-      active_border = { colors = { 'rgb(268bd3)' } },
-      inactive_border = 'rgb(586e75)',
+      active_border = { colors = { 'rgb(82cfff)' } },
+      inactive_border = 'rgb(383747)',
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -428,7 +428,7 @@ hl.window_rule {
 hl.window_rule {
   name = 'chrome',
   workspace = 2,
-  match = { class = 'google-chrome' },
+  match = { class = 'firefox' },
 }
 
 hl.window_rule {
