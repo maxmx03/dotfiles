@@ -44,9 +44,6 @@ export const compositor = {
     },
 
     focusWorkspace(ws: any) {
-        const id = this.workspaceId(ws);
-        if (id && hyprland) {
-            hyprland.message(`eval hl.dispatch(hl.dsp.focus({workspace = ${id}}))`);
-        }
+        ws?.focus();
     },
 };
