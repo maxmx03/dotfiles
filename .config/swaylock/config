@@ -1,0 +1,35 @@
+# vim: ft=dosini
+
+# Imagem de fundo e estilo de redimensionamento
+image=/home/maxmx03/Imagens/wallpapers/kanagawa.png
+scaling=fill
+
+# Configurações gerais
+show-failed-attempts
+ignore-empty-password
+
+# --- CORES DO TEMA KANAGAWA ---
+# Cor de fundo caso a imagem falhe (Sumimi)
+color=1f1f28
+key-hl-color=98BB6C
+
+# Círculo interno (Inside)
+inside-color=1f1f28
+inside-ver-color=2d4f67
+inside-wrong-color=1f1f28
+inside-clear-color=658594
+
+# Anel externo (Ring)
+ring-color=16161D
+ring-ver-color=76946A
+ring-wrong-color=C34043
+ring-clear-color=658594
+
+# Cores do texto
+text-color=C8C093
+text-ver-color=C8C093
+text-wrong-color=DCD7BA
+
+# Linhas e separadores
+line-uses-inside
+separator-color=00000000

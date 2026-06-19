@@ -1,0 +1,29 @@
+#window {
+  background-color: #1f1f28;
+  border: 2px solid #54546d;
+  color: #dcd7ba;
+  font-family: system-ui, sans-serif;
+  font-size: 24px;
+  border-radius: 4px;
+}
+
+#input {
+  margin: -100px;
+}
+
+#outer-box {
+  padding: 10px;
+}
+
+#entry {
+  padding: 5px 15px;
+}
+
+#entry:selected {
+  background-color: #363646;
+  border-radius: 4px;
+}
+
+#text:selected {
+  color: #dcd7ba;
+}

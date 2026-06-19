@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+WALLPAPER=$(find ~/Imagens/wallpapers -type f | shuf -n 1)
+swaymsg "output * bg '$WALLPAPER' fill"
