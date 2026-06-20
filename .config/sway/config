@@ -40,8 +40,7 @@ exec_always --no-startup-id ~/.config/sway/wallpaper
 exec --no-startup-id gentoo-pipewire-launcher restart &
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 # Correct inicializatopn of dbus env in OpenRC
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --all
+exec dbus-update-activation-environment --all
 exec /usr/libexec/gvfsd # gvfs daemon for (disks/thrash)
 exec mako # notification daemon
 exec mpd
@@ -49,8 +48,7 @@ exec mpd
 ### Idle configuration
 #
 # Example configuration:
-#
- exec swayidle -w \
+exec swayidle -w \
           timeout 300 'swaylock -f -c 1f1f28' \
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'swaylock -f -c 1f1f28'

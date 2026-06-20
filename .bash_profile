@@ -15,6 +15,3 @@ if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
 	export ADW_DISABLE_PORTAL=1
 	dbus-run-session sway
 fi
-
-# uv
-export PATH="/home/maxmx03/.local/bin:$PATH"
