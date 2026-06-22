@@ -12,14 +12,6 @@
 [merge]
   tool = nvimdiff
   conflictstyle = diff3
-[core]
-  pager = delta
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true    # use n and N to move between diff sections
-  dark = true
-  side-by-side = true
 [merge]
   conflictstyle = zdiff3
 [alias]
@@ -31,7 +23,7 @@
   ds = difftool --staged
   dd = difftool --diff-filter=D
   st = status
-  history = log --oneline --decorate --graph --all
+  graph = log --oneline --decorate --graph --all
   unstage = restore --staged --
   undo = restore
   submodule-update = !git submodule update --remote --merge

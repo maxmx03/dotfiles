@@ -27,10 +27,12 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
-    gsettings set $gnome-schema cursor-theme 'Neuro-sama'
+    gsettings set $gnome-schema cursor-theme 'Kitty'
+    #gsettings set $gnome-schema cursor-theme 'volantes_cursors'
     # gsettings set $gnome-schema font-name 'Sans 10'
 }
-seat seat0 xcursor_theme "Neuro-sama" 24
+seat seat0 xcursor_theme 'Kitty' 24
+#seat seat0 xcursor_theme 'volantes_cursors' 32
 #
 # Screen capture
 #
@@ -59,16 +61,18 @@ exec --no-startup-id dbus-update-activation-environment --all
 exec gnome-keyring-daemon --start --components=secrets
 exec export $(gnome-keyring-daemon)
 exec /usr/libexec/gvfsd # gvfs daemon for (disks/thrash)
-exec mako # notification daemon
+exec mako --text-color="#C8C093" --border-color="#54546D" --background-color="#223249" # notification daemon
 exec mpd
 
 ### Idle configuration
 #
 # Example configuration:
+# Enables inhibit_idle when playing audio
 exec swayidle -w \
     timeout 300 'swaylock -f -c 1f1f28' \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -c 1f1f28'
+exec --no-startup-id sway-audio-idle-inhibit
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -155,6 +159,11 @@ bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
+
+# Switch between workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -166,6 +175,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -177,6 +187,25 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
+
+#
+# Workspace bindings
+#
+assign [app_id="foot"] workspace number 1
+for_window [app_id="foot"] focus
+
+assign [class="obsidian"] workspace number 1
+for_window [class="obsidian"] focus
+
+assign [app_id="firefox"] workspace number 2
+for_window [app_id="firefox"] focus
+
+assign [app_id="heroic"] workspace number 2
+for_window [app_id="heroic"] focus
+
+assign [app_id="org.gnome.Nautilus"] workspace number 3
+for_window [app_id="org.gnome.Nautilus"] focus
+
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 #
