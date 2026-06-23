@@ -1,7 +1,7 @@
 # vim: ft=dosini
 
 # Imagem de fundo e estilo de redimensionamento
-image=/home/maxmx03/Imagens/wallpapers/kanagawa.png
+image=/home/maxmx03/Imagens/swaylock.png
 scaling=fill
 
 # Configurações gerais

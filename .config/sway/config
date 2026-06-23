@@ -15,6 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term foot
+set $editor emacs
 # Your preferred application launcher
 # -N <color>: Normal item background
 # -n <color>: Normal item foreground (text)
@@ -103,6 +104,9 @@ input type:keyboard {
 #
 # Start a terminal
 bindsym $mod+Return exec $term
+
+# Start emacs
+bindsym $mod+e exec $editor
 
 # Start firefox
 bindsym $mod+w exec firefox-bin
