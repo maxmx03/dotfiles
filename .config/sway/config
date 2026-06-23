@@ -206,6 +206,9 @@ for_window [app_id="foot"] focus
 assign [class="obsidian"] workspace number 1
 for_window [class="obsidian"] focus
 
+assign [app_id="emacs"] workspace number 1
+for_window [app_id="emacs"] focus
+
 assign [app_id="firefox"] workspace number 2
 for_window [app_id="firefox"] focus
 
