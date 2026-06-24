@@ -13,7 +13,9 @@ if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
 	export XDG_SESSION_TYPE=wayland
 	export XDG_CURRENT_DESKTOP=sway
 	export XDG_SESSION_DESKTOP=sway
+	export GDK_BACKEND=wayland
 	export MOZ_ENABLE_WAYLAND=1
 	export ADW_DISABLE_PORTAL=1
+	export EDITOR=nvim
 	dbus-run-session sway
 fi

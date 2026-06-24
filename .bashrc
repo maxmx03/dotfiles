@@ -32,7 +32,6 @@ HISTCONTROL=ignoredups
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 export ZETPATH="$(xdg-user-dir DOCUMENTS)/obsidian/"
 export ZETPATH_NOTES="$(xdg-user-dir DOCUMENTS)/obsidian/Notes/"
@@ -43,6 +42,6 @@ eval "$(starship init bash)"
 # fnm
 FNM_PATH="/home/maxmx03/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env --shell bash)"
+	export PATH="$FNM_PATH:$PATH"
+	eval "$(fnm env --shell bash)"
 fi
