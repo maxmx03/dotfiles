@@ -1,0 +1,22 @@
+#!/bin/bash
+
+MOUNT_POINT=$(lsblk -no MOUNTPOINT /dev/sdb1)
+EMULATOR=$(gum choose "Sega Saturn" "PlayStation")
+
+if [ ! -d "$MOUNT_POINT/$EMULATOR" ]; then
+  echo "$EMULATOR doesn't exist"
+  exit 0
+fi
+
+GAME=$(find "$MOUNT_POINT/$EMULATOR" -type f -iname "*.cue" | gum choose)
+
+if [ -z "$GAME" ]; then
+  echo "No game selected"
+  exit 0
+fi
+
+# open dmednafen in a new session
+setsid mednafen "$GAME" >/dev/null 2>&1 &
+
+# closes foot terminal
+exec kill -HUP $PPID
