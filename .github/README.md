@@ -45,6 +45,47 @@ This repository contains my complete system configuration, featuring a minimal a
 - `commit` - Git commit helper automation
 - `wofi-powermenu` - Wofi-based system power menu (Shutdown/Reboot/Lock)
 
+### Game Emulators
+
+- **[mednafen](https://mednafen.github.io/)**: Mednafen is a portable, utilizing OpenGL and SDL, argument(command-line)-driven multi-system emulator.
+- **[retro](https://raw.githubusercontent.com/maxmx03/dotfiles/refs/heads/main/.local/bin/retro)**: An interactive Bash script wrapper to launch Mednafen games using a TUI menu.
+- Supported Cores:
+  - **[Sega Saturn](https://mednafen.github.io/documentation/ss.html)**
+  - **[PlayStation](https://mednafen.github.io/documentation/psx.html)**
+
+*Sega Saturn*(~/.mednafen/mednafen.cfg)
+```cfg
+; CRT Shader Setup
+ss.stretch aspect
+ss.shader goat
+ss.shader.goat.pat goatron
+ss.shader.goat.slen 1
+ss.shader.goat.hdiv 0.20
+ss.shader.goat.vdiv 0.20
+
+; Raw (Alternative)
+ss.shader autoipsharper
+ss.stretch aspect_int
+ss.videoip 0
+```
+
+*PlayStation*(~/.mednafen/mednafen.cfg)
+
+```cfg
+; CRT Shader Setup
+psx.stretch aspect
+psx.shader goat
+psx.shader.goat.pat goatron
+psx.shader.goat.slen 1
+psx.shader.goat.hdiv 0.15 ; Lower divergence to keep RPG fonts readable
+psx.shader.goat.vdiv 0.15
+
+; Raw (Alternative)
+psx.shader autoipsharper
+psx.stretch aspect_mult2
+psx.videoip 0
+```
+
 ---
 
 ## Installation
