@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find $HOME/.cache/ -type f -atime +30 -delete
