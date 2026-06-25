@@ -53,7 +53,8 @@ This repository contains my complete system configuration, featuring a minimal a
   - **[Sega Saturn](https://mednafen.github.io/documentation/ss.html)**
   - **[PlayStation](https://mednafen.github.io/documentation/psx.html)**
 
-*Sega Saturn*(~/.mednafen/mednafen.cfg)
+_Sega Saturn_(~/.mednafen/mednafen.cfg)
+
 ```cfg
 ; CRT Shader Setup
 ss.stretch aspect
@@ -69,9 +70,12 @@ ss.stretch aspect_int
 ss.videoip 0
 ```
 
-*PlayStation*(~/.mednafen/mednafen.cfg)
+_PlayStation_(~/.mednafen/mednafen.cfg)
 
 ```cfg
+psx.input.port1 dualshock
+psx.input.port1.dualshock.axis_scale 1.20
+
 ; CRT Shader Setup
 psx.stretch aspect
 psx.shader goat
