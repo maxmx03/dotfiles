@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 MOUNT_POINT=$(lsblk -no MOUNTPOINT /dev/sdb1)
 EMULATOR=$(gum choose "Sega Saturn" "PlayStation")

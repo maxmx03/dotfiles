@@ -29,11 +29,9 @@ exec_always {
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme 'Kitty'
-    #gsettings set $gnome-schema cursor-theme 'volantes_cursors'
     # gsettings set $gnome-schema font-name 'Sans 10'
 }
 seat seat0 xcursor_theme 'Kitty' 24
-#seat seat0 xcursor_theme 'volantes_cursors' 32
 #
 # Screen capture
 #
@@ -54,14 +52,13 @@ set $psf $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-exec_always --no-startup-id ~/.config/sway/wallpaper
-exec --no-startup-id gentoo-pipewire-launcher restart &
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
-# Correct inicializatopn of dbus env in OpenRC
 exec --no-startup-id dbus-update-activation-environment --all
 exec gnome-keyring-daemon --start --components=secrets
 exec export $(gnome-keyring-daemon)
 exec /usr/libexec/gvfsd # gvfs daemon for (disks/thrash)
+exec --no-startup-id gentoo-pipewire-launcher restart &
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id ~/.config/sway/wallpaper
 exec mako --text-color="#C8C093" --border-color="#54546D" --background-color="#223249" # notification daemon
 exec mpd
 
@@ -69,10 +66,10 @@ exec mpd
 #
 # Example configuration:
 # Enables inhibit_idle when playing audio
-exec swayidle -w \
-    timeout 300 'swaylock -f -c 1f1f28' \
-    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 1f1f28'
+#exec swayidle -w \
+#    timeout 300 'swaylock -f -c 1f1f28' \
+#    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#    before-sleep 'swaylock -f -c 1f1f28'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -108,8 +105,8 @@ bindsym $mod+Return exec $term
 # Start emacs
 bindsym $mod+e exec $editor
 
-# Start firefox
-bindsym $mod+w exec firefox-bin
+# Start vivaldi
+bindsym $mod+w exec vivaldi-snapshot
 
 # Kill focused window
 bindsym $mod+q kill
@@ -203,20 +200,21 @@ bindsym $mod+Shift+0 move container to workspace number 10
 assign [app_id="foot"] workspace number 1
 for_window [app_id="foot"] focus
 
-assign [class="obsidian"] workspace number 1
-for_window [class="obsidian"] focus
-
 assign [app_id="emacs"] workspace number 1
 for_window [app_id="emacs"] focus
 
-assign [app_id="firefox"] workspace number 2
-for_window [app_id="firefox"] focus
+assign [app_id="vivaldi-snapshot"] workspace number 2
+for_window [app_id="vivaldi-snapshot"] focus
 
 assign [app_id="heroic"] workspace number 2
 for_window [app_id="heroic"] focus
 
-assign [app_id="org.gnome.Nautilus"] workspace number 3
-for_window [app_id="org.gnome.Nautilus"] focus
+#
+# Floating rules
+#
+for_window [app_id="org.gnome.Nautilus"] floating enabled
+for_window [app_id="vivaldi-snapshot" title=".*Configurações do Vivaldi.*"] floating enabled
+for_window [app_id="vivaldi-snapshot" title="Bitwarden"] floating enabled
 
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
@@ -226,8 +224,8 @@ for_window [app_id="org.gnome.Nautilus"] focus
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym $mod+b splith
-bindsym $mod+v splitv
+#bindsym $mod+b splith
+#bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
 #bindsym $mod+s layout stacking
@@ -238,7 +236,7 @@ bindsym $mod+v splitv
 bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+v floating toggle
 
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
