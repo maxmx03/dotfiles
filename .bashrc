@@ -33,8 +33,6 @@ HISTCONTROL=ignoredups
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export MANPAGER='nvim +Man!'
-export ZETPATH="$(xdg-user-dir DOCUMENTS)/obsidian/"
-export ZETPATH_NOTES="$(xdg-user-dir DOCUMENTS)/obsidian/Notes/"
 
 eval "$(jump shell --bind=z)"
 eval "$(starship init bash)"
