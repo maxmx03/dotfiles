@@ -14,7 +14,7 @@ if [[ $- != *i* ]]; then
 fi
 
 # Put your fun stuff here.
-if [[ "$TERM" = xterm-256color ]]; then
+if [[ "$TERM" = xterm-kitty ]]; then
 	fastfetch
 fi
 
@@ -32,6 +32,7 @@ HISTCONTROL=ignoredups
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 export MANPAGER='nvim +Man!'
 
 eval "$(jump shell --bind=z)"
@@ -43,3 +44,6 @@ if [ -d "$FNM_PATH" ]; then
 	export PATH="$FNM_PATH:$PATH"
 	eval "$(fnm env --shell bash)"
 fi
+
+# opencode
+export PATH=/home/maxmx03/.opencode/bin:$PATH
