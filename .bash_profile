@@ -8,14 +8,12 @@ fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty"* ]]; then
-	# export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
-	# export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
-	export XDG_SESSION_TYPE=wayland
-	export XDG_CURRENT_DESKTOP=sway
-	export XDG_SESSION_DESKTOP=sway
-	export GDK_BACKEND=wayland
-	export MOZ_ENABLE_WAYLAND=1
-	export ADW_DISABLE_PORTAL=1
+	export XDG_SESSION_TYPE=x11
+	export XDG_CURRENT_DESKTOP=i3
+	export XDG_SESSION_DESKTOP=i3
+	export XCURSOR_THEME=Kitty
+	export XCURSOR_SIZE=24
+	export GTK_THEME=BottleGlass:dark
 	export EDITOR=nvim
-	dbus-run-session sway
+	startx
 fi

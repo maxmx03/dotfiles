@@ -1,8 +1,10 @@
-# Default config for sway
+# Default config for i3
 #
-# Copy this to ~/.config/sway/config and edit it to your liking.
+# Copy this to ~/.config/i3/config and edit it to your liking.
 #
-# Read `man 5 sway` for a complete reference.
+# Read `man 5 i3` for a complete reference.
+
+font pango:Sans Regular 11
 
 ### Variables
 #
@@ -22,55 +24,28 @@ set $editor emacs
 # -M <color>: Prompt background
 # -m <color>: Prompt foreground (text)
 # -S <color>: Selected item background-s <color>: Selected item foreground 
-set $menu wofi --show=drun
+set $menu rofi -show drun
 set $filemanager nemo
-set $gnome-schema org.gnome.desktop.interface
-seat seat0 xcursor_theme 'Kitty' 24
-#
-# Screen capture
-#
-set $ps1 Print
-set $ps2 Control+Print
-set $ps3 Alt+Print
-set $ps4 Alt+Control+Print
-set $psf $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#output * bg /home/maxmx03/Imagens/wallpapers/wallhaven-1qpqgv_2560x1080.png fill
+exec --no-startup-id xrandr --output HDMI-A-0 --primary --mode 2560x1080 --rate 60.00
 #
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# You can get the names of your outputs by running: i3 -t get_outputs
 exec --no-startup-id dbus-update-activation-environment --all
-exec gnome-keyring-daemon --start --components=secrets
-exec export $(gnome-keyring-daemon)
-exec /usr/libexec/gvfsd # gvfs daemon for (disks/thrash)
 exec --no-startup-id gentoo-pipewire-launcher restart &
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id ~/.config/sway/wallpaper
-exec mako --text-color="#C8C093" --border-color="#54546D" --background-color="#223249" # notification daemon
-exec mpd
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'BottleGlass'
-    gsettings set $gnome-schema icon-theme 'Deepin'
-    gsettings set $gnome-schema cursor-theme 'Kitty'
-    # gsettings set $gnome-schema font-name 'Sans 10'
-    gsettings set $gnome-schema color-scheme 'prefer-dark'
-}
+exec_always --no-startup-id ~/.config/i3/wallpaper
+exec --no-startup-id dunst
+exec --no-startup-id mpd
+exec_always --no-startup-id picom -b
 
 ### Idle configuration
 #
 # Example configuration:
 # Enables inhibit_idle when playing audio
-#exec swayidle -w \
-#    timeout 300 'swaylock -f -c 1f1f28' \
-#    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#    before-sleep 'swaylock -f -c 1f1f28'
+exec --no-startup-id xset s 300 300
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i $(xdg-user-dir PICTURES)/swaylock.png
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -87,9 +62,7 @@ exec_always {
 #       middle_emulation enabled
 #   }
 #
-input type:keyboard {
-    xkb_layout "br"
-}
+exec --no-startup-id setxkbmap -layout 'br'
 #
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
@@ -119,20 +92,20 @@ bindsym $mod+d exec $menu
 bindsym $mod+n exec $filemanager
 
 # Launch power menu
-bindsym $mod+Escape exec wofi-powermenu
+bindsym $mod+Escape exec rofi-powermenu
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
 # Change normal to inverse to use left mouse button for resizing and right
 # mouse button for dragging.
-floating_modifier $mod normal
+floating_modifier $mod
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #
 # Moving around:
 #
@@ -168,8 +141,8 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Page_Up workspace next
 bindsym $mod+Page_Down workspace prev
 
-bindsym --whole-window $mod+button4 workspace prev
-bindsym --whole-window $mod+button5 workspace next
+bindsym $mod+button4 workspace prev
+bindsym $mod+button5 workspace next
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -198,24 +171,24 @@ bindsym $mod+Shift+0 move container to workspace number 10
 #
 # Workspace bindings
 #
-assign [app_id="kitty"] workspace number 1
-for_window [app_id="kitty"] focus
+assign [class="kitty"] workspace number 1
+for_window [class="kitty"] focus
 
-assign [app_id="emacs"] workspace number 1
-for_window [app_id="emacs"] focus
+assign [class="Emacs"] workspace number 1
+for_window [class="Emacs"] focus
 
-assign [app_id="vivaldi-snapshot"] workspace number 2
-for_window [app_id="vivaldi-snapshot"] focus
+assign [class="Vivaldi-snapshot"] workspace number 2
+for_window [class="Vivaldi-snapshot"] focus
 
-assign [app_id="heroic"] workspace number 2
-for_window [app_id="heroic"] focus
+assign [class="heroic"] workspace number 2
+for_window [class="heroic"] focus
 
 #
 # Floating rules
 #
-for_window [app_id="nemo"] floating enabled
-for_window [app_id="vivaldi-snapshot" title=".*Configurações do Vivaldi.*"] floating enabled
-for_window [app_id="vivaldi-snapshot" title="Bitwarden"] floating enabled
+for_window [class="Nemo"] floating enabled
+for_window [class="Vivaldi-snapshot" title=".*Configurações do Vivaldi.*"] floating enabled
+for_window [class="Vivaldi-snapshot" title="Bitwarden"] floating enabled
 
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
@@ -284,24 +257,22 @@ bindsym $mod+r mode "resize"
 # Utilities:
 #
 # Special keys to adjust volume via PulseAudio
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 # Special keys to adjust brightness via brightnessctl
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # Special keys to control mpd
-bindsym --locked XF86AudioPlay exec mpc -p 6601 toggle
-bindsym --locked XF86AudioNext exec mpc -p 6601 next
-bindsym --locked XF86AudioPrev exec mpc -p 6601 prev
+bindsym XF86AudioPlay exec mpc -p 6601 toggle
+bindsym XF86AudioNext exec mpc -p 6601 next
+bindsym XF86AudioPrev exec mpc -p 6601 prev
 
-# Special key to take a screenshot with grim
-bindsym Print exec grim
-bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
-bindsym $ps3 exec grim $psf
-bindsym $ps4 exec grim -g "$(slurp)" $psf
+# Special key to take a screenshot with scrot
+bindsym --release Print exec --no-startup-id scrot -s -f -o /tmp/snip.png && xclip -selection clipboard -t image/png -i /tmp/snip.png
+bindsym XF86Search exec $menu
 
 #border indicator on windows:
 default_border pixel 3
@@ -310,5 +281,4 @@ default_border pixel 3
 gaps inner 6
 gaps outer 3
 
-include /etc/sway/config.d/*
-include ~/.config/sway/config.d/*
+include ~/.config/i3/config.d/*

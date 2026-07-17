@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+WALLPAPERS="$(xdg-user-dir PICTURES)/wallpapers"
+feh --bg-fill --random "$WALLPAPERS"

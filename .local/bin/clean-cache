@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-find $HOME/.cache/ -type f -atime +30 -delete
+find $HOME/.cache/ -type f -atime +6 -delete
+find $HOME/.cache/ -maxdepth 1 -type d -mtime +6 -exec rm -rf {} +
+find $HOME/.cache -maxdepth 1 -name "keyring-*" -mmin +60 -exec rm -rf {} +
