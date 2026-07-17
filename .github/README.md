@@ -12,22 +12,21 @@ This repository contains my complete system configuration, featuring a minimal a
 
 ### Window Manager & Core
 
-- **[Sway](https://swaywm.org/)** - i3-compatible Wayland compositor
+- **[i3](https://i3wm.org/)** - Tiling window manager
   - Kanagawa color integration (`kanagawa.conf`)
   - Custom wallpaper and output management
-- **[Swaylock](https://github.com/jeffmhubbard/swaylock-effects)** - Fast and secure screen locker
 
 ### Status Bar & Launcher
 
 - **i3status** - Lightweight status bar configuration
-- **[Wofi](https://hg.sr.ht/~scoopta/wofi)** - Launcher and menu program for Wayland
+- **[Rofi](https://hg.sr.ht/~scoopta/wofi)** - Launcher and menu program
   - Customized application launcher
   - Custom dynamic stylesheet (`style.css`)
   - Integrated powermenu script with dedicated styling
 
 ### Terminal & Shell
 
-- **[Foot](https://codeberg.org/dnkl/foot)** - Fast, lightweight, and native Wayland terminal
+- **[Kitty](https://codeberg.org/dnkl/foot)** - Fast, lightweight, and native terminal
   - Styled with the `kanagawa-wave` theme
 - **Bash** - Bourne Again SHell (`.bashrc` & `.bash_profile`)
 - **Fastfetch** - Modern system information tool
@@ -137,20 +136,19 @@ dot push
 ├── .config/
 │   ├── emacs/             # Emacs Configuration (Submodule)
 │   ├── fastfetch/         # System fetch layout
-│   ├── foot/              # Foot terminal & Kanagawa theme
+│   ├── kitty/             # Kitty terminal & Kanagawa theme
 │   ├── gtk-3.0/           # GTK3 bookmarks and styles
 │   ├── gtk-4.0/           # GTK4 settings
 │   ├── i3status/          # Status bar configuration
 │   ├── mpd/               # Music Player Daemon
 │   ├── mpv/               # Media player settings
 │   ├── nvim/              # Neovim Configuration (Submodule)
-│   ├── sway/              # Sway WM config, colors & wallpaper
-│   ├── swaylock/          # Lockscreen configuration
-│   └── wofi/              # Application launcher & powermenu styles
+│   ├── i3/              # Sway WM config, colors & wallpaper
+│   └── rofi/              # Application launcher & powermenu styles
 ├── .local/bin/            # Custom user scripts
 │   ├── commit
 │   ├── dot
-│   └── wofi-powermenu
+│   └── rofi-powermenu
 ├── .bash_profile          # Bash profile environment
 ├── .bashrc                # Shell aliases and functions
 ├── .gitconfig             # Global Git settings
