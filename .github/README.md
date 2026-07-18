@@ -143,7 +143,7 @@ dot push
 │   ├── mpd/               # Music Player Daemon
 │   ├── mpv/               # Media player settings
 │   ├── nvim/              # Neovim Configuration (Submodule)
-│   ├── i3/              # Sway WM config, colors & wallpaper
+│   ├── i3/                # i3-WM config, colors & wallpaper
 │   └── rofi/              # Application launcher & powermenu styles
 ├── .local/bin/            # Custom user scripts
 │   ├── commit
