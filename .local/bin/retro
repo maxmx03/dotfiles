@@ -16,7 +16,7 @@ if [ -z "$GAME" ]; then
 fi
 
 # open dmednafen in a new session
-setsid gamemoderun mednafen "$GAME" >/dev/null 2>&1 &
+setsid mednafen "$GAME" >/dev/null 2>&1 &
 
 # closes foot terminal
 exec kill -HUP $PPID

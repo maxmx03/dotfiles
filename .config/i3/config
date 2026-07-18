@@ -30,6 +30,7 @@ set $filemanager nemo
 ### Output configuration
 #
 exec --no-startup-id xrandr --output HDMI-A-0 --primary --mode 2560x1080 --rate 60.00
+#exec --no-startup-id xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 60.00
 #
 # You can get the names of your outputs by running: i3 -t get_outputs
 exec --no-startup-id dbus-update-activation-environment --all
@@ -183,12 +184,17 @@ for_window [class="Vivaldi-snapshot"] focus
 assign [class="heroic"] workspace number 2
 for_window [class="heroic"] focus
 
+assign [class="steam_.*"] workspace number 3
+for_window [class="steam_.*"] focus
+
 #
 # Floating rules
 #
 for_window [class="Nemo"] floating enabled
 for_window [class="Vivaldi-snapshot" title=".*Configurações do Vivaldi.*"] floating enabled
 for_window [class="Vivaldi-snapshot" title="Bitwarden"] floating enabled
+for_window [class="steam"] floating enabled
+for_window [class="obs"] floating enabled
 
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
@@ -274,11 +280,14 @@ bindsym XF86AudioPrev exec mpc -p 6601 prev
 bindsym --release Print exec --no-startup-id scrot -s -f -o /tmp/snip.png && xclip -selection clipboard -t image/png -i /tmp/snip.png
 bindsym XF86Search exec $menu
 
-#border indicator on windows:
+# default border style for new windows
 default_border pixel 3
+default_floating_border pixel 3
+for_window [class=".*"] border pixel 3
 
 # Set inner/outer gaps
 gaps inner 6
 gaps outer 3
+smart_gaps on
 
 include ~/.config/i3/config.d/*

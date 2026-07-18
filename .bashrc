@@ -44,6 +44,3 @@ if [ -d "$FNM_PATH" ]; then
 	export PATH="$FNM_PATH:$PATH"
 	eval "$(fnm env --shell bash)"
 fi
-
-# opencode
-export PATH=/home/maxmx03/.opencode/bin:$PATH
