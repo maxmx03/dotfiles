@@ -1,20 +1,23 @@
 #!/bin/env bash
 
 OPTION_POWEROFF="󰐥"
-OPTION_LOCKED=''
-OPTION_REBOOT=''
-OPTION_LOCK=''
-OPTION_SUSPEND=''
-OPTION_LOGOUT=''
+OPTION_LOCK=''
+OPTION_REBOOT=''
+OPTION_SUSPEND='󰤄'
+OPTION_LOGOUT='󰈆'
 
-OPTIONS="$OPTION_LOCK\n$OPTION_POWEROFF\n$OPTION_REBOOT\n$OPTION_SUSPEND\n$OPTION_LOGOUT"
+OPTIONS="$OPTION_POWEROFF\n$OPTION_REBOOT\n$OPTION_SUSPEND\n$OPTION_LOCK\n$OPTION_LOGOUT"
 CHOOSE=$(echo -e "$OPTIONS" | rofi -dmenu -i -theme ~/.config/rofi/powermenu.rasi)
 
-dir="$HOME/.config/rofi/"
-theme='powermenu'
+if [[ -z "$CHOOSE" ]]; then
+  exit 0
+fi
 
-yes=''
-no=''
+DIR="$HOME/.config/rofi/"
+ROFI_THEME='powermenu'
+
+YES=''
+NO='󰜺'
 
 confirm_cmd() {
   rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
@@ -25,15 +28,15 @@ confirm_cmd() {
     -dmenu \
     -p 'Confirmation' \
     -mesg 'Are you Sure?' \
-    -theme ${dir}/${theme}.rasi
+    -theme ${DIR}/${ROFI_THEME}.rasi
 }
 
 confirm_exit() {
-  echo -e "$yes\n$no" | confirm_cmd
+  echo -e "$YES\n$NO" | confirm_cmd
 }
 
-selected="$(confirm_exit)"
-if [[ "$selected" == "$no" ]]; then
+CONFIRM_EXIT="$(confirm_exit)"
+if [[ "$CONFIRM_EXIT" == "$NO" ]]; then
   exit 0
 fi
 
