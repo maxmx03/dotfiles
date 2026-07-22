@@ -1,0 +1,57 @@
+#!/bin/env bash
+
+OPTION_POWEROFF="󰐥"
+OPTION_LOCKED=''
+OPTION_REBOOT=''
+OPTION_LOCK=''
+OPTION_SUSPEND=''
+OPTION_LOGOUT=''
+
+OPTIONS="$OPTION_LOCK\n$OPTION_POWEROFF\n$OPTION_REBOOT\n$OPTION_SUSPEND\n$OPTION_LOGOUT"
+CHOOSE=$(echo -e "$OPTIONS" | rofi -dmenu -i -theme ~/.config/rofi/powermenu.rasi)
+
+dir="$HOME/.config/rofi/"
+theme='powermenu'
+
+yes=''
+no=''
+
+confirm_cmd() {
+  rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+    -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+    -theme-str 'listview {columns: 2; lines: 1;}' \
+    -theme-str 'element-text {horizontal-align: 0.5;}' \
+    -theme-str 'textbox {horizontal-align: 0.5;}' \
+    -dmenu \
+    -p 'Confirmation' \
+    -mesg 'Are you Sure?' \
+    -theme ${dir}/${theme}.rasi
+}
+
+confirm_exit() {
+  echo -e "$yes\n$no" | confirm_cmd
+}
+
+selected="$(confirm_exit)"
+if [[ "$selected" == "$no" ]]; then
+  exit 0
+fi
+
+case "$CHOOSE" in
+
+"$OPTION_LOCK")
+  i3lock -i "$(xdg-user-dir PICTURES)/swaylock.png"
+  ;;
+"$OPTION_POWEROFF")
+  loginctl poweroff
+  ;;
+"$OPTION_REBOOT")
+  loginctl reboot
+  ;;
+"$OPTION_SUSPEND")
+  loginctl suspend
+  ;;
+"$OPTION_LOGOUT")
+  i3-msg exit
+  ;;
+esac

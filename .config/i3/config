@@ -39,7 +39,7 @@ exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id ~/.config/i3/wallpaper
 exec --no-startup-id dunst
 exec --no-startup-id mpd
-exec_always --no-startup-id picom -b
+
 
 ### Idle configuration
 #
@@ -80,8 +80,8 @@ bindsym $mod+Return exec $term
 # Start emacs
 bindsym $mod+e exec $editor
 
-# Start vivaldi
-bindsym $mod+w exec vivaldi-snapshot
+# Start librewolf
+bindsym $mod+w exec librewolf
 
 # Kill focused window
 bindsym $mod+q kill
@@ -178,8 +178,8 @@ for_window [class="kitty"] focus
 assign [class="Emacs"] workspace number 1
 for_window [class="Emacs"] focus
 
-assign [class="Vivaldi-snapshot"] workspace number 2
-for_window [class="Vivaldi-snapshot"] focus
+assign [class="librewolf"] workspace number 2
+for_window [class="librewolf"] focus
 
 assign [class="heroic"] workspace number 2
 for_window [class="heroic"] focus
@@ -191,8 +191,6 @@ for_window [class="steam_.*"] focus
 # Floating rules
 #
 for_window [class="Nemo"] floating enabled
-for_window [class="Vivaldi-snapshot" title=".*Configurações do Vivaldi.*"] floating enabled
-for_window [class="Vivaldi-snapshot" title="Bitwarden"] floating enabled
 for_window [class="steam"] floating enabled
 for_window [class="obs"] floating enabled
 
