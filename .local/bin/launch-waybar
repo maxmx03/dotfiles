@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+killall -q waybar
+
+while [[ -z $(amixer scontrols) ]]; do
+	sleep 1
+done
+
+echo "---" | tee -a /tmp/waybar.log
+waybar 2>&1 | tee -a /tmp/waybar.log &
+disown
