@@ -1,6 +1,5 @@
 * {
-  font-family: "Adwaita Sans", "Sans", monospace;
-  font-size: 13px;
+  font-family: "Inconsolata Nerd Font", "JetBrainsMono Nerd Font";
   min-height: 0;
 }
 
@@ -30,18 +29,14 @@ tooltip label {
 #workspaces button {
   padding: 0 8px;
   color: #727169;
-  background-color: transparent;
-  border-radius: 6px;
-  margin: 4px 2px;
+  font-size: 18px;
 }
 
 #workspaces button.active {
   color: #dcd7ba;
-  background-color: #223249;
 }
 
 #workspaces button:hover {
-  background: #363646;
   color: #dcd7ba;
 }
 

@@ -32,7 +32,7 @@ local fileManager = 'nautilus'
 local menu = 'wofi --show drun'
 local browser = 'firefox'
 local function gsettings(param, value)
-  hl.exec_cmd(string.format('gsetting set org.gnome.desktop.interface %s %s', param, value))
+  hl.exec_cmd(string.format('gsettings set org.gnome.desktop.interface %s %s', param, value))
 end
 
 -------------------
@@ -46,6 +46,7 @@ end
 hl.on('hyprland.start', function()
   hl.exec_cmd 'dbus-update-activation-environment --all'
   hl.exec_cmd 'gentoo-pipewire-launcher restart'
+  hl.exec_cmd '/usr/libexec/hyprpolkitagent'
   hl.exec_cmd 'gnome-keyring-daemon --start --components=secrets'
   hl.exec_cmd 'export $(gnome-keyring-daemon'
   hl.exec_cmd 'hypridle'
@@ -59,7 +60,7 @@ hl.on('hyprland.start', function()
   gsettings('cursor-theme', 'Kitty')
   gsettings('font-name', 'Sans 10')
   gsettings('color-scheme', 'prefer-dark')
-  hl.exec_cmd 'waybar'
+  hl.exec_cmd 'launch-waybar'
 end)
 
 -------------------------------
@@ -431,50 +432,49 @@ hl.window_rule {
 hl.window_rule {
   name = 'terminal',
   workspace = 1,
-  match = { class = 'foot' },
+  match = { class = 'kitty' },
 }
 
 hl.window_rule {
   name = 'firefox',
   workspace = 2,
-  match = { class = 'firefox' },
+  match = { class = 'firefox-esr' },
 }
 
 hl.window_rule {
   name = 'nautilus',
-  workspace = 3,
   float = true,
   match = { class = 'org.gnome.Nautilus' },
 }
 
 hl.window_rule {
   name = 'steam',
-  workspace = 4,
+  workspace = 3,
   float = true,
   match = { class = 'steam' },
 }
 
 hl.window_rule {
   name = 'steam',
-  workspace = 4,
+  workspace = 3,
   match = { class = '^(steam_app_).*$' },
 }
 
 hl.window_rule {
   name = 'heroic',
-  workspace = 4,
+  workspace = 3,
   match = { class = '^(steam_app_).*$' },
 }
 
 hl.window_rule {
   name = 'eden-emulator',
-  workspace = 4,
+  workspace = 3,
   match = { class = 'eden' },
 }
 
 hl.window_rule {
   name = 'emacs',
-  workspace = 5,
+  workspace = 1,
   match = { class = 'emacs' },
 }
 

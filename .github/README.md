@@ -4,7 +4,6 @@ Personal configuration files for my Gentoo + Hyprland setup.
 
 <img width="1340" height="726" alt="20260725_01h07m52s_grim" src="https://github.com/user-attachments/assets/13d6d026-68c0-43c4-a4a0-29139f7cad27" />
 
-
 ## Overview
 
 This repository contains my complete system configuration, featuring a modern Wayland-based desktop environment powered by Hyprland, Waybar, and Wofi. Managed as a **bare Git repository** for seamless dotfile versioning. The aesthetic is heavily inspired by the **Kanagawa** color palette.
@@ -175,14 +174,6 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd
 ├── .gitmodules            # Submodule tracking (nvim, emacs)
 └── .tmux.conf             # Tmux multiplexer config
 ```
-
-## Credits
-
-- **Hyprland**: [vaxerski](https://github.com/hyprwm/Hyprland)
-- **Waybar**: [Alexays](https://github.com/Alexays/Waybar)
-- **Wofi**: [scoopta](https://hg.sr.ht/~scoopta/wofi)
-- **Kanagawa**: [enkia](https://github.com/enkia/kanagawa-theme)
-- **WhiteSur Theme**: [vinceliuice](https://github.com/vinceliuice/WhiteSur-gtk-theme)
 
 ## License
 
