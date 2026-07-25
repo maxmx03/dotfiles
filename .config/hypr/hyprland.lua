@@ -29,7 +29,7 @@ hl.monitor {
 -- Set programs that you use
 local terminal = 'kitty'
 local fileManager = 'nautilus'
-local menu = 'wofi --show drun'
+local menu = 'rofi -show drun'
 local browser = 'firefox'
 local function gsettings(param, value)
   hl.exec_cmd(string.format('gsettings set org.gnome.desktop.interface %s %s', param, value))
@@ -307,7 +307,7 @@ hl.bind(mainMod .. ' + D', hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. ' + P', hl.dsp.window.pseudo())
 hl.bind(mainMod .. ' + J', hl.dsp.layout 'togglesplit') -- dwindle only
 hl.bind('Print', hl.dsp.exec_cmd 'grim -g "$(slurp)"')
-hl.bind(mainMod .. ' + Escape', hl.dsp.exec_cmd 'wofi-powermenu')
+hl.bind(mainMod .. ' + Escape', hl.dsp.exec_cmd 'rofi-powermenu')
 hl.bind(mainMod .. ' + W', hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. ' + F', hl.dsp.window.fullscreen())
 hl.bind(mainMod .. ' + Return', hl.dsp.exec_cmd(terminal))

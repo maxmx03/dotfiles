@@ -63,7 +63,7 @@
 
   "custom/power": {
     "format": "⏻",
-    "on-click": "wofi-powermenu",
+    "on-click": "rofi-powermenu",
     "tooltip": false,
   },
 
