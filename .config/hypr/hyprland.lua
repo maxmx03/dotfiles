@@ -481,3 +481,9 @@ hl.window_rule {
 --------------------------------
 ---- LAYERS ----
 --------------------------------
+hl.layer_rule {
+  name = 'waybar',
+  match = { namespace = 'waybar' },
+  ignore_alpha = 0.5,
+  blur = true,
+}
