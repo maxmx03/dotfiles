@@ -1,0 +1,24 @@
+#!/bin/env bash
+
+OPTION_POWEROFF="󰐥 Power Off"
+OPTION_REBOOT="󰜉 Reboot"
+OPTION_SUSPEND="󰤄 Suspend"
+OPTION_LOGOUT="󰈆 Logout"
+
+OPTIONS="$OPTION_POWEROFF\n$OPTION_REBOOT\n$OPTION_SUSPEND\n$OPTION_LOGOUT"
+CHOOSE=$(echo -e "$OPTIONS" | wofi -c ~/.config/wofi/powermenu.conf)
+
+case "$CHOOSE" in
+"$OPTION_POWEROFF")
+	loginctl poweroff
+	;;
+"$OPTION_REBOOT")
+	loginctl reboot
+	;;
+"$OPTION_SUSPEND")
+	loginctl suspend
+	;;
+"$OPTION_LOGOUT")
+	swaymsg exit
+	;;
+esac

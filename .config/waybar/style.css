@@ -1,0 +1,72 @@
+* {
+  font-family: "Adwaita Sans", "Sans", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(22, 22, 29, 0.9);
+  color: #dcd7ba;
+  border-radius: 12px;
+}
+
+tooltip {
+  background: #1f1f28;
+  color: #dcd7ba;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+tooltip label {
+  color: #dcd7ba;
+}
+
+#custom-gentoo {
+  padding: 12px;
+  color: #dcd7ba;
+  font-size: 24px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: #727169;
+  background-color: transparent;
+  border-radius: 6px;
+  margin: 4px 2px;
+}
+
+#workspaces button.active {
+  color: #dcd7ba;
+  background-color: #223249;
+}
+
+#workspaces button:hover {
+  background: #363646;
+  color: #dcd7ba;
+}
+
+#window {
+  padding: 0 12px;
+  color: #c8c093;
+}
+
+#mpd {
+  padding: 0 12px;
+  color: #98bb6c;
+}
+
+#tray {
+  padding: 0 10px;
+  color: #dcd7ba;
+}
+
+#clock {
+  padding: 0 12px;
+  color: #dca561;
+}
+
+#custom-power {
+  padding: 0 10px;
+  color: #e46876;
+  font-size: 16px;
+}

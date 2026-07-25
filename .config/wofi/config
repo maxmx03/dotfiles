@@ -1,0 +1,13 @@
+# -*- conf -*-
+
+mode=drun
+stylesheet=style.css
+
+# position and size
+width=800
+height=600
+location=center # wofi(7)
+
+allow_images=true
+
+prompt=Search...

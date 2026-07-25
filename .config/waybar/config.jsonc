@@ -1,0 +1,69 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 36,
+  "spacing": 4,
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-bottom": 5,
+
+  "modules-left": ["custom/gentoo", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["mpd", "tray", "clock", "custom/power"],
+
+  "custom/gentoo": {
+    "format": " ",
+  },
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "sort-by-number": true,
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "separate-outputs": true,
+  },
+
+  "mpd": {
+    "format": "{state_icon} {artist} - {title}",
+    "format-disconnected": "",
+    "format-stopped": "",
+    "unknown-tag": "",
+    "interval": 2,
+    "on-click": "mpc toggle",
+    "on-click-right": "mpc next",
+    "tooltip-format": "{artist} - {title}\n{album}",
+  },
+
+  "clock": {
+    "format": "{:%a %d %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+    },
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "wofi-powermenu",
+    "tooltip": false,
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+    "show-passive": true,
+  },
+}
