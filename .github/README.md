@@ -2,19 +2,12 @@
 
 Personal configuration files for my Gentoo + Hyprland setup.
 
-<img width="2560" height="611" alt="20260414_16h52m57s_grim" src="https://github.com/user-attachments/assets/ad2c12f7-b0b5-4a39-9821-755e15fb75c7" />
+<img width="1340" height="726" alt="20260725_01h07m52s_grim" src="https://github.com/user-attachments/assets/13d6d026-68c0-43c4-a4a0-29139f7cad27" />
+
 
 ## Overview
 
 This repository contains my complete system configuration, featuring a modern Wayland-based desktop environment powered by Hyprland, Waybar, and Wofi. Managed as a **bare Git repository** for seamless dotfile versioning. The aesthetic is heavily inspired by the **Kanagawa** color palette.
-
-## Screenshot
-
-<img width="2560" height="1080" alt="20260414_16h52m33s_grim" src="https://github.com/user-attachments/assets/f20126a3-31e2-4cac-a20d-4535440bf374" />
-<img width="2549" height="1080" alt="20260414_16h52m28s_grim" src="https://github.com/user-attachments/assets/23b6d34b-2c27-49be-8ad8-fb2cc3bc998e" />
-<img width="2560" height="1080" alt="20260414_16h51m16s_grim" src="https://github.com/user-attachments/assets/761c67e2-d300-48aa-bd31-d6eb7dc68fc3" />
-<img width="2560" height="1079" alt="20260414_16h51m06s_grim" src="https://github.com/user-attachments/assets/9e01f249-3e93-430b-940b-d98b27430ed2" />
-<img width="2560" height="1080" alt="20260414_16h52m37s_grim" src="https://github.com/user-attachments/assets/be13617a-ee50-4fe2-b2eb-f3a2da57aaf5" />
 
 ## Components
 
