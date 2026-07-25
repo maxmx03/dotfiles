@@ -54,8 +54,8 @@ hl.on('hyprland.start', function()
   hl.exec_cmd 'mpd'
   hl.exec_cmd 'mako --text-color="#C8C093" --border-color="#54546D" --background-color="#223249"'
   -- hl.exec_cmd 'alarm-clock-applet --hidden'
-  gsettings('gtk-theme', 'BottleGlass')
-  gsettings('icon-theme', 'Deepin')
+  gsettings('gtk-theme', 'Adwaita')
+  gsettings('icon-theme', 'Adwaita')
   gsettings('cursor-theme', 'Kitty')
   gsettings('font-name', 'Sans 10')
   gsettings('color-scheme', 'prefer-dark')
