@@ -1,12 +1,12 @@
 # Dotfiles
 
-Personal configuration files for my Arch Linux + Hyprland setup.
+Personal configuration files for my Gentoo + Hyprland setup.
 
 <img width="2560" height="611" alt="20260414_16h52m57s_grim" src="https://github.com/user-attachments/assets/ad2c12f7-b0b5-4a39-9821-755e15fb75c7" />
 
 ## Overview
 
-This repository contains my complete system configuration, featuring a modern Wayland-based desktop environment powered by Hyprland, Waybar, and Wofi. The aesthetic is heavily inspired by the **Kanagawa** color palette.
+This repository contains my complete system configuration, featuring a modern Wayland-based desktop environment powered by Hyprland, Waybar, and Wofi. Managed as a **bare Git repository** for seamless dotfile versioning. The aesthetic is heavily inspired by the **Kanagawa** color palette.
 
 ## Screenshot
 
@@ -115,9 +115,7 @@ psx.videoip 0
 
 ## Installation
 
-### Quick Setup (Bare Repository Method)
-
-1. Clone the repository as a bare repo:
+### Bare Repository Setup
 
 ```bash
 git clone --bare https://github.com/maxmx03/dotfiles.git ~/.dot.git
@@ -126,20 +124,6 @@ git --git-dir=$HOME/.dot.git --work-tree=$HOME config --local status.showUntrack
 git --git-dir=$HOME/.dot.git --work-tree=$HOME submodule update --init --recursive
 ```
 
-2. Run the installation script:
-
-```bash
-chmod u+x .dot.sh
-./.dot.sh
-```
-
-This script will:
-
-- Install `yay` (AUR helper) if not present
-- Install all packages from `pkglist.txt`
-- Configure PipeWire audio
-- Set gaming-optimized memory limits
-
 ## Configuration
 
 ### Git Integration
@@ -147,7 +131,6 @@ This script will:
 The repository uses a bare repo with the `dot` alias for seamless dotfile management:
 
 ```bash
-# Already configured in .gitconfig
 dot status
 dot add <file>
 dot commit -m "feat: update configurations"
@@ -184,7 +167,6 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber mpd
 │   ├── kitty/             # Kitty terminal & Kanagawa theme
 │   ├── mpv/               # Media player settings
 │   ├── nvim/              # Neovim Configuration (Submodule)
-│   ├── obs-studio/        # OBS Studio
 │   ├── waybar/            # Status bar config & styles
 │   └── wofi/              # Application launcher & powermenu
 ├── .local/bin/            # Custom user scripts
