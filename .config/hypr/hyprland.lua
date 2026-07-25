@@ -32,7 +32,7 @@ local fileManager = 'nautilus'
 local menu = 'wofi --show drun'
 local browser = 'firefox'
 local function gsettings(param, value)
-  hl.exec_cmd(string.format('set org.gnome.desktop.interface %s %s', param, value))
+  hl.exec_cmd(string.format('gsetting set org.gnome.desktop.interface %s %s', param, value))
 end
 
 -------------------
