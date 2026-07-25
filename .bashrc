@@ -16,12 +16,9 @@ HISTFILESIZE=5000
 HISTSIZE=5000
 HISTFILE=~/.bash_history
 HISTCONTROL=ignoredups
-
-eval "$(jump shell --bind=z)"
-eval "$(starship init bash)"
-
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
-export ZETPATH="$(xdg-user-dir DOCUMENTS)/obsidian/"
-export ZETPATH_NOTES="$(xdg-user-dir DOCUMENTS)/obsidian/Notes/"
+eval "$(jump shell --bind=z)"
+eval "$(starship init bash)"

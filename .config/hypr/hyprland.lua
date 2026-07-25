@@ -27,10 +27,13 @@ hl.monitor {
 ---------------------
 
 -- Set programs that you use
-local terminal = 'foot'
+local terminal = 'kitty'
 local fileManager = 'nautilus'
-local menu = 'ags toggle '
-local browser = 'google-chrome-stable'
+local menu = 'wofi --show drun'
+local browser = 'firefox'
+local function gsettings(param, value)
+  hl.exec_cmd(string.format('set org.gnome.desktop.interface %s %s', param, value))
+end
 
 -------------------
 ---- AUTOSTART ----
@@ -41,15 +44,22 @@ local browser = 'google-chrome-stable'
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 hl.on('hyprland.start', function()
+  hl.exec_cmd 'dbus-update-activation-environment --all'
+  hl.exec_cmd 'gentoo-pipewire-launcher restart'
+  hl.exec_cmd 'gnome-keyring-daemon --start --components=secrets'
+  hl.exec_cmd 'export $(gnome-keyring-daemon'
   hl.exec_cmd 'hypridle'
   hl.exec_cmd 'hyprsunset'
-  hl.exec_cmd(terminal .. '--server')
-  hl.exec_cmd 'nm-applet --indicator'
-  hl.exec_cmd 'systemctl --user start hyprpolkitagent'
-  hl.exec_cmd 'ags run'
-  hl.exec_cmd 'awww-daemon'
+  hl.exec_cmd 'hyprpaper'
+  hl.exec_cmd 'mpd'
+  hl.exec_cmd 'mako --text-color="#C8C093" --border-color="#54546D" --background-color="#223249"'
   -- hl.exec_cmd 'alarm-clock-applet --hidden'
-  hl.exec_cmd '~/.config/hypr/wallpaper'
+  gsettings('gtk-theme', 'BottleGlass')
+  gsettings('icon-theme', 'Deepin')
+  gsettings('cursor-theme', 'Kitty')
+  gsettings('font-name', 'Sans 10')
+  gsettings('color-scheme', 'prefer-dark')
+  hl.exec_cmd 'waybar'
 end)
 
 -------------------------------
@@ -59,12 +69,11 @@ end)
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
 hl.env('XCURSOR_SIZE', '24')
-hl.env('XCURSOR_THEME', 'Adwaita')
+hl.env('XCURSOR_THEME', 'Kitty')
 hl.env('HYPRCURSOR_SIZE', '24')
-hl.env('GTK_THEME', 'adw-gtk3-dark')
 hl.env('LANG', 'pt_BR.UTF-8')
 hl.env('LC_ALL', 'pt_BR.UTF-8')
-hl.env('BROWSER', 'google-chrome')
+hl.env('BROWSER', 'firefox')
 
 -----------------------
 ----- PERMISSIONS -----
@@ -97,8 +106,8 @@ hl.config {
     border_size = 2,
 
     col = {
-      active_border = { colors = { 'rgb(268bd3)' } },
-      inactive_border = 'rgb(586e75)',
+      active_border = { colors = { 'rgb(54546D)' } },
+      inactive_border = 'rgb(16161D)',
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -282,7 +291,7 @@ hl.device {
 local mainMod = 'SUPER' -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd 'obsidian')
+hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd 'emacs')
 -- local closeWindowBind = hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
 
 hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
@@ -293,11 +302,11 @@ hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
 --)
 hl.bind(mainMod .. ' + N', hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. ' + V', hl.dsp.window.float { action = 'toggle' })
-hl.bind(mainMod .. ' + R', hl.dsp.exec_cmd(menu .. 'launcher'))
+hl.bind(mainMod .. ' + D', hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. ' + P', hl.dsp.window.pseudo())
 hl.bind(mainMod .. ' + J', hl.dsp.layout 'togglesplit') -- dwindle only
 hl.bind('Print', hl.dsp.exec_cmd 'grim -g "$(slurp)"')
-hl.bind(mainMod .. ' + Escape', hl.dsp.exec_cmd(menu .. 'powermenu'))
+hl.bind(mainMod .. ' + Escape', hl.dsp.exec_cmd 'wofi-powermenu')
 hl.bind(mainMod .. ' + W', hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. ' + F', hl.dsp.window.fullscreen())
 hl.bind(mainMod .. ' + Return', hl.dsp.exec_cmd(terminal))
@@ -363,11 +372,11 @@ hl.bind(
   { locked = true, repeating = true }
 )
 
--- Requires playerctl
-hl.bind('XF86AudioNext', hl.dsp.exec_cmd 'playerctl next', { locked = true })
-hl.bind('XF86AudioPause', hl.dsp.exec_cmd 'playerctl play-pause', { locked = true })
-hl.bind('XF86AudioPlay', hl.dsp.exec_cmd 'playerctl play-pause', { locked = true })
-hl.bind('XF86AudioPrev', hl.dsp.exec_cmd 'playerctl previous', { locked = true })
+-- Requires mpd/mpc
+hl.bind('XF86AudioNext', hl.dsp.exec_cmd 'mpc -p 6601 prev', { locked = true })
+hl.bind('XF86AudioPause', hl.dsp.exec_cmd 'mpc -p 6601 toggle', { locked = true })
+hl.bind('XF86AudioPlay', hl.dsp.exec_cmd 'mpc -p 6601 toggle', { locked = true })
+hl.bind('XF86AudioPrev', hl.dsp.exec_cmd 'mpc -p 6601 prev', { locked = true })
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -426,20 +435,22 @@ hl.window_rule {
 }
 
 hl.window_rule {
-  name = 'chrome',
+  name = 'firefox',
   workspace = 2,
-  match = { class = 'google-chrome' },
+  match = { class = 'firefox' },
 }
 
 hl.window_rule {
   name = 'nautilus',
   workspace = 3,
+  float = true,
   match = { class = 'org.gnome.Nautilus' },
 }
 
 hl.window_rule {
   name = 'steam',
   workspace = 4,
+  float = true,
   match = { class = 'steam' },
 }
 
@@ -470,9 +481,3 @@ hl.window_rule {
 --------------------------------
 ---- LAYERS ----
 --------------------------------
-hl.layer_rule {
-  name = 'ags',
-  match = { namespace = 'gtk4-layer-shell' },
-  ignore_alpha = 0.5,
-  blur = true,
-}
