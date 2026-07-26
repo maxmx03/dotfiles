@@ -2,7 +2,7 @@
 
 Personal configuration files for my Gentoo + Hyprland setup.
 
-<img width="1340" height="726" alt="20260725_01h07m52s_grim" src="https://github.com/user-attachments/assets/13d6d026-68c0-43c4-a4a0-29139f7cad27" />
+<img width="2560" height="1080" alt="20260726_08h37m28s_grim" src="https://github.com/user-attachments/assets/e8d5970b-8af6-43d7-9aef-292f927326c8" />
 
 ## Overview
 
