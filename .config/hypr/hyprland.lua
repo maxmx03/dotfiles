@@ -478,6 +478,12 @@ hl.window_rule {
   match = { class = 'emacs' },
 }
 
+hl.window_rule {
+  name = 'org.pulseaudio.pavucontrol',
+  match = { class = 'org.pulseaudio.pavucontrol' },
+  float = true,
+}
+
 --------------------------------
 ---- LAYERS ----
 --------------------------------
