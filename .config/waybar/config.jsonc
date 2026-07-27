@@ -34,13 +34,14 @@
   },
 
   "mpd": {
-    "format": "{state_icon} {artist} - {title}",
-    "format-disconnected": "",
-    "format-stopped": "",
+    "port": 6601,
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
     "unknown-tag": "",
     "interval": 2,
-    "on-click": "mpc toggle",
-    "on-click-right": "mpc next",
+    "on-click": "mpc -p 6601 toggle",
+    "on-click-right": "mpc -p 6601 next",
     "tooltip-format": "{artist} - {title}\n{album}",
   },
 
@@ -68,8 +69,7 @@
   },
 
   "tray": {
-    "icon-size": 16,
+    "icon-size": 21,
     "spacing": 8,
-    "show-passive": true,
   },
 }
