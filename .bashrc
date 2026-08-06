@@ -24,6 +24,7 @@ bind 'TAB:menu-complete'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias lz="eza --long --icons -a --total-size"
+alias open="xdg-open"
 
 HISTFILESIZE=5000
 HISTSIZE=5000
@@ -31,7 +32,9 @@ HISTFILE=~/.bash_history
 HISTCONTROL=ignoredups
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/share/fnm:$PATH"
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 eval "$(jump shell --bind=z)"
 eval "$(starship init bash)"
+eval "$(fnm env --shell bash)"

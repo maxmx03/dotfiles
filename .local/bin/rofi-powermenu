@@ -16,8 +16,8 @@ fi
 DIR="$HOME/.config/rofi/"
 ROFI_THEME='powermenu'
 
-YES=''
-NO='󰜺'
+YES=' '
+NO='󰜺 '
 
 confirm_cmd() {
   rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \

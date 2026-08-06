@@ -117,7 +117,7 @@ hl.config {
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
     allow_tearing = false,
 
-    layout = 'dwindle',
+    layout = 'master',
   },
 
   decoration = {
@@ -302,6 +302,7 @@ hl.bind(mainMod .. ' + Q', hl.dsp.window.close())
 --  hl.dsp.exec_cmd "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 --)
 hl.bind(mainMod .. ' + N', hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. ' + M', hl.dsp.layout 'swapwithmaster master')
 hl.bind(mainMod .. ' + V', hl.dsp.window.float { action = 'toggle' })
 hl.bind(mainMod .. ' + D', hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. ' + P', hl.dsp.window.pseudo())
@@ -483,7 +484,6 @@ hl.window_rule {
   match = { class = 'org.pulseaudio.pavucontrol' },
   float = true,
 }
-
 --------------------------------
 ---- LAYERS ----
 --------------------------------
