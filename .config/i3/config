@@ -80,8 +80,8 @@ bindsym $mod+Return exec $term
 # Start emacs
 bindsym $mod+e exec $editor
 
-# Start librewolf
-bindsym $mod+w exec librewolf
+# Start firefox
+bindsym $mod+w exec firefox
 
 # Kill focused window
 bindsym $mod+q kill
@@ -178,8 +178,8 @@ for_window [class="kitty"] focus
 assign [class="Emacs"] workspace number 1
 for_window [class="Emacs"] focus
 
-assign [class="librewolf"] workspace number 2
-for_window [class="librewolf"] focus
+assign [class="firefox"] workspace number 2
+for_window [class="firefox"] focus
 
 assign [class="heroic"] workspace number 2
 for_window [class="heroic"] focus
