@@ -24,6 +24,7 @@ bind 'TAB:menu-complete'
 alias ls="eza --icons"
 alias ll="eza --long --icons -a"
 alias lz="eza --long --icons -a --total-size"
+alias tree-sitter="tree-sitter-cli"
 
 HISTFILESIZE=5000
 HISTSIZE=5000
@@ -32,15 +33,10 @@ HISTCONTROL=ignoredups
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export MANPAGER='nvim +Man!'
+export EDITOR=nvim
 
 eval "$(jump shell --bind=z)"
 eval "$(starship init bash)"
-
-# fnm
-FNM_PATH="/home/maxmx03/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-	export PATH="$FNM_PATH:$PATH"
-	eval "$(fnm env --shell bash)"
-fi

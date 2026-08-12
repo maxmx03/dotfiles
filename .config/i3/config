@@ -46,7 +46,7 @@ exec --no-startup-id mpd
 # Example configuration:
 # Enables inhibit_idle when playing audio
 exec --no-startup-id xset s 300 300
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i $(xdg-user-dir PICTURES)/swaylock.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i $(xdg-user-dir PICTURES)/i3lock.png
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -81,7 +81,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+e exec $editor
 
 # Start firefox
-bindsym $mod+w exec firefox
+bindsym $mod+w exec firefox-bin
 
 # Kill focused window
 bindsym $mod+q kill

@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 OPTION_POWEROFF="󰐥"
-OPTION_LOCK=''
+OPTION_LOCK='󰌾'
 OPTION_REBOOT=''
 OPTION_SUSPEND='󰤄'
 OPTION_LOGOUT='󰈆'
@@ -16,8 +16,8 @@ fi
 DIR="$HOME/.config/rofi/"
 ROFI_THEME='powermenu'
 
-YES=''
-NO='󰜺'
+YES=' '
+NO='󰜺 '
 
 confirm_cmd() {
   rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
@@ -36,14 +36,14 @@ confirm_exit() {
 }
 
 CONFIRM_EXIT="$(confirm_exit)"
-if [[ "$CONFIRM_EXIT" == "$NO" ]]; then
+if [[ "$CONFIRM_EXIT" != "$YES" ]]; then
   exit 0
 fi
 
 case "$CHOOSE" in
 
 "$OPTION_LOCK")
-  i3lock -i "$(xdg-user-dir PICTURES)/swaylock.png"
+  loginctl lock-session
   ;;
 "$OPTION_POWEROFF")
   loginctl poweroff
@@ -55,6 +55,6 @@ case "$CHOOSE" in
   loginctl suspend
   ;;
 "$OPTION_LOGOUT")
-  i3-msg exit
+  loginctl terminate-user $USER
   ;;
 esac

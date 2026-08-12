@@ -1,7 +1,7 @@
 configuration{
     modi: "run,drun,window";
     lines: 5;
-    font: "system-ui 14";
+    font: "Inconsolata Nerd Font Mono 14";
     show-icons: true;
     terminal: "kitty";
     drun-display-format: "{icon} {name}";

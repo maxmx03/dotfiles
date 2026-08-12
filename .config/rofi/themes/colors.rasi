@@ -15,4 +15,4 @@
 
 /* Import color-scheme from `colors` directory */
 
-@import "~/.config/rofi/themes/cat.rasi"
+@import "~/.config/rofi/themes/kanagawa.rasi"
