@@ -30,7 +30,7 @@ hl.monitor {
 local terminal = 'kitty'
 local fileManager = 'nautilus'
 local menu = 'rofi -show drun'
-local browser = 'firefox'
+local browser = 'firefox-bin'
 local function gsettings(param, value)
   hl.exec_cmd(string.format('gsettings set org.gnome.desktop.interface %s %s', param, value))
 end
@@ -46,7 +46,7 @@ end
 hl.on('hyprland.start', function()
   hl.exec_cmd 'dbus-update-activation-environment --all'
   hl.exec_cmd 'gentoo-pipewire-launcher restart'
-  hl.exec_cmd '/usr/libexec/hyprpolkitagent'
+  hl.exec_cmd '/usr/libexec/polkit-gnome-authentication-agent-1'
   hl.exec_cmd 'gnome-keyring-daemon --start --components=secrets'
   hl.exec_cmd 'export $(gnome-keyring-daemon'
   hl.exec_cmd 'hypridle'
@@ -55,12 +55,12 @@ hl.on('hyprland.start', function()
   hl.exec_cmd 'mpd'
   hl.exec_cmd 'mako --text-color="#C8C093" --border-color="#54546D" --background-color="#223249"'
   -- hl.exec_cmd 'alarm-clock-applet --hidden'
+  hl.exec_cmd 'launch-waybar'
   gsettings('gtk-theme', 'Adwaita')
   gsettings('icon-theme', 'Adwaita')
   gsettings('cursor-theme', 'Kitty')
   gsettings('font-name', 'Sans 10')
   gsettings('color-scheme', 'prefer-dark')
-  hl.exec_cmd 'launch-waybar'
 end)
 
 -------------------------------
@@ -157,7 +157,7 @@ hl.curve('almostLinear', { type = 'bezier', points = { { 0.5, 0.5 }, { 0.75, 1 }
 hl.curve('quick', { type = 'bezier', points = { { 0.15, 0 }, { 0.1, 1 } } })
 
 -- Default springs
-hl.curve('easy', { type = 'spring', mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+hl.curve('easy', { type = 'spring', mass = 1, stiffness = 100, dampening = 15.8273644 })
 hl.animation { leaf = 'global', enabled = true, speed = 10, bezier = 'default' }
 hl.animation { leaf = 'border', enabled = true, speed = 5.39, bezier = 'easeOutQuint' }
 hl.animation { leaf = 'windows', enabled = true, speed = 4.79, spring = 'easy' }
